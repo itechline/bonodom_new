@@ -24,17 +24,17 @@ class DataTableViewCell : BaseTableViewCell {
     @IBOutlet weak var dataText: UILabel!
     
     override func awakeFromNib() {
-        self.dataText?.font = UIFont.italicSystemFontOfSize(16)
-        self.dataText?.textColor = UIColor(hex: "9E9E9E")
+        self.dataText?.font = UIFont.boldSystemFontOfSize(16)
+        self.dataText?.textColor = UIColor(hex: "000000")
     }
  
     override class func height() -> CGFloat {
-        return 80
+        return 170
     }
     
     override func setData(data: Any?) {
         if let data = data as? DataTableViewCellData {
-            self.dataImage.setRandomDownloadImage(80, height: 80)
+            self.dataImage.setRandomDownloadImage(100, height: 170)
             self.dataText.text = data.text
         }
     }

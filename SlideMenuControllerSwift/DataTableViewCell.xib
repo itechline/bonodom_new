@@ -1,42 +1,79 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="c3H-ux-4zZ" customClass="DataTableViewCell" customModule="SlideMenuControllerSwift" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="320" height="80"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="170" id="c3H-ux-4zZ" customClass="DataTableViewCell" customModule="SlideMenuControllerSwift" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="170"/>
             <autoresizingMask key="autoresizingMask"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="c3H-ux-4zZ" id="eWK-b2-p7R">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="79.5"/>
+                <rect key="frame" x="0.0" y="0.0" width="320" height="169"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ppM-43-tik">
-                        <rect key="frame" x="0.0" y="0.0" width="80" height="80"/>
+                        <rect key="frame" x="0.0" y="0.0" width="100" height="169"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="80" id="osB-9J-1ls"/>
-                            <constraint firstAttribute="width" constant="80" id="wNA-oV-Ceo"/>
+                            <constraint firstAttribute="width" constant="100" id="MV7-n7-Ihc"/>
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I30-9I-EnW">
-                        <rect key="frame" x="88" y="19" width="224" height="42"/>
+                        <rect key="frame" x="108" y="0.0" width="204" height="25"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="42" id="tMX-bK-3QC"/>
+                            <constraint firstAttribute="height" constant="25" id="Dsi-ge-XUy"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Arany jános utca" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Om-UK-Kqz">
+                        <rect key="frame" x="108" y="33" width="130" height="21"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="21" id="qVJ-yb-jQr"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="13"/>
+                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sid-55-PAA">
+                        <rect key="frame" x="108" y="62" width="204" height="50"/>
+                        <string key="text">1,9 hús system motor, padon mérve 210 ló 230 Nm, 6 sebességes szekvenciális váltó, 80%os sperr, Gubás homológ cső, Gépköny stb...</string>
+                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="15.600.000 Ft" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CyZ-UX-3iQ">
+                        <rect key="frame" x="206" y="144" width="106" height="17"/>
+                        <color key="backgroundColor" red="0.0" green="0.40000000000000002" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="17" id="Iab-qw-zyE"/>
+                            <constraint firstAttribute="width" constant="106" id="rNV-he-ZdQ"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="I30-9I-EnW" firstAttribute="leading" secondItem="ppM-43-tik" secondAttribute="trailing" constant="8" id="0sI-CM-qrq"/>
-                    <constraint firstItem="I30-9I-EnW" firstAttribute="centerY" secondItem="eWK-b2-p7R" secondAttribute="centerY" id="CC8-Ve-GEE"/>
-                    <constraint firstItem="ppM-43-tik" firstAttribute="top" secondItem="eWK-b2-p7R" secondAttribute="top" id="Ejt-ht-YfW"/>
-                    <constraint firstItem="ppM-43-tik" firstAttribute="leading" secondItem="eWK-b2-p7R" secondAttribute="leading" id="c9f-ya-sBc"/>
-                    <constraint firstAttribute="trailing" secondItem="I30-9I-EnW" secondAttribute="trailing" constant="8" id="rG9-lK-Ze8"/>
+                    <constraint firstItem="ppM-43-tik" firstAttribute="leading" secondItem="eWK-b2-p7R" secondAttribute="leading" id="3sn-Ld-uCx"/>
+                    <constraint firstItem="I30-9I-EnW" firstAttribute="trailing" secondItem="eWK-b2-p7R" secondAttribute="trailingMargin" id="62T-9r-tyI"/>
+                    <constraint firstItem="0Om-UK-Kqz" firstAttribute="top" secondItem="I30-9I-EnW" secondAttribute="bottom" constant="8" symbolic="YES" id="85V-g6-Guw"/>
+                    <constraint firstItem="Sid-55-PAA" firstAttribute="top" secondItem="0Om-UK-Kqz" secondAttribute="bottom" constant="8" symbolic="YES" id="9Lc-D1-SzB"/>
+                    <constraint firstItem="CyZ-UX-3iQ" firstAttribute="top" secondItem="Sid-55-PAA" secondAttribute="bottom" constant="32" id="EDe-ZP-pJJ"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="0Om-UK-Kqz" secondAttribute="trailing" constant="74" id="Gn8-cG-OJ0"/>
+                    <constraint firstItem="I30-9I-EnW" firstAttribute="leading" secondItem="0Om-UK-Kqz" secondAttribute="leading" id="WrK-XU-6Br"/>
+                    <constraint firstItem="I30-9I-EnW" firstAttribute="trailing" secondItem="Sid-55-PAA" secondAttribute="trailing" id="bGb-1d-khg"/>
+                    <constraint firstItem="0Om-UK-Kqz" firstAttribute="leading" secondItem="Sid-55-PAA" secondAttribute="leading" id="bxS-ej-hxM"/>
+                    <constraint firstAttribute="bottom" secondItem="ppM-43-tik" secondAttribute="bottom" id="hbe-8c-EaP"/>
+                    <constraint firstItem="I30-9I-EnW" firstAttribute="leading" secondItem="ppM-43-tik" secondAttribute="trailing" constant="8" symbolic="YES" id="itP-gz-Ufk"/>
+                    <constraint firstItem="Sid-55-PAA" firstAttribute="trailing" secondItem="CyZ-UX-3iQ" secondAttribute="trailing" id="kZ7-84-3li"/>
+                    <constraint firstItem="CyZ-UX-3iQ" firstAttribute="bottom" secondItem="eWK-b2-p7R" secondAttribute="bottomMargin" id="lVz-ob-epr"/>
+                    <constraint firstItem="ppM-43-tik" firstAttribute="top" secondItem="I30-9I-EnW" secondAttribute="top" id="qfc-rl-R6o"/>
+                    <constraint firstItem="ppM-43-tik" firstAttribute="top" secondItem="eWK-b2-p7R" secondAttribute="top" id="yWv-cT-gZT"/>
                 </constraints>
             </tableViewCellContentView>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -44,7 +81,7 @@
                 <outlet property="dataImage" destination="ppM-43-tik" id="xdO-QO-GUo"/>
                 <outlet property="dataText" destination="I30-9I-EnW" id="vsj-dK-z9n"/>
             </connections>
-            <point key="canvasLocation" x="249" y="183"/>
+            <point key="canvasLocation" x="249" y="228"/>
         </tableViewCell>
     </objects>
 </document>

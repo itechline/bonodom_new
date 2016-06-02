@@ -11,7 +11,7 @@ class MainViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
     
-    var mainContens = ["data1", "data2", "data3", "data4", "data5", "data6", "data7", "data8", "data9", "data10", "data11", "data12", "data13", "data14", "data15"]
+    var mainContens = ["Budapest XII. kerület", "Debrecen Simonffy utca 4-6.", "Debrecen Kassai út 47/b", "Nyírbátor Zrínyi út. 72", "Nyíregyháza Fazekas János tér 23.", "Nyíregyháza Írisz utca 43.", "data7", "data8", "data9", "data10", "data11", "data12", "data13", "data14", "data15","Hozzonide két kolbászokat"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
