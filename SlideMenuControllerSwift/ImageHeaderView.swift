@@ -15,7 +15,7 @@ class ImageHeaderView : UIView {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        self.backgroundColor = UIColor(hex: "E0E0E0")
+        self.backgroundColor = UIColor(hex: "ffffff")
         self.profileImage.layer.cornerRadius = self.profileImage.frame.size.height / 2
         self.profileImage.clipsToBounds = true
         self.profileImage.layer.borderWidth = 1
