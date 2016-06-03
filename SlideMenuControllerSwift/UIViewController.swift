@@ -12,11 +12,13 @@ extension UIViewController {
     
     func setNavigationBarItem() {
         self.addLeftBarButtonWithImage(UIImage(named: "ic_menu_black_24dp")!)
-        self.addRightBarButtonWithImage(UIImage(named: "ic_notifications_black_24dp")!)
+        self.addRightBarButtonWithImage(UIImage(named: "ic_action_searchicon")!)
         self.slideMenuController()?.removeLeftGestures()
         self.slideMenuController()?.removeRightGestures()
         self.slideMenuController()?.addLeftGestures()
         self.slideMenuController()?.addRightGestures()
+        self.navigationController?.navigationBar.barTintColor = UIColor(hex: "0066cc")
+        
     }
     
     func removeNavigationBarItem() {
