@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "0E75C5951BE3CA7900844634"
-               BuildableName = "SlideMenuControllerSwift.framework"
-               BlueprintName = "SlideMenuControllerSwift-iOS"
-               ReferencedContainer = "container:SlideMenuControllerSwift.xcodeproj">
+               BuildableName = "Bonodom.framework"
+               BlueprintName = "Bonodom-iOS"
+               ReferencedContainer = "container:Bonodom.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -46,9 +46,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "0E75C5951BE3CA7900844634"
-            BuildableName = "SlideMenuControllerSwift.framework"
-            BlueprintName = "SlideMenuControllerSwift-iOS"
-            ReferencedContainer = "container:SlideMenuControllerSwift.xcodeproj">
+            BuildableName = "Bonodom.framework"
+            BlueprintName = "Bonodom-iOS"
+            ReferencedContainer = "container:Bonodom.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -64,9 +64,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "0E75C5951BE3CA7900844634"
-            BuildableName = "SlideMenuControllerSwift.framework"
-            BlueprintName = "SlideMenuControllerSwift-iOS"
-            ReferencedContainer = "container:SlideMenuControllerSwift.xcodeproj">
+            BuildableName = "Bonodom.framework"
+            BlueprintName = "Bonodom-iOS"
+            ReferencedContainer = "container:Bonodom.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </ProfileAction>

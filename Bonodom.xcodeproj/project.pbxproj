@@ -53,10 +53,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		0E75C5961BE3CA7900844634 /* SlideMenuControllerSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SlideMenuControllerSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		0E75C5961BE3CA7900844634 /* Bonodom.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Bonodom.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		0E75C5A41BE3CAFE00844634 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = Source/Info.plist; sourceTree = "<group>"; };
 		0E75C5A51BE3CAFE00844634 /* SlideMenuControllerSwift.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SlideMenuControllerSwift.h; path = Source/SlideMenuControllerSwift.h; sourceTree = "<group>"; };
-		C539E6411A315E87003B7CC7 /* SlideMenuControllerSwift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SlideMenuControllerSwift.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		C539E6411A315E87003B7CC7 /* Bonodom.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Bonodom.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C539E6451A315E87003B7CC7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C539E6461A315E87003B7CC7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C539E6491A315E87003B7CC7 /* SlideMenuControllerSwift.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SlideMenuControllerSwift.xcdatamodel; sourceTree = "<group>"; };
@@ -64,7 +64,7 @@
 		C539E64E1A315E87003B7CC7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C539E6501A315E87003B7CC7 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		C539E6531A315E87003B7CC7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
-		C539E6591A315E87003B7CC7 /* SlideMenuControllerSwiftTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SlideMenuControllerSwiftTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		C539E6591A315E87003B7CC7 /* Bonodom.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Bonodom.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C539E65E1A315E87003B7CC7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C539E65F1A315E87003B7CC7 /* SlideMenuControllerSwiftTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideMenuControllerSwiftTests.swift; sourceTree = "<group>"; };
 		C539E66B1A316C78003B7CC7 /* LeftViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeftViewController.swift; sourceTree = "<group>"; };
@@ -138,9 +138,9 @@
 		C539E6421A315E87003B7CC7 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				C539E6411A315E87003B7CC7 /* SlideMenuControllerSwift.app */,
-				C539E6591A315E87003B7CC7 /* SlideMenuControllerSwiftTests.xctest */,
-				0E75C5961BE3CA7900844634 /* SlideMenuControllerSwift.framework */,
+				C539E6411A315E87003B7CC7 /* Bonodom.app */,
+				C539E6591A315E87003B7CC7 /* Bonodom.xctest */,
+				0E75C5961BE3CA7900844634 /* Bonodom.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -262,9 +262,9 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		0E75C5951BE3CA7900844634 /* SlideMenuControllerSwift-iOS */ = {
+		0E75C5951BE3CA7900844634 /* Bonodom-iOS */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 0E75C5A11BE3CA7900844634 /* Build configuration list for PBXNativeTarget "SlideMenuControllerSwift-iOS" */;
+			buildConfigurationList = 0E75C5A11BE3CA7900844634 /* Build configuration list for PBXNativeTarget "Bonodom-iOS" */;
 			buildPhases = (
 				0E75C5911BE3CA7900844634 /* Sources */,
 				0E75C5921BE3CA7900844634 /* Frameworks */,
@@ -275,14 +275,14 @@
 			);
 			dependencies = (
 			);
-			name = "SlideMenuControllerSwift-iOS";
+			name = "Bonodom-iOS";
 			productName = "SlideMenuControllerSwift-iOS";
-			productReference = 0E75C5961BE3CA7900844634 /* SlideMenuControllerSwift.framework */;
+			productReference = 0E75C5961BE3CA7900844634 /* Bonodom.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		C539E6401A315E87003B7CC7 /* SlideMenuControllerSwift */ = {
+		C539E6401A315E87003B7CC7 /* Bonodom */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = C539E6631A315E87003B7CC7 /* Build configuration list for PBXNativeTarget "SlideMenuControllerSwift" */;
+			buildConfigurationList = C539E6631A315E87003B7CC7 /* Build configuration list for PBXNativeTarget "Bonodom" */;
 			buildPhases = (
 				C539E63D1A315E87003B7CC7 /* Sources */,
 				C539E63E1A315E87003B7CC7 /* Frameworks */,
@@ -292,14 +292,14 @@
 			);
 			dependencies = (
 			);
-			name = SlideMenuControllerSwift;
+			name = Bonodom;
 			productName = SlideMenuControllerSwift;
-			productReference = C539E6411A315E87003B7CC7 /* SlideMenuControllerSwift.app */;
+			productReference = C539E6411A315E87003B7CC7 /* Bonodom.app */;
 			productType = "com.apple.product-type.application";
 		};
-		C539E6581A315E87003B7CC7 /* SlideMenuControllerSwiftTests */ = {
+		C539E6581A315E87003B7CC7 /* BonodomTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = C539E6661A315E87003B7CC7 /* Build configuration list for PBXNativeTarget "SlideMenuControllerSwiftTests" */;
+			buildConfigurationList = C539E6661A315E87003B7CC7 /* Build configuration list for PBXNativeTarget "BonodomTests" */;
 			buildPhases = (
 				C539E6551A315E87003B7CC7 /* Sources */,
 				C539E6561A315E87003B7CC7 /* Frameworks */,
@@ -310,9 +310,9 @@
 			dependencies = (
 				C539E65B1A315E87003B7CC7 /* PBXTargetDependency */,
 			);
-			name = SlideMenuControllerSwiftTests;
+			name = BonodomTests;
 			productName = SlideMenuControllerSwiftTests;
-			productReference = C539E6591A315E87003B7CC7 /* SlideMenuControllerSwiftTests.xctest */;
+			productReference = C539E6591A315E87003B7CC7 /* Bonodom.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -339,7 +339,7 @@
 					};
 				};
 			};
-			buildConfigurationList = C539E63C1A315E87003B7CC7 /* Build configuration list for PBXProject "SlideMenuControllerSwift" */;
+			buildConfigurationList = C539E63C1A315E87003B7CC7 /* Build configuration list for PBXProject "Bonodom" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -352,9 +352,9 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				C539E6401A315E87003B7CC7 /* SlideMenuControllerSwift */,
-				C539E6581A315E87003B7CC7 /* SlideMenuControllerSwiftTests */,
-				0E75C5951BE3CA7900844634 /* SlideMenuControllerSwift-iOS */,
+				C539E6401A315E87003B7CC7 /* Bonodom */,
+				C539E6581A315E87003B7CC7 /* BonodomTests */,
+				0E75C5951BE3CA7900844634 /* Bonodom-iOS */,
 			);
 		};
 /* End PBXProject section */
@@ -442,7 +442,7 @@
 /* Begin PBXTargetDependency section */
 		C539E65B1A315E87003B7CC7 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = C539E6401A315E87003B7CC7 /* SlideMenuControllerSwift */;
+			target = C539E6401A315E87003B7CC7 /* Bonodom */;
 			targetProxy = C539E65A1A315E87003B7CC7 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -483,7 +483,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = dekatotoro.SlideMenuControllerSwift;
-				PRODUCT_NAME = "$(PROJECT_NAME)";
+				PRODUCT_NAME = Bonodom;
 				SKIP_INSTALL = YES;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
@@ -506,7 +506,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = dekatotoro.SlideMenuControllerSwift;
-				PRODUCT_NAME = "$(PROJECT_NAME)";
+				PRODUCT_NAME = Bonodom;
 				SKIP_INSTALL = YES;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
@@ -602,7 +602,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.attiladan.bonodom;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Bonodom;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -616,7 +616,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.attiladan.bonodom;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Bonodom;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
@@ -636,8 +636,8 @@
 				INFOPLIST_FILE = SlideMenuControllerSwiftTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "dekatotoro.$(PRODUCT_NAME:rfc1034identifier)";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SlideMenuControllerSwift.app/SlideMenuControllerSwift";
+				PRODUCT_NAME = Bonodom;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Bonodom.app/Bonodom";
 			};
 			name = Debug;
 		};
@@ -652,15 +652,15 @@
 				INFOPLIST_FILE = SlideMenuControllerSwiftTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "dekatotoro.$(PRODUCT_NAME:rfc1034identifier)";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SlideMenuControllerSwift.app/SlideMenuControllerSwift";
+				PRODUCT_NAME = Bonodom;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Bonodom.app/Bonodom";
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		0E75C5A11BE3CA7900844634 /* Build configuration list for PBXNativeTarget "SlideMenuControllerSwift-iOS" */ = {
+		0E75C5A11BE3CA7900844634 /* Build configuration list for PBXNativeTarget "Bonodom-iOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				0E75C59F1BE3CA7900844634 /* Debug */,
@@ -669,7 +669,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		C539E63C1A315E87003B7CC7 /* Build configuration list for PBXProject "SlideMenuControllerSwift" */ = {
+		C539E63C1A315E87003B7CC7 /* Build configuration list for PBXProject "Bonodom" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				C539E6611A315E87003B7CC7 /* Debug */,
@@ -678,7 +678,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		C539E6631A315E87003B7CC7 /* Build configuration list for PBXNativeTarget "SlideMenuControllerSwift" */ = {
+		C539E6631A315E87003B7CC7 /* Build configuration list for PBXNativeTarget "Bonodom" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				C539E6641A315E87003B7CC7 /* Debug */,
@@ -687,7 +687,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		C539E6661A315E87003B7CC7 /* Build configuration list for PBXNativeTarget "SlideMenuControllerSwiftTests" */ = {
+		C539E6661A315E87003B7CC7 /* Build configuration list for PBXNativeTarget "BonodomTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				C539E6671A315E87003B7CC7 /* Debug */,
