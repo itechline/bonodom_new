@@ -381,6 +381,24 @@
             </objects>
             <point key="canvasLocation" x="130" y="2189"/>
         </scene>
+        <!--AdMonitor Scene-->
+        <scene sceneID="cgR-m1-znn">
+            <objects>
+                <viewController storyboardIdentifier="AdMonitorController" title="AdMonitor Scene" id="uc4-Ss-gMN" customClass="AdMonitorController" customModule="Bonodom" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="zUh-su-cl6"/>
+                        <viewControllerLayoutGuide type="bottom" id="nOy-Vg-jgY"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="hH9-rX-hgu">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4Lc-jN-cNl" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="791" y="2196"/>
+        </scene>
         <!--Non Menu Controller-->
         <scene sceneID="d7w-0k-xlq">
             <objects>

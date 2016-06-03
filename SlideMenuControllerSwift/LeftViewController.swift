@@ -14,6 +14,7 @@ enum LeftMenu: Int {
     case Go
     case NonMenu
     case FavMenu
+    case Admonitor
 }
 
 protocol LeftMenuProtocol : class {
@@ -23,13 +24,14 @@ protocol LeftMenuProtocol : class {
 class LeftViewController : UIViewController, LeftMenuProtocol {
     
     @IBOutlet weak var tableView: UITableView!
-    var menus = ["Összes Hirdetés", "Személyes", "Üzenetek", "Számlázás", "Hirdetéseim", "Kedvenceim"]
+    var menus = ["Összes Hirdetés", "Személyes", "Üzenetek", "Számlázás", "Hirdetéseim", "Kedvenceim","Hirdetésfigyelő"]
     var mainViewController: UIViewController!
     var swiftViewController: UIViewController!
     var javaViewController: UIViewController!
     var goViewController: UIViewController!
     var nonMenuViewController: UIViewController!
     var isFavMenuController: UIViewController!
+    var advertMonitorController: UIViewController!
     var imageHeaderView: ImageHeaderView!
     
     required init?(coder aDecoder: NSCoder) {
@@ -57,6 +59,8 @@ class LeftViewController : UIViewController, LeftMenuProtocol {
         let isFavMenuController = storyboard.instantiateViewControllerWithIdentifier("FavMenuController") as! FavMenuController
         self.isFavMenuController = UINavigationController(rootViewController: isFavMenuController)
         
+        let advertMonitorController = storyboard.instantiateViewControllerWithIdentifier("AdMonitorController") as! AdMonitorController
+        self.advertMonitorController = UINavigationController(rootViewController: advertMonitorController)
         
         self.tableView.registerCellClass(BaseTableViewCell.self)
         
@@ -88,6 +92,8 @@ class LeftViewController : UIViewController, LeftMenuProtocol {
             self.slideMenuController()?.changeMainViewController(self.nonMenuViewController, close: true)
         case .FavMenu:
             self.slideMenuController()?.changeMainViewController(self.isFavMenuController, close: true)
+        case .Admonitor:
+            self.slideMenuController()?.changeMainViewController(self.advertMonitorController, close: true)
         }
     }
 }
@@ -96,7 +102,7 @@ extension LeftViewController : UITableViewDelegate {
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         if let menu = LeftMenu(rawValue: indexPath.item) {
             switch menu {
-            case .Main, .Swift, .Java, .Go, .NonMenu, .FavMenu:
+            case .Main, .Swift, .Java, .Go, .NonMenu, .FavMenu, .Admonitor:
                 return BaseTableViewCell.height()
             }
         }
@@ -114,7 +120,7 @@ extension LeftViewController : UITableViewDataSource {
         
         if let menu = LeftMenu(rawValue: indexPath.item) {
             switch menu {
-            case .Main, .Swift, .Java, .Go, .NonMenu, .FavMenu:
+            case .Main, .Swift, .Java, .Go, .NonMenu, .FavMenu, .Admonitor:
                 let cell = BaseTableViewCell(style: UITableViewCellStyle.Subtitle, reuseIdentifier: BaseTableViewCell.identifier)
                 cell.setData(menus[indexPath.row])
                 return cell

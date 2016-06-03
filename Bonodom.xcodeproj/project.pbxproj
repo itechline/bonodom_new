@@ -11,6 +11,7 @@
 		0E75C5A61BE3CAFE00844634 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0E75C5A41BE3CAFE00844634 /* Info.plist */; };
 		0EB8EBFF1BE3CF3C00BC2A99 /* SlideMenuControllerSwift.h in Headers */ = {isa = PBXBuildFile; fileRef = 0E75C5A51BE3CAFE00844634 /* SlideMenuControllerSwift.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		57449A941D01B1B400539442 /* FavMenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57449A931D01B1B400539442 /* FavMenuController.swift */; };
+		57DFCF961D01BBB900A69B8A /* AdMonitorController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57DFCF951D01BBB900A69B8A /* AdMonitorController.swift */; };
 		C539E6471A315E87003B7CC7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C539E6461A315E87003B7CC7 /* AppDelegate.swift */; };
 		C539E64A1A315E87003B7CC7 /* SlideMenuControllerSwift.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C539E6481A315E87003B7CC7 /* SlideMenuControllerSwift.xcdatamodeld */; };
 		C539E64C1A315E87003B7CC7 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C539E64B1A315E87003B7CC7 /* MainViewController.swift */; };
@@ -62,6 +63,7 @@
 		0E75C5A41BE3CAFE00844634 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = Source/Info.plist; sourceTree = "<group>"; };
 		0E75C5A51BE3CAFE00844634 /* SlideMenuControllerSwift.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SlideMenuControllerSwift.h; path = Source/SlideMenuControllerSwift.h; sourceTree = "<group>"; };
 		57449A931D01B1B400539442 /* FavMenuController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavMenuController.swift; sourceTree = "<group>"; };
+		57DFCF951D01BBB900A69B8A /* AdMonitorController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdMonitorController.swift; sourceTree = "<group>"; };
 		C539E6411A315E87003B7CC7 /* Bonodom.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Bonodom.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C539E6451A315E87003B7CC7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C539E6461A315E87003B7CC7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -250,6 +252,7 @@
 				C5BF6A891BF3335D0064C18E /* SubContentsViewController.storyboard */,
 				C5BF6A8B1BF340020064C18E /* ExSlideMenuController.swift */,
 				57449A931D01B1B400539442 /* FavMenuController.swift */,
+				57DFCF951D01BBB900A69B8A /* AdMonitorController.swift */,
 			);
 			name = ViewController;
 			sourceTree = "<group>";
@@ -351,7 +354,7 @@
 				LastSwiftMigration = 0700;
 				LastSwiftUpdateCheck = 0700;
 				LastUpgradeCheck = 0710;
-				ORGANIZATIONNAME = "Itechline";
+				ORGANIZATIONNAME = Itechline;
 				TargetAttributes = {
 					0E75C5951BE3CA7900844634 = {
 						CreatedOnToolsVersion = 7.1;
@@ -447,6 +450,7 @@
 				C5498C821BE8994F0076A7C5 /* UIImageView.swift in Sources */,
 				C5C1CE5B1A70DADF00B6E411 /* NonMenuController.swift in Sources */,
 				C5498C7E1BE897250076A7C5 /* ImageHeaderView.swift in Sources */,
+				57DFCF961D01BBB900A69B8A /* AdMonitorController.swift in Sources */,
 				C5BF6A861BEF4C080064C18E /* SubContentsViewController.swift in Sources */,
 				C5BD39DC1A6CD15700D0AF95 /* JavaViewController.swift in Sources */,
 				C5BA8AA61A43E2EF00863FB9 /* SlideMenuController.swift in Sources */,
