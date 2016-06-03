@@ -15,7 +15,8 @@ class ExSlideMenuController : SlideMenuController {
             if vc is MainViewController ||
             vc is SwiftViewController ||
             vc is JavaViewController ||
-            vc is GoViewController {
+            vc is GoViewController ||
+            vc is FavMenuController {
                 return true
             }
         }

@@ -12,6 +12,7 @@ class FavMenuController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.setNavigationBarItem()
 
         // Do any additional setup after loading the view.
     }
