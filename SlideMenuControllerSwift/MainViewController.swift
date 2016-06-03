@@ -52,6 +52,7 @@ class MainViewController: UIViewController {
         soap.licenseKey = "eJJDzkPK9Xx+p5cOH7w0Q+AvPdgK1fzWWuUpMaYCq3r1mwf36Ocw6dn0+CLjRaOiSjfXaFQBWMi+TxCpxVF/FA=="
         //soap.responseHeader = true // use only for non standard MS-SOAP service
         soap.setValue("token", forKey:"608f44981dd5241547605947c1dc38e0")
+    
         
         //soap.token = "608f44981dd5241547605947c1dc38e0"
         //soap.setValue("Genesis", forKey: "BookName")
@@ -61,7 +62,7 @@ class MainViewController: UIViewController {
                         completeWithDictionary: { (statusCode : Int, dict : [NSObject : AnyObject]!) -> Void in
                             
                             
-                            var book:Dictionary = dict as Dictionary
+                            let book:Dictionary = dict as Dictionary
                             //let verses:NSArray = book["BibleBookChapterVerse"] as! NSArray
                             //self.verses = verses
                             //self.table.reloadData()
@@ -71,6 +72,8 @@ class MainViewController: UIViewController {
             
             NSLog("%@", error)
         }
+        
+        soap.requestURL("https://bonodom.com/api/token_validator", soapAction: "")
     }
     
     override func viewWillTransitionToSize(size: CGSize, withTransitionCoordinator coordinator: UIViewControllerTransitionCoordinator) {
