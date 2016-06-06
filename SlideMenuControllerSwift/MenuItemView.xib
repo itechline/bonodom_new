@@ -15,24 +15,24 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="IX6-K2-hPV">
-                        <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
+                        <rect key="frame" x="0.0" y="0.0" width="30" height="100"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="100" id="CLM-Gv-tjf"/>
+                            <constraint firstAttribute="width" constant="30" id="rue-lR-ZIB"/>
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GFt-Ee-Jb5">
-                        <rect key="frame" x="114" y="39" width="42" height="21"/>
+                        <rect key="frame" x="38" y="39" width="42" height="21"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="IX6-K2-hPV" firstAttribute="leading" secondItem="scs-WO-KzX" secondAttribute="leading" id="5eM-Ny-ZgN"/>
-                    <constraint firstItem="IX6-K2-hPV" firstAttribute="centerY" secondItem="scs-WO-KzX" secondAttribute="centerY" id="XVM-Fn-soy"/>
-                    <constraint firstItem="GFt-Ee-Jb5" firstAttribute="leading" secondItem="IX6-K2-hPV" secondAttribute="trailing" constant="14" id="aBa-lL-RZx"/>
-                    <constraint firstItem="IX6-K2-hPV" firstAttribute="centerY" secondItem="GFt-Ee-Jb5" secondAttribute="centerY" id="cAW-Y6-Bhu"/>
-                    <constraint firstItem="IX6-K2-hPV" firstAttribute="top" secondItem="scs-WO-KzX" secondAttribute="top" id="nGP-f6-ahD"/>
+                    <constraint firstItem="GFt-Ee-Jb5" firstAttribute="leading" secondItem="IX6-K2-hPV" secondAttribute="trailing" constant="8" symbolic="YES" id="JyK-Li-JSp"/>
+                    <constraint firstItem="IX6-K2-hPV" firstAttribute="centerY" secondItem="GFt-Ee-Jb5" secondAttribute="centerY" id="TuB-2A-Lt4"/>
+                    <constraint firstItem="IX6-K2-hPV" firstAttribute="leading" secondItem="scs-WO-KzX" secondAttribute="leading" id="arr-X8-DiF"/>
+                    <constraint firstItem="IX6-K2-hPV" firstAttribute="top" secondItem="scs-WO-KzX" secondAttribute="top" id="m4W-1Z-Pys"/>
+                    <constraint firstItem="IX6-K2-hPV" firstAttribute="centerY" secondItem="scs-WO-KzX" secondAttribute="centerY" id="u8u-mL-z6s"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
