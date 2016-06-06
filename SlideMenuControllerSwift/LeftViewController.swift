@@ -13,6 +13,10 @@ enum LeftMenu: Int {
     case Java
     case Go
     case NonMenu
+    case FavMenu
+    case Admonitor
+    case AgenciesMenu
+    case Invite
 }
 
 protocol LeftMenuProtocol : class {
@@ -22,12 +26,16 @@ protocol LeftMenuProtocol : class {
 class LeftViewController : UIViewController, LeftMenuProtocol {
     
     @IBOutlet weak var tableView: UITableView!
-    var menus = ["Összes Hirdetés", "Személyes", "Üzenetek", "Számlázás", "Hirdetéseim", "Kedvenceim"]
+    var menus = ["Összes Hirdetés", "Személyes", "Üzenetek", "Számlázás", "Hirdetéseim", "Kedvenceim","Hirdetésfigyelő","Ügynökség","Meghívás"]
     var mainViewController: UIViewController!
     var swiftViewController: UIViewController!
     var javaViewController: UIViewController!
     var goViewController: UIViewController!
     var nonMenuViewController: UIViewController!
+    var isFavMenuController: UIViewController!
+    var advertMonitorController: UIViewController!
+    var agenciesVWController: UIViewController!
+    var inviteVWController: UIViewController!
     var imageHeaderView: ImageHeaderView!
     
     required init?(coder aDecoder: NSCoder) {
@@ -51,6 +59,18 @@ class LeftViewController : UIViewController, LeftMenuProtocol {
         let nonMenuController = storyboard.instantiateViewControllerWithIdentifier("NonMenuController") as! NonMenuController
         nonMenuController.delegate = self
         self.nonMenuViewController = UINavigationController(rootViewController: nonMenuController)
+        
+        let isFavMenuController = storyboard.instantiateViewControllerWithIdentifier("FavMenuController") as! FavMenuController
+        self.isFavMenuController = UINavigationController(rootViewController: isFavMenuController)
+        
+        let advertMonitorController = storyboard.instantiateViewControllerWithIdentifier("AdMonitorController") as! AdMonitorController
+        self.advertMonitorController = UINavigationController(rootViewController: advertMonitorController)
+        
+        let agenciesVWController = storyboard.instantiateViewControllerWithIdentifier("AgenciesViewController") as! AgenciesViewController
+        self.agenciesVWController = UINavigationController(rootViewController: agenciesVWController)
+        
+        let inviteVWController = storyboard.instantiateViewControllerWithIdentifier("InviteViewController") as! InviteViewController
+        self.inviteVWController = UINavigationController(rootViewController: inviteVWController)
         
         self.tableView.registerCellClass(BaseTableViewCell.self)
         
@@ -80,6 +100,14 @@ class LeftViewController : UIViewController, LeftMenuProtocol {
             self.slideMenuController()?.changeMainViewController(self.goViewController, close: true)
         case .NonMenu:
             self.slideMenuController()?.changeMainViewController(self.nonMenuViewController, close: true)
+        case .FavMenu:
+            self.slideMenuController()?.changeMainViewController(self.isFavMenuController, close: true)
+        case .Admonitor:
+            self.slideMenuController()?.changeMainViewController(self.advertMonitorController, close: true)
+        case .AgenciesMenu:
+            self.slideMenuController()?.changeMainViewController(self.agenciesVWController, close: true)
+        case .Invite:
+            self.slideMenuController()?.changeMainViewController(self.inviteVWController, close: true)
         }
     }
 }
@@ -88,7 +116,7 @@ extension LeftViewController : UITableViewDelegate {
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         if let menu = LeftMenu(rawValue: indexPath.item) {
             switch menu {
-            case .Main, .Swift, .Java, .Go, .NonMenu:
+            case .Main, .Swift, .Java, .Go, .NonMenu, .FavMenu, .Admonitor, .AgenciesMenu, .Invite:
                 return BaseTableViewCell.height()
             }
         }
@@ -106,7 +134,7 @@ extension LeftViewController : UITableViewDataSource {
         
         if let menu = LeftMenu(rawValue: indexPath.item) {
             switch menu {
-            case .Main, .Swift, .Java, .Go, .NonMenu:
+            case .Main, .Swift, .Java, .Go, .NonMenu, .FavMenu, .Admonitor, .AgenciesMenu, .Invite:
                 let cell = BaseTableViewCell(style: UITableViewCellStyle.Subtitle, reuseIdentifier: BaseTableViewCell.identifier)
                 cell.setData(menus[indexPath.row])
                 return cell
