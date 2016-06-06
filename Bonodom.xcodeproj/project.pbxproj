@@ -10,6 +10,7 @@
 		0E75C5A31BE3CA9F00844634 /* SlideMenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5BA8AA51A43E2EF00863FB9 /* SlideMenuController.swift */; };
 		0E75C5A61BE3CAFE00844634 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0E75C5A41BE3CAFE00844634 /* Info.plist */; };
 		0EB8EBFF1BE3CF3C00BC2A99 /* SlideMenuControllerSwift.h in Headers */ = {isa = PBXBuildFile; fileRef = 0E75C5A51BE3CAFE00844634 /* SlideMenuControllerSwift.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2F51954CCFC481E375B5516A /* Pods_Bonodom.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0548151CAB503CF2A92885A8 /* Pods_Bonodom.framework */; };
 		57449A941D01B1B400539442 /* FavMenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57449A931D01B1B400539442 /* FavMenuController.swift */; };
 		576D35EC1D05A83B00DFA2BD /* MessageItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 576D35EA1D05A83B00DFA2BD /* MessageItemViewController.swift */; };
 		576D35ED1D05A83B00DFA2BD /* MessageItemViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 576D35EB1D05A83B00DFA2BD /* MessageItemViewController.xib */; };
@@ -50,12 +51,13 @@
 		C5F179CE1BEB2A5900EEDD9A /* UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5F179CD1BEB2A5900EEDD9A /* UIImage.swift */; };
 		C5F179D01BEB2CB500EEDD9A /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5F179CF1BEB2CB500EEDD9A /* UIView.swift */; };
 		C5F179D21BEB2FAF00EEDD9A /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5F179D11BEB2FAF00EEDD9A /* UIColor.swift */; };
-		E454A7A91D0189070001CE17 /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E454A7A81D0189070001CE17 /* Accounts.framework */; };
-		E454A7AB1D01890D0001CE17 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E454A7AA1D01890D0001CE17 /* Security.framework */; };
 		E454A7AD1D0189D90001CE17 /* SOAPEngine-Bridging-Header.h in Headers */ = {isa = PBXBuildFile; fileRef = E454A7AC1D0189D90001CE17 /* SOAPEngine-Bridging-Header.h */; };
 		E45A74071D0571E200CC9162 /* MenuItemView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E45A74061D0571E200CC9162 /* MenuItemView.xib */; };
 		E45A74091D05721D00CC9162 /* MenuItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E45A74081D05721D00CC9162 /* MenuItemView.swift */; };
 		E45A740B1D05725A00CC9162 /* BaseMenuItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E45A740A1D05725A00CC9162 /* BaseMenuItemViewController.swift */; };
+		E45A74101D059A4800CC9162 /* RestApiUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = E45A740F1D059A4800CC9162 /* RestApiUtil.swift */; };
+		E47E36CA1D059EB90095FA6B /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = E47E36C91D059EB90095FA6B /* Podfile */; };
+		E47E36CD1D05A5080095FA6B /* EstateListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E47E36CC1D05A5080095FA6B /* EstateListModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,9 +71,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0548151CAB503CF2A92885A8 /* Pods_Bonodom.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Bonodom.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		0E75C5961BE3CA7900844634 /* Bonodom.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Bonodom.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		0E75C5A41BE3CAFE00844634 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = Source/Info.plist; sourceTree = "<group>"; };
 		0E75C5A51BE3CAFE00844634 /* SlideMenuControllerSwift.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SlideMenuControllerSwift.h; path = Source/SlideMenuControllerSwift.h; sourceTree = "<group>"; };
+		3C7157A7A045A61A09152526 /* Pods-Bonodom.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bonodom.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Bonodom/Pods-Bonodom.debug.xcconfig"; sourceTree = "<group>"; };
 		57449A931D01B1B400539442 /* FavMenuController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavMenuController.swift; sourceTree = "<group>"; };
 		576D35EA1D05A83B00DFA2BD /* MessageItemViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageItemViewController.swift; sourceTree = "<group>"; };
 		576D35EB1D05A83B00DFA2BD /* MessageItemViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MessageItemViewController.xib; sourceTree = "<group>"; };
@@ -82,6 +86,7 @@
 		57DFCF951D01BBB900A69B8A /* AdMonitorController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdMonitorController.swift; sourceTree = "<group>"; };
 		57DFCF971D01BFCD00A69B8A /* AgenciesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AgenciesViewController.swift; sourceTree = "<group>"; };
 		57DFCF991D01C22A00A69B8A /* InviteViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InviteViewController.swift; sourceTree = "<group>"; };
+		60162285A5747F6BC883AA92 /* Pods-Bonodom.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bonodom.release.xcconfig"; path = "Pods/Target Support Files/Pods-Bonodom/Pods-Bonodom.release.xcconfig"; sourceTree = "<group>"; };
 		C539E6411A315E87003B7CC7 /* Bonodom.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Bonodom.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C539E6451A315E87003B7CC7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C539E6461A315E87003B7CC7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -116,12 +121,13 @@
 		C5F179CD1BEB2A5900EEDD9A /* UIImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImage.swift; sourceTree = "<group>"; };
 		C5F179CF1BEB2CB500EEDD9A /* UIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
 		C5F179D11BEB2FAF00EEDD9A /* UIColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
-		E454A7A81D0189070001CE17 /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
-		E454A7AA1D01890D0001CE17 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		E454A7AC1D0189D90001CE17 /* SOAPEngine-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SOAPEngine-Bridging-Header.h"; sourceTree = "<group>"; };
 		E45A74061D0571E200CC9162 /* MenuItemView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MenuItemView.xib; sourceTree = "<group>"; };
 		E45A74081D05721D00CC9162 /* MenuItemView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuItemView.swift; sourceTree = "<group>"; };
 		E45A740A1D05725A00CC9162 /* BaseMenuItemViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseMenuItemViewController.swift; sourceTree = "<group>"; };
+		E45A740F1D059A4800CC9162 /* RestApiUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestApiUtil.swift; sourceTree = "<group>"; };
+		E47E36C91D059EB90095FA6B /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		E47E36CC1D05A5080095FA6B /* EstateListModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EstateListModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -136,8 +142,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E454A7AB1D01890D0001CE17 /* Security.framework in Frameworks */,
-				E454A7A91D0189070001CE17 /* Accounts.framework in Frameworks */,
+				2F51954CCFC481E375B5516A /* Pods_Bonodom.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -159,14 +164,25 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		9B43A2D3A6F652493F7AE160 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				3C7157A7A045A61A09152526 /* Pods-Bonodom.debug.xcconfig */,
+				60162285A5747F6BC883AA92 /* Pods-Bonodom.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		C539E6381A315E87003B7CC7 = {
 			isa = PBXGroup;
 			children = (
+				E47E36C91D059EB90095FA6B /* Podfile */,
 				E454A7A51D0186DD0001CE17 /* Frameworks */,
 				C5BA8AA41A43E24C00863FB9 /* Source */,
 				C539E6431A315E87003B7CC7 /* SlideMenuControllerSwift */,
 				C539E65C1A315E87003B7CC7 /* SlideMenuControllerSwiftTests */,
 				C539E6421A315E87003B7CC7 /* Products */,
+				9B43A2D3A6F652493F7AE160 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -183,6 +199,8 @@
 		C539E6431A315E87003B7CC7 /* SlideMenuControllerSwift */ = {
 			isa = PBXGroup;
 			children = (
+				E47E36CB1D05A4B70095FA6B /* Models */,
+				E45A740E1D059A2900CC9162 /* Utils */,
 				C539E6461A315E87003B7CC7 /* AppDelegate.swift */,
 				C5C1CE631A70F7C400B6E411 /* ViewController */,
 				C5C1CE641A70F7EC00B6E411 /* View */,
@@ -300,10 +318,25 @@
 		E454A7A51D0186DD0001CE17 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				E454A7AA1D01890D0001CE17 /* Security.framework */,
-				E454A7A81D0189070001CE17 /* Accounts.framework */,
+				0548151CAB503CF2A92885A8 /* Pods_Bonodom.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		E45A740E1D059A2900CC9162 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				E45A740F1D059A4800CC9162 /* RestApiUtil.swift */,
+			);
+			name = Utils;
+			sourceTree = "<group>";
+		};
+		E47E36CB1D05A4B70095FA6B /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				E47E36CC1D05A5080095FA6B /* EstateListModel.swift */,
+			);
+			name = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -343,9 +376,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = C539E6631A315E87003B7CC7 /* Build configuration list for PBXNativeTarget "Bonodom" */;
 			buildPhases = (
+				C35AE5C634B413DF0B50AEC0 /* [CP] Check Pods Manifest.lock */,
 				C539E63D1A315E87003B7CC7 /* Sources */,
 				C539E63E1A315E87003B7CC7 /* Frameworks */,
 				C539E63F1A315E87003B7CC7 /* Resources */,
+				8209A1D106302A890DC69945 /* [CP] Embed Pods Frameworks */,
+				6C65F2D65341DF25A05DAAEF /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -438,6 +474,7 @@
 				C5BF6A841BEEF1E70064C18E /* DataTableViewCell.xib in Resources */,
 				0E75C5A61BE3CAFE00844634 /* Info.plist in Resources */,
 				C539E64F1A315E87003B7CC7 /* Main.storyboard in Resources */,
+				E47E36CA1D059EB90095FA6B /* Podfile in Resources */,
 				C539E6541A315E87003B7CC7 /* LaunchScreen.xib in Resources */,
 				C539E6511A315E87003B7CC7 /* Images.xcassets in Resources */,
 				576D35ED1D05A83B00DFA2BD /* MessageItemViewController.xib in Resources */,
@@ -452,6 +489,54 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		6C65F2D65341DF25A05DAAEF /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Bonodom/Pods-Bonodom-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8209A1D106302A890DC69945 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Bonodom/Pods-Bonodom-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C35AE5C634B413DF0B50AEC0 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		0E75C5911BE3CA7900844634 /* Sources */ = {
@@ -488,8 +573,10 @@
 				57DFCF961D01BBB900A69B8A /* AdMonitorController.swift in Sources */,
 				E45A74091D05721D00CC9162 /* MenuItemView.swift in Sources */,
 				57DFCF9A1D01C22A00A69B8A /* InviteViewController.swift in Sources */,
+				E47E36CD1D05A5080095FA6B /* EstateListModel.swift in Sources */,
 				C5BF6A861BEF4C080064C18E /* SubContentsViewController.swift in Sources */,
 				C5BD39DC1A6CD15700D0AF95 /* JavaViewController.swift in Sources */,
+				E45A74101D059A4800CC9162 /* RestApiUtil.swift in Sources */,
 				E45A740B1D05725A00CC9162 /* BaseMenuItemViewController.swift in Sources */,
 				C5BA8AA61A43E2EF00863FB9 /* SlideMenuController.swift in Sources */,
 				C539E66E1A316F5F003B7CC7 /* RightViewController.swift in Sources */,
@@ -667,6 +754,7 @@
 		};
 		C539E6641A315E87003B7CC7 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3C7157A7A045A61A09152526 /* Pods-Bonodom.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -674,11 +762,11 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 				);
-				HEADER_SEARCH_PATHS = /usr/include/libxml2;
+				HEADER_SEARCH_PATHS = "";
 				INFOPLIST_FILE = SlideMenuControllerSwift/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				OTHER_LDFLAGS = "-lxml2";
+				OTHER_LDFLAGS = "";
 				PRODUCT_BUNDLE_IDENTIFIER = com.attiladan.bonodom;
 				PRODUCT_NAME = Bonodom;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -687,6 +775,7 @@
 		};
 		C539E6651A315E87003B7CC7 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 60162285A5747F6BC883AA92 /* Pods-Bonodom.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -694,11 +783,11 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 				);
-				HEADER_SEARCH_PATHS = /usr/include/libxml2;
+				HEADER_SEARCH_PATHS = "";
 				INFOPLIST_FILE = SlideMenuControllerSwift/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				OTHER_LDFLAGS = "-lxml2";
+				OTHER_LDFLAGS = "";
 				PRODUCT_BUNDLE_IDENTIFIER = com.attiladan.bonodom;
 				PRODUCT_NAME = Bonodom;
 				TARGETED_DEVICE_FAMILY = 1;
