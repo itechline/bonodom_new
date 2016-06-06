@@ -48,6 +48,9 @@
 		E454A7A91D0189070001CE17 /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E454A7A81D0189070001CE17 /* Accounts.framework */; };
 		E454A7AB1D01890D0001CE17 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E454A7AA1D01890D0001CE17 /* Security.framework */; };
 		E454A7AD1D0189D90001CE17 /* SOAPEngine-Bridging-Header.h in Headers */ = {isa = PBXBuildFile; fileRef = E454A7AC1D0189D90001CE17 /* SOAPEngine-Bridging-Header.h */; };
+		E45A74071D0571E200CC9162 /* MenuItemView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E45A74061D0571E200CC9162 /* MenuItemView.xib */; };
+		E45A74091D05721D00CC9162 /* MenuItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E45A74081D05721D00CC9162 /* MenuItemView.swift */; };
+		E45A740B1D05725A00CC9162 /* BaseMenuItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E45A740A1D05725A00CC9162 /* BaseMenuItemViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -106,6 +109,9 @@
 		E454A7A81D0189070001CE17 /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
 		E454A7AA1D01890D0001CE17 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		E454A7AC1D0189D90001CE17 /* SOAPEngine-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SOAPEngine-Bridging-Header.h"; sourceTree = "<group>"; };
+		E45A74061D0571E200CC9162 /* MenuItemView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MenuItemView.xib; sourceTree = "<group>"; };
+		E45A74081D05721D00CC9162 /* MenuItemView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuItemView.swift; sourceTree = "<group>"; };
+		E45A740A1D05725A00CC9162 /* BaseMenuItemViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseMenuItemViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -211,6 +217,9 @@
 				C5C1CE5C1A70F27500B6E411 /* BaseTableViewCell.swift */,
 				C5BF6A811BEEF1A70064C18E /* DataTableViewCell.swift */,
 				C5BF6A831BEEF1E70064C18E /* DataTableViewCell.xib */,
+				E45A74061D0571E200CC9162 /* MenuItemView.xib */,
+				E45A74081D05721D00CC9162 /* MenuItemView.swift */,
+				E45A740A1D05725A00CC9162 /* BaseMenuItemViewController.swift */,
 			);
 			name = TableViewCell;
 			sourceTree = "<group>";
@@ -407,6 +416,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E45A74071D0571E200CC9162 /* MenuItemView.xib in Resources */,
 				C5498C801BE897660076A7C5 /* ImageHeaderView.xib in Resources */,
 				C5BF6A8A1BF3335D0064C18E /* SubContentsViewController.storyboard in Resources */,
 				C5BF6A841BEEF1E70064C18E /* DataTableViewCell.xib in Resources */,
@@ -457,9 +467,11 @@
 				C5C1CE5B1A70DADF00B6E411 /* NonMenuController.swift in Sources */,
 				C5498C7E1BE897250076A7C5 /* ImageHeaderView.swift in Sources */,
 				57DFCF961D01BBB900A69B8A /* AdMonitorController.swift in Sources */,
+				E45A74091D05721D00CC9162 /* MenuItemView.swift in Sources */,
 				57DFCF9A1D01C22A00A69B8A /* InviteViewController.swift in Sources */,
 				C5BF6A861BEF4C080064C18E /* SubContentsViewController.swift in Sources */,
 				C5BD39DC1A6CD15700D0AF95 /* JavaViewController.swift in Sources */,
+				E45A740B1D05725A00CC9162 /* BaseMenuItemViewController.swift in Sources */,
 				C5BA8AA61A43E2EF00863FB9 /* SlideMenuController.swift in Sources */,
 				C539E66E1A316F5F003B7CC7 /* RightViewController.swift in Sources */,
 				C5C1CE5F1A70F2FD00B6E411 /* String.swift in Sources */,
