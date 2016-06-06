@@ -12,6 +12,12 @@
 		0EB8EBFF1BE3CF3C00BC2A99 /* SlideMenuControllerSwift.h in Headers */ = {isa = PBXBuildFile; fileRef = 0E75C5A51BE3CAFE00844634 /* SlideMenuControllerSwift.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		2F51954CCFC481E375B5516A /* Pods_Bonodom.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0548151CAB503CF2A92885A8 /* Pods_Bonodom.framework */; };
 		57449A941D01B1B400539442 /* FavMenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57449A931D01B1B400539442 /* FavMenuController.swift */; };
+		576D35EC1D05A83B00DFA2BD /* MessageItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 576D35EA1D05A83B00DFA2BD /* MessageItemViewController.swift */; };
+		576D35ED1D05A83B00DFA2BD /* MessageItemViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 576D35EB1D05A83B00DFA2BD /* MessageItemViewController.xib */; };
+		576D35F01D05B3E300DFA2BD /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 576D35EE1D05B3E300DFA2BD /* LoginViewController.swift */; };
+		576D35F11D05B3E300DFA2BD /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 576D35EF1D05B3E300DFA2BD /* LoginViewController.xib */; };
+		576D35F41D05B87400DFA2BD /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 576D35F21D05B87400DFA2BD /* RegisterViewController.swift */; };
+		576D35F51D05B87400DFA2BD /* RegisterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 576D35F31D05B87400DFA2BD /* RegisterViewController.xib */; };
 		57DFCF961D01BBB900A69B8A /* AdMonitorController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57DFCF951D01BBB900A69B8A /* AdMonitorController.swift */; };
 		57DFCF981D01BFCD00A69B8A /* AgenciesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57DFCF971D01BFCD00A69B8A /* AgenciesViewController.swift */; };
 		57DFCF9A1D01C22A00A69B8A /* InviteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57DFCF991D01C22A00A69B8A /* InviteViewController.swift */; };
@@ -71,6 +77,12 @@
 		0E75C5A51BE3CAFE00844634 /* SlideMenuControllerSwift.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SlideMenuControllerSwift.h; path = Source/SlideMenuControllerSwift.h; sourceTree = "<group>"; };
 		3C7157A7A045A61A09152526 /* Pods-Bonodom.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bonodom.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Bonodom/Pods-Bonodom.debug.xcconfig"; sourceTree = "<group>"; };
 		57449A931D01B1B400539442 /* FavMenuController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavMenuController.swift; sourceTree = "<group>"; };
+		576D35EA1D05A83B00DFA2BD /* MessageItemViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageItemViewController.swift; sourceTree = "<group>"; };
+		576D35EB1D05A83B00DFA2BD /* MessageItemViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MessageItemViewController.xib; sourceTree = "<group>"; };
+		576D35EE1D05B3E300DFA2BD /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		576D35EF1D05B3E300DFA2BD /* LoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
+		576D35F21D05B87400DFA2BD /* RegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		576D35F31D05B87400DFA2BD /* RegisterViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RegisterViewController.xib; sourceTree = "<group>"; };
 		57DFCF951D01BBB900A69B8A /* AdMonitorController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdMonitorController.swift; sourceTree = "<group>"; };
 		57DFCF971D01BFCD00A69B8A /* AgenciesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AgenciesViewController.swift; sourceTree = "<group>"; };
 		57DFCF991D01C22A00A69B8A /* InviteViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InviteViewController.swift; sourceTree = "<group>"; };
@@ -235,6 +247,8 @@
 				E45A74061D0571E200CC9162 /* MenuItemView.xib */,
 				E45A74081D05721D00CC9162 /* MenuItemView.swift */,
 				E45A740A1D05725A00CC9162 /* BaseMenuItemViewController.swift */,
+				576D35EA1D05A83B00DFA2BD /* MessageItemViewController.swift */,
+				576D35EB1D05A83B00DFA2BD /* MessageItemViewController.xib */,
 			);
 			name = TableViewCell;
 			sourceTree = "<group>";
@@ -283,6 +297,10 @@
 				57DFCF951D01BBB900A69B8A /* AdMonitorController.swift */,
 				57DFCF971D01BFCD00A69B8A /* AgenciesViewController.swift */,
 				57DFCF991D01C22A00A69B8A /* InviteViewController.swift */,
+				576D35EE1D05B3E300DFA2BD /* LoginViewController.swift */,
+				576D35EF1D05B3E300DFA2BD /* LoginViewController.xib */,
+				576D35F21D05B87400DFA2BD /* RegisterViewController.swift */,
+				576D35F31D05B87400DFA2BD /* RegisterViewController.xib */,
 			);
 			name = ViewController;
 			sourceTree = "<group>";
@@ -448,6 +466,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				576D35F51D05B87400DFA2BD /* RegisterViewController.xib in Resources */,
+				576D35F11D05B3E300DFA2BD /* LoginViewController.xib in Resources */,
 				E45A74071D0571E200CC9162 /* MenuItemView.xib in Resources */,
 				C5498C801BE897660076A7C5 /* ImageHeaderView.xib in Resources */,
 				C5BF6A8A1BF3335D0064C18E /* SubContentsViewController.storyboard in Resources */,
@@ -457,6 +477,7 @@
 				E47E36CA1D059EB90095FA6B /* Podfile in Resources */,
 				C539E6541A315E87003B7CC7 /* LaunchScreen.xib in Resources */,
 				C539E6511A315E87003B7CC7 /* Images.xcassets in Resources */,
+				576D35ED1D05A83B00DFA2BD /* MessageItemViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -543,8 +564,10 @@
 				C5BF6A821BEEF1A70064C18E /* DataTableViewCell.swift in Sources */,
 				C539E6471A315E87003B7CC7 /* AppDelegate.swift in Sources */,
 				C5F179D21BEB2FAF00EEDD9A /* UIColor.swift in Sources */,
+				576D35F01D05B3E300DFA2BD /* LoginViewController.swift in Sources */,
 				C5F179CE1BEB2A5900EEDD9A /* UIImage.swift in Sources */,
 				C5498C821BE8994F0076A7C5 /* UIImageView.swift in Sources */,
+				576D35EC1D05A83B00DFA2BD /* MessageItemViewController.swift in Sources */,
 				C5C1CE5B1A70DADF00B6E411 /* NonMenuController.swift in Sources */,
 				C5498C7E1BE897250076A7C5 /* ImageHeaderView.swift in Sources */,
 				57DFCF961D01BBB900A69B8A /* AdMonitorController.swift in Sources */,
@@ -557,6 +580,7 @@
 				E45A740B1D05725A00CC9162 /* BaseMenuItemViewController.swift in Sources */,
 				C5BA8AA61A43E2EF00863FB9 /* SlideMenuController.swift in Sources */,
 				C539E66E1A316F5F003B7CC7 /* RightViewController.swift in Sources */,
+				576D35F41D05B87400DFA2BD /* RegisterViewController.swift in Sources */,
 				C5C1CE5F1A70F2FD00B6E411 /* String.swift in Sources */,
 				57DFCF981D01BFCD00A69B8A /* AgenciesViewController.swift in Sources */,
 				C5F179D01BEB2CB500EEDD9A /* UIView.swift in Sources */,

@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LoginViewController" customModule="Bonodom" customModuleProvider="target">
+            <connections>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bonodom_logo" translatesAutoresizingMaskIntoConstraints="NO" id="XR9-rR-vKX">
+                    <rect key="frame" x="0.0" y="27" width="600" height="154"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="154" id="jac-wn-OdH"/>
+                    </constraints>
+                </imageView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Jzl-Kg-W2V">
+                    <rect key="frame" x="8" y="189" width="584" height="214"/>
+                    <subviews>
+                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email:" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="YdG-0f-RnW">
+                            <rect key="frame" x="8" y="8" width="568" height="30"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <textInputTraits key="textInputTraits"/>
+                        </textField>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A2A-Hw-tYR">
+                            <rect key="frame" x="234" y="84" width="117" height="30"/>
+                            <state key="normal" title="FB bejelentkezés"/>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="n8s-3x-r0S">
+                            <rect key="frame" x="8" y="122" width="568" height="30"/>
+                            <color key="backgroundColor" red="0.0" green="0.40000000000000002" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
+                            <state key="normal" title="Bejelentkezés">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="C50-pX-fdx">
+                            <rect key="frame" x="170" y="176" width="245" height="30"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="245" id="NOf-qW-ljh"/>
+                            </constraints>
+                            <state key="normal">
+                                <attributedString key="attributedTitle">
+                                    <fragment content="Elfelejtette a jelszavát? ">
+                                        <attributes>
+                                            <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <font key="NSFont" size="15" name="HelveticaNeue-Italic"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment content="Emlékeztető">
+                                        <attributes>
+                                            <color key="NSColor" red="0.0" green="0.40000000000000002" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
+                                            <font key="NSFont" size="15" name="HelveticaNeue-Italic"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                            </state>
+                        </button>
+                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Jelszó:" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="400-Vh-JXl">
+                            <rect key="frame" x="8" y="46" width="568" height="30"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                        </textField>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstItem="C50-pX-fdx" firstAttribute="top" secondItem="n8s-3x-r0S" secondAttribute="bottom" constant="24" id="4t3-hV-ufO"/>
+                        <constraint firstItem="n8s-3x-r0S" firstAttribute="centerX" secondItem="C50-pX-fdx" secondAttribute="centerX" id="DDm-th-m7u"/>
+                        <constraint firstItem="YdG-0f-RnW" firstAttribute="leading" secondItem="400-Vh-JXl" secondAttribute="leading" id="Gcz-35-Efz"/>
+                        <constraint firstItem="YdG-0f-RnW" firstAttribute="leading" secondItem="Jzl-Kg-W2V" secondAttribute="leadingMargin" id="HY9-cW-PyE"/>
+                        <constraint firstItem="400-Vh-JXl" firstAttribute="leading" secondItem="n8s-3x-r0S" secondAttribute="leading" id="IIq-j8-eD9"/>
+                        <constraint firstItem="A2A-Hw-tYR" firstAttribute="top" secondItem="400-Vh-JXl" secondAttribute="bottom" constant="8" symbolic="YES" id="NDb-vG-uxV"/>
+                        <constraint firstItem="n8s-3x-r0S" firstAttribute="top" secondItem="A2A-Hw-tYR" secondAttribute="bottom" constant="8" symbolic="YES" id="Qtr-Zg-WMn"/>
+                        <constraint firstItem="400-Vh-JXl" firstAttribute="top" secondItem="YdG-0f-RnW" secondAttribute="bottom" constant="8" symbolic="YES" id="RVQ-vk-vZF"/>
+                        <constraint firstItem="YdG-0f-RnW" firstAttribute="trailing" secondItem="Jzl-Kg-W2V" secondAttribute="trailingMargin" id="UgV-lT-nsf"/>
+                        <constraint firstItem="C50-pX-fdx" firstAttribute="bottom" secondItem="Jzl-Kg-W2V" secondAttribute="bottomMargin" id="Xzh-B2-EWD"/>
+                        <constraint firstItem="YdG-0f-RnW" firstAttribute="top" secondItem="Jzl-Kg-W2V" secondAttribute="topMargin" id="YeL-TV-4sc"/>
+                        <constraint firstItem="YdG-0f-RnW" firstAttribute="trailing" secondItem="400-Vh-JXl" secondAttribute="trailing" id="dg1-hf-td3"/>
+                        <constraint firstItem="400-Vh-JXl" firstAttribute="trailing" secondItem="n8s-3x-r0S" secondAttribute="trailing" id="fW4-1d-Jzg"/>
+                        <constraint firstItem="400-Vh-JXl" firstAttribute="centerX" secondItem="A2A-Hw-tYR" secondAttribute="centerX" id="jX7-le-41f"/>
+                    </constraints>
+                </view>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JGO-kw-Lwe">
+                    <rect key="frame" x="8" y="411" width="584" height="30"/>
+                    <state key="normal">
+                        <attributedString key="attributedTitle">
+                            <fragment content="Még nincs fiókja? ">
+                                <attributes>
+                                    <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                    <font key="NSFont" size="15" name="HelveticaNeue-Italic"/>
+                                    <font key="NSOriginalFont" size="15" name="HelveticaNeue-Italic"/>
+                                </attributes>
+                            </fragment>
+                            <fragment content="Regisztráljon">
+                                <attributes>
+                                    <font key="NSFont" size="15" name="HelveticaNeue-Italic"/>
+                                    <font key="NSOriginalFont" size="15" name="HelveticaNeue-Italic"/>
+                                </attributes>
+                            </fragment>
+                        </attributedString>
+                    </state>
+                </button>
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="main_house" translatesAutoresizingMaskIntoConstraints="NO" id="TA7-gb-yxg">
+                    <rect key="frame" x="0.0" y="515" width="600" height="85"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="85" id="RaE-he-8BI"/>
+                    </constraints>
+                </imageView>
+            </subviews>
+            <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
+            <constraints>
+                <constraint firstItem="TA7-gb-yxg" firstAttribute="top" secondItem="JGO-kw-Lwe" secondAttribute="bottom" constant="74" id="8Nc-Pj-UoV"/>
+                <constraint firstItem="Jzl-Kg-W2V" firstAttribute="top" secondItem="XR9-rR-vKX" secondAttribute="bottom" constant="8" symbolic="YES" id="CNc-jP-dyx"/>
+                <constraint firstItem="Jzl-Kg-W2V" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leadingMargin" id="Fg7-na-SfU"/>
+                <constraint firstItem="JGO-kw-Lwe" firstAttribute="centerX" secondItem="TA7-gb-yxg" secondAttribute="centerX" id="Fty-29-yqO"/>
+                <constraint firstItem="XR9-rR-vKX" firstAttribute="leading" secondItem="TA7-gb-yxg" secondAttribute="leading" id="LhE-lD-rGC"/>
+                <constraint firstItem="Jzl-Kg-W2V" firstAttribute="leading" secondItem="JGO-kw-Lwe" secondAttribute="leading" id="NMI-iY-ZoB"/>
+                <constraint firstAttribute="trailing" secondItem="XR9-rR-vKX" secondAttribute="trailing" id="OPW-Kd-cFy"/>
+                <constraint firstItem="XR9-rR-vKX" firstAttribute="trailing" secondItem="TA7-gb-yxg" secondAttribute="trailing" id="QVx-gH-GGk"/>
+                <constraint firstItem="JGO-kw-Lwe" firstAttribute="top" secondItem="Jzl-Kg-W2V" secondAttribute="bottom" constant="8" symbolic="YES" id="WOr-Wf-rz2"/>
+                <constraint firstItem="Jzl-Kg-W2V" firstAttribute="trailing" secondItem="JGO-kw-Lwe" secondAttribute="trailing" id="mkn-BA-x7s"/>
+                <constraint firstAttribute="bottom" secondItem="TA7-gb-yxg" secondAttribute="bottom" id="v0d-oH-gTV"/>
+                <constraint firstItem="XR9-rR-vKX" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="yaw-bP-ECE"/>
+            </constraints>
+        </view>
+    </objects>
+    <resources>
+        <image name="bonodom_logo" width="500" height="500"/>
+        <image name="main_house" width="1242" height="176"/>
+    </resources>
+</document>

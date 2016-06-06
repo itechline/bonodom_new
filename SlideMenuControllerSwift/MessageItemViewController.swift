@@ -1,21 +1,20 @@
 //
-//  InviteViewController.swift
+//  MessageItemViewController.swift
 //  Bonodom
 //
-//  Created by Attila Dan on 03/06/16.
+//  Created by Attila Dan on 06/06/16.
 //  Copyright © 2016 Itechline. All rights reserved.
 //
 
 import UIKit
 
-class InviteViewController: UIViewController {
+class MessageItemViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.setNavigationBarItem()
+
         // Do any additional setup after loading the view.
     }
-
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
