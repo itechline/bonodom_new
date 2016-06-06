@@ -46,6 +46,41 @@ extension UIImageView {
         task.resume()
     }
     
+    func setImageFromURL(url: String) {
+        if self.image != nil {
+            self.alpha = 1
+            return
+        }
+        self.alpha = 0
+        let url = NSURL(string: url)!
+        let configuration = NSURLSessionConfiguration.defaultSessionConfiguration()
+        configuration.timeoutIntervalForRequest = 15
+        configuration.timeoutIntervalForResource = 15
+        configuration.requestCachePolicy = NSURLRequestCachePolicy.ReloadIgnoringLocalCacheData
+        let session = NSURLSession(configuration: configuration)
+        let task = session.dataTaskWithURL(url, completionHandler: { (data: NSData?, response: NSURLResponse?, error: NSError?) -> Void in
+            if error != nil {
+                return
+            }
+            
+            if let response = response as? NSHTTPURLResponse {
+                if response.statusCode / 100 != 2 {
+                    return
+                }
+                if let data = data, let image = UIImage(data: data) {
+                    dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                        self.image = image
+                        UIView.animateWithDuration(0.3, animations: { () -> Void in
+                            self.alpha = 1
+                        }) { (finished: Bool) -> Void in
+                        }
+                    })
+                }
+            }
+        })
+        task.resume()
+    }
+    
     func clipParallaxEffect(baseImage: UIImage?, screenSize: CGSize, displayHeight: CGFloat) {
         if let baseImage = baseImage {
             if displayHeight < 0 {

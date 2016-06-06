@@ -143,6 +143,11 @@
             <connections>
                 <outlet property="dataImage" destination="ppM-43-tik" id="xdO-QO-GUo"/>
                 <outlet property="dataText" destination="I30-9I-EnW" id="vsj-dK-z9n"/>
+                <outlet property="descriptionText" destination="Sid-55-PAA" id="bTa-6x-u9A"/>
+                <outlet property="priceText" destination="CyZ-UX-3iQ" id="aZq-PP-dYt"/>
+                <outlet property="roomsText" destination="elk-7R-1hY" id="k3c-d1-FNH"/>
+                <outlet property="sizeText" destination="Rxx-e6-cUa" id="DGz-IR-s6M"/>
+                <outlet property="streetText" destination="0Om-UK-Kqz" id="Yb0-EB-Pgl"/>
             </connections>
             <point key="canvasLocation" x="249" y="228"/>
         </tableViewCell>

@@ -8,17 +8,27 @@
 import SwiftyJSON
 
 class EstateListModel {
+    var id: Int!
     var adress: String!
     var street: String!
     var description: String!
     var price: String!
+    var size: String!
+    var rooms: String!
     var pic: String!
     
     required init(json: JSON) {
-        adress = json["msg"].stringValue
-        street = json["dsc"].stringValue
-        description = json["price"].stringValue
-        price = json["pic"].stringValue
-        pic = json["pic"].stringValue
+        id = json["ingatlan_id"].intValue
+        adress = json["ingatlan_varos"].stringValue
+        street = json["ingatlan_utca"].stringValue
+        description = json["ingatlan_rovidleiras"].stringValue
+        price = json["ingatlan_ar"].stringValue
+        size = json["ingatlan_meret"].stringValue
+        rooms = json["ingatlan_szsz_id"].stringValue
+        let picArray = json["kepek"].arrayValue
+        pic = "asd"
+        
+        print("LOOOOOOOOOOFAAAAAAAASZ")
+        print(picArray)
     }
 }

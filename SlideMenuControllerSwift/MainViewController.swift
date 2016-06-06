@@ -14,6 +14,8 @@ class MainViewController: UIViewController {
     
     var mainContens = ["Budapest XII. kerület", "Debrecen Simonffy utca 4-6.", "Debrecen Kassai út 47/b", "Nyírbátor Zrínyi út. 72", "Nyíregyháza Fazekas János tér 23.", "Nyíregyháza Írisz utca 43.", "data7", "data8", "data9", "data10", "data11", "data12", "data13", "data14", "data15","Hozzonide két kolbászokat"]
     
+    var items = [EstateListModel]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tableView.registerCellNib(DataTableViewCell.self)
@@ -27,6 +29,26 @@ class MainViewController: UIViewController {
             } else {
             }
         }
+        
+        
+        
+        RestApiUtil.sharedInstance.getEstateList { (json: JSON) in
+            //print ("ListEstate" + json)
+            print (json)
+            if let results = json.array {
+                for entry in results {
+                    var asd: String!
+                    asd = json["ingatlan_id"].stringValue
+                    self.items.append(EstateListModel(json: entry))
+                }
+                dispatch_async(dispatch_get_main_queue(),{
+                    self.tableView.reloadData()
+                })
+            }
+            
+            
+        }
+        
 
 
     }
@@ -55,14 +77,26 @@ extension MainViewController : UITableViewDelegate {
 
 extension MainViewController : UITableViewDataSource {
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.mainContens.count
+        return items.count
     }
      
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        
+        //KURVÁRADENEMJÓMÉGÍGY
         let cell = self.tableView.dequeueReusableCellWithIdentifier(DataTableViewCell.identifier) as! DataTableViewCell
-        let data = DataTableViewCellData(imageUrl: "dummy", text: mainContens[indexPath.row])
-        cell.setData(data)
-        return cell
+        for (index, value) in self.items.enumerate() {
+            //print("Item \(index + 1): \(value.id)")
+            let data = DataTableViewCellData(imageUrl: items[indexPath.row].pic,
+                                             adress: String(items[indexPath.row].id),
+                                             street: items[indexPath.row].street,
+                                             description: items[indexPath.row].description,
+                                             size: items[indexPath.row].size,
+                                             rooms: items[indexPath.row].rooms,
+                                             price: items[indexPath.row].price)
+            cell.setData(data)
+            return cell
+        }
+      return UITableViewCell.init()
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {

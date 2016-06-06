@@ -17,7 +17,7 @@ class RestApiUtil: NSObject {
     
     func getTokenValidator(onCompletion: (JSON) -> Void) {
     
-        var token = [ "token", "608f44981dd5241547605947c1dc38e0"]
+        var token = [ "token", "3dfd55eec99e71877d9fe5e63b10fde5"]
         var tokenpost = token.joinWithSeparator("=")
         var ingatlan = [ "ingatlan_id", "id"]
         var ingatlanid = ingatlan.joinWithSeparator("=")
@@ -34,6 +34,51 @@ class RestApiUtil: NSObject {
             })
         
     }
+    
+    
+    /*
+     postadatok.put("ingatlan_id", idPost);
+     postadatok.put("page", pagePost);
+     postadatok.put("token", tokenTosend);
+     postadatok.put("favorites", favorites);
+     postadatok.put("etype", etype);
+     postadatok.put("ordering", ordering);
+     postadatok.put("justme", jstme);
+ */
+    
+    func getEstateList(onCompletion: (JSON) -> Void) {
+        
+        let token = [ "token", "3dfd55eec99e71877d9fe5e63b10fde5"]
+        let tokenpost = token.joinWithSeparator("=")
+        let ingatlan = [ "ingatlan_id", "0"]
+        let ingatlanid = ingatlan.joinWithSeparator("=")
+        let page = [ "page", "0"]
+        let page_send = page.joinWithSeparator("=")
+        let fav = [ "favorites", "0" ]
+        let fav_send = fav.joinWithSeparator("=")
+        let etype = [ "etype", "0"]
+        let etype_send = etype.joinWithSeparator("=")
+        let ordering = [ "ordering", "0"]
+        let ordering_send = ordering.joinWithSeparator("=")
+        let justme = [ "justme", "0"]
+        let justme_send = justme.joinWithSeparator("=")
+        
+        
+        
+        let pa = [ tokenpost, ingatlanid, page_send, fav_send,  etype_send, ordering_send, justme_send]
+        let postbody = pa.joinWithSeparator("&")
+        
+        let route = baseURL + "list_estates"
+        //let listEstateHeader: [String: String] = ["token": "608f44981dd5241547605947c1dc38e0"]
+        /*makeHTTPGetRequest(route, onCompletion: { json, err in
+         onCompletion(json as JSON)
+         })*/
+        makeHTTPPostRequest(route, body: postbody, onCompletion: { json, err in
+            onCompletion(json as JSON)
+        })
+        
+    }
+    
     
     // MARK: Perform a GET Request
     private func makeHTTPGetRequest(path: String, onCompletion: ServiceResponse) {
