@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SwiftyJSON
 
 class MainViewController: UIViewController {
 
@@ -16,6 +17,16 @@ class MainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tableView.registerCellNib(DataTableViewCell.self)
+        
+        RestApiUtil.sharedInstance.getTokenValidator { (json: JSON) in
+            print (json)
+            var msg: Bool!
+            msg = json["token_active"].boolValue
+            if (msg == true) {
+                //INGATLAN LISTA BETÖLTÉSE
+            } else {
+            }
+        }
 
 
     }
