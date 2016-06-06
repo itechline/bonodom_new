@@ -44,7 +44,6 @@
 		C5F179CE1BEB2A5900EEDD9A /* UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5F179CD1BEB2A5900EEDD9A /* UIImage.swift */; };
 		C5F179D01BEB2CB500EEDD9A /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5F179CF1BEB2CB500EEDD9A /* UIView.swift */; };
 		C5F179D21BEB2FAF00EEDD9A /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5F179D11BEB2FAF00EEDD9A /* UIColor.swift */; };
-		E454A7A71D0188380001CE17 /* SOAPEngine64.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E454A7A61D0188380001CE17 /* SOAPEngine64.framework */; };
 		E454A7A91D0189070001CE17 /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E454A7A81D0189070001CE17 /* Accounts.framework */; };
 		E454A7AB1D01890D0001CE17 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E454A7AA1D01890D0001CE17 /* Security.framework */; };
 		E454A7AD1D0189D90001CE17 /* SOAPEngine-Bridging-Header.h in Headers */ = {isa = PBXBuildFile; fileRef = E454A7AC1D0189D90001CE17 /* SOAPEngine-Bridging-Header.h */; };
@@ -105,7 +104,6 @@
 		C5F179CD1BEB2A5900EEDD9A /* UIImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImage.swift; sourceTree = "<group>"; };
 		C5F179CF1BEB2CB500EEDD9A /* UIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
 		C5F179D11BEB2FAF00EEDD9A /* UIColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
-		E454A7A61D0188380001CE17 /* SOAPEngine64.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SOAPEngine64.framework; sourceTree = "<group>"; };
 		E454A7A81D0189070001CE17 /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
 		E454A7AA1D01890D0001CE17 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		E454A7AC1D0189D90001CE17 /* SOAPEngine-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SOAPEngine-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -128,7 +126,6 @@
 			files = (
 				E454A7AB1D01890D0001CE17 /* Security.framework in Frameworks */,
 				E454A7A91D0189070001CE17 /* Accounts.framework in Frameworks */,
-				E454A7A71D0188380001CE17 /* SOAPEngine64.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -287,7 +284,6 @@
 			children = (
 				E454A7AA1D01890D0001CE17 /* Security.framework */,
 				E454A7A81D0189070001CE17 /* Accounts.framework */,
-				E454A7A61D0188380001CE17 /* SOAPEngine64.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
