@@ -15,6 +15,8 @@
 		576D35ED1D05A83B00DFA2BD /* MessageItemViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 576D35EB1D05A83B00DFA2BD /* MessageItemViewController.xib */; };
 		576D35F01D05B3E300DFA2BD /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 576D35EE1D05B3E300DFA2BD /* LoginViewController.swift */; };
 		576D35F11D05B3E300DFA2BD /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 576D35EF1D05B3E300DFA2BD /* LoginViewController.xib */; };
+		576D35F41D05B87400DFA2BD /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 576D35F21D05B87400DFA2BD /* RegisterViewController.swift */; };
+		576D35F51D05B87400DFA2BD /* RegisterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 576D35F31D05B87400DFA2BD /* RegisterViewController.xib */; };
 		57DFCF961D01BBB900A69B8A /* AdMonitorController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57DFCF951D01BBB900A69B8A /* AdMonitorController.swift */; };
 		57DFCF981D01BFCD00A69B8A /* AgenciesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57DFCF971D01BFCD00A69B8A /* AgenciesViewController.swift */; };
 		57DFCF9A1D01C22A00A69B8A /* InviteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57DFCF991D01C22A00A69B8A /* InviteViewController.swift */; };
@@ -75,6 +77,8 @@
 		576D35EB1D05A83B00DFA2BD /* MessageItemViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MessageItemViewController.xib; sourceTree = "<group>"; };
 		576D35EE1D05B3E300DFA2BD /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		576D35EF1D05B3E300DFA2BD /* LoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
+		576D35F21D05B87400DFA2BD /* RegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		576D35F31D05B87400DFA2BD /* RegisterViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RegisterViewController.xib; sourceTree = "<group>"; };
 		57DFCF951D01BBB900A69B8A /* AdMonitorController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdMonitorController.swift; sourceTree = "<group>"; };
 		57DFCF971D01BFCD00A69B8A /* AgenciesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AgenciesViewController.swift; sourceTree = "<group>"; };
 		57DFCF991D01C22A00A69B8A /* InviteViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InviteViewController.swift; sourceTree = "<group>"; };
@@ -277,6 +281,8 @@
 				57DFCF991D01C22A00A69B8A /* InviteViewController.swift */,
 				576D35EE1D05B3E300DFA2BD /* LoginViewController.swift */,
 				576D35EF1D05B3E300DFA2BD /* LoginViewController.xib */,
+				576D35F21D05B87400DFA2BD /* RegisterViewController.swift */,
+				576D35F31D05B87400DFA2BD /* RegisterViewController.xib */,
 			);
 			name = ViewController;
 			sourceTree = "<group>";
@@ -424,6 +430,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				576D35F51D05B87400DFA2BD /* RegisterViewController.xib in Resources */,
 				576D35F11D05B3E300DFA2BD /* LoginViewController.xib in Resources */,
 				E45A74071D0571E200CC9162 /* MenuItemView.xib in Resources */,
 				C5498C801BE897660076A7C5 /* ImageHeaderView.xib in Resources */,
@@ -486,6 +493,7 @@
 				E45A740B1D05725A00CC9162 /* BaseMenuItemViewController.swift in Sources */,
 				C5BA8AA61A43E2EF00863FB9 /* SlideMenuController.swift in Sources */,
 				C539E66E1A316F5F003B7CC7 /* RightViewController.swift in Sources */,
+				576D35F41D05B87400DFA2BD /* RegisterViewController.swift in Sources */,
 				C5C1CE5F1A70F2FD00B6E411 /* String.swift in Sources */,
 				57DFCF981D01BFCD00A69B8A /* AgenciesViewController.swift in Sources */,
 				C5F179D01BEB2CB500EEDD9A /* UIView.swift in Sources */,
