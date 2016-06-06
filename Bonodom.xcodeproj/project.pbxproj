@@ -11,6 +11,8 @@
 		0E75C5A61BE3CAFE00844634 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0E75C5A41BE3CAFE00844634 /* Info.plist */; };
 		0EB8EBFF1BE3CF3C00BC2A99 /* SlideMenuControllerSwift.h in Headers */ = {isa = PBXBuildFile; fileRef = 0E75C5A51BE3CAFE00844634 /* SlideMenuControllerSwift.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		57449A941D01B1B400539442 /* FavMenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57449A931D01B1B400539442 /* FavMenuController.swift */; };
+		576D35EC1D05A83B00DFA2BD /* MessageItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 576D35EA1D05A83B00DFA2BD /* MessageItemViewController.swift */; };
+		576D35ED1D05A83B00DFA2BD /* MessageItemViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 576D35EB1D05A83B00DFA2BD /* MessageItemViewController.xib */; };
 		57DFCF961D01BBB900A69B8A /* AdMonitorController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57DFCF951D01BBB900A69B8A /* AdMonitorController.swift */; };
 		57DFCF981D01BFCD00A69B8A /* AgenciesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57DFCF971D01BFCD00A69B8A /* AgenciesViewController.swift */; };
 		57DFCF9A1D01C22A00A69B8A /* InviteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57DFCF991D01C22A00A69B8A /* InviteViewController.swift */; };
@@ -67,6 +69,8 @@
 		0E75C5A41BE3CAFE00844634 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = Source/Info.plist; sourceTree = "<group>"; };
 		0E75C5A51BE3CAFE00844634 /* SlideMenuControllerSwift.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SlideMenuControllerSwift.h; path = Source/SlideMenuControllerSwift.h; sourceTree = "<group>"; };
 		57449A931D01B1B400539442 /* FavMenuController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavMenuController.swift; sourceTree = "<group>"; };
+		576D35EA1D05A83B00DFA2BD /* MessageItemViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageItemViewController.swift; sourceTree = "<group>"; };
+		576D35EB1D05A83B00DFA2BD /* MessageItemViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MessageItemViewController.xib; sourceTree = "<group>"; };
 		57DFCF951D01BBB900A69B8A /* AdMonitorController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdMonitorController.swift; sourceTree = "<group>"; };
 		57DFCF971D01BFCD00A69B8A /* AgenciesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AgenciesViewController.swift; sourceTree = "<group>"; };
 		57DFCF991D01C22A00A69B8A /* InviteViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InviteViewController.swift; sourceTree = "<group>"; };
@@ -217,6 +221,8 @@
 				E45A74061D0571E200CC9162 /* MenuItemView.xib */,
 				E45A74081D05721D00CC9162 /* MenuItemView.swift */,
 				E45A740A1D05725A00CC9162 /* BaseMenuItemViewController.swift */,
+				576D35EA1D05A83B00DFA2BD /* MessageItemViewController.swift */,
+				576D35EB1D05A83B00DFA2BD /* MessageItemViewController.xib */,
 			);
 			name = TableViewCell;
 			sourceTree = "<group>";
@@ -420,6 +426,7 @@
 				C539E64F1A315E87003B7CC7 /* Main.storyboard in Resources */,
 				C539E6541A315E87003B7CC7 /* LaunchScreen.xib in Resources */,
 				C539E6511A315E87003B7CC7 /* Images.xcassets in Resources */,
+				576D35ED1D05A83B00DFA2BD /* MessageItemViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -460,6 +467,7 @@
 				C5F179D21BEB2FAF00EEDD9A /* UIColor.swift in Sources */,
 				C5F179CE1BEB2A5900EEDD9A /* UIImage.swift in Sources */,
 				C5498C821BE8994F0076A7C5 /* UIImageView.swift in Sources */,
+				576D35EC1D05A83B00DFA2BD /* MessageItemViewController.swift in Sources */,
 				C5C1CE5B1A70DADF00B6E411 /* NonMenuController.swift in Sources */,
 				C5498C7E1BE897250076A7C5 /* ImageHeaderView.swift in Sources */,
 				57DFCF961D01BBB900A69B8A /* AdMonitorController.swift in Sources */,
