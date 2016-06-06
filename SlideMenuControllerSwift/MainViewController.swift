@@ -6,12 +6,8 @@
 //
 
 import UIKit
-import SOAPEngine64
 
 class MainViewController: UIViewController {
-    
-    var soap = [SOAPEngine]()
-    var verses:NSArray = [NSArray]()
 
     @IBOutlet weak var tableView: UITableView!
     
@@ -20,61 +16,6 @@ class MainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tableView.registerCellNib(DataTableViewCell.self)
-        
-        /*let soap = SOAPEngine()
-        soap.userAgent = "SOAPEngine"
-        soap.actionNamespaceSlash = true
-        soap.licenseKey = "eJJDzkPK9Xx+p5cOH7w0Q+AvPdgK1fzWWuUpMaYCq3r1mwf36Ocw6dn0+CLjRaOiSjfXaFQBWMi+TxCpxVF/FA=="
-        //soap.responseHeader = true // use only for non standard MS-SOAP service
-        
-        soap.setValue("Genesis", forKey: "BookName")
-        soap.setIntegerValue(1, forKey: "chapter")
-        soap.requestURL("http://www.prioregroup.com/services/americanbible.asmx",
-                        soapAction: "http://www.prioregroup.com/GetVerses",
-                        completeWithDictionary: { (statusCode : Int, dict : [NSObject : AnyObject]!) -> Void in
-                            
-                            var book:Dictionary = dict as Dictionary
-                            let verses:NSArray = book["BibleBookChapterVerse"] as! NSArray
-                            self.verses = verses
-                            //self.table.reloadData()
-                            print(verses)
-                            
-        }) { (error : NSError!) -> Void in
-            
-            NSLog("%@", error)
-        }*/
-        
-        //token: 40ce974b2e4bd7550323f6da7e752bae
-        
-        let soap = SOAPEngine()
-        soap.userAgent = "SOAPEngine"
-        soap.actionNamespaceSlash = true
-        soap.licenseKey = "eJJDzkPK9Xx+p5cOH7w0Q+AvPdgK1fzWWuUpMaYCq3r1mwf36Ocw6dn0+CLjRaOiSjfXaFQBWMi+TxCpxVF/FA=="
-        //soap.responseHeader = true // use only for non standard MS-SOAP service
-        soap.setValue("608f44981dd5241547605947c1dc38e0", forKey:"token")
-        
-        //soap.token = "608f44981dd5241547605947c1dc38e0"
-        //soap.setValue("Genesis", forKey: "BookName")
-        //soap.setIntegerValue(1, forKey: "chapter")
-        
-    
-        
-        soap.requestURL("https://bonodom.com/api/token_validator",
-                        soapAction: "",
-                        complete: { (statusCode : Int, stringXML : String!) -> Void in
-                            
-                            
-                            //let book:Dictionary = dict as Dictionary
-                            //let verses:NSArray = book["BibleBookChapterVerse"] as! NSArray
-                            //self.verses = verses
-                            //self.table.reloadData()
-                        
-                            print("LOFASZ " + stringXML)
-                            
-        }) { (error : NSError!) -> Void in
-            
-            NSLog("%@", error)
-        }
 
 
     }
