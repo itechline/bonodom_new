@@ -42,7 +42,7 @@ class RestApiUtil: NSObject {
      postadatok.put("justme", jstme);
  */
     
-    func getEstateList(onCompletion: (JSON) -> Void) {
+    func getEstateList(ingatlan_id: String, page: Int, fav: Int,etype: Int, ordering: Int, justme: Int ,onCompletion: (JSON) -> Void) {
         
         let token = [ "token", "2d1933ceaf3fba2095fe8a4d4995cfc1"]
         let tokenpost = token.joinWithSeparator("=")
@@ -65,10 +65,6 @@ class RestApiUtil: NSObject {
         let postbody = pa.joinWithSeparator("&")
         
         let route = baseURL + "list_estates"
-        //let listEstateHeader: [String: String] = ["token": "608f44981dd5241547605947c1dc38e0"]
-        /*makeHTTPGetRequest(route, onCompletion: { json, err in
-         onCompletion(json as JSON)
-         })*/
         makeHTTPPostRequest(route, body: postbody, onCompletion: { json, err in
             onCompletion(json as JSON)
         })
