@@ -30,9 +30,22 @@ class MainViewController: UIViewController {
             }
         }
         
+        RestApiUtil.sharedInstance.getEstateList("0", page: 0, fav: 0, etype: 0, ordering: 0, justme: 0, onCompletion: { (json: JSON) in
+            //print ("ListEstate" + json)
+            print (json)
+            if let results = json.array {
+                for entry in results {
+                    //var asd: String!
+                    //asd = json["ingatlan_id"].stringValue
+                    self.items.append(EstateListModel(json: entry))
+                }
+                dispatch_async(dispatch_get_main_queue(),{
+                    self.tableView.reloadData()
+                })
+            }
+        })
         
-        
-        RestApiUtil.sharedInstance.getEstateList { (json: JSON) in
+        /*RestApiUtil.sharedInstance.getEstateList { (json: JSON) in
             //print ("ListEstate" + json)
             print (json)
             if let results = json.array {
@@ -47,7 +60,7 @@ class MainViewController: UIViewController {
             }
             
             
-        }
+        }*/
         
 
 

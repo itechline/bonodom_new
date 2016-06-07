@@ -31,6 +31,8 @@ class DataTableViewCell : BaseTableViewCell {
     @IBOutlet weak var descriptionText: UILabel!
     @IBOutlet weak var roomsText: UILabel!
     
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    
     @IBOutlet weak var priceText: UILabel!
     @IBOutlet weak var streetText: UILabel!
     override func awakeFromNib() {
@@ -45,7 +47,7 @@ class DataTableViewCell : BaseTableViewCell {
     override func setData(data: Any?) {
         if let data = data as? DataTableViewCellData {
             //self.dataImage.setRandomDownloadImage(100, height: 170)
-            self.dataImage.setImageFromURL(data.imageUrl)
+            self.dataImage.setImageFromURL(data.imageUrl, indicator: activityIndicator)
             self.dataText.text = data.adress
             self.sizeText.text = data.size
             self.descriptionText.text = data.description

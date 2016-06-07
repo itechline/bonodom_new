@@ -46,12 +46,14 @@ extension UIImageView {
         task.resume()
     }
     
-    func setImageFromURL(url: String) {
-        if self.image != nil {
-            self.alpha = 1
+    func setImageFromURL(url: String, indicator: UIActivityIndicatorView) {
+        //if self.image != nil {
+            //self.alpha = 0
             self.image = nil
+        indicator.startAnimating()
+        indicator.hidden = false
             //return
-        }
+        //}
         self.alpha = 0
         let url = NSURL(string: url)!
         let configuration = NSURLSessionConfiguration.defaultSessionConfiguration()
@@ -71,6 +73,9 @@ extension UIImageView {
                 if let data = data, let image = UIImage(data: data) {
                     dispatch_async(dispatch_get_main_queue(), { () -> Void in
                         self.image = image
+                        indicator.stopAnimating()
+                        indicator.hidden = true
+                        //self.clipParallaxEffect(image, screenSize: CGSize(width: 640, height: 1136), displayHeight: CGFloat(170))
                         UIView.animateWithDuration(0.3, animations: { () -> Void in
                             self.alpha = 1
                         }) { (finished: Bool) -> Void in
