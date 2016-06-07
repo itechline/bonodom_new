@@ -126,15 +126,35 @@ extension LeftViewController : UITableViewDelegate {
     }
 }
 
+var logoImage: [UIImage] = [
+    UIImage(named: "list_parking")!,
+    UIImage(named: "list_parking")!,
+    UIImage(named: "list_parking")!,
+    UIImage(named: "list_furniture")!,
+    UIImage(named: "list_furniture")!,
+    UIImage(named: "list_furniture")!,
+    UIImage(named: "list_furniture")!,
+    UIImage(named: "list_furniture")!,
+    UIImage(named: "list_furniture")!
+]
+
 extension LeftViewController : UITableViewDataSource {
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return menus.count
     }
 
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    /*func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = self.tableView.dequeueReusableCellWithIdentifier(MenuItemView.identifier) as! MenuItemView
         let data = MenuItemViewCellData(imageUrl_menu: "dummy", text_menu: menus[indexPath.row])
+        cell.setData(data)
+        return cell
+    }*/
+    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        
+        let cell = self.tableView.dequeueReusableCellWithIdentifier(MenuItemView.identifier) as! MenuItemView
+        let data = MenuItemViewCellData2(imagePath_menu: logoImage[indexPath.row], text_menu: menus[indexPath.row])
         cell.setData(data)
         return cell
     }
