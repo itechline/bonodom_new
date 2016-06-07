@@ -25,10 +25,14 @@ class EstateListModel {
         price = json["ingatlan_ar"].stringValue
         size = json["ingatlan_meret"].stringValue
         rooms = json["ingatlan_szsz_id"].stringValue
-        let picArray = json["kepek"].arrayValue
-        pic = "asd"
         
-        print("LOOOOOOOOOOFAAAAAAAASZ")
-        print(picArray)
+        for picArray in json["kepek"] {
+            print ("PICTURE")
+            print(picArray.1["kepek_url"].stringValue)
+            pic = picArray.1["kepek_url"].stringValue
+        }
+        if (pic == nil) {
+            pic = ""
+        }
     }
 }

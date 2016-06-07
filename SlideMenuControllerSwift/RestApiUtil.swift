@@ -17,19 +17,15 @@ class RestApiUtil: NSObject {
     
     func getTokenValidator(onCompletion: (JSON) -> Void) {
     
-        var token = [ "token", "3dfd55eec99e71877d9fe5e63b10fde5"]
-        var tokenpost = token.joinWithSeparator("=")
-        var ingatlan = [ "ingatlan_id", "id"]
-        var ingatlanid = ingatlan.joinWithSeparator("=")
-        var pa = [ tokenpost, ingatlanid ]
-        var postbody = pa.joinWithSeparator("&")
+        let token = [ "token", "2d1933ceaf3fba2095fe8a4d4995cfc1"]
+        let tokenpost = token.joinWithSeparator("=")
         
         let route = baseURL + "token_validator"
         //let listEstateHeader: [String: String] = ["token": "608f44981dd5241547605947c1dc38e0"]
         /*makeHTTPGetRequest(route, onCompletion: { json, err in
             onCompletion(json as JSON)
         })*/
-        makeHTTPPostRequest(route, body: postbody, onCompletion: { json, err in
+        makeHTTPPostRequest(route, body: tokenpost, onCompletion: { json, err in
             onCompletion(json as JSON)
             })
         
@@ -48,7 +44,7 @@ class RestApiUtil: NSObject {
     
     func getEstateList(onCompletion: (JSON) -> Void) {
         
-        let token = [ "token", "3dfd55eec99e71877d9fe5e63b10fde5"]
+        let token = [ "token", "2d1933ceaf3fba2095fe8a4d4995cfc1"]
         let tokenpost = token.joinWithSeparator("=")
         let ingatlan = [ "ingatlan_id", "0"]
         let ingatlanid = ingatlan.joinWithSeparator("=")

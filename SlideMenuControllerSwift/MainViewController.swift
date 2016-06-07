@@ -37,8 +37,8 @@ class MainViewController: UIViewController {
             print (json)
             if let results = json.array {
                 for entry in results {
-                    var asd: String!
-                    asd = json["ingatlan_id"].stringValue
+                    //var asd: String!
+                    //asd = json["ingatlan_id"].stringValue
                     self.items.append(EstateListModel(json: entry))
                 }
                 dispatch_async(dispatch_get_main_queue(),{

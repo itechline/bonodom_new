@@ -49,7 +49,8 @@ extension UIImageView {
     func setImageFromURL(url: String) {
         if self.image != nil {
             self.alpha = 1
-            return
+            self.image = nil
+            //return
         }
         self.alpha = 0
         let url = NSURL(string: url)!
