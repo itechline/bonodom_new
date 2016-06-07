@@ -8,7 +8,7 @@
 
 import UIKit
 
-struct MenuItemViewCellData {
+/*struct MenuItemViewCellData {
     
     init(imageUrl_menu: String, text_menu: String) {
         self.imageUrl_menu = imageUrl_menu
@@ -16,8 +16,17 @@ struct MenuItemViewCellData {
     }
     var imageUrl_menu: String
     var text_menu: String
-}
+}*/
 
+struct MenuItemViewCellData2{
+    
+    init(imagePath_menu: UIImage, text_menu: String){
+        self.imagePath_menu = imagePath_menu
+        self.text_menu = text_menu
+    }
+    var imagePath_menu: UIImage
+    var text_menu: String
+}
 class MenuItemView: BaseMenuItemViewController {
 
     @IBOutlet weak var dataImage: UIImageView!
@@ -32,11 +41,18 @@ class MenuItemView: BaseMenuItemViewController {
         return 30
     }
     
-    override func setData(data: Any?) {
+    /*override func setData(data: Any?) {
         if let data = data as? MenuItemViewCellData {
             self.dataImage.setRandomDownloadImage(50, height: 50)
             self.dataText.text = data.text_menu
         }
-    }
+    }*/
 
+    override func setData(data: Any?){
+        if let data = data as? MenuItemViewCellData2{
+            self.dataImage.image = data.imagePath_menu
+            self.dataText.text = data.text_menu
+        }
+    }
+    
 }
