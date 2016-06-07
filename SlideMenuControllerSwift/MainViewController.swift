@@ -33,7 +33,7 @@ class MainViewController: UIViewController {
             }
         }
         
-        RestApiUtil.sharedInstance.getEstateList("0", page: 0, fav: 0, etype: 0, ordering: 0, justme: 0, onCompletion: { (json: JSON) in
+        RestApiUtil.sharedInstance.getEstateList(0, page: 0, fav: 0, etype: 0, ordering: 0, justme: 0, onCompletion: { (json: JSON) in
             //print ("ListEstate" + json)
             print (json)
             if let results = json.array {
@@ -116,9 +116,15 @@ extension MainViewController : UITableViewDataSource {
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        let storyboard = UIStoryboard(name: "SubContentsViewController", bundle: nil)
+        /*let storyboard = UIStoryboard(name: "SubContentsViewController", bundle: nil)
         let subContentsVC = storyboard.instantiateViewControllerWithIdentifier("SubContentsViewController") as! SubContentsViewController
-        self.navigationController?.pushViewController(subContentsVC, animated: true)
+        self.navigationController?.pushViewController(subContentsVC, animated: true)*/
+        RestApiUtil.sharedInstance.getEstate(items[indexPath.row].id, onCompletion: { (json: JSON) in
+            print ("GETESTATE")
+            print (json)
+            
+            
+        })
     }
 }
 

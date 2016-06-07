@@ -21,43 +21,30 @@ class RestApiUtil: NSObject {
         let tokenpost = token.joinWithSeparator("=")
         
         let route = baseURL + "token_validator"
-        //let listEstateHeader: [String: String] = ["token": "608f44981dd5241547605947c1dc38e0"]
         /*makeHTTPGetRequest(route, onCompletion: { json, err in
             onCompletion(json as JSON)
         })*/
         makeHTTPPostRequest(route, body: tokenpost, onCompletion: { json, err in
             onCompletion(json as JSON)
             })
-        
     }
     
-    
-    /*
-     postadatok.put("ingatlan_id", idPost);
-     postadatok.put("page", pagePost);
-     postadatok.put("token", tokenTosend);
-     postadatok.put("favorites", favorites);
-     postadatok.put("etype", etype);
-     postadatok.put("ordering", ordering);
-     postadatok.put("justme", jstme);
- */
-    
-    func getEstateList(ingatlan_id: String, page: Int, fav: Int,etype: Int, ordering: Int, justme: Int ,onCompletion: (JSON) -> Void) {
+    func getEstateList(ingatlan_id: Int, page: Int, fav: Int,etype: Int, ordering: Int, justme: Int ,onCompletion: (JSON) -> Void) {
         
         let token = [ "token", "2d1933ceaf3fba2095fe8a4d4995cfc1"]
         let tokenpost = token.joinWithSeparator("=")
-        let ingatlan = [ "ingatlan_id", "0"]
-        let ingatlanid = ingatlan.joinWithSeparator("=")
-        let page = [ "page", "0"]
-        let page_send = page.joinWithSeparator("=")
-        let fav = [ "favorites", "0" ]
-        let fav_send = fav.joinWithSeparator("=")
-        let etype = [ "etype", "0"]
-        let etype_send = etype.joinWithSeparator("=")
-        let ordering = [ "ordering", "0"]
-        let ordering_send = ordering.joinWithSeparator("=")
-        let justme = [ "justme", "0"]
-        let justme_send = justme.joinWithSeparator("=")
+        let ingatlan_ = [ "ingatlan_id", String(ingatlan_id)]
+        let ingatlanid = ingatlan_.joinWithSeparator("=")
+        let page_ = [ "page", String(page)]
+        let page_send = page_.joinWithSeparator("=")
+        let fav_ = [ "favorites", String(fav) ]
+        let fav_send = fav_.joinWithSeparator("=")
+        let etype_ = [ "etype", String(etype)]
+        let etype_send = etype_.joinWithSeparator("=")
+        let ordering_ = [ "ordering", String(ordering)]
+        let ordering_send = ordering_.joinWithSeparator("=")
+        let justme_ = [ "justme", String(justme)]
+        let justme_send = justme_.joinWithSeparator("=")
         
         
         
@@ -65,6 +52,28 @@ class RestApiUtil: NSObject {
         let postbody = pa.joinWithSeparator("&")
         
         let route = baseURL + "list_estates"
+        makeHTTPPostRequest(route, body: postbody, onCompletion: { json, err in
+            onCompletion(json as JSON)
+        })
+        
+    }
+    
+    
+    
+    
+    func getEstate(ingatlan_id: Int, onCompletion: (JSON) -> Void) {
+        
+        let token = [ "token", "2d1933ceaf3fba2095fe8a4d4995cfc1"]
+        let tokenpost = token.joinWithSeparator("=")
+        let ingatlan_ = [ "id", String(ingatlan_id)]
+        let ingatlanid = ingatlan_.joinWithSeparator("=")
+        
+        
+        
+        let pa = [ tokenpost, ingatlanid]
+        let postbody = pa.joinWithSeparator("&")
+        
+        let route = baseURL + "get_estate"
         makeHTTPPostRequest(route, body: postbody, onCompletion: { json, err in
             onCompletion(json as JSON)
         })
