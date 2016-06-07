@@ -34,7 +34,7 @@
                             <rect key="frame" x="234" y="84" width="117" height="30"/>
                             <state key="normal" title="FB bejelentkezés"/>
                         </button>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="n8s-3x-r0S">
+                        <button opaque="NO" contentMode="scaleToFill" restorationIdentifier="LoginViewController" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="n8s-3x-r0S">
                             <rect key="frame" x="8" y="122" width="568" height="30"/>
                             <color key="backgroundColor" red="0.0" green="0.40000000000000002" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
                             <state key="normal" title="Bejelentkezés">

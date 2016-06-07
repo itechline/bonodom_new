@@ -27,6 +27,9 @@ class MainViewController: UIViewController {
             if (msg == true) {
                 //INGATLAN LISTA BETÖLTÉSE
             } else {
+                //let storyboard = UIStoryboard(name: "LoginViewController", bundle: nil)
+                //let loginView = storyboard.instantiateViewControllerWithIdentifier("LoginViewController") as! LoginViewController
+                //self.navigationController?.pushViewController(loginView, animated: true)
             }
         }
         
