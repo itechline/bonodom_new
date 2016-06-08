@@ -17,6 +17,8 @@ class EstateListModel {
     var rooms: String!
     var pic: String!
     
+    
+    
     required init(json: JSON) {
         id = json["ingatlan_id"].intValue
         adress = json["ingatlan_varos"].stringValue

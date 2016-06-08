@@ -39,12 +39,12 @@ class MainViewController: UIViewController {
     lazy var refreshControl: UIRefreshControl = {
         let refreshControl = UIRefreshControl()
         refreshControl.addTarget(self, action: #selector(MainViewController.handleRefresh(_:)), forControlEvents: UIControlEvents.ValueChanged)
-        
         return refreshControl
     }()
     
     func handleRefresh(refreshControl: UIRefreshControl) {
         self.items.removeAll()
+        currentPage = 0
         self.loadEstateList(0, page: 0, fav: 0, etype: 0, ordering: 0, justme: 0)
         
         refreshControl.endRefreshing()
@@ -108,7 +108,7 @@ extension MainViewController : UITableViewDataSource {
         if (indexPath.row == self.items.count - 1) {
             print ("BOTTOM REACHED")
             currentPage += 1
-            self.loadEstateList(209, page: currentPage, fav: 0, etype: 0, ordering: 0, justme: 0)
+            self.loadEstateList(0, page: currentPage, fav: 0, etype: 0, ordering: 0, justme: 0)
         }
         return cell
     }
