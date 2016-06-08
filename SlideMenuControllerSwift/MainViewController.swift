@@ -34,14 +34,6 @@ class MainViewController: UIViewController {
                 //self.navigationController?.pushViewController(loginView, animated: true)
             }
         }
-        
-
-        /*var refreshControl = UIRefreshControl()
-        refreshControl.addTarget(self, action: Selector("sortArray"), forControlEvents: UIControlEvents.ValueChanged)
-        self.refreshControl = refreshControl*/
-        
-        
-        
     }
     
     lazy var refreshControl: UIRefreshControl = {
