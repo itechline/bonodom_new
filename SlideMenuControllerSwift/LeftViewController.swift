@@ -127,15 +127,15 @@ extension LeftViewController : UITableViewDelegate {
 }
 
 var logoImage: [UIImage] = [
-    UIImage(named: "list_parking")!,
-    UIImage(named: "list_parking")!,
-    UIImage(named: "list_parking")!,
-    UIImage(named: "list_furniture")!,
-    UIImage(named: "list_furniture")!,
-    UIImage(named: "list_furniture")!,
-    UIImage(named: "list_furniture")!,
-    UIImage(named: "list_furniture")!,
-    UIImage(named: "list_furniture")!
+    UIImage(named: "ic_action_all_ad")!,
+    UIImage(named: "ic_action_prof")!,
+    UIImage(named: "ic_action_envelop")!,
+    UIImage(named: "ic_action_card")!,
+    UIImage(named: "ic_action_house")!,
+    UIImage(named: "ic_action_heart")!,
+    UIImage(named: "ic_action_binocular")!,
+    UIImage(named: "ic_action_agencies")!,
+    UIImage(named: "ic_action_logout")!
 ]
 
 extension LeftViewController : UITableViewDataSource {

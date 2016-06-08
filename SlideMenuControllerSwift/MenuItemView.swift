@@ -38,7 +38,7 @@ class MenuItemView: BaseMenuItemViewController {
     }
     
     override class func height() -> CGFloat {
-        return 30
+        return 60
     }
     
     /*override func setData(data: Any?) {
