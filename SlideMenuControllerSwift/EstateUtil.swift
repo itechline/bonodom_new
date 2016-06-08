@@ -10,24 +10,10 @@ import SwiftyJSON
 
 typealias ServiceResponse = (JSON, NSError?) -> Void
 
-class RestApiUtil: NSObject {
-    static let sharedInstance = RestApiUtil()
+class EstateUtil: NSObject {
+    static let sharedInstance = EstateUtil()
     
     let baseURL = "https://bonodom.com/api/"
-    
-    func getTokenValidator(onCompletion: (JSON) -> Void) {
-    
-        let token = [ "token", "2d1933ceaf3fba2095fe8a4d4995cfc1"]
-        let tokenpost = token.joinWithSeparator("=")
-        
-        let route = baseURL + "token_validator"
-        /*makeHTTPGetRequest(route, onCompletion: { json, err in
-            onCompletion(json as JSON)
-        })*/
-        makeHTTPPostRequest(route, body: tokenpost, onCompletion: { json, err in
-            onCompletion(json as JSON)
-            })
-    }
     
     func getEstateList(ingatlan_id: Int, page: Int, fav: Int,etype: Int, ordering: Int, justme: Int ,onCompletion: (JSON) -> Void) {
         

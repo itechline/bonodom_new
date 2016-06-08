@@ -7,26 +7,13 @@
 //
 
 import UIKit
+import SwiftyJSON
 
-struct SubContentsViewData {
-    
-    init(imageUrl: String, adress: String, street: String,description: String, size: String, rooms: String, price: String) {
-        self.imageUrl = imageUrl
-        self.adress = adress
-        self.street = street
-        self.description = description
-        self.size = size
-        self.rooms = rooms
-        self.price = price
-    }
-    var imageUrl: String
-    var adress: String
-    var street: String
-    var description: String
-    var size: String
-    var rooms: String
-    var price: String
-}
+
+
+
+
+
 
 class SubContentsViewController : UIViewController {
     @IBOutlet weak var mainImage: UIImageView!
@@ -36,17 +23,28 @@ class SubContentsViewController : UIViewController {
     @IBOutlet weak var streetText: UILabel!
     @IBOutlet weak var descriptionText: UITextView!
     
+    var id = 0;
+    
+    var estateItem = [EstateModel]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        //self.setTexts("FASZ")
+        EstateUtil.sharedInstance.getEstate(id, onCompletion: { (json: JSON) in
+            self.estateItem.append(EstateModel(json: json))
+            dispatch_async(dispatch_get_main_queue(),{
+                //self.tableView.reloadData()
+                self.setTexts()
+            })
+        })
+    
+    
     }
     
-    func setData(data: Any?) {
-        if let data = data as? DataTableViewCellData {
-            self.descriptionText.text = data.description
-            self.streetText.text = data.street
-            self.priceText.text = data.price
-            self.adressText.text = data.adress
-            //self.mainImage.setImageFromURL(data.imageUrl, indicator: nil)
-        }
+    func setTexts() {
+        self.adressText.text = estateItem[0].adress
+        self.streetText.text = estateItem[0].street
+        self.descriptionText.text = estateItem[0].description
+        self.priceText.text = estateItem[0].price
     }
 }

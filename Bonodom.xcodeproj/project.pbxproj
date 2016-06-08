@@ -51,11 +51,13 @@
 		C5F179CE1BEB2A5900EEDD9A /* UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5F179CD1BEB2A5900EEDD9A /* UIImage.swift */; };
 		C5F179D01BEB2CB500EEDD9A /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5F179CF1BEB2CB500EEDD9A /* UIView.swift */; };
 		C5F179D21BEB2FAF00EEDD9A /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5F179D11BEB2FAF00EEDD9A /* UIColor.swift */; };
+		E40A3AA81D0808770009D3E0 /* EstateModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E40A3AA71D0808770009D3E0 /* EstateModel.swift */; };
+		E40A3AAA1D080C170009D3E0 /* LoginUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = E40A3AA91D080C170009D3E0 /* LoginUtil.swift */; };
 		E454A7AD1D0189D90001CE17 /* SOAPEngine-Bridging-Header.h in Headers */ = {isa = PBXBuildFile; fileRef = E454A7AC1D0189D90001CE17 /* SOAPEngine-Bridging-Header.h */; };
 		E45A74071D0571E200CC9162 /* MenuItemView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E45A74061D0571E200CC9162 /* MenuItemView.xib */; };
 		E45A74091D05721D00CC9162 /* MenuItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E45A74081D05721D00CC9162 /* MenuItemView.swift */; };
 		E45A740B1D05725A00CC9162 /* BaseMenuItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E45A740A1D05725A00CC9162 /* BaseMenuItemViewController.swift */; };
-		E45A74101D059A4800CC9162 /* RestApiUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = E45A740F1D059A4800CC9162 /* RestApiUtil.swift */; };
+		E45A74101D059A4800CC9162 /* EstateUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = E45A740F1D059A4800CC9162 /* EstateUtil.swift */; };
 		E47E36CA1D059EB90095FA6B /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = E47E36C91D059EB90095FA6B /* Podfile */; };
 		E47E36CD1D05A5080095FA6B /* EstateListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E47E36CC1D05A5080095FA6B /* EstateListModel.swift */; };
 /* End PBXBuildFile section */
@@ -121,11 +123,13 @@
 		C5F179CD1BEB2A5900EEDD9A /* UIImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImage.swift; sourceTree = "<group>"; };
 		C5F179CF1BEB2CB500EEDD9A /* UIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
 		C5F179D11BEB2FAF00EEDD9A /* UIColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
+		E40A3AA71D0808770009D3E0 /* EstateModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EstateModel.swift; sourceTree = "<group>"; };
+		E40A3AA91D080C170009D3E0 /* LoginUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginUtil.swift; sourceTree = "<group>"; };
 		E454A7AC1D0189D90001CE17 /* SOAPEngine-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SOAPEngine-Bridging-Header.h"; sourceTree = "<group>"; };
 		E45A74061D0571E200CC9162 /* MenuItemView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MenuItemView.xib; sourceTree = "<group>"; };
 		E45A74081D05721D00CC9162 /* MenuItemView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuItemView.swift; sourceTree = "<group>"; };
 		E45A740A1D05725A00CC9162 /* BaseMenuItemViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseMenuItemViewController.swift; sourceTree = "<group>"; };
-		E45A740F1D059A4800CC9162 /* RestApiUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestApiUtil.swift; sourceTree = "<group>"; };
+		E45A740F1D059A4800CC9162 /* EstateUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EstateUtil.swift; sourceTree = "<group>"; };
 		E47E36C91D059EB90095FA6B /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		E47E36CC1D05A5080095FA6B /* EstateListModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EstateListModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -326,7 +330,8 @@
 		E45A740E1D059A2900CC9162 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
-				E45A740F1D059A4800CC9162 /* RestApiUtil.swift */,
+				E45A740F1D059A4800CC9162 /* EstateUtil.swift */,
+				E40A3AA91D080C170009D3E0 /* LoginUtil.swift */,
 			);
 			name = Utils;
 			sourceTree = "<group>";
@@ -335,6 +340,7 @@
 			isa = PBXGroup;
 			children = (
 				E47E36CC1D05A5080095FA6B /* EstateListModel.swift */,
+				E40A3AA71D0808770009D3E0 /* EstateModel.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -573,16 +579,18 @@
 				57DFCF961D01BBB900A69B8A /* AdMonitorController.swift in Sources */,
 				E45A74091D05721D00CC9162 /* MenuItemView.swift in Sources */,
 				57DFCF9A1D01C22A00A69B8A /* InviteViewController.swift in Sources */,
+				E40A3AA81D0808770009D3E0 /* EstateModel.swift in Sources */,
 				E47E36CD1D05A5080095FA6B /* EstateListModel.swift in Sources */,
 				C5BF6A861BEF4C080064C18E /* SubContentsViewController.swift in Sources */,
 				C5BD39DC1A6CD15700D0AF95 /* JavaViewController.swift in Sources */,
-				E45A74101D059A4800CC9162 /* RestApiUtil.swift in Sources */,
+				E45A74101D059A4800CC9162 /* EstateUtil.swift in Sources */,
 				E45A740B1D05725A00CC9162 /* BaseMenuItemViewController.swift in Sources */,
 				C5BA8AA61A43E2EF00863FB9 /* SlideMenuController.swift in Sources */,
 				C539E66E1A316F5F003B7CC7 /* RightViewController.swift in Sources */,
 				576D35F41D05B87400DFA2BD /* RegisterViewController.swift in Sources */,
 				C5C1CE5F1A70F2FD00B6E411 /* String.swift in Sources */,
 				57DFCF981D01BFCD00A69B8A /* AgenciesViewController.swift in Sources */,
+				E40A3AAA1D080C170009D3E0 /* LoginUtil.swift in Sources */,
 				C5F179D01BEB2CB500EEDD9A /* UIView.swift in Sources */,
 				C5BD39DA1A6CD12300D0AF95 /* SwiftViewController.swift in Sources */,
 			);
