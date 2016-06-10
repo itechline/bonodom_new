@@ -49,8 +49,9 @@ class MainViewController: UIViewController, LiquidFloatingActionButtonDataSource
             floatingActionButton.animateStyle = style
             floatingActionButton.dataSource = self
             floatingActionButton.delegate = self
+            floatingActionButton.isAddEstateButton = true
+            //floatingActionButton.isPhoneButton = true
             //floatingActionButton.image = UIImage(named: "ic_action_heart")
-            
             return floatingActionButton
         }
         
@@ -148,7 +149,6 @@ extension MainViewController : UITableViewDataSource {
      
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
-        //KURVÁRADENEMJÓMÉGÍGY
         let cell = self.tableView.dequeueReusableCellWithIdentifier(DataTableViewCell.identifier) as! DataTableViewCell
         let data = DataTableViewCellData(imageUrl: items[indexPath.row].pic,
                                          adress: String(items[indexPath.row].id),
