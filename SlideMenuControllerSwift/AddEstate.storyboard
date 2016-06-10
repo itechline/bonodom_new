@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="sJy-2H-fz6">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="sJy-2H-fz6">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -58,10 +58,10 @@
             </objects>
             <point key="canvasLocation" x="707" y="1301"/>
         </scene>
-        <!--Add Esatete Scene View Controller-->
+        <!--AddEstate-->
         <scene sceneID="l40-ne-qv7">
             <objects>
-                <viewController storyboardIdentifier="AddEsateteScene" id="sJy-2H-fz6" customClass="AddEsateteSceneViewController" customModule="Bonodom" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AddEsateteScene" title="AddEstate" id="sJy-2H-fz6" customClass="AddEsateteSceneViewController" customModule="Bonodom" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="a4m-j2-H7X"/>
                         <viewControllerLayoutGuide type="bottom" id="v2o-C7-stM"/>

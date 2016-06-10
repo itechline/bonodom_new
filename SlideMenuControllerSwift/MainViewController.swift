@@ -27,7 +27,6 @@ class MainViewController: UIViewController, LiquidFloatingActionButtonDataSource
         //SettingUtil.sharedInstance.setToken("2d1933ceaf3fba2095fe8a4d4995cfc1")
         
         
-        
         if (SettingUtil.sharedInstance.getToken() != "") {
             LoginUtil.sharedInstance.getTokenValidator { (json: JSON) in
                 print (json)

@@ -6,7 +6,7 @@
 //  Copyright © 2016 Itechline. All rights reserved.
 //
 
-import UIKit
+/*import UIKit
 
 class AddEsateteSceneViewController: UIViewController, UIPageViewControllerDataSource {
     
@@ -118,4 +118,4 @@ class AddEsateteSceneViewController: UIViewController, UIPageViewControllerDataS
     
     
     
-}
+}*/
