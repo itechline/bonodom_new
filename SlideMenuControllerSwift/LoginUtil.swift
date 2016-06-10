@@ -23,7 +23,7 @@ class LoginUtil: NSObject {
     
     func getTokenValidator(onCompletion: (JSON) -> Void) {
         
-        let token = [ "token", "2d1933ceaf3fba2095fe8a4d4995cfc1"]
+        let token = [ "token", SettingUtil.sharedInstance.getToken()]
         let tokenpost = token.joinWithSeparator("=")
         
         let route = baseURL + "token_validator"
@@ -53,7 +53,7 @@ class LoginUtil: NSObject {
     
     func doLogout(email: String, password: String, onCompletion: (JSON) -> Void) {
         
-        let token = [ "token", "2d1933ceaf3fba2095fe8a4d4995cfc1"]
+        let token = [ "token", SettingUtil.sharedInstance.getToken()]
         let tokenpost = token.joinWithSeparator("=")
         
         let route = baseURL + "do_logout"

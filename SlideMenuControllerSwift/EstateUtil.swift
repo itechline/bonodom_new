@@ -17,7 +17,7 @@ class EstateUtil: NSObject {
     
     func getEstateList(ingatlan_id: Int, page: Int, fav: Int,etype: Int, ordering: Int, justme: Int ,onCompletion: (JSON) -> Void) {
         
-        let token = [ "token", "2d1933ceaf3fba2095fe8a4d4995cfc1"]
+        let token = [ "token", SettingUtil.sharedInstance.getToken()]
         let tokenpost = token.joinWithSeparator("=")
         let ingatlan_ = [ "ingatlan_id", String(ingatlan_id)]
         let ingatlanid = ingatlan_.joinWithSeparator("=")
@@ -49,7 +49,7 @@ class EstateUtil: NSObject {
     
     func getEstate(ingatlan_id: Int, onCompletion: (JSON) -> Void) {
         
-        let token = [ "token", "2d1933ceaf3fba2095fe8a4d4995cfc1"]
+        let token = [ "token", SettingUtil.sharedInstance.getToken()]
         let tokenpost = token.joinWithSeparator("=")
         let ingatlan_ = [ "id", String(ingatlan_id)]
         let ingatlanid = ingatlan_.joinWithSeparator("=")

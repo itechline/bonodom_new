@@ -20,20 +20,32 @@ class MainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tableView.registerCellNib(DataTableViewCell.self)
+        //SettingUtil.sharedInstance.setToken("2d1933ceaf3fba2095fe8a4d4995cfc1")
         
-        LoginUtil.sharedInstance.getTokenValidator { (json: JSON) in
-            print (json)
-            var msg: Bool!
-            msg = json["token_active"].boolValue
-            if (msg == true) {
-                self.loadEstateList(0, page: 0, fav: 0, etype: 0, ordering: 0, justme: 0)
-                self.tableView.addSubview(self.refreshControl)
-            } else {
-                //let storyboard = UIStoryboard(name: "LoginViewController", bundle: nil)
-                //let loginView = storyboard.instantiateViewControllerWithIdentifier("LoginViewController") as! LoginViewController
-                //self.navigationController?.pushViewController(loginView, animated: true)
+        
+        
+        if (SettingUtil.sharedInstance.getToken() != "") {
+            LoginUtil.sharedInstance.getTokenValidator { (json: JSON) in
+                print (json)
+                var msg: Bool!
+                msg = json["token_active"].boolValue
+                if (msg == true) {
+                    self.loadEstateList(0, page: 0, fav: 0, etype: 0, ordering: 0, justme: 0)
+                    self.tableView.addSubview(self.refreshControl)
+                } else {
+                    self.loadRegistration()
+                }
             }
+        } else {
+            self.loadRegistration()
         }
+    }
+    
+    func loadRegistration() {
+        print ("Load Registration")
+        //let storyboard = UIStoryboard(name: "LoginViewController", bundle: nil)
+        //let loginView = storyboard.instantiateViewControllerWithIdentifier("LoginViewController") as! LoginViewController
+        //self.navigationController?.pushViewController(loginView, animated: true)
     }
     
     lazy var refreshControl: UIRefreshControl = {
@@ -114,24 +126,6 @@ extension MainViewController : UITableViewDataSource {
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        /*EstateUtil.sharedInstance.getEstate(items[indexPath.row].id, onCompletion: { (json: JSON) in
-            //print ("GETESTATE")
-            //print (json)
-            self.estateItem.append(EstateModel(json: json))
-            
-                let data = SubContentsViewData(imageUrl: self.estateItem[0].pic,
-                    adress: String(self.estateItem[0].adress),
-                    street: self.estateItem[0].street,
-                    description: self.estateItem[0].description,
-                    size: self.estateItem[0].size,
-                    rooms: self.estateItem[0].rooms,
-                    price: self.estateItem[0].price)
-                //cell.setData(data)
-            SubContentsViewController().setData(data)
-            
-            
-        })*/
-        //SubContentsViewData.init(id: items[indexPath.row].id)
         let storyboard = UIStoryboard(name: "SubContentsViewController", bundle: nil)
         let subContentsVC = storyboard.instantiateViewControllerWithIdentifier("SubContentsViewController") as! SubContentsViewController
         subContentsVC.id = items[indexPath.row].id

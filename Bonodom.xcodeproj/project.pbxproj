@@ -53,6 +53,7 @@
 		C5F179D21BEB2FAF00EEDD9A /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5F179D11BEB2FAF00EEDD9A /* UIColor.swift */; };
 		E40A3AA81D0808770009D3E0 /* EstateModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E40A3AA71D0808770009D3E0 /* EstateModel.swift */; };
 		E40A3AAA1D080C170009D3E0 /* LoginUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = E40A3AA91D080C170009D3E0 /* LoginUtil.swift */; };
+		E43ECE451D0965B60026A3AD /* SettingUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = E43ECE441D0965B60026A3AD /* SettingUtil.swift */; };
 		E454A7AD1D0189D90001CE17 /* SOAPEngine-Bridging-Header.h in Headers */ = {isa = PBXBuildFile; fileRef = E454A7AC1D0189D90001CE17 /* SOAPEngine-Bridging-Header.h */; };
 		E45A74071D0571E200CC9162 /* MenuItemView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E45A74061D0571E200CC9162 /* MenuItemView.xib */; };
 		E45A74091D05721D00CC9162 /* MenuItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E45A74081D05721D00CC9162 /* MenuItemView.swift */; };
@@ -125,6 +126,7 @@
 		C5F179D11BEB2FAF00EEDD9A /* UIColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		E40A3AA71D0808770009D3E0 /* EstateModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EstateModel.swift; sourceTree = "<group>"; };
 		E40A3AA91D080C170009D3E0 /* LoginUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginUtil.swift; sourceTree = "<group>"; };
+		E43ECE441D0965B60026A3AD /* SettingUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingUtil.swift; sourceTree = "<group>"; };
 		E454A7AC1D0189D90001CE17 /* SOAPEngine-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SOAPEngine-Bridging-Header.h"; sourceTree = "<group>"; };
 		E45A74061D0571E200CC9162 /* MenuItemView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MenuItemView.xib; sourceTree = "<group>"; };
 		E45A74081D05721D00CC9162 /* MenuItemView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuItemView.swift; sourceTree = "<group>"; };
@@ -332,6 +334,7 @@
 			children = (
 				E45A740F1D059A4800CC9162 /* EstateUtil.swift */,
 				E40A3AA91D080C170009D3E0 /* LoginUtil.swift */,
+				E43ECE441D0965B60026A3AD /* SettingUtil.swift */,
 			);
 			name = Utils;
 			sourceTree = "<group>";
@@ -587,6 +590,7 @@
 				E45A740B1D05725A00CC9162 /* BaseMenuItemViewController.swift in Sources */,
 				C5BA8AA61A43E2EF00863FB9 /* SlideMenuController.swift in Sources */,
 				C539E66E1A316F5F003B7CC7 /* RightViewController.swift in Sources */,
+				E43ECE451D0965B60026A3AD /* SettingUtil.swift in Sources */,
 				576D35F41D05B87400DFA2BD /* RegisterViewController.swift in Sources */,
 				C5C1CE5F1A70F2FD00B6E411 /* String.swift in Sources */,
 				57DFCF981D01BFCD00A69B8A /* AgenciesViewController.swift in Sources */,
