@@ -1,14 +1,14 @@
 //
-//  LoginViewController.swift
+//  LoginScreenViewController.swift
 //  Bonodom
 //
-//  Created by Attila Dan on 06/06/16.
+//  Created by Attila Dan on 10/06/16.
 //  Copyright © 2016 Itechline. All rights reserved.
 //
 
 import UIKit
 
-class LoginViewController: UIViewController {
+class LoginScreenViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

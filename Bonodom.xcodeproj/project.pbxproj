@@ -14,10 +14,9 @@
 		57449A941D01B1B400539442 /* FavMenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57449A931D01B1B400539442 /* FavMenuController.swift */; };
 		576D35EC1D05A83B00DFA2BD /* MessageItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 576D35EA1D05A83B00DFA2BD /* MessageItemViewController.swift */; };
 		576D35ED1D05A83B00DFA2BD /* MessageItemViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 576D35EB1D05A83B00DFA2BD /* MessageItemViewController.xib */; };
-		576D35F01D05B3E300DFA2BD /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 576D35EE1D05B3E300DFA2BD /* LoginViewController.swift */; };
-		576D35F11D05B3E300DFA2BD /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 576D35EF1D05B3E300DFA2BD /* LoginViewController.xib */; };
-		576D35F41D05B87400DFA2BD /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 576D35F21D05B87400DFA2BD /* RegisterViewController.swift */; };
-		576D35F51D05B87400DFA2BD /* RegisterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 576D35F31D05B87400DFA2BD /* RegisterViewController.xib */; };
+		57873B4E1D0AE33000F4309A /* LoginView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 57873B4D1D0AE33000F4309A /* LoginView.storyboard */; };
+		57873B501D0AE82000F4309A /* LoginScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57873B4F1D0AE82000F4309A /* LoginScreenViewController.swift */; };
+		57873B521D0AE84900F4309A /* RegisterScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57873B511D0AE84900F4309A /* RegisterScreenViewController.swift */; };
 		57DFCF961D01BBB900A69B8A /* AdMonitorController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57DFCF951D01BBB900A69B8A /* AdMonitorController.swift */; };
 		57DFCF981D01BFCD00A69B8A /* AgenciesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57DFCF971D01BFCD00A69B8A /* AgenciesViewController.swift */; };
 		57DFCF9A1D01C22A00A69B8A /* InviteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57DFCF991D01C22A00A69B8A /* InviteViewController.swift */; };
@@ -82,10 +81,9 @@
 		57449A931D01B1B400539442 /* FavMenuController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavMenuController.swift; sourceTree = "<group>"; };
 		576D35EA1D05A83B00DFA2BD /* MessageItemViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageItemViewController.swift; sourceTree = "<group>"; };
 		576D35EB1D05A83B00DFA2BD /* MessageItemViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MessageItemViewController.xib; sourceTree = "<group>"; };
-		576D35EE1D05B3E300DFA2BD /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
-		576D35EF1D05B3E300DFA2BD /* LoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
-		576D35F21D05B87400DFA2BD /* RegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
-		576D35F31D05B87400DFA2BD /* RegisterViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RegisterViewController.xib; sourceTree = "<group>"; };
+		57873B4D1D0AE33000F4309A /* LoginView.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LoginView.storyboard; sourceTree = "<group>"; };
+		57873B4F1D0AE82000F4309A /* LoginScreenViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginScreenViewController.swift; sourceTree = "<group>"; };
+		57873B511D0AE84900F4309A /* RegisterScreenViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterScreenViewController.swift; sourceTree = "<group>"; };
 		57DFCF951D01BBB900A69B8A /* AdMonitorController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdMonitorController.swift; sourceTree = "<group>"; };
 		57DFCF971D01BFCD00A69B8A /* AgenciesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AgenciesViewController.swift; sourceTree = "<group>"; };
 		57DFCF991D01C22A00A69B8A /* InviteViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InviteViewController.swift; sourceTree = "<group>"; };
@@ -304,10 +302,9 @@
 				57DFCF951D01BBB900A69B8A /* AdMonitorController.swift */,
 				57DFCF971D01BFCD00A69B8A /* AgenciesViewController.swift */,
 				57DFCF991D01C22A00A69B8A /* InviteViewController.swift */,
-				576D35EE1D05B3E300DFA2BD /* LoginViewController.swift */,
-				576D35EF1D05B3E300DFA2BD /* LoginViewController.xib */,
-				576D35F21D05B87400DFA2BD /* RegisterViewController.swift */,
-				576D35F31D05B87400DFA2BD /* RegisterViewController.xib */,
+				57873B4D1D0AE33000F4309A /* LoginView.storyboard */,
+				57873B511D0AE84900F4309A /* RegisterScreenViewController.swift */,
+				57873B4F1D0AE82000F4309A /* LoginScreenViewController.swift */,
 			);
 			name = ViewController;
 			sourceTree = "<group>";
@@ -477,8 +474,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				576D35F51D05B87400DFA2BD /* RegisterViewController.xib in Resources */,
-				576D35F11D05B3E300DFA2BD /* LoginViewController.xib in Resources */,
+				57873B4E1D0AE33000F4309A /* LoginView.storyboard in Resources */,
 				E45A74071D0571E200CC9162 /* MenuItemView.xib in Resources */,
 				C5498C801BE897660076A7C5 /* ImageHeaderView.xib in Resources */,
 				C5BF6A8A1BF3335D0064C18E /* SubContentsViewController.storyboard in Resources */,
@@ -564,18 +560,19 @@
 			files = (
 				C5BF6A8E1BF34A8B0064C18E /* UIApplication.swift in Sources */,
 				C5BD39DE1A6CD17B00D0AF95 /* GoViewController.swift in Sources */,
+				57873B501D0AE82000F4309A /* LoginScreenViewController.swift in Sources */,
 				C539E64C1A315E87003B7CC7 /* MainViewController.swift in Sources */,
 				C5BD39E01A6CDC8100D0AF95 /* UIViewController.swift in Sources */,
 				C5C1CE611A70F3B600B6E411 /* UITableViewExtension.swift in Sources */,
 				C539E64A1A315E87003B7CC7 /* SlideMenuControllerSwift.xcdatamodeld in Sources */,
 				C5BF6A8C1BF340020064C18E /* ExSlideMenuController.swift in Sources */,
 				C5C1CE5D1A70F27500B6E411 /* BaseTableViewCell.swift in Sources */,
+				57873B521D0AE84900F4309A /* RegisterScreenViewController.swift in Sources */,
 				57449A941D01B1B400539442 /* FavMenuController.swift in Sources */,
 				C539E66C1A316C78003B7CC7 /* LeftViewController.swift in Sources */,
 				C5BF6A821BEEF1A70064C18E /* DataTableViewCell.swift in Sources */,
 				C539E6471A315E87003B7CC7 /* AppDelegate.swift in Sources */,
 				C5F179D21BEB2FAF00EEDD9A /* UIColor.swift in Sources */,
-				576D35F01D05B3E300DFA2BD /* LoginViewController.swift in Sources */,
 				C5F179CE1BEB2A5900EEDD9A /* UIImage.swift in Sources */,
 				C5498C821BE8994F0076A7C5 /* UIImageView.swift in Sources */,
 				576D35EC1D05A83B00DFA2BD /* MessageItemViewController.swift in Sources */,
@@ -593,7 +590,6 @@
 				C5BA8AA61A43E2EF00863FB9 /* SlideMenuController.swift in Sources */,
 				C539E66E1A316F5F003B7CC7 /* RightViewController.swift in Sources */,
 				E43ECE451D0965B60026A3AD /* SettingUtil.swift in Sources */,
-				576D35F41D05B87400DFA2BD /* RegisterViewController.swift in Sources */,
 				C5C1CE5F1A70F2FD00B6E411 /* String.swift in Sources */,
 				57DFCF981D01BFCD00A69B8A /* AgenciesViewController.swift in Sources */,
 				E40A3AAA1D080C170009D3E0 /* LoginUtil.swift in Sources */,

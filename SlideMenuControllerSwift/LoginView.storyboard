@@ -1,0 +1,334 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <scenes>
+        <!--Login-->
+        <scene sceneID="3Rn-Gy-UyS">
+            <objects>
+                <viewController title="Login" id="k7G-rT-6Bv" customClass="LoginScreenViewController" customModule="Bonodom" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="oLO-vs-xdF"/>
+                        <viewControllerLayoutGuide type="bottom" id="ksh-gw-iFg"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="nur-xu-4Cl">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oW4-zh-akj">
+                                <rect key="frame" x="20" y="186" width="560" height="227"/>
+                                <subviews>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email:" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Idx-DR-K1J">
+                                        <rect key="frame" x="8" y="23" width="544" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="jgD-cY-2fn"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Jelszó:" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6Tj-Hw-0Ru">
+                                        <rect key="frame" x="8" y="61" width="544" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="Mbc-GB-gXz"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B2a-KJ-xZ3">
+                                        <rect key="frame" x="8" y="99" width="544" height="30"/>
+                                        <fontDescription key="fontDescription" type="italicSystem" pointSize="13"/>
+                                        <state key="normal" title="FB bejelentkezés"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="v8H-ea-jWb">
+                                        <rect key="frame" x="8" y="175" width="544" height="30"/>
+                                        <state key="normal">
+                                            <attributedString key="attributedTitle">
+                                                <fragment content="Elfelejtette jelszavát? ">
+                                                    <attributes>
+                                                        <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <font key="NSFont" size="15" name="HelveticaNeue-Italic"/>
+                                                        <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                    </attributes>
+                                                </fragment>
+                                                <fragment content="Emlékeztető">
+                                                    <attributes>
+                                                        <color key="NSColor" red="0.0" green="0.40000000000000002" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <font key="NSFont" size="15" name="HelveticaNeue-Italic"/>
+                                                        <font key="NSOriginalFont" size="15" name="HelveticaNeue-Italic"/>
+                                                        <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                    </attributes>
+                                                </fragment>
+                                            </attributedString>
+                                        </state>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="igE-w1-Pho">
+                                        <rect key="frame" x="8" y="137" width="544" height="30"/>
+                                        <color key="backgroundColor" red="0.0" green="0.40000000000000002" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
+                                        <state key="normal" title="Bejelentkezés">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="6Tj-Hw-0Ru" firstAttribute="top" secondItem="Idx-DR-K1J" secondAttribute="bottom" constant="8" symbolic="YES" id="6s2-iT-tP4"/>
+                                    <constraint firstItem="6Tj-Hw-0Ru" firstAttribute="leading" secondItem="B2a-KJ-xZ3" secondAttribute="leading" id="CXa-1P-0J6"/>
+                                    <constraint firstItem="B2a-KJ-xZ3" firstAttribute="top" secondItem="6Tj-Hw-0Ru" secondAttribute="bottom" constant="8" symbolic="YES" id="Dml-qP-k6x"/>
+                                    <constraint firstItem="Idx-DR-K1J" firstAttribute="leading" secondItem="6Tj-Hw-0Ru" secondAttribute="leading" id="GRN-DM-ZhI"/>
+                                    <constraint firstItem="Idx-DR-K1J" firstAttribute="top" secondItem="oW4-zh-akj" secondAttribute="top" constant="23" id="HP1-dI-Xad"/>
+                                    <constraint firstItem="6Tj-Hw-0Ru" firstAttribute="trailing" secondItem="B2a-KJ-xZ3" secondAttribute="trailing" id="Jie-Gm-vP2"/>
+                                    <constraint firstItem="B2a-KJ-xZ3" firstAttribute="centerY" secondItem="oW4-zh-akj" secondAttribute="centerY" id="Lyi-0S-p8N"/>
+                                    <constraint firstItem="igE-w1-Pho" firstAttribute="trailing" secondItem="v8H-ea-jWb" secondAttribute="trailing" id="O8H-CX-uiE"/>
+                                    <constraint firstItem="igE-w1-Pho" firstAttribute="top" secondItem="B2a-KJ-xZ3" secondAttribute="bottom" constant="8" symbolic="YES" id="UXU-1M-WcJ"/>
+                                    <constraint firstItem="B2a-KJ-xZ3" firstAttribute="trailing" secondItem="igE-w1-Pho" secondAttribute="trailing" id="Y3l-hC-wjA"/>
+                                    <constraint firstItem="Idx-DR-K1J" firstAttribute="leading" secondItem="oW4-zh-akj" secondAttribute="leadingMargin" id="cv2-rq-coq"/>
+                                    <constraint firstItem="Idx-DR-K1J" firstAttribute="trailing" secondItem="oW4-zh-akj" secondAttribute="trailingMargin" id="kKE-LW-y56"/>
+                                    <constraint firstItem="v8H-ea-jWb" firstAttribute="top" secondItem="igE-w1-Pho" secondAttribute="bottom" constant="8" symbolic="YES" id="lVZ-Zm-68H"/>
+                                    <constraint firstItem="Idx-DR-K1J" firstAttribute="trailing" secondItem="6Tj-Hw-0Ru" secondAttribute="trailing" id="qWp-Hy-aPC"/>
+                                    <constraint firstItem="igE-w1-Pho" firstAttribute="leading" secondItem="v8H-ea-jWb" secondAttribute="leading" id="r9X-3F-08t"/>
+                                    <constraint firstItem="B2a-KJ-xZ3" firstAttribute="leading" secondItem="igE-w1-Pho" secondAttribute="leading" id="yaG-Kc-QT7"/>
+                                </constraints>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="oCQ-Tt-WpX">
+                                <rect key="frame" x="20" y="421" width="560" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="mwc-cu-pWI"/>
+                                </constraints>
+                                <state key="normal">
+                                    <attributedString key="attributedTitle">
+                                        <fragment content="Még nincs fiókja? ">
+                                            <attributes>
+                                                <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                <font key="NSFont" size="15" name="HelveticaNeue-Italic"/>
+                                            </attributes>
+                                        </fragment>
+                                        <fragment content="Regisztráljon">
+                                            <attributes>
+                                                <color key="NSColor" red="0.0" green="0.40000000000000002" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
+                                                <font key="NSFont" size="15" name="HelveticaNeue-Italic"/>
+                                                <font key="NSOriginalFont" size="15" name="HelveticaNeue-Italic"/>
+                                            </attributes>
+                                        </fragment>
+                                    </attributedString>
+                                </state>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="main_house" translatesAutoresizingMaskIntoConstraints="NO" id="oko-wF-YBU">
+                                <rect key="frame" x="0.0" y="515" width="600" height="85"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="85" id="6VV-XX-hvD"/>
+                                </constraints>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bonodom_logo" translatesAutoresizingMaskIntoConstraints="NO" id="mgo-An-8Q1">
+                                <rect key="frame" x="0.0" y="28" width="600" height="150"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="oW4-zh-akj" firstAttribute="leading" secondItem="oCQ-Tt-WpX" secondAttribute="leading" id="3XX-Ac-dff"/>
+                            <constraint firstItem="oW4-zh-akj" firstAttribute="trailing" secondItem="oCQ-Tt-WpX" secondAttribute="trailing" id="968-d0-KbK"/>
+                            <constraint firstItem="oko-wF-YBU" firstAttribute="top" secondItem="oCQ-Tt-WpX" secondAttribute="bottom" constant="64" id="BTq-sZ-801"/>
+                            <constraint firstItem="oW4-zh-akj" firstAttribute="leading" secondItem="nur-xu-4Cl" secondAttribute="leadingMargin" id="DdT-pi-JEP"/>
+                            <constraint firstItem="oW4-zh-akj" firstAttribute="top" secondItem="mgo-An-8Q1" secondAttribute="bottom" constant="8" symbolic="YES" id="G0r-fj-n8G"/>
+                            <constraint firstItem="oCQ-Tt-WpX" firstAttribute="top" secondItem="oW4-zh-akj" secondAttribute="bottom" constant="8" symbolic="YES" id="HKj-gP-UEy"/>
+                            <constraint firstItem="oko-wF-YBU" firstAttribute="bottom" secondItem="ksh-gw-iFg" secondAttribute="top" id="Hk0-H9-0d7"/>
+                            <constraint firstItem="mgo-An-8Q1" firstAttribute="top" secondItem="oLO-vs-xdF" secondAttribute="bottom" constant="8" symbolic="YES" id="K7C-N5-tGg"/>
+                            <constraint firstItem="mgo-An-8Q1" firstAttribute="trailing" secondItem="oko-wF-YBU" secondAttribute="trailing" id="ReM-Tw-3Df"/>
+                            <constraint firstItem="oW4-zh-akj" firstAttribute="centerY" secondItem="nur-xu-4Cl" secondAttribute="centerY" id="WaW-55-Pwk"/>
+                            <constraint firstItem="mgo-An-8Q1" firstAttribute="leading" secondItem="nur-xu-4Cl" secondAttribute="leading" id="ecI-Oh-VHG"/>
+                            <constraint firstItem="oCQ-Tt-WpX" firstAttribute="centerX" secondItem="oko-wF-YBU" secondAttribute="centerX" id="jtY-Gv-1Xn"/>
+                            <constraint firstAttribute="trailing" secondItem="mgo-An-8Q1" secondAttribute="trailing" id="mi0-vX-xDK"/>
+                            <constraint firstItem="mgo-An-8Q1" firstAttribute="leading" secondItem="oko-wF-YBU" secondAttribute="leading" id="vod-oO-cQv"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ALh-Gf-EBw" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="340" y="365"/>
+        </scene>
+        <!--Register-->
+        <scene sceneID="nNf-vg-T2v">
+            <objects>
+                <viewController title="Register" id="udE-Lg-fDk" customClass="RegisterScreenViewController" customModule="Bonodom" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="xM0-M0-58H"/>
+                        <viewControllerLayoutGuide type="bottom" id="H3I-Gv-9FP"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="jJJ-sL-2zp">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bonodom_logo" translatesAutoresizingMaskIntoConstraints="NO" id="YFT-vX-cdm">
+                                <rect key="frame" x="0.0" y="28" width="600" height="135"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="135" id="s8j-FD-N1G"/>
+                                </constraints>
+                            </imageView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vvc-gR-JcC">
+                                <rect key="frame" x="20" y="171" width="560" height="287"/>
+                                <subviews>
+                                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="6Cu-tY-mgv">
+                                        <rect key="frame" x="8" y="8" width="544" height="29"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="28" id="kHh-K1-frc"/>
+                                        </constraints>
+                                        <segments>
+                                            <segment title="Magánszemély"/>
+                                            <segment title="Ingatlaniroda"/>
+                                        </segments>
+                                    </segmentedControl>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Vezetéknév:" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3Re-XZ-glJ">
+                                        <rect key="frame" x="8" y="44" width="544" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="rF5-sz-Xz7"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Keresztnév:" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yxV-ro-jbu">
+                                        <rect key="frame" x="8" y="82" width="544" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="7i5-f6-DWJ"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email:" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5ZP-gh-Y62">
+                                        <rect key="frame" x="8" y="120" width="544" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="VY9-BP-F6x"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Jelszó:" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bzm-oI-DJz">
+                                        <rect key="frame" x="8" y="158" width="544" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="9T4-XT-1iJ"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TXB-zh-Ngn">
+                                        <rect key="frame" x="8" y="196" width="544" height="30"/>
+                                        <color key="backgroundColor" red="0.0" green="0.40000000000000002" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="rUu-Gz-s9f"/>
+                                        </constraints>
+                                        <state key="normal" title="Regisztráció">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Z6S-tV-AL9">
+                                        <rect key="frame" x="8" y="234" width="544" height="45"/>
+                                        <state key="normal">
+                                            <attributedString key="attributedTitle">
+                                                <fragment content="A Regisztráció gomb megnyomásável elfogadja a ">
+                                                    <attributes>
+                                                        <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <font key="NSFont" size="12" name="HelveticaNeue-Italic"/>
+                                                        <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                    </attributes>
+                                                </fragment>
+                                                <fragment content=" ">
+                                                    <attributes>
+                                                        <font key="NSFont" size="12" name="HelveticaNeue-Italic"/>
+                                                        <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                    </attributes>
+                                                </fragment>
+                                                <fragment content="Felhasználási feltételek">
+                                                    <attributes>
+                                                        <color key="NSColor" red="0.0" green="0.40000000000000002" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <font key="NSFont" size="12" name="HelveticaNeue-Italic"/>
+                                                        <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                    </attributes>
+                                                </fragment>
+                                            </attributedString>
+                                        </state>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="bzm-oI-DJz" firstAttribute="leading" secondItem="TXB-zh-Ngn" secondAttribute="leading" id="0Tf-ag-I4o"/>
+                                    <constraint firstItem="5ZP-gh-Y62" firstAttribute="top" secondItem="yxV-ro-jbu" secondAttribute="bottom" constant="8" symbolic="YES" id="0eT-r6-Ww0"/>
+                                    <constraint firstItem="5ZP-gh-Y62" firstAttribute="leading" secondItem="bzm-oI-DJz" secondAttribute="leading" id="4Ez-g3-TY6"/>
+                                    <constraint firstItem="6Cu-tY-mgv" firstAttribute="trailing" secondItem="3Re-XZ-glJ" secondAttribute="trailing" id="8GT-fb-2TR"/>
+                                    <constraint firstItem="Z6S-tV-AL9" firstAttribute="top" secondItem="TXB-zh-Ngn" secondAttribute="bottom" constant="8" symbolic="YES" id="CYG-wG-O1z"/>
+                                    <constraint firstItem="bzm-oI-DJz" firstAttribute="top" secondItem="5ZP-gh-Y62" secondAttribute="bottom" constant="8" symbolic="YES" id="FF0-lr-VqM"/>
+                                    <constraint firstItem="yxV-ro-jbu" firstAttribute="trailing" secondItem="5ZP-gh-Y62" secondAttribute="trailing" id="HgZ-Gd-RJA"/>
+                                    <constraint firstItem="yxV-ro-jbu" firstAttribute="leading" secondItem="5ZP-gh-Y62" secondAttribute="leading" id="K0E-5K-f4K"/>
+                                    <constraint firstItem="3Re-XZ-glJ" firstAttribute="trailing" secondItem="yxV-ro-jbu" secondAttribute="trailing" id="KZP-Q1-7J6"/>
+                                    <constraint firstItem="6Cu-tY-mgv" firstAttribute="leading" secondItem="vvc-gR-JcC" secondAttribute="leadingMargin" id="SNg-BT-u1u"/>
+                                    <constraint firstItem="6Cu-tY-mgv" firstAttribute="top" secondItem="vvc-gR-JcC" secondAttribute="topMargin" id="TNB-WV-dru"/>
+                                    <constraint firstItem="Z6S-tV-AL9" firstAttribute="bottom" secondItem="vvc-gR-JcC" secondAttribute="bottomMargin" id="XfV-PX-ssv"/>
+                                    <constraint firstItem="3Re-XZ-glJ" firstAttribute="top" secondItem="6Cu-tY-mgv" secondAttribute="bottom" constant="8" symbolic="YES" id="du4-eE-Vj0"/>
+                                    <constraint firstItem="bzm-oI-DJz" firstAttribute="trailing" secondItem="TXB-zh-Ngn" secondAttribute="trailing" id="fQw-SM-RQJ"/>
+                                    <constraint firstItem="6Cu-tY-mgv" firstAttribute="leading" secondItem="3Re-XZ-glJ" secondAttribute="leading" id="iEs-27-gT5"/>
+                                    <constraint firstItem="TXB-zh-Ngn" firstAttribute="leading" secondItem="Z6S-tV-AL9" secondAttribute="leading" id="lba-Ej-063"/>
+                                    <constraint firstItem="TXB-zh-Ngn" firstAttribute="trailing" secondItem="Z6S-tV-AL9" secondAttribute="trailing" id="lhD-vC-qbL"/>
+                                    <constraint firstItem="3Re-XZ-glJ" firstAttribute="leading" secondItem="yxV-ro-jbu" secondAttribute="leading" id="mTZ-jg-zrP"/>
+                                    <constraint firstItem="5ZP-gh-Y62" firstAttribute="trailing" secondItem="bzm-oI-DJz" secondAttribute="trailing" id="ufn-Yp-v0K"/>
+                                    <constraint firstItem="6Cu-tY-mgv" firstAttribute="trailing" secondItem="vvc-gR-JcC" secondAttribute="trailingMargin" id="yJL-zz-IDo"/>
+                                    <constraint firstItem="yxV-ro-jbu" firstAttribute="top" secondItem="3Re-XZ-glJ" secondAttribute="bottom" constant="8" symbolic="YES" id="zBe-56-ECu"/>
+                                    <constraint firstItem="TXB-zh-Ngn" firstAttribute="top" secondItem="bzm-oI-DJz" secondAttribute="bottom" constant="8" symbolic="YES" id="zeS-gN-wZN"/>
+                                </constraints>
+                            </view>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="main_house" translatesAutoresizingMaskIntoConstraints="NO" id="hxy-3Q-mUk">
+                                <rect key="frame" x="0.0" y="515" width="600" height="85"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="85" id="54h-OH-j13"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yaY-Fl-Vt5">
+                                <rect key="frame" x="20" y="466" width="560" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="ZVs-uf-Kut"/>
+                                </constraints>
+                                <state key="normal">
+                                    <attributedString key="attributedTitle">
+                                        <fragment content="Már van fiókja? ">
+                                            <attributes>
+                                                <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                <font key="NSFont" size="15" name="HelveticaNeue-Italic"/>
+                                            </attributes>
+                                        </fragment>
+                                        <fragment content="Bejelentkezés">
+                                            <attributes>
+                                                <color key="NSColor" red="0.0" green="0.40000000000000002" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
+                                                <font key="NSFont" size="15" name="HelveticaNeue-Italic"/>
+                                            </attributes>
+                                        </fragment>
+                                    </attributedString>
+                                </state>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="YFT-vX-cdm" firstAttribute="leading" secondItem="jJJ-sL-2zp" secondAttribute="leading" id="3C4-fV-Wab"/>
+                            <constraint firstItem="vvc-gR-JcC" firstAttribute="top" secondItem="YFT-vX-cdm" secondAttribute="bottom" constant="8" symbolic="YES" id="4UH-ov-BaY"/>
+                            <constraint firstAttribute="trailing" secondItem="YFT-vX-cdm" secondAttribute="trailing" id="4s0-ph-fr9"/>
+                            <constraint firstItem="vvc-gR-JcC" firstAttribute="trailing" secondItem="yaY-Fl-Vt5" secondAttribute="trailing" id="5Ku-kn-fam"/>
+                            <constraint firstItem="yaY-Fl-Vt5" firstAttribute="centerX" secondItem="hxy-3Q-mUk" secondAttribute="centerX" id="Ds7-KS-4GB"/>
+                            <constraint firstItem="YFT-vX-cdm" firstAttribute="top" secondItem="xM0-M0-58H" secondAttribute="bottom" constant="8" symbolic="YES" id="HrT-fu-H7b"/>
+                            <constraint firstItem="hxy-3Q-mUk" firstAttribute="bottom" secondItem="H3I-Gv-9FP" secondAttribute="top" id="IRy-os-J5v"/>
+                            <constraint firstItem="vvc-gR-JcC" firstAttribute="leading" secondItem="jJJ-sL-2zp" secondAttribute="leadingMargin" id="QOz-dJ-YSF"/>
+                            <constraint firstItem="vvc-gR-JcC" firstAttribute="leading" secondItem="yaY-Fl-Vt5" secondAttribute="leading" id="VtJ-7E-4qa"/>
+                            <constraint firstItem="YFT-vX-cdm" firstAttribute="trailing" secondItem="hxy-3Q-mUk" secondAttribute="trailing" id="Xrl-Ig-HLG"/>
+                            <constraint firstItem="hxy-3Q-mUk" firstAttribute="top" secondItem="yaY-Fl-Vt5" secondAttribute="bottom" constant="19" id="dSe-A1-3PZ"/>
+                            <constraint firstItem="yaY-Fl-Vt5" firstAttribute="top" secondItem="vvc-gR-JcC" secondAttribute="bottom" constant="8" symbolic="YES" id="mO1-Ak-FOj"/>
+                            <constraint firstItem="YFT-vX-cdm" firstAttribute="leading" secondItem="hxy-3Q-mUk" secondAttribute="leading" id="tqE-RC-WVb"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ZX4-Mb-yfQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="340" y="1032"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="bonodom_logo" width="500" height="500"/>
+        <image name="main_house" width="1242" height="176"/>
+    </resources>
+</document>
