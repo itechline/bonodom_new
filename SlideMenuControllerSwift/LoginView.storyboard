@@ -336,6 +336,24 @@
             </objects>
             <point key="canvasLocation" x="340" y="1032"/>
         </scene>
+        <!--Felhasználási Feltételek-->
+        <scene sceneID="8HO-TB-Yhu">
+            <objects>
+                <viewController title="Felhasználási Feltételek" id="NQN-iN-3D8" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Lwg-Wz-s9t"/>
+                        <viewControllerLayoutGuide type="bottom" id="cTL-e4-9B2"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="cNp-ye-jUv">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="51n-M7-Iq1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="340" y="1702"/>
+        </scene>
     </scenes>
     <resources>
         <image name="bonodom_logo" width="500" height="500"/>
