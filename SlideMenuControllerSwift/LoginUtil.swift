@@ -51,7 +51,7 @@ class LoginUtil: NSObject {
         })
     }
     
-    func doLogout(email: String, password: String, onCompletion: (JSON) -> Void) {
+    func doLogout(onCompletion: (JSON) -> Void) {
         
         let token = [ "token", SettingUtil.sharedInstance.getToken()]
         let tokenpost = token.joinWithSeparator("=")

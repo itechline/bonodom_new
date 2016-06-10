@@ -7,14 +7,59 @@
 //
 
 import UIKit
+import SwiftyJSON
 
 class LoginScreenViewController: UIViewController {
+    
 
+    @IBOutlet weak var pass: UITextField!
+    @IBOutlet weak var email: UITextField!
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        self.hideKeyboardWhenTappedAround()
+        let backButton = UIBarButtonItem(title: "", style: UIBarButtonItemStyle.Plain, target: navigationController, action: nil)
+        navigationItem.leftBarButtonItem = backButton
     }
+    
+    @IBAction func loginButton(sender: AnyObject) {
+        var isFilled = true
+        if (email.text == "") {
+            isFilled = false
+        }
+        
+        if (pass.text == "") {
+            isFilled = false
+        }
+        
+        if (isFilled) {
+            let mailString : String = email!.text!
+            let passString : String = pass!.text!
+            LoginUtil.sharedInstance.doLogin(mailString, password: passString, onCompletion: { (json: JSON) in
+                print (json)
+                if (json["logged_in"].boolValue) {
+                    print ("LOGGED IN")
+                    SettingUtil.sharedInstance.setToken(json["token"].stringValue)
+                    print ("TOKEN SAVED")
+                    let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                    let subContentsVC = storyboard.instantiateViewControllerWithIdentifier("MainViewController") as! MainViewController
+                    print ("OPENING SCRENE")
+                    self.navigationController?.pushViewController(subContentsVC, animated: true)
+                } else {
+                    print ("COULD NOT LOGGED IN")
+                    let alert = UIAlertController(title: "HIBA", message: "Hibás felhasználónév vagy jelszó", preferredStyle: UIAlertControllerStyle.Alert)
+                    alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
+                    self.presentViewController(alert, animated: true, completion: nil)
+                }
+                
+                })
+        } else {
+            let alert = UIAlertController(title: "HIBA", message: "Töltösön ki minden mezőt!", preferredStyle: UIAlertControllerStyle.Alert)
+            alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
+            self.presentViewController(alert, animated: true, completion: nil)
+        }
+    }
+    
+    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
