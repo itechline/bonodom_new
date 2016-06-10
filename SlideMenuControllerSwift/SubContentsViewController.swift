@@ -23,6 +23,7 @@ class SubContentsViewController : UIViewController {
     @IBOutlet weak var streetText: UILabel!
     @IBOutlet weak var descriptionText: UITextView!
     
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     var id = 0;
     
     var estateItem = [EstateModel]()
@@ -46,5 +47,6 @@ class SubContentsViewController : UIViewController {
         self.streetText.text = estateItem[0].street
         self.descriptionText.text = estateItem[0].description
         self.priceText.text = estateItem[0].price
+        self.mainImage.setImageFromURL(estateItem[0].pic, indicator: activityIndicator)
     }
 }

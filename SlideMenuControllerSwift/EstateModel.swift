@@ -16,7 +16,7 @@ class EstateModel {
     var price: String!
     var size: String!
     var rooms: String!
-    var pic: [String]!
+    var pic: String!
     
     
     /*
@@ -59,10 +59,11 @@ class EstateModel {
         for picArray in json["kepek"] {
             print ("PICTURE")
             print(picArray.1["kepek_url"].stringValue)
-            pic.append(picArray.1["kepek_url"].stringValue)
+            pic = picArray.1["kepek_url"].stringValue
+            //pic.append(picArray.1["kepek_url"].stringValue)
         }
-        if (pic.isEmpty) {
-            pic.append("")
+        if (pic == nil) {
+            pic = ""
         }
     }
 }

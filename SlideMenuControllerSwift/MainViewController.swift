@@ -7,8 +7,9 @@
 
 import UIKit
 import SwiftyJSON
+import LiquidFloatingActionButton
 
-class MainViewController: UIViewController {
+class MainViewController: UIViewController, LiquidFloatingActionButtonDataSource, LiquidFloatingActionButtonDelegate {
 
     @IBOutlet weak var tableView: UITableView!
     
@@ -16,6 +17,9 @@ class MainViewController: UIViewController {
     
     var items = [EstateListModel]()
     var currentPage = 0
+    
+    var cells: [LiquidFloatingCell] = []
+    var floatingActionButton: LiquidFloatingActionButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,6 +43,44 @@ class MainViewController: UIViewController {
         } else {
             self.loadRegistration()
         }
+        
+        let createButton: (CGRect, LiquidFloatingActionButtonAnimateStyle) -> LiquidFloatingActionButton = { (frame, style) in
+            let floatingActionButton = LiquidFloatingActionButton(frame: frame)
+            floatingActionButton.animateStyle = style
+            floatingActionButton.dataSource = self
+            floatingActionButton.delegate = self
+            //floatingActionButton.image = UIImage(named: "ic_action_heart")
+            
+            return floatingActionButton
+        }
+        
+        let cellFactory: (String) -> LiquidFloatingCell = { (iconName) in
+            return LiquidFloatingCell(icon: UIImage(named: iconName)!)
+        }
+        //cells.append(cellFactory("ic_action_envelop"))
+        //cells.append(cellFactory("ic_action_heart"))
+        
+        
+        let floatingFrame = CGRect(x: self.view.frame.width - 56 - 16, y: self.view.frame.height - 56 - 16, width: 56, height: 56)
+        let bottomRightButton = createButton(floatingFrame, .Up)
+        
+        //let floatingFrame2 = CGRect(x: 16, y: 16, width: 56, height: 56)
+        self.view.addSubview(bottomRightButton)
+    }
+    
+    
+    func numberOfCells(liquidFloatingActionButton: LiquidFloatingActionButton) -> Int {
+        return cells.count
+    }
+    
+    func cellForIndex(index: Int) -> LiquidFloatingCell {
+        return cells[index]
+    }
+    
+    
+    func liquidFloatingActionButton(liquidFloatingActionButton: LiquidFloatingActionButton, didSelectItemAtIndex index: Int) {
+        print("did Tapped! \(index)")
+        liquidFloatingActionButton.close()
     }
     
     func loadRegistration() {
@@ -128,6 +170,7 @@ extension MainViewController : UITableViewDataSource {
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         let storyboard = UIStoryboard(name: "SubContentsViewController", bundle: nil)
         let subContentsVC = storyboard.instantiateViewControllerWithIdentifier("SubContentsViewController") as! SubContentsViewController
+        print ("OPENING SUBCONTENTS")
         subContentsVC.id = items[indexPath.row].id
         self.navigationController?.pushViewController(subContentsVC, animated: true)
     }
