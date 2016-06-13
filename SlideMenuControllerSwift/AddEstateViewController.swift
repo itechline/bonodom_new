@@ -39,7 +39,7 @@ class AddEstateViewController: UIViewController {
             KiemelImage.image = UIImage(named: "main_house")
             KiemelLabel.hidden = true
         case 1:
-            KiemelImage.image = UIImage(named: "main_house")
+            KiemelImage.image = UIImage(named: "bonodom_logo")
             KiemelLabel.hidden = true
         case 2:
             KiemelImage.image = UIImage(named: "main_house")
