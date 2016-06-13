@@ -10,6 +10,8 @@ import UIKit
 
 class AddEstateViewController: UIViewController {
 
+    @IBOutlet weak var KiemelImage: UIImageView!
+    @IBOutlet weak var KiemelLabel: UILabel!
     @IBOutlet weak var AddDescription: UITextField!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,5 +33,22 @@ class AddEstateViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    @IBAction func KiemelSelector(sender: UISegmentedControl) {
+        switch sender.selectedSegmentIndex {
+        case 0:
+            KiemelImage.image = UIImage(named: "main_house")
+            KiemelLabel.hidden = true
+        case 1:
+            KiemelImage.image = UIImage(named: "main_house")
+            KiemelLabel.hidden = true
+        case 2:
+            KiemelImage.image = UIImage(named: "main_house")
+            KiemelLabel.hidden = true
+        case 3:
+            KiemelImage.hidden = true
+            KiemelLabel.hidden = false
+        default: KiemelLabel.text = "Kérjük válasszon egy lehetőséget"
+        }
+    }
 
 }
