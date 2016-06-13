@@ -87,6 +87,18 @@ class RegisterScreenViewController: UIViewController {
 
     
     @IBAction func ProfileTypeSelector(sender: UISegmentedControl) {
+        if sender.selectedSegmentIndex == 0 {
+            vezeteknev_text.placeholder = "Vezetéknév:"
+            keresztnev_text.placeholder = "Keresztnév:"
+            vezeteknev_text.hidden = false
+        } else {
+            vezeteknev_text.hidden = true
+            keresztnev_text.placeholder = "Cégnév:"
+        }
+        
+        
+        
+        
     }
     
 
