@@ -32,6 +32,8 @@ class LoginScreenViewController: UIViewController {
         }
         
         if (isFilled) {
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let subContentsVC = storyboard.instantiateViewControllerWithIdentifier("MainViewController") as! MainViewController
             let mailString : String = email!.text!
             let passString : String = pass!.text!
             LoginUtil.sharedInstance.doLogin(mailString, password: passString, onCompletion: { (json: JSON) in
@@ -40,15 +42,17 @@ class LoginScreenViewController: UIViewController {
                     print ("LOGGED IN")
                     SettingUtil.sharedInstance.setToken(json["token"].stringValue)
                     print ("TOKEN SAVED")
-                    let storyboard = UIStoryboard(name: "Main", bundle: nil)
-                    let subContentsVC = storyboard.instantiateViewControllerWithIdentifier("MainViewController") as! MainViewController
-                    print ("OPENING SCRENE")
-                    self.navigationController?.pushViewController(subContentsVC, animated: true)
+                    dispatch_async(dispatch_get_main_queue(),{
+                        self.navigationController?.pushViewController(subContentsVC, animated: true)
+                    })
+                    
                 } else {
-                    print ("COULD NOT LOGGED IN")
-                    let alert = UIAlertController(title: "HIBA", message: "Hibás felhasználónév vagy jelszó", preferredStyle: UIAlertControllerStyle.Alert)
-                    alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
-                    self.presentViewController(alert, animated: true, completion: nil)
+                    dispatch_async(dispatch_get_main_queue(),{
+                        print ("COULD NOT LOGGED IN")
+                        let alert = UIAlertController(title: "HIBA", message: "Hibás felhasználónév vagy jelszó", preferredStyle: UIAlertControllerStyle.Alert)
+                        alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
+                        self.presentViewController(alert, animated: true, completion: nil)
+                    })
                 }
                 
                 })
