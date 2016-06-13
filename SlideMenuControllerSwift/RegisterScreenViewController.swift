@@ -8,8 +8,9 @@
 
 import UIKit
 import SwiftyJSON
+import CoreLocation
 
-class RegisterScreenViewController: UIViewController {
+class RegisterScreenViewController: UIViewController, CLLocationManagerDelegate {
 
     
     @IBOutlet weak var vezeteknev_text: UITextField!
@@ -17,17 +18,43 @@ class RegisterScreenViewController: UIViewController {
     @IBOutlet weak var email_text: UITextField!
     @IBOutlet weak var jelszo_text: UITextField!
     
+    var locManager = CLLocationManager()
+    var city: CLLocation!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.hideKeyboardWhenTappedAround()
         // Do any additional setup after loading the view.
         self.removeNavigationBarItem()
+        
+        //forwardGeocoding("Debrecen")
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func forwardGeocoding(address: String) {
+        CLGeocoder().geocodeAddressString(address, completionHandler: { (placemarks, error) in
+            if error != nil {
+                print(error)
+                return
+            }
+            if placemarks?.count > 0 {
+                let placemark = placemarks?[0]
+                let location = placemark?.location
+                let coordinate = location?.coordinate
+                print("\nlat: \(coordinate!.latitude), long: \(coordinate!.longitude)")
+                /*if placemark?.areasOfInterest?.count > 0 {
+                    let areaOfInterest = placemark!.areasOfInterest![0]
+                    print(areaOfInterest)
+                } else {
+                    print("No area of interest found.")
+                }*/
+            }
+        })
     }
     
     @IBAction func register_button(sender: AnyObject) {
@@ -57,8 +84,7 @@ class RegisterScreenViewController: UIViewController {
             LoginUtil.sharedInstance.doRegistration(mailString, password: passString, vezeteknev: vezeteknevString, keresztnev: keresztnevString, tipus: "maganyszemely",
                                                     onCompletion: { (json: JSON) in
                 print (json)
-                /*if (json["logged_in"].boolValue) {
-                    print ("LOGGED IN")
+                if (json["status"].boolValue) {
                     SettingUtil.sharedInstance.setToken(json["token"].stringValue)
                     print ("TOKEN SAVED")
                     dispatch_async(dispatch_get_main_queue(),{
@@ -69,12 +95,11 @@ class RegisterScreenViewController: UIViewController {
                     
                 } else {
                     dispatch_async(dispatch_get_main_queue(),{
-                        print ("COULD NOT LOGGED IN")
-                        let alert = UIAlertController(title: "HIBA", message: "Hibás felhasználónév vagy jelszó", preferredStyle: UIAlertControllerStyle.Alert)
+                        let alert = UIAlertController(title: "HIBA", message: "Regisztráció nem sikerült", preferredStyle: UIAlertControllerStyle.Alert)
                         alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
                         self.presentViewController(alert, animated: true, completion: nil)
                     })
-                }*/
+                }
                 
             })
         } else {
