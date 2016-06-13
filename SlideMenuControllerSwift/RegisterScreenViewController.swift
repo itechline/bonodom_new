@@ -110,14 +110,21 @@ class RegisterScreenViewController: UIViewController, CLLocationManagerDelegate 
         
     }
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    
+    @IBAction func ProfileTypeSelector(sender: UISegmentedControl) {
+        if sender.selectedSegmentIndex == 0 {
+            vezeteknev_text.placeholder = "Vezetéknév:"
+            keresztnev_text.placeholder = "Keresztnév:"
+            vezeteknev_text.hidden = false
+        } else {
+            vezeteknev_text.hidden = true
+            keresztnev_text.placeholder = "Cégnév:"
+        }
+        
+        
+        
+        
     }
-    */
+    
 
 }

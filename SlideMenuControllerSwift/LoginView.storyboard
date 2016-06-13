@@ -182,6 +182,9 @@
                                             <segment title="Magánszemély"/>
                                             <segment title="Ingatlaniroda"/>
                                         </segments>
+                                        <connections>
+                                            <action selector="ProfileTypeSelector:" destination="udE-Lg-fDk" eventType="valueChanged" id="J2X-vI-9xI"/>
+                                        </connections>
                                     </segmentedControl>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Vezetéknév:" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3Re-XZ-glJ">
                                         <rect key="frame" x="8" y="44" width="544" height="30"/>
@@ -218,6 +221,9 @@
                                                 </fragment>
                                             </attributedString>
                                         </state>
+                                        <connections>
+                                            <segue destination="NQN-iN-3D8" kind="show" id="kMW-1v-kvM"/>
+                                        </connections>
                                     </button>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SMh-vE-kQU">
                                         <rect key="frame" x="8" y="236" width="544" height="91"/>
@@ -341,6 +347,78 @@
             </objects>
             <point key="canvasLocation" x="340" y="1032"/>
         </scene>
+        <!--First Setting-->
+        <scene sceneID="PgC-Me-YJd">
+            <objects>
+                <viewController storyboardIdentifier="First Setting 1" title="First Setting" id="6Kf-UE-Ipb" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="yOx-dR-vAK"/>
+                        <viewControllerLayoutGuide type="bottom" id="f6V-1n-lZ1"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Eac-ll-WmC">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bonodom_logo" translatesAutoresizingMaskIntoConstraints="NO" id="cKF-n8-iq6">
+                                <rect key="frame" x="20" y="28" width="560" height="170"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="170" id="bSa-cS-N5p"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Kérjük add meg a tartózkodási helyed, hogy a későbbiekben gyorsabban működhessen az alkalmazás" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CzK-Up-itx">
+                                <rect key="frame" x="20" y="206" width="560" height="90"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="90" id="HyF-lu-AIg"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Város megadása" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="O4T-KB-DMw">
+                                <rect key="frame" x="20" y="304" width="560" height="30"/>
+                                <fontDescription key="fontDescription" type="italicSystem" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <pageControl contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="vmj-gA-mM7">
+                                <rect key="frame" x="20" y="543" width="560" height="37"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <color key="pageIndicatorTintColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
+                                <color key="currentPageIndicatorTintColor" red="0.0" green="0.40000000000000002" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
+                            </pageControl>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZMr-rs-wG6">
+                                <rect key="frame" x="20" y="505" width="560" height="30"/>
+                                <state key="normal" title="Tovább">
+                                    <color key="titleColor" red="0.0" green="0.40000000000000002" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <segue destination="oKx-4m-p96" kind="show" id="Ky9-dE-jMp"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="ZMr-rs-wG6" firstAttribute="leading" secondItem="vmj-gA-mM7" secondAttribute="leading" id="4t3-4i-Ey1"/>
+                            <constraint firstItem="cKF-n8-iq6" firstAttribute="trailing" secondItem="Eac-ll-WmC" secondAttribute="trailingMargin" id="Bgs-vC-28I"/>
+                            <constraint firstItem="cKF-n8-iq6" firstAttribute="top" secondItem="yOx-dR-vAK" secondAttribute="bottom" constant="8" symbolic="YES" id="Ism-c6-ohD"/>
+                            <constraint firstItem="CzK-Up-itx" firstAttribute="leading" secondItem="O4T-KB-DMw" secondAttribute="leading" id="M3B-Mp-A52"/>
+                            <constraint firstItem="cKF-n8-iq6" firstAttribute="leading" secondItem="Eac-ll-WmC" secondAttribute="leadingMargin" id="Sxx-QV-DLV"/>
+                            <constraint firstItem="cKF-n8-iq6" firstAttribute="trailing" secondItem="CzK-Up-itx" secondAttribute="trailing" id="T2f-3v-hqv"/>
+                            <constraint firstItem="cKF-n8-iq6" firstAttribute="leading" secondItem="CzK-Up-itx" secondAttribute="leading" id="V64-he-7ET"/>
+                            <constraint firstItem="vmj-gA-mM7" firstAttribute="top" secondItem="ZMr-rs-wG6" secondAttribute="bottom" constant="8" symbolic="YES" id="Z0f-Nk-VEt"/>
+                            <constraint firstItem="O4T-KB-DMw" firstAttribute="trailing" secondItem="ZMr-rs-wG6" secondAttribute="trailing" id="ZaN-dS-TlP"/>
+                            <constraint firstItem="ZMr-rs-wG6" firstAttribute="trailing" secondItem="vmj-gA-mM7" secondAttribute="trailing" id="Zwn-7u-Qvf"/>
+                            <constraint firstItem="CzK-Up-itx" firstAttribute="trailing" secondItem="O4T-KB-DMw" secondAttribute="trailing" id="bTH-AR-BYf"/>
+                            <constraint firstAttribute="bottom" secondItem="vmj-gA-mM7" secondAttribute="bottom" constant="20" symbolic="YES" id="mLf-xb-7h1"/>
+                            <constraint firstItem="O4T-KB-DMw" firstAttribute="leading" secondItem="ZMr-rs-wG6" secondAttribute="leading" id="tZ9-uo-Cjs"/>
+                            <constraint firstItem="O4T-KB-DMw" firstAttribute="top" secondItem="CzK-Up-itx" secondAttribute="bottom" constant="8" symbolic="YES" id="vBA-Ut-CH6"/>
+                            <constraint firstItem="CzK-Up-itx" firstAttribute="top" secondItem="cKF-n8-iq6" secondAttribute="bottom" constant="8" symbolic="YES" id="zwf-7h-7fA"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="o42-30-qwF" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1002" y="1032"/>
+        </scene>
         <!--Felhasználási Feltételek-->
         <scene sceneID="8HO-TB-Yhu">
             <objects>
@@ -359,9 +437,148 @@
             </objects>
             <point key="canvasLocation" x="340" y="1702"/>
         </scene>
+        <!--Second Setting-->
+        <scene sceneID="5x2-aM-y1Q">
+            <objects>
+                <viewController storyboardIdentifier="First Setting 2" title="Second Setting" id="oKx-4m-p96" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="l3T-ok-j1Q"/>
+                        <viewControllerLayoutGuide type="bottom" id="Vps-3Z-6mK"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="K2p-b8-dG7">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bonodom_logo" translatesAutoresizingMaskIntoConstraints="NO" id="ytv-mv-Awa">
+                                <rect key="frame" x="20" y="28" width="560" height="170"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="170" id="z7F-0U-sma"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Kérjük add meg a telefonszámod, a kényelsebb ügyintézés érdekében" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oiv-ki-0vy">
+                                <rect key="frame" x="20" y="206" width="560" height="90"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="90" id="ZQF-BE-LVO"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Telefonszám" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="eOv-ur-NDf">
+                                <rect key="frame" x="20" y="304" width="560" height="30"/>
+                                <fontDescription key="fontDescription" type="italicSystem" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" currentPage="1" translatesAutoresizingMaskIntoConstraints="NO" id="Qtx-Xk-pec">
+                                <rect key="frame" x="20" y="543" width="560" height="37"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <color key="pageIndicatorTintColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
+                                <color key="currentPageIndicatorTintColor" red="0.0" green="0.40000000000000002" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
+                            </pageControl>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iNU-0r-NGh">
+                                <rect key="frame" x="20" y="505" width="560" height="30"/>
+                                <state key="normal" title="Tovább"/>
+                                <connections>
+                                    <segue destination="bmy-ZA-oIN" kind="show" id="RQ5-GB-zLn"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="eOv-ur-NDf" firstAttribute="trailing" secondItem="iNU-0r-NGh" secondAttribute="trailing" id="32M-7n-NSi"/>
+                            <constraint firstItem="ytv-mv-Awa" firstAttribute="trailing" secondItem="K2p-b8-dG7" secondAttribute="trailingMargin" id="3rH-km-B56"/>
+                            <constraint firstItem="ytv-mv-Awa" firstAttribute="trailing" secondItem="oiv-ki-0vy" secondAttribute="trailing" id="AfB-q5-VTl"/>
+                            <constraint firstItem="eOv-ur-NDf" firstAttribute="top" secondItem="oiv-ki-0vy" secondAttribute="bottom" constant="8" symbolic="YES" id="BP7-rj-kXn"/>
+                            <constraint firstItem="ytv-mv-Awa" firstAttribute="leading" secondItem="K2p-b8-dG7" secondAttribute="leadingMargin" id="BXD-cP-IZA"/>
+                            <constraint firstItem="oiv-ki-0vy" firstAttribute="trailing" secondItem="eOv-ur-NDf" secondAttribute="trailing" id="FaL-RV-Akb"/>
+                            <constraint firstAttribute="bottom" secondItem="Qtx-Xk-pec" secondAttribute="bottom" constant="20" symbolic="YES" id="T9P-p1-Fd0"/>
+                            <constraint firstItem="iNU-0r-NGh" firstAttribute="leading" secondItem="Qtx-Xk-pec" secondAttribute="leading" id="YZQ-CN-oF3"/>
+                            <constraint firstItem="Qtx-Xk-pec" firstAttribute="top" secondItem="iNU-0r-NGh" secondAttribute="bottom" constant="8" symbolic="YES" id="cio-9a-P6P"/>
+                            <constraint firstItem="ytv-mv-Awa" firstAttribute="leading" secondItem="oiv-ki-0vy" secondAttribute="leading" id="duQ-nH-TQ1"/>
+                            <constraint firstItem="eOv-ur-NDf" firstAttribute="leading" secondItem="iNU-0r-NGh" secondAttribute="leading" id="go0-fE-Fjd"/>
+                            <constraint firstItem="iNU-0r-NGh" firstAttribute="trailing" secondItem="Qtx-Xk-pec" secondAttribute="trailing" id="gr5-XE-WZh"/>
+                            <constraint firstItem="oiv-ki-0vy" firstAttribute="top" secondItem="ytv-mv-Awa" secondAttribute="bottom" constant="8" symbolic="YES" id="kW9-Yb-9DA"/>
+                            <constraint firstItem="ytv-mv-Awa" firstAttribute="top" secondItem="l3T-ok-j1Q" secondAttribute="bottom" constant="8" symbolic="YES" id="syq-dD-ee6"/>
+                            <constraint firstItem="oiv-ki-0vy" firstAttribute="leading" secondItem="eOv-ur-NDf" secondAttribute="leading" id="ukG-7O-uld"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="VFe-mH-1aN" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1623" y="1032"/>
+        </scene>
+        <!--Third Setting-->
+        <scene sceneID="col-Li-lwI">
+            <objects>
+                <viewController storyboardIdentifier="First Setting 3" title="Third Setting" id="bmy-ZA-oIN" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="GEW-N9-Tow"/>
+                        <viewControllerLayoutGuide type="bottom" id="leK-6C-T9A"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="j4m-7D-sbP">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bonodom_logo" translatesAutoresizingMaskIntoConstraints="NO" id="llR-Yo-r8r">
+                                <rect key="frame" x="20" y="28" width="560" height="170"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="170" id="thy-3r-2hJ"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Töltsd fel a profilképed, ha szeretnéd, hogy egy arc is társuljon a hírdetésedhez" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jya-fB-yOd">
+                                <rect key="frame" x="20" y="206" width="560" height="90"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="90" id="lFN-Uf-YtZ"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" currentPage="2" translatesAutoresizingMaskIntoConstraints="NO" id="59M-sf-g3C">
+                                <rect key="frame" x="20" y="543" width="560" height="37"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <color key="pageIndicatorTintColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
+                                <color key="currentPageIndicatorTintColor" red="0.0" green="0.40000000000000002" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
+                            </pageControl>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rt1-nN-T4Y">
+                                <rect key="frame" x="233" y="304" width="135" height="71"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="135" id="xOI-VU-mc7"/>
+                                </constraints>
+                                <state key="normal" image="fenykepezo"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4PV-9p-ReQ">
+                                <rect key="frame" x="20" y="505" width="560" height="30"/>
+                                <state key="normal" title="Tovább"/>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="4PV-9p-ReQ" firstAttribute="leading" secondItem="59M-sf-g3C" secondAttribute="leading" id="AW5-au-pBa"/>
+                            <constraint firstAttribute="bottom" secondItem="59M-sf-g3C" secondAttribute="bottom" constant="20" symbolic="YES" id="BHR-hy-pSQ"/>
+                            <constraint firstItem="jya-fB-yOd" firstAttribute="leading" secondItem="4PV-9p-ReQ" secondAttribute="leading" id="Bgz-3a-G24"/>
+                            <constraint firstItem="jya-fB-yOd" firstAttribute="top" secondItem="llR-Yo-r8r" secondAttribute="bottom" constant="8" symbolic="YES" id="KeI-D0-35I"/>
+                            <constraint firstItem="llR-Yo-r8r" firstAttribute="leading" secondItem="jya-fB-yOd" secondAttribute="leading" id="RwC-46-Gih"/>
+                            <constraint firstItem="59M-sf-g3C" firstAttribute="top" secondItem="4PV-9p-ReQ" secondAttribute="bottom" constant="8" symbolic="YES" id="Ssu-Wq-9QD"/>
+                            <constraint firstItem="4PV-9p-ReQ" firstAttribute="trailing" secondItem="59M-sf-g3C" secondAttribute="trailing" id="Vrd-Tp-ed4"/>
+                            <constraint firstItem="llR-Yo-r8r" firstAttribute="trailing" secondItem="j4m-7D-sbP" secondAttribute="trailingMargin" id="fU2-dJ-Cgh"/>
+                            <constraint firstItem="llR-Yo-r8r" firstAttribute="trailing" secondItem="jya-fB-yOd" secondAttribute="trailing" id="fez-qK-Zbk"/>
+                            <constraint firstItem="rt1-nN-T4Y" firstAttribute="top" secondItem="jya-fB-yOd" secondAttribute="bottom" constant="8" symbolic="YES" id="m3b-ww-buH"/>
+                            <constraint firstItem="jya-fB-yOd" firstAttribute="centerX" secondItem="rt1-nN-T4Y" secondAttribute="centerX" id="nBW-cP-XO2"/>
+                            <constraint firstItem="llR-Yo-r8r" firstAttribute="top" secondItem="GEW-N9-Tow" secondAttribute="bottom" constant="8" symbolic="YES" id="nwZ-bG-YdJ"/>
+                            <constraint firstItem="llR-Yo-r8r" firstAttribute="leading" secondItem="j4m-7D-sbP" secondAttribute="leadingMargin" id="vgH-6w-Xkr"/>
+                            <constraint firstItem="jya-fB-yOd" firstAttribute="trailing" secondItem="4PV-9p-ReQ" secondAttribute="trailing" id="y5q-Xf-iCJ"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hFY-wp-FIu" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2269" y="1032"/>
+        </scene>
     </scenes>
     <resources>
-        <image name="bonodom_logo" width="500" height="500"/>
-        <image name="main_house" width="1242" height="176"/>
+        <image name="bonodom_logo" width="166" height="166"/>
+        <image name="fenykepezo" width="81" height="71"/>
+        <image name="main_house" width="414" height="58"/>
     </resources>
 </document>
