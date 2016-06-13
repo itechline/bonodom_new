@@ -22,6 +22,7 @@ class RegisterScreenViewController: UIViewController {
         super.viewDidLoad()
         self.hideKeyboardWhenTappedAround()
         // Do any additional setup after loading the view.
+        self.removeNavigationBarItem()
     }
 
     override func didReceiveMemoryWarning() {
