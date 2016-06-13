@@ -17,6 +17,7 @@ enum LeftMenu: Int {
     case Admonitor
     case AgenciesMenu
     case Invite
+    case Logout
 }
 
 protocol LeftMenuProtocol : class {
@@ -27,7 +28,7 @@ class LeftViewController : UIViewController, LeftMenuProtocol {
     
     @IBOutlet weak var tableView: UITableView!
     
-    var menus = ["Összes Hirdetés", "Személyes", "Üzenetek", "Számlázás", "Hirdetéseim", "Kedvenceim","Hirdetésfigyelő","Ügynökség","Meghívás"]
+    var menus = ["Összes Hirdetés", "Személyes", "Üzenetek", "Számlázás", "Hirdetéseim", "Kedvenceim","Hirdetésfigyelő","Ügynökség","Meghívás", "Kijelentkezés"]
     var mainViewController: UIViewController!
     var swiftViewController: UIViewController!
     var javaViewController: UIViewController!
@@ -110,6 +111,8 @@ class LeftViewController : UIViewController, LeftMenuProtocol {
             self.slideMenuController()?.changeMainViewController(self.agenciesVWController, close: true)
         case .Invite:
             self.slideMenuController()?.changeMainViewController(self.inviteVWController, close: true)
+        case .Logout:
+            print ("Kijelentkezés")
         }
     }
 }
@@ -118,7 +121,7 @@ extension LeftViewController : UITableViewDelegate {
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         if let menu = LeftMenu(rawValue: indexPath.item) {
             switch menu {
-            case .Main, .Swift, .Java, .Go, .NonMenu, .FavMenu, .Admonitor, .AgenciesMenu, .Invite:
+            case .Main, .Swift, .Java, .Go, .NonMenu, .FavMenu, .Admonitor, .AgenciesMenu, .Invite, .Logout:
                 return MenuItemView.height()
             }
         }
@@ -135,6 +138,7 @@ var logoImage: [UIImage] = [
     UIImage(named: "ic_action_heart")!,
     UIImage(named: "ic_action_binocular")!,
     UIImage(named: "ic_action_agencies")!,
+    UIImage(named: "ic_action_users")!,
     UIImage(named: "ic_action_logout")!
 ]
 

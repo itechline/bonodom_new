@@ -17,9 +17,9 @@
 		57873B4E1D0AE33000F4309A /* LoginView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 57873B4D1D0AE33000F4309A /* LoginView.storyboard */; };
 		57873B501D0AE82000F4309A /* LoginScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57873B4F1D0AE82000F4309A /* LoginScreenViewController.swift */; };
 		57873B521D0AE84900F4309A /* RegisterScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57873B511D0AE84900F4309A /* RegisterScreenViewController.swift */; };
-		57873B541D0AEB3F00F4309A /* AddEstate.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 57873B531D0AEB3F00F4309A /* AddEstate.storyboard */; };
 		57873B561D0AEEA700F4309A /* ContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57873B551D0AEEA700F4309A /* ContentViewController.swift */; };
-		57873B581D0AEF4300F4309A /* AddEsateteSceneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57873B571D0AEF4300F4309A /* AddEsateteSceneViewController.swift */; };
+		57C21E601D0EE42100CBCDFF /* AddEstate.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 57C21E5F1D0EE42100CBCDFF /* AddEstate.storyboard */; };
+		57C21E621D0EE44200CBCDFF /* AddEstateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57C21E611D0EE44200CBCDFF /* AddEstateViewController.swift */; };
 		57DFCF961D01BBB900A69B8A /* AdMonitorController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57DFCF951D01BBB900A69B8A /* AdMonitorController.swift */; };
 		57DFCF981D01BFCD00A69B8A /* AgenciesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57DFCF971D01BFCD00A69B8A /* AgenciesViewController.swift */; };
 		57DFCF9A1D01C22A00A69B8A /* InviteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57DFCF991D01C22A00A69B8A /* InviteViewController.swift */; };
@@ -87,9 +87,9 @@
 		57873B4D1D0AE33000F4309A /* LoginView.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LoginView.storyboard; sourceTree = "<group>"; };
 		57873B4F1D0AE82000F4309A /* LoginScreenViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginScreenViewController.swift; sourceTree = "<group>"; };
 		57873B511D0AE84900F4309A /* RegisterScreenViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterScreenViewController.swift; sourceTree = "<group>"; };
-		57873B531D0AEB3F00F4309A /* AddEstate.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = AddEstate.storyboard; sourceTree = "<group>"; };
 		57873B551D0AEEA700F4309A /* ContentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentViewController.swift; sourceTree = "<group>"; };
-		57873B571D0AEF4300F4309A /* AddEsateteSceneViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddEsateteSceneViewController.swift; sourceTree = "<group>"; };
+		57C21E5F1D0EE42100CBCDFF /* AddEstate.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = AddEstate.storyboard; sourceTree = "<group>"; };
+		57C21E611D0EE44200CBCDFF /* AddEstateViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddEstateViewController.swift; sourceTree = "<group>"; };
 		57DFCF951D01BBB900A69B8A /* AdMonitorController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdMonitorController.swift; sourceTree = "<group>"; };
 		57DFCF971D01BFCD00A69B8A /* AgenciesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AgenciesViewController.swift; sourceTree = "<group>"; };
 		57DFCF991D01C22A00A69B8A /* InviteViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InviteViewController.swift; sourceTree = "<group>"; };
@@ -311,9 +311,9 @@
 				57873B4D1D0AE33000F4309A /* LoginView.storyboard */,
 				57873B511D0AE84900F4309A /* RegisterScreenViewController.swift */,
 				57873B4F1D0AE82000F4309A /* LoginScreenViewController.swift */,
-				57873B531D0AEB3F00F4309A /* AddEstate.storyboard */,
-				57873B571D0AEF4300F4309A /* AddEsateteSceneViewController.swift */,
 				57873B551D0AEEA700F4309A /* ContentViewController.swift */,
+				57C21E5F1D0EE42100CBCDFF /* AddEstate.storyboard */,
+				57C21E611D0EE44200CBCDFF /* AddEstateViewController.swift */,
 			);
 			name = ViewController;
 			sourceTree = "<group>";
@@ -485,7 +485,7 @@
 			files = (
 				57873B4E1D0AE33000F4309A /* LoginView.storyboard in Resources */,
 				E45A74071D0571E200CC9162 /* MenuItemView.xib in Resources */,
-				57873B541D0AEB3F00F4309A /* AddEstate.storyboard in Resources */,
+				57C21E601D0EE42100CBCDFF /* AddEstate.storyboard in Resources */,
 				C5498C801BE897660076A7C5 /* ImageHeaderView.xib in Resources */,
 				C5BF6A8A1BF3335D0064C18E /* SubContentsViewController.storyboard in Resources */,
 				C5BF6A841BEEF1E70064C18E /* DataTableViewCell.xib in Resources */,
@@ -575,8 +575,8 @@
 				C5BD39E01A6CDC8100D0AF95 /* UIViewController.swift in Sources */,
 				C5C1CE611A70F3B600B6E411 /* UITableViewExtension.swift in Sources */,
 				C539E64A1A315E87003B7CC7 /* SlideMenuControllerSwift.xcdatamodeld in Sources */,
-				57873B581D0AEF4300F4309A /* AddEsateteSceneViewController.swift in Sources */,
 				C5BF6A8C1BF340020064C18E /* ExSlideMenuController.swift in Sources */,
+				57C21E621D0EE44200CBCDFF /* AddEstateViewController.swift in Sources */,
 				C5C1CE5D1A70F27500B6E411 /* BaseTableViewCell.swift in Sources */,
 				57873B521D0AE84900F4309A /* RegisterScreenViewController.swift in Sources */,
 				57449A941D01B1B400539442 /* FavMenuController.swift in Sources */,
