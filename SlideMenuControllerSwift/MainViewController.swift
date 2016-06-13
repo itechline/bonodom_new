@@ -9,11 +9,9 @@ import UIKit
 import SwiftyJSON
 import LiquidFloatingActionButton
 
-class MainViewController: UIViewController, LiquidFloatingActionButtonDataSource, LiquidFloatingActionButtonDelegate {
+class MainViewController: UIViewController, LiquidFloatingActionButtonDataSource, LiquidFloatingActionButtonDelegate, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
 
     @IBOutlet weak var tableView: UITableView!
-    
-    var mainContens = ["Budapest XII. kerület", "Debrecen Simonffy utca 4-6.", "Debrecen Kassai út 47/b", "Nyírbátor Zrínyi út. 72", "Nyíregyháza Fazekas János tér 23.", "Nyíregyháza Írisz utca 43.", "data7", "data8", "data9", "data10", "data11", "data12", "data13", "data14", "data15","Hozzonide két kolbászokat"]
     
     var items = [EstateListModel]()
     var currentPage = 0
@@ -21,10 +19,20 @@ class MainViewController: UIViewController, LiquidFloatingActionButtonDataSource
     var cells: [LiquidFloatingCell] = []
     var floatingActionButton: LiquidFloatingActionButton!
     
+    var imagePicker = UIImagePickerController()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tableView.registerCellNib(DataTableViewCell.self)
         //SettingUtil.sharedInstance.setToken("2d1933ceaf3fba2095fe8a4d4995cfc1")
+        
+        
+        
+        //TESZT
+        
+        //TESZT VÉGE
+        
+        
         
         
         if (SettingUtil.sharedInstance.getToken() != "") {
@@ -54,9 +62,9 @@ class MainViewController: UIViewController, LiquidFloatingActionButtonDataSource
             return floatingActionButton
         }
         
-        let cellFactory: (String) -> LiquidFloatingCell = { (iconName) in
-            return LiquidFloatingCell(icon: UIImage(named: iconName)!)
-        }
+        //let cellFactory: (String) -> LiquidFloatingCell = { (iconName) in
+        //    return LiquidFloatingCell(icon: UIImage(named: iconName)!)
+        //}
         //cells.append(cellFactory("ic_action_envelop"))
         //cells.append(cellFactory("ic_action_heart"))
         
@@ -68,6 +76,35 @@ class MainViewController: UIViewController, LiquidFloatingActionButtonDataSource
         self.view.addSubview(bottomRightButton)
     }
     
+    func pickImage () {
+        if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.SavedPhotosAlbum){
+            imagePicker.delegate = self
+            imagePicker.sourceType = UIImagePickerControllerSourceType.SavedPhotosAlbum;
+            imagePicker.allowsEditing = false
+            
+            self.presentViewController(imagePicker, animated: true, completion: nil)
+        }
+    }
+    
+    func takePhoto () {
+        if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera){
+            imagePicker.delegate = self
+            imagePicker.sourceType = UIImagePickerControllerSourceType.Camera;
+            imagePicker.allowsEditing = false
+            
+            self.presentViewController(imagePicker, animated: true, completion: nil)
+        }
+    }
+    
+    func imagePickerController(picker: UIImagePickerController!, didFinishPickingImage image: UIImage!, editingInfo: NSDictionary!){
+        self.dismissViewControllerAnimated(true, completion: { () -> Void in
+            
+        })
+        
+        //imageView.image = image
+        print ("IMAGE PICKED")
+        
+    }
     
     func numberOfCells(liquidFloatingActionButton: LiquidFloatingActionButton) -> Int {
         return cells.count
