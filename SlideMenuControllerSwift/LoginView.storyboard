@@ -173,7 +173,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vvc-gR-JcC">
+                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vvc-gR-JcC">
                                 <rect key="frame" x="20" y="108" width="560" height="379"/>
                                 <subviews>
                                     <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="6Cu-tY-mgv">
@@ -206,7 +206,7 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                     </textField>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Z6S-tV-AL9">
+                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Z6S-tV-AL9">
                                         <rect key="frame" x="8" y="356" width="544" height="15"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="15" id="ssd-3a-WFC"/>
@@ -225,7 +225,7 @@
                                             <segue destination="NQN-iN-3D8" kind="show" id="kMW-1v-kvM"/>
                                         </connections>
                                     </button>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SMh-vE-kQU">
+                                    <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SMh-vE-kQU">
                                         <rect key="frame" x="8" y="236" width="544" height="91"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     </view>
@@ -239,7 +239,7 @@
                                             <action selector="register_button:" destination="udE-Lg-fDk" eventType="touchUpInside" id="FQl-Ox-ASh"/>
                                         </connections>
                                     </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="A Regisztráció gomb megnyomásával elfogadja a" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A5k-8G-vQq">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="A Regisztráció gomb megnyomásával elfogadja a" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A5k-8G-vQq">
                                         <rect key="frame" x="8" y="335" width="544" height="13"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="13" id="HLg-aN-Y7K"/>
@@ -312,7 +312,7 @@
                                     <segue destination="k7G-rT-6Bv" kind="show" id="U3T-Vn-vDc"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="bonodom_logo" translatesAutoresizingMaskIntoConstraints="NO" id="YFT-vX-cdm">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bonodom_logo" translatesAutoresizingMaskIntoConstraints="NO" id="YFT-vX-cdm">
                                 <rect key="frame" x="0.0" y="20" width="600" height="100"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="100" id="tS8-aq-FpI"/>
@@ -350,7 +350,7 @@
         <!--First Setting-->
         <scene sceneID="PgC-Me-YJd">
             <objects>
-                <viewController storyboardIdentifier="First Setting 1" title="First Setting" id="6Kf-UE-Ipb" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="FirstSetting" title="First Setting" id="6Kf-UE-Ipb" customClass="RegisterScreenViewController" customModule="Bonodom" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="yOx-dR-vAK"/>
                         <viewControllerLayoutGuide type="bottom" id="f6V-1n-lZ1"/>
@@ -391,7 +391,7 @@
                                     <color key="titleColor" red="0.0" green="0.40000000000000002" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
-                                    <segue destination="oKx-4m-p96" kind="show" id="Ky9-dE-jMp"/>
+                                    <action selector="updatereg_next_to_phone:" destination="6Kf-UE-Ipb" eventType="touchUpInside" id="9eg-La-knc"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -414,6 +414,9 @@
                             <constraint firstItem="CzK-Up-itx" firstAttribute="top" secondItem="cKF-n8-iq6" secondAttribute="bottom" constant="8" symbolic="YES" id="zwf-7h-7fA"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="city_text" destination="O4T-KB-DMw" id="IOf-w7-I2u"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="o42-30-qwF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -440,7 +443,7 @@
         <!--Second Setting-->
         <scene sceneID="5x2-aM-y1Q">
             <objects>
-                <viewController storyboardIdentifier="First Setting 2" title="Second Setting" id="oKx-4m-p96" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SecondSetting" title="Second Setting" id="oKx-4m-p96" customClass="RegisterScreenViewController" customModule="Bonodom" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="l3T-ok-j1Q"/>
                         <viewControllerLayoutGuide type="bottom" id="Vps-3Z-6mK"/>
@@ -479,7 +482,7 @@
                                 <rect key="frame" x="20" y="505" width="560" height="30"/>
                                 <state key="normal" title="Tovább"/>
                                 <connections>
-                                    <segue destination="bmy-ZA-oIN" kind="show" id="RQ5-GB-zLn"/>
+                                    <action selector="updatereg_next_to_photo:" destination="oKx-4m-p96" eventType="touchUpInside" id="RoF-ZU-7SM"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -502,6 +505,9 @@
                             <constraint firstItem="oiv-ki-0vy" firstAttribute="leading" secondItem="eOv-ur-NDf" secondAttribute="leading" id="ukG-7O-uld"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="mobile_text" destination="eOv-ur-NDf" id="Zqe-sl-icY"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VFe-mH-1aN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -510,7 +516,7 @@
         <!--Third Setting-->
         <scene sceneID="col-Li-lwI">
             <objects>
-                <viewController storyboardIdentifier="First Setting 3" title="Third Setting" id="bmy-ZA-oIN" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ThirdSetting" title="Third Setting" id="bmy-ZA-oIN" customClass="RegisterScreenViewController" customModule="Bonodom" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="GEW-N9-Tow"/>
                         <viewControllerLayoutGuide type="bottom" id="leK-6C-T9A"/>
@@ -546,10 +552,16 @@
                                     <constraint firstAttribute="width" constant="135" id="xOI-VU-mc7"/>
                                 </constraints>
                                 <state key="normal" image="fenykepezo"/>
+                                <connections>
+                                    <action selector="take_photo:" destination="bmy-ZA-oIN" eventType="touchUpInside" id="ReL-uE-QEH"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4PV-9p-ReQ">
                                 <rect key="frame" x="20" y="505" width="560" height="30"/>
                                 <state key="normal" title="Tovább"/>
+                                <connections>
+                                    <action selector="updatereg_finish:" destination="bmy-ZA-oIN" eventType="touchUpInside" id="BvN-gt-mKe"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>

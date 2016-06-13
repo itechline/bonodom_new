@@ -18,8 +18,12 @@ class RegisterScreenViewController: UIViewController, CLLocationManagerDelegate 
     @IBOutlet weak var email_text: UITextField!
     @IBOutlet weak var jelszo_text: UITextField!
     
-    var locManager = CLLocationManager()
-    var city: CLLocation!
+    @IBOutlet weak var city_text: UITextField!
+    @IBOutlet weak var mobile_text: UITextField!
+    
+    var lat = 0.0
+    var lng = 0.0
+    var mobileString = ""
     
     
     override func viewDidLoad() {
@@ -34,27 +38,6 @@ class RegisterScreenViewController: UIViewController, CLLocationManagerDelegate 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
-    }
-    
-    func forwardGeocoding(address: String) {
-        CLGeocoder().geocodeAddressString(address, completionHandler: { (placemarks, error) in
-            if error != nil {
-                print(error)
-                return
-            }
-            if placemarks?.count > 0 {
-                let placemark = placemarks?[0]
-                let location = placemark?.location
-                let coordinate = location?.coordinate
-                print("\nlat: \(coordinate!.latitude), long: \(coordinate!.longitude)")
-                /*if placemark?.areasOfInterest?.count > 0 {
-                    let areaOfInterest = placemark!.areasOfInterest![0]
-                    print(areaOfInterest)
-                } else {
-                    print("No area of interest found.")
-                }*/
-            }
-        })
     }
     
     @IBAction func register_button(sender: AnyObject) {
@@ -88,8 +71,8 @@ class RegisterScreenViewController: UIViewController, CLLocationManagerDelegate 
                     SettingUtil.sharedInstance.setToken(json["token"].stringValue)
                     print ("TOKEN SAVED")
                     dispatch_async(dispatch_get_main_queue(),{
-                        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-                        let subContentsVC = storyboard.instantiateViewControllerWithIdentifier("MainViewController") as! MainViewController
+                        let storyboard = UIStoryboard(name: "LoginView", bundle: nil)
+                        let subContentsVC = storyboard.instantiateViewControllerWithIdentifier("FirstSetting") as! RegisterScreenViewController
                         self.navigationController?.pushViewController(subContentsVC, animated: true)
                     })
                     
@@ -103,13 +86,72 @@ class RegisterScreenViewController: UIViewController, CLLocationManagerDelegate 
                 
             })
         } else {
-            let alert = UIAlertController(title: "HIBA", message: "Töltösön ki minden mezőt!", preferredStyle: UIAlertControllerStyle.Alert)
-            alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
-            self.presentViewController(alert, animated: true, completion: nil)
+            /*let storyboard = UIStoryboard(name: "LoginView", bundle: nil)
+            let subContentsVC = storyboard.instantiateViewControllerWithIdentifier("FirstSetting") as! RegisterScreenViewController
+            self.navigationController?.pushViewController(subContentsVC, animated: true)*/
+            
+            missingFieldsUIAlert()
         }
-        
+    }
+    
+    func missingFieldsUIAlert() {
+        let alert = UIAlertController(title: "HIBA", message: "Töltösön ki minden mezőt!", preferredStyle: UIAlertControllerStyle.Alert)
+        alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
+        self.presentViewController(alert, animated: true, completion: nil)
+    }
+    
+    
+    
+    
+    @IBAction func updatereg_finish(sender: AnyObject) {
+        LoginUtil.sharedInstance.doUpdateReg(String(lat), lng: String(lng), mobile: mobileString, onCompletion: { (json: JSON) in
+            print (json)
+            if (!json["error"].boolValue) {
+                dispatch_async(dispatch_get_main_queue(),{
+                    let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                    let mvc = storyboard.instantiateViewControllerWithIdentifier("MainViewController") as! MainViewController
+                    self.navigationController?.pushViewController(mvc, animated: true)
+                })
+                
+            } else {
+                dispatch_async(dispatch_get_main_queue(),{
+                    let alert = UIAlertController(title: "HIBA", message: "Adatok hozzáadása sikertelen", preferredStyle: UIAlertControllerStyle.Alert)
+                    alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
+                    self.presentViewController(alert, animated: true, completion: nil)
+                })
+            }
+        })
+    }
+    @IBAction func take_photo(sender: AnyObject) {
+        let alert = UIAlertController(title: "Türelem", message: "A funkció a következő frissítéssel válik elérhetővé!", preferredStyle: UIAlertControllerStyle.Alert)
+        alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
+        self.presentViewController(alert, animated: true, completion: nil)
+    }
+    
+    @IBAction func updatereg_next_to_photo(sender: AnyObject) {
+        if (mobile_text.text != "") {
+            mobileString = mobile_text!.text!
+            print ("MOBILE")
+            print (mobileString)
+            let storyboard = UIStoryboard(name: "LoginView", bundle: nil)
+            let subContentsVC = storyboard.instantiateViewControllerWithIdentifier("ThirdSetting") as! RegisterScreenViewController
+            self.navigationController?.pushViewController(subContentsVC, animated: true)
+        } else {
+            missingFieldsUIAlert()
+        }
     }
 
+    @IBAction func updatereg_next_to_phone(sender: AnyObject) {
+        if (city_text.text != "") {
+            let city : String = city_text!.text!
+            forwardGeocoding(city)
+            let storyboard = UIStoryboard(name: "LoginView", bundle: nil)
+            let subContentsVC = storyboard.instantiateViewControllerWithIdentifier("SecondSetting") as! RegisterScreenViewController
+            self.navigationController?.pushViewController(subContentsVC, animated: true)
+        } else {
+            missingFieldsUIAlert()
+        }
+    }
     
     @IBAction func ProfileTypeSelector(sender: UISegmentedControl) {
         if sender.selectedSegmentIndex == 0 {
@@ -120,10 +162,31 @@ class RegisterScreenViewController: UIViewController, CLLocationManagerDelegate 
             vezeteknev_text.hidden = true
             keresztnev_text.placeholder = "Cégnév:"
         }
-        
-        
-        
-        
+    }
+    
+    func forwardGeocoding(address: String) {
+        CLGeocoder().geocodeAddressString(address, completionHandler: { (placemarks, error) in
+            if error != nil {
+                print(error)
+                return
+            }
+            if placemarks?.count > 0 {
+                let placemark = placemarks?[0]
+                let location = placemark?.location
+                let coordinate = location?.coordinate
+                print("\nlat: \(coordinate!.latitude), long: \(coordinate!.longitude)")
+                self.lat = coordinate!.latitude
+                self.lng = coordinate!.longitude
+                print (self.lat)
+                print (self.lng)
+                /*if placemark?.areasOfInterest?.count > 0 {
+                 let areaOfInterest = placemark!.areasOfInterest![0]
+                 print(areaOfInterest)
+                 } else {
+                 print("No area of interest found.")
+                 }*/
+            }
+        })
     }
     
 

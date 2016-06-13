@@ -44,22 +44,36 @@ class EstateUtil: NSObject {
         
     }
     
-    
-    
-    
     func getEstate(ingatlan_id: Int, onCompletion: (JSON) -> Void) {
         
         let token = [ "token", SettingUtil.sharedInstance.getToken()]
         let tokenpost = token.joinWithSeparator("=")
-        let ingatlan_ = [ "id", String(ingatlan_id)]
+        let ingatlan_ = [ "ingatlan_id", String(ingatlan_id)]
         let ingatlanid = ingatlan_.joinWithSeparator("=")
-        
-        
         
         let pa = [ tokenpost, ingatlanid]
         let postbody = pa.joinWithSeparator("&")
         
         let route = baseURL + "get_estate"
+        makeHTTPPostRequest(route, body: postbody, onCompletion: { json, err in
+            onCompletion(json as JSON)
+        })
+        
+    }
+    
+    
+    func setFavorite(ingatlan_id: Int, favorit: Int ,onCompletion: (JSON) -> Void) {
+        let token = [ "token", SettingUtil.sharedInstance.getToken()]
+        let tokenpost = token.joinWithSeparator("=")
+        let ingatlan_ = [ "id", String(ingatlan_id)]
+        let ingatlanid = ingatlan_.joinWithSeparator("=")
+        let favorite = [ "favorite", String(favorit)]
+        let favorite_post = favorite.joinWithSeparator("=")
+        
+        let pa = [ tokenpost, ingatlanid, favorite_post]
+        let postbody = pa.joinWithSeparator("&")
+        
+        let route = baseURL + "set_favorite"
         makeHTTPPostRequest(route, body: postbody, onCompletion: { json, err in
             onCompletion(json as JSON)
         })
