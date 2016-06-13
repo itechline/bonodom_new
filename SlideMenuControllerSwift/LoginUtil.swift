@@ -94,6 +94,27 @@ class LoginUtil: NSObject {
     }
     
     
+    func doUpdateReg(lat: String, lng: String, mobile: String ,onCompletion: (JSON) -> Void) {
+        
+        let token = [ "token", SettingUtil.sharedInstance.getToken()]
+        let token_post = token.joinWithSeparator("=")
+        let lat = [ "fel_lat", lat]
+        let lat_post = lat.joinWithSeparator("=")
+        let lng = [ "fel_lng", lng]
+        let lng_post = lng.joinWithSeparator("=")
+        let mobil = [ "fel_mobilszam", mobile]
+        let mobil_post = mobil.joinWithSeparator("=")
+        
+        let pa = [ token_post, lat_post, lng_post, mobil_post]
+        let postbody = pa.joinWithSeparator("&")
+        
+        let route = baseURL + "update_profile"
+        makeHTTPPostRequest(route, body: postbody, onCompletion: { json, err in
+            onCompletion(json as JSON)
+        })
+    }
+    
+    
     
     
     

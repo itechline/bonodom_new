@@ -5,7 +5,7 @@
 //  Created by Takuma Yoshida on 2015/08/25.
 //
 //
-
+import UIKit
 import Foundation
 import QuartzCore
 
@@ -239,6 +239,7 @@ public class LiquidFloatingActionButton : UIView {
                 print ("PHONE BUTTON TAPPED")
             }
             if (isAddEstateButton) {
+                //AddEstate_1
                 print ("ADD ESTATE BUTTON TAPPED")
             }
         } else {
