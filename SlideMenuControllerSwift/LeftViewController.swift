@@ -113,6 +113,10 @@ class LeftViewController : UIViewController, LeftMenuProtocol {
             self.slideMenuController()?.changeMainViewController(self.inviteVWController, close: true)
         case .Logout:
             print ("Kijelentkezés")
+            let storyboard = UIStoryboard(name: "AddEstate", bundle: nil)
+            let subContentsVC = storyboard.instantiateViewControllerWithIdentifier("AddEstate_1") as! AddEstateViewController
+            self.navigationController?.pushViewController(subContentsVC, animated: true)
+            
         }
     }
 }
