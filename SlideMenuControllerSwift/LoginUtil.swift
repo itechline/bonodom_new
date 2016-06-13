@@ -62,6 +62,37 @@ class LoginUtil: NSObject {
         })
     }
     
+    func doRegistration(email: String, password: String, vezeteknev: String, keresztnev: String,
+                        tipus: String, onCompletion: (JSON) -> Void) {
+        
+        
+        let fel_vezeteknev = [ "fel_vezeteknev", vezeteknev]
+        let fel_vezeteknev_post = fel_vezeteknev.joinWithSeparator("=")
+        let fel_keresztnev = [ "fel_keresztnev", keresztnev]
+        let fel_keresztnev_post = fel_keresztnev.joinWithSeparator("=")
+        let fel_email = [ "fel_email", email]
+        let fel_email_post = fel_email.joinWithSeparator("=")
+        let fel_jelszo = [ "fel_jelszo", password]
+        let fel_jelszo_post = fel_jelszo.joinWithSeparator("=")
+        let fel_mobilszam = [ "fel_mobilszam", "0"]
+        let fel_mobilszam_post = fel_mobilszam.joinWithSeparator("=")
+        let fel_tipus = [ "fel_tipus", tipus]
+        let fel_tipus_post = fel_tipus.joinWithSeparator("=")
+        let fel_status = [ "fel_status", "1"]
+        let fel_status_post = fel_status.joinWithSeparator("=")
+        
+        
+        let pa = [ fel_vezeteknev_post, fel_keresztnev_post,
+                   fel_email_post, fel_jelszo_post, fel_mobilszam_post,
+                   fel_tipus_post, fel_status_post]
+        let postbody = pa.joinWithSeparator("&")
+        
+        let route = baseURL + "reg"
+        makeHTTPPostRequest(route, body: postbody, onCompletion: { json, err in
+            onCompletion(json as JSON)
+        })
+    }
+    
     
     
     

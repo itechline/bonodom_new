@@ -117,6 +117,9 @@
                                         </fragment>
                                     </attributedString>
                                 </state>
+                                <connections>
+                                    <segue destination="udE-Lg-fDk" kind="show" id="dZ3-wp-MbW"/>
+                                </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="main_house" translatesAutoresizingMaskIntoConstraints="NO" id="oko-wF-YBU">
                                 <rect key="frame" x="0.0" y="515" width="600" height="85"/>
@@ -170,13 +173,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bonodom_logo" translatesAutoresizingMaskIntoConstraints="NO" id="YFT-vX-cdm">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="bonodom_logo" translatesAutoresizingMaskIntoConstraints="NO" id="YFT-vX-cdm">
                                 <rect key="frame" x="0.0" y="28" width="600" height="135"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="135" id="s8j-FD-N1G"/>
                                 </constraints>
                             </imageView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vvc-gR-JcC">
+                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vvc-gR-JcC">
                                 <rect key="frame" x="20" y="171" width="560" height="287"/>
                                 <subviews>
                                     <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="6Cu-tY-mgv">
@@ -230,8 +233,11 @@
                                         <state key="normal" title="Regisztráció">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <action selector="register_button:" destination="udE-Lg-fDk" eventType="touchUpInside" id="FQl-Ox-ASh"/>
+                                        </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Z6S-tV-AL9">
+                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Z6S-tV-AL9">
                                         <rect key="frame" x="8" y="234" width="544" height="45"/>
                                         <state key="normal">
                                             <attributedString key="attributedTitle">
@@ -312,6 +318,9 @@
                                         </fragment>
                                     </attributedString>
                                 </state>
+                                <connections>
+                                    <segue destination="k7G-rT-6Bv" kind="show" id="U3T-Vn-vDc"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
@@ -331,6 +340,12 @@
                             <constraint firstItem="YFT-vX-cdm" firstAttribute="leading" secondItem="hxy-3Q-mUk" secondAttribute="leading" id="tqE-RC-WVb"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="email_text" destination="5ZP-gh-Y62" id="MVA-Z4-e8R"/>
+                        <outlet property="jelszo_text" destination="bzm-oI-DJz" id="ItH-rl-nuT"/>
+                        <outlet property="keresztnev_text" destination="yxV-ro-jbu" id="Nvg-0c-bln"/>
+                        <outlet property="vezeteknev_text" destination="3Re-XZ-glJ" id="i22-8c-mBS"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZX4-Mb-yfQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
