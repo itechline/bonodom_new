@@ -19,7 +19,6 @@ class LoginScreenViewController: UIViewController {
         self.hideKeyboardWhenTappedAround()
         let backButton = UIBarButtonItem(title: "", style: UIBarButtonItemStyle.Plain, target: navigationController, action: nil)
         navigationItem.leftBarButtonItem = backButton
-        self.removeNavigationBarItem()
     }
     
     @IBAction func loginButton(sender: AnyObject) {
