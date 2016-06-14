@@ -19,24 +19,33 @@
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="KsU-S4-hhE">
                     <rect key="frame" x="120" y="19" width="80" height="80"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="80" id="fPu-oD-2aZ"/>
+                        <constraint firstAttribute="width" constant="80" id="odq-es-20C"/>
                     </constraints>
                 </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2vU-GX-xMb">
+                    <rect key="frame" x="139" y="114" width="42" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstItem="crj-Qs-Xeq" firstAttribute="centerX" secondItem="KsU-S4-hhE" secondAttribute="centerX" id="2dd-3Y-dvC"/>
-                <constraint firstItem="crj-Qs-Xeq" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="Cn3-BN-KZj"/>
-                <constraint firstItem="crj-Qs-Xeq" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="beV-DX-suR"/>
-                <constraint firstItem="KsU-S4-hhE" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="19" id="co3-9S-JNp"/>
-                <constraint firstAttribute="trailing" secondItem="crj-Qs-Xeq" secondAttribute="trailing" id="gFR-SI-Xwb"/>
-                <constraint firstAttribute="bottom" secondItem="KsU-S4-hhE" secondAttribute="bottom" constant="61" id="gTz-qq-cLL"/>
-                <constraint firstAttribute="bottom" secondItem="crj-Qs-Xeq" secondAttribute="bottom" id="qHU-6q-0zl"/>
+                <constraint firstItem="KsU-S4-hhE" firstAttribute="centerX" secondItem="2vU-GX-xMb" secondAttribute="centerX" id="2oX-0O-8n4"/>
+                <constraint firstItem="crj-Qs-Xeq" firstAttribute="centerX" secondItem="2vU-GX-xMb" secondAttribute="centerX" id="9yo-Hq-K8g"/>
+                <constraint firstAttribute="bottom" secondItem="2vU-GX-xMb" secondAttribute="bottom" constant="25" id="Ges-Vd-DRe"/>
+                <constraint firstItem="crj-Qs-Xeq" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="Ldy-MA-h07"/>
+                <constraint firstAttribute="trailing" secondItem="crj-Qs-Xeq" secondAttribute="trailing" id="SY6-an-QBj"/>
+                <constraint firstItem="2vU-GX-xMb" firstAttribute="top" secondItem="KsU-S4-hhE" secondAttribute="bottom" constant="15" id="a88-El-lo8"/>
+                <constraint firstItem="KsU-S4-hhE" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="19" id="czE-dh-t33"/>
+                <constraint firstAttribute="bottom" secondItem="crj-Qs-Xeq" secondAttribute="bottom" id="e3H-ce-OWN"/>
+                <constraint firstItem="crj-Qs-Xeq" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="grE-Wo-T55"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
                 <outlet property="backgroundImage" destination="crj-Qs-Xeq" id="s6z-e0-bbb"/>
                 <outlet property="profileImage" destination="KsU-S4-hhE" id="C8u-Fp-ZfO"/>
+                <outlet property="profileName" destination="2vU-GX-xMb" id="dez-pF-H9h"/>
             </connections>
             <point key="canvasLocation" x="255" y="192"/>
         </view>

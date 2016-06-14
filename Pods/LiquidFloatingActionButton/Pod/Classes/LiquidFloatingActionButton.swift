@@ -240,6 +240,8 @@ public class LiquidFloatingActionButton : UIView {
             }
             if (isAddEstateButton) {
                 //AddEstate_1
+                let addestate: [String:AnyObject] = [ "addestate": "open"]
+                NSNotificationCenter.defaultCenter().postNotificationName("estate_adding", object: addestate)
                 print ("ADD ESTATE BUTTON TAPPED")
             }
         } else {

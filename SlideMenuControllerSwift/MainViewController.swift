@@ -21,7 +21,6 @@ class MainViewController: UIViewController, LiquidFloatingActionButtonDataSource
     
     var imagePicker = UIImagePickerController()
     
-    var isRefreshing = false
     var largest_id = 0
     
     override func viewDidLoad() {
@@ -35,7 +34,7 @@ class MainViewController: UIViewController, LiquidFloatingActionButtonDataSource
         
         //TESZT VÉGE
         
-        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(MainViewController.openAddestate(_:)), name: "estate_adding", object: nil)
         
         
         if (SettingUtil.sharedInstance.getToken() != "") {
@@ -44,6 +43,9 @@ class MainViewController: UIViewController, LiquidFloatingActionButtonDataSource
                 var msg: Bool!
                 msg = json["token_active"].boolValue
                 if (msg == true) {
+                    let userInfo: [String:AnyObject] = [ "userName": json["veznev"].stringValue + " " + json["kernev"].stringValue]
+                    NSNotificationCenter.defaultCenter().postNotificationName("logged", object: userInfo)
+                    //ImageHeaderView.sharedInstance.setName(json["veznev"].stringValue)
                     self.loadEstateList(0, page: 0, fav: 0, etype: 0, ordering: 0, justme: 0)
                     self.tableView.addSubview(self.refreshControl)
                 } else {
@@ -151,7 +153,6 @@ class MainViewController: UIViewController, LiquidFloatingActionButtonDataSource
                 for entry in results {
                     self.items.append(EstateListModel(json: entry))
                 }
-                self.isRefreshing = false
                 dispatch_async(dispatch_get_main_queue(),{
                     if (results.count != 0) {
                         self.tableView.reloadData()
@@ -172,6 +173,19 @@ class MainViewController: UIViewController, LiquidFloatingActionButtonDataSource
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
+    }
+    
+    func openAddestate(notification: NSNotification) {
+        let storyboard = UIStoryboard(name: "AddEstate", bundle: nil)
+        let subContentsVC = storyboard.instantiateViewControllerWithIdentifier("AddEstate_1") as! AddEstateViewController
+        self.navigationController?.pushViewController(subContentsVC, animated: true)
+        
+        /*if let userInfo = notification.object as? [String:AnyObject] {
+            if let loggedUserName = userInfo["userName"] as? String {
+                print(loggedUserName)
+                profileName.text = loggedUserName
+            }
+        }*/
     }
 
 }
@@ -206,12 +220,9 @@ extension MainViewController : UITableViewDataSource {
         }
 
         if (indexPath.row == self.items.count - 1) {
-            if (!isRefreshing) {
-                isRefreshing = true
-                print ("BOTTOM REACHED")
-                currentPage += 1
-                self.loadEstateList(largest_id, page: currentPage, fav: 0, etype: 0, ordering: 0, justme: 0)
-            }
+            print ("BOTTOM REACHED")
+            currentPage += 1
+            self.loadEstateList(largest_id, page: currentPage, fav: 0, etype: 0, ordering: 0, justme: 0)
         }
         return cell
     }
