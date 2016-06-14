@@ -82,9 +82,6 @@ class SubContentsViewController : UIViewController, LiquidFloatingActionButtonDa
     func liquidFloatingActionButton(liquidFloatingActionButton: LiquidFloatingActionButton, didSelectItemAtIndex index: Int) {
         print("did Tapped! \(index)")
         liquidFloatingActionButton.close()
-        let storyboard = UIStoryboard(name: "AddEstate", bundle: nil)
-        let subContentsVC = storyboard.instantiateViewControllerWithIdentifier("AddEstate_1") as! AddEstateViewController
-        self.navigationController?.pushViewController(subContentsVC, animated: true)
     }
     
     func setTexts() {
