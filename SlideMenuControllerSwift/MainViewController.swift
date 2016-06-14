@@ -21,6 +21,9 @@ class MainViewController: UIViewController, LiquidFloatingActionButtonDataSource
     
     var imagePicker = UIImagePickerController()
     
+    var isRefreshing = false
+    var largest_id = 0
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tableView.registerCellNib(DataTableViewCell.self)
@@ -143,14 +146,16 @@ class MainViewController: UIViewController, LiquidFloatingActionButtonDataSource
     
     func loadEstateList(id: Int, page: Int, fav: Int, etype: Int, ordering: Int, justme: Int) {
         EstateUtil.sharedInstance.getEstateList(id, page: page, fav: fav, etype: etype, ordering: ordering, justme: justme, onCompletion: { (json: JSON) in
-            //print ("ListEstate" + json)
             print (json)
             if let results = json.array {
                 for entry in results {
                     self.items.append(EstateListModel(json: entry))
                 }
+                self.isRefreshing = false
                 dispatch_async(dispatch_get_main_queue(),{
-                    self.tableView.reloadData()
+                    if (results.count != 0) {
+                        self.tableView.reloadData()
+                    }
                 })
             }
         })
@@ -182,7 +187,8 @@ extension MainViewController : UITableViewDataSource {
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return items.count
     }
-     
+    
+    
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
         let cell = self.tableView.dequeueReusableCellWithIdentifier(DataTableViewCell.identifier) as! DataTableViewCell
@@ -194,11 +200,18 @@ extension MainViewController : UITableViewDataSource {
                                          rooms: items[indexPath.row].rooms,
                                          price: items[indexPath.row].price)
         cell.setData(data)
+        
+        if (largest_id < items[indexPath.row].id) {
+            largest_id = items[indexPath.row].id
+        }
 
         if (indexPath.row == self.items.count - 1) {
-            print ("BOTTOM REACHED")
-            currentPage += 1
-            self.loadEstateList(0, page: currentPage, fav: 0, etype: 0, ordering: 0, justme: 0)
+            if (!isRefreshing) {
+                isRefreshing = true
+                print ("BOTTOM REACHED")
+                currentPage += 1
+                self.loadEstateList(largest_id, page: currentPage, fav: 0, etype: 0, ordering: 0, justme: 0)
+            }
         }
         return cell
     }
@@ -206,7 +219,6 @@ extension MainViewController : UITableViewDataSource {
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         let storyboard = UIStoryboard(name: "SubContentsViewController", bundle: nil)
         let subContentsVC = storyboard.instantiateViewControllerWithIdentifier("SubContentsViewController") as! SubContentsViewController
-        print ("OPENING SUBCONTENTS")
         subContentsVC.id = items[indexPath.row].id
         self.navigationController?.pushViewController(subContentsVC, animated: true)
     }
