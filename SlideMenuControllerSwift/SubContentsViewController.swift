@@ -10,11 +10,6 @@ import UIKit
 import SwiftyJSON
 import LiquidFloatingActionButton
 
-
-
-
-/*dikk*/
-
 class SubContentsViewController : UIViewController, LiquidFloatingActionButtonDataSource, LiquidFloatingActionButtonDelegate {
     
     var cells: [LiquidFloatingCell] = []
@@ -64,10 +59,7 @@ class SubContentsViewController : UIViewController, LiquidFloatingActionButtonDa
         let floatingFrame = CGRect(x: self.view.frame.width - 56 - 16, y: self.view.frame.height - 56 - 16, width: 56, height: 56)
         let bottomRightButton = createButton(floatingFrame, .Up)
         
-        //let floatingFrame2 = CGRect(x: 16, y: 16, width: 56, height: 56)
         self.view.addSubview(bottomRightButton)
-    
-    
     }
     
     func numberOfCells(liquidFloatingActionButton: LiquidFloatingActionButton) -> Int {

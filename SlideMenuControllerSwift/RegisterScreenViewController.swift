@@ -25,6 +25,8 @@ class RegisterScreenViewController: UIViewController, CLLocationManagerDelegate 
     var lng = 0.0
     var mobileString = ""
     
+    var tipus = "maganyszemely"
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -64,7 +66,7 @@ class RegisterScreenViewController: UIViewController, CLLocationManagerDelegate 
             let passString : String = jelszo_text!.text!
             let vezeteknevString : String = vezeteknev_text!.text!
             let keresztnevString : String = keresztnev_text!.text!
-            LoginUtil.sharedInstance.doRegistration(mailString, password: passString, vezeteknev: vezeteknevString, keresztnev: keresztnevString, tipus: "maganyszemely",
+            LoginUtil.sharedInstance.doRegistration(mailString, password: passString, vezeteknev: vezeteknevString, keresztnev: keresztnevString, tipus: tipus,
                                                     onCompletion: { (json: JSON) in
                 print (json)
                 if (json["status"].boolValue) {
@@ -131,8 +133,6 @@ class RegisterScreenViewController: UIViewController, CLLocationManagerDelegate 
     @IBAction func updatereg_next_to_photo(sender: AnyObject) {
         if (mobile_text.text != "") {
             mobileString = mobile_text!.text!
-            print ("MOBILE")
-            print (mobileString)
             let storyboard = UIStoryboard(name: "LoginView", bundle: nil)
             let subContentsVC = storyboard.instantiateViewControllerWithIdentifier("ThirdSetting") as! RegisterScreenViewController
             self.navigationController?.pushViewController(subContentsVC, animated: true)
@@ -158,9 +158,11 @@ class RegisterScreenViewController: UIViewController, CLLocationManagerDelegate 
             vezeteknev_text.placeholder = "Vezetéknév:"
             keresztnev_text.placeholder = "Keresztnév:"
             vezeteknev_text.hidden = false
+            tipus = "maganyszemely"
         } else {
             vezeteknev_text.hidden = true
             keresztnev_text.placeholder = "Cégnév:"
+            tipus = "ingatlanos"
         }
     }
     

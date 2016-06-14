@@ -48,7 +48,7 @@ class EstateUtil: NSObject {
         
         let token = [ "token", SettingUtil.sharedInstance.getToken()]
         let tokenpost = token.joinWithSeparator("=")
-        let ingatlan_ = [ "ingatlan_id", String(ingatlan_id)]
+        let ingatlan_ = [ "id", String(ingatlan_id)]
         let ingatlanid = ingatlan_.joinWithSeparator("=")
         
         let pa = [ tokenpost, ingatlanid]
@@ -79,6 +79,96 @@ class EstateUtil: NSObject {
         })
         
     }
+    
+    
+    
+    
+    func addEstate(title: String, varos: String, utca: String, leiras: String, ar: String, meret: String,
+                   energiatan_id: String, butorozott: String, kilatas_id: String,
+                   lift: String, futestipus_id: String, parkolas_id: String, erkely: String,
+                   tipus_id: String, emelet_id: String, allapot_id: String, szsz_id: String,
+                   lat: String, lng: String, e_type_id: String, zipcode: String
+                   , onCompletion: (JSON) -> Void) {
+        
+        let token = [ "token", SettingUtil.sharedInstance.getToken()]
+        let tokenpost = token.joinWithSeparator("=")
+        let title_post = "ingatlan_title=" + title
+        let varos_post = "ingatlan_varos=" + varos
+        let utca_post = "ingatlan_utca=" + utca
+        let leiras_post = "ingatlan_rovidleiras=" + leiras
+        let ar_post = "ingatlan_ar=" + ar
+        let meret_post = "ingatlan_meret=" + meret
+        let energiatan_post = "ingatlan_energiatan_id=" + energiatan_id
+        let butor_post = "ingatlan_butorozott=" + butorozott
+        let kilatas_post = "ingatlan_kilatas_id=" + kilatas_id
+        let lift_post = "ingatlan_lift=" + lift
+        let futes_post = "ingatlan_futestipus_id=" + futestipus_id
+        let parkolas_post = "ingatlan_parkolas_id=" + parkolas_id
+        let erkely_post = "ingatlan_erkely=" + erkely
+        let tipus_post = "ingatlan_tipus_id=" + tipus_id
+        let emelet_post = "ingatlan_emelet_id=" + emelet_id
+        let allapot_post = "ingatlan_allapot_id=" + allapot_id
+        let szsz_post = "ingatlan_szsz_id=" + szsz_id
+        let lat_post = "ingatlan_lat=" + lat
+        let lng_post = "ingatlan_lng=" + lng
+        let e_type_post = "ing_e_type_id=" + e_type_id
+        let zipcode_post = "ingatlan_irszam=" + zipcode
+ 
+        let pa = [ tokenpost, title_post, varos_post, utca_post, leiras_post, ar_post, meret_post, energiatan_post, butor_post, kilatas_post, lift_post, futes_post, parkolas_post, erkely_post, tipus_post, emelet_post, allapot_post, szsz_post, lat_post, lng_post, e_type_post, zipcode_post]
+        let postbody = pa.joinWithSeparator("&")
+        
+        let route = baseURL + "add_estate"
+        makeHTTPPostRequest(route, body: postbody, onCompletion: { json, err in
+            onCompletion(json as JSON)
+        })
+        
+    }
+    
+    
+    /*
+     postadatok.put("ingatlan_meret", meret);
+     postadatok.put("ingatlan_varos", varos);
+     postadatok.put("ingatlan_utca", utca);
+     postadatok.put("ingatlan_rovidleiras", leiras);
+     postadatok.put("ingatlan_ar", ar);
+     postadatok.put("ingatlan_energiatan_id", energia);
+     postadatok.put("ingatlan_butorozott", butor);
+     postadatok.put("ingatlan_kilatas_id", kilatas);
+     postadatok.put("ingatlan_lift", lift);
+     postadatok.put("ingatlan_futestipus_id", futes);
+     postadatok.put("ingatlan_parkolas_id", parkolas);
+     postadatok.put("ingatlan_erkely", erkely);
+     postadatok.put("ingatlan_tipus_id", tipus);
+     postadatok.put("ingatlan_emelet_id", emelet);
+     postadatok.put("ingatlan_allapot_id", allapot);
+     postadatok.put("ingatlan_szsz_id", szobaszam);
+     postadatok.put("ingatlan_lng", lng);
+     postadatok.put("ingatlan_lat", lat);
+     postadatok.put("ingatlan_title", title);
+     postadatok.put("ing_e_type_id", type);
+     postadatok.put("token", token);
+     postadatok.put("ingatlan_irszam", zipcode);
+     postadatok.put("mon", mon);
+     postadatok.put("tue", tue);
+     postadatok.put("wed", wed);
+     postadatok.put("thu", thu);
+     postadatok.put("fri", fri);
+     postadatok.put("sat", sat);
+     postadatok.put("sun", sun);
+     postadatok.put("start", start);
+     postadatok.put("finish", finish);
+ */
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     
     
     // MARK: Perform a GET Request
