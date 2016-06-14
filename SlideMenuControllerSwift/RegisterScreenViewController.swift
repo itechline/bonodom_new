@@ -45,8 +45,11 @@ class RegisterScreenViewController: UIViewController, CLLocationManagerDelegate 
     @IBAction func register_button(sender: AnyObject) {
         var isFilled = true
         
-        if (email_text.text == "") {
-            isFilled = false
+        if (email_text.text != "") {
+            let mailString_test : String = email_text!.text!
+            if (!isValidEmail(mailString_test)) {
+                isFilled = false
+            }
         }
         
         if (jelszo_text.text == "") {
@@ -100,6 +103,14 @@ class RegisterScreenViewController: UIViewController, CLLocationManagerDelegate 
         let alert = UIAlertController(title: "HIBA", message: "Töltösön ki minden mezőt!", preferredStyle: UIAlertControllerStyle.Alert)
         alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
         self.presentViewController(alert, animated: true, completion: nil)
+    }
+    
+    func isValidEmail(testStr:String) -> Bool {
+        // print("validate calendar: \(testStr)")
+        let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}"
+        
+        let emailTest = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
+        return emailTest.evaluateWithObject(testStr)
     }
     
     
