@@ -21,8 +21,6 @@ class ImageHeaderView : UIView {
         self.backgroundColor = UIColor(hex: "ffffff")
         self.profileImage.layer.cornerRadius = self.profileImage.frame.size.height / 2
         self.profileImage.clipsToBounds = true
-        self.profileImage.layer.borderWidth = 1
-        self.profileImage.layer.borderColor = UIColor.whiteColor().CGColor
         self.profileImage.setRandomDownloadImage(80, height: 80)
         self.profileName.text = "asdf"
         //self.backgroundImage.setRandomDownloadImage(Int(self.frame.size.width), height: 160)
