@@ -173,8 +173,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vvc-gR-JcC">
-                                <rect key="frame" x="20" y="108" width="560" height="379"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vvc-gR-JcC">
+                                <rect key="frame" x="20" y="128" width="560" height="359"/>
                                 <subviews>
                                     <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="6Cu-tY-mgv">
                                         <rect key="frame" x="8" y="8" width="544" height="29"/>
@@ -206,8 +206,8 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                     </textField>
-                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Z6S-tV-AL9">
-                                        <rect key="frame" x="8" y="356" width="544" height="15"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Z6S-tV-AL9">
+                                        <rect key="frame" x="8" y="336" width="544" height="15"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="15" id="ssd-3a-WFC"/>
                                         </constraints>
@@ -225,8 +225,8 @@
                                             <segue destination="NQN-iN-3D8" kind="show" id="kMW-1v-kvM"/>
                                         </connections>
                                     </button>
-                                    <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SMh-vE-kQU">
-                                        <rect key="frame" x="8" y="236" width="544" height="91"/>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SMh-vE-kQU">
+                                        <rect key="frame" x="8" y="236" width="544" height="71"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     </view>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TXB-zh-Ngn">
@@ -239,8 +239,8 @@
                                             <action selector="register_button:" destination="udE-Lg-fDk" eventType="touchUpInside" id="FQl-Ox-ASh"/>
                                         </connections>
                                     </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="A Regisztráció gomb megnyomásával elfogadja a" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A5k-8G-vQq">
-                                        <rect key="frame" x="8" y="335" width="544" height="13"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="A Regisztráció gomb megnyomásával elfogadja a" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A5k-8G-vQq">
+                                        <rect key="frame" x="8" y="315" width="544" height="13"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="13" id="HLg-aN-Y7K"/>
                                         </constraints>
