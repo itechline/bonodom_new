@@ -10,7 +10,7 @@ import QuartzCore
 
 class PickerDialog: UIView, UIPickerViewDataSource, UIPickerViewDelegate {
 
-    typealias PickerCallback = (value: String) -> Void
+    typealias PickerCallback = (value: String, display: String) -> Void
 
     /* Constants */
     private let kPickerDialogDefaultButtonHeight:       CGFloat = 50
@@ -91,7 +91,7 @@ class PickerDialog: UIView, UIPickerViewDataSource, UIPickerViewDelegate {
     }
 
     /* Create the dialog view, and animate opening the dialog */
-    func show(title: String, doneButtonTitle: String = "Done", cancelButtonTitle: String = "Cancel", options: [[String: String]], selected: String? = nil, callback: PickerCallback) {
+    func show(title: String, doneButtonTitle: String = "OK", cancelButtonTitle: String = "Mégse", options: [[String: String]], selected: String? = nil, callback: PickerCallback) {
         self.titleLabel.text = title
         self.pickerData = options
         self.doneButton.setTitle(doneButtonTitle, forState: .Normal)
@@ -261,7 +261,8 @@ class PickerDialog: UIView, UIPickerViewDataSource, UIPickerViewDelegate {
         if sender.tag == kPickerDialogDoneButtonTag {
             let selectedIndex = self.picker.selectedRowInComponent(0)
             let selectedValue = self.pickerData[selectedIndex]["value"]
-            self.callback?(value: selectedValue!)
+            let selectedText = self.pickerData[selectedIndex]["display"]
+            self.callback?(value: selectedValue!, display: selectedText!)
         }
 
         close()

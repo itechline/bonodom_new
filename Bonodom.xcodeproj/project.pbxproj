@@ -63,6 +63,7 @@
 		E45A74101D059A4800CC9162 /* EstateUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = E45A740F1D059A4800CC9162 /* EstateUtil.swift */; };
 		E46B88AE1D103C7500D9553F /* SpinnerUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = E46B88AD1D103C7500D9553F /* SpinnerUtil.swift */; };
 		E4742E151D1171DD005BE576 /* PickerDialog.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4742E141D1171DD005BE576 /* PickerDialog.swift */; };
+		E4742E171D118A5A005BE576 /* SpinnerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4742E161D118A5A005BE576 /* SpinnerModel.swift */; };
 		E47E36CA1D059EB90095FA6B /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = E47E36C91D059EB90095FA6B /* Podfile */; };
 		E47E36CD1D05A5080095FA6B /* EstateListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E47E36CC1D05A5080095FA6B /* EstateListModel.swift */; };
 /* End PBXBuildFile section */
@@ -141,6 +142,7 @@
 		E467BCCC1D0ABFF700A289B5 /* LiquidFloatingActionButton.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = LiquidFloatingActionButton.framework; path = "Pods/../build/Debug-iphoneos/LiquidFloatingActionButton/LiquidFloatingActionButton.framework"; sourceTree = "<group>"; };
 		E46B88AD1D103C7500D9553F /* SpinnerUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpinnerUtil.swift; sourceTree = "<group>"; };
 		E4742E141D1171DD005BE576 /* PickerDialog.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PickerDialog.swift; sourceTree = "<group>"; };
+		E4742E161D118A5A005BE576 /* SpinnerModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpinnerModel.swift; sourceTree = "<group>"; };
 		E47E36C91D059EB90095FA6B /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		E47E36CC1D05A5080095FA6B /* EstateListModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EstateListModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -358,6 +360,7 @@
 			children = (
 				E47E36CC1D05A5080095FA6B /* EstateListModel.swift */,
 				E40A3AA71D0808770009D3E0 /* EstateModel.swift */,
+				E4742E161D118A5A005BE576 /* SpinnerModel.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -575,6 +578,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C5BF6A8E1BF34A8B0064C18E /* UIApplication.swift in Sources */,
+				E4742E171D118A5A005BE576 /* SpinnerModel.swift in Sources */,
 				C5BD39DE1A6CD17B00D0AF95 /* GoViewController.swift in Sources */,
 				57873B501D0AE82000F4309A /* LoginScreenViewController.swift in Sources */,
 				C539E64C1A315E87003B7CC7 /* MainViewController.swift in Sources */,
