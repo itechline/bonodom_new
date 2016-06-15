@@ -50,7 +50,7 @@ class DataTableViewCell : BaseTableViewCell {
         if let data = data as? DataTableViewCellData {
             //self.dataImage.setRandomDownloadImage(100, height: 170)
             self.dataImage.setImageFromURL(data.imageUrl, indicator: activityIndicator)
-            self.dataImage.sizeThatFits(CGSize.init(width: 100.0, height: 170.0))
+            self.dataImage.sizeThatFits(CGSize.init(width: 100.0, height: 169.0))
             self.dataText.text = data.adress
             self.sizeText.text = data.size
             self.descriptionText.text = data.description
