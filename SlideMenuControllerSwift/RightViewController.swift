@@ -7,37 +7,69 @@
 
 import UIKit
 
-class RightViewController : UIViewController/*, UIPickerViewDelegate, UIPickerViewDataSource*/ {
+class RightViewController : UIViewController, PopUpPickerViewDelegate {
     
-    /*@IBOutlet weak var estateTypePicker: UIPickerView!
+    var pickerView: PopUpPickerView!
+    let array = ["test1", "test2", "test3", "test4", "test5"]
     
-    var estatetypes = ["Nincs Megadva", "Mindegy", "Tégla", "Panel", "Egyéb"]
-    */
+    var pickerView2: PopUpPickerView!
+    let array2 = ["asd1", "asd2", "asd3", "asd4"]
+ 
+    @IBAction func lift(sender: AnyObject) {
+        pickerView = PopUpPickerView()
+        pickerView.delegate = self
+        if let window = UIApplication.sharedApplication().keyWindow {
+            window.addSubview(pickerView)
+        } else {
+            self.view.addSubview(pickerView)
+        }
+        pickerView.tag = 1
+        pickerView.showPicker()
+    }
     
+    @IBAction func teszt(sender: AnyObject) {
+        pickerView = PopUpPickerView()
+        pickerView.delegate = self
+        if let window = UIApplication.sharedApplication().keyWindow {
+            window.addSubview(pickerView)
+        } else {
+            self.view.addSubview(pickerView)
+        }
+        pickerView.tag = 0
+        pickerView.showPicker()
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-       // self.estateTypePicker.delegate = self
-       // self.estateTypePicker.dataSource = self
     }
     
-    /*func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+    }
+    
+    // for delegate
+    func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
         return 1
     }
     
     func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return estatetypes.count
+        if (pickerView.tag == 0) {
+            return array.count
+        } else {
+            return array2.count
+        }
     }
     
     func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return estatetypes[row]
+        if (pickerView.tag == 0) {
+            return array[row]
+        } else {
+            return array2[row]
+        }
     }
     
-    func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        print (estatetypes[row])
-    }*/
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
+    func pickerView(pickerView: UIPickerView, didSelect numbers: [Int]) {
+        print(numbers)
+        //print (String(array[numbers]))
     }
 }
