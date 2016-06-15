@@ -20,7 +20,7 @@ class NonMenuController: UIViewController {
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        self.removeNavigationBarItem()
+        self.setNavigationBarItem()
         
     }
   
