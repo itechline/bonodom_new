@@ -23,8 +23,15 @@ class LoginScreenViewController: UIViewController {
     
     @IBAction func loginButton(sender: AnyObject) {
         var isFilled = true
-        if (email.text == "") {
-            isFilled = false
+        var mailString : String = ""
+        if (email.text != "") {
+            mailString = email!.text!
+            if (!isValidEmail(mailString)) {
+                print ("NOT VALID MAIL")
+                isFilled = false
+            } else {
+                print ("VALID MAIL")
+            }
         }
         
         if (pass.text == "") {
@@ -34,7 +41,7 @@ class LoginScreenViewController: UIViewController {
         if (isFilled) {
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             let subContentsVC = storyboard.instantiateViewControllerWithIdentifier("MainViewController") as! MainViewController
-            let mailString : String = email!.text!
+            
             let passString : String = pass!.text!
             LoginUtil.sharedInstance.doLogin(mailString, password: passString, onCompletion: { (json: JSON) in
                 print (json)
@@ -63,6 +70,14 @@ class LoginScreenViewController: UIViewController {
         }
     }
     
+    
+    func isValidEmail(testStr:String) -> Bool {
+        // print("validate calendar: \(testStr)")
+        let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}"
+        
+        let emailTest = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
+        return emailTest.evaluateWithObject(testStr)
+    }
     
 
     override func didReceiveMemoryWarning() {
