@@ -62,7 +62,7 @@
 		E45A740B1D05725A00CC9162 /* BaseMenuItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E45A740A1D05725A00CC9162 /* BaseMenuItemViewController.swift */; };
 		E45A74101D059A4800CC9162 /* EstateUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = E45A740F1D059A4800CC9162 /* EstateUtil.swift */; };
 		E46B88AE1D103C7500D9553F /* SpinnerUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = E46B88AD1D103C7500D9553F /* SpinnerUtil.swift */; };
-		E4742E131D115C4C005BE576 /* PopUpPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4742E121D115C4C005BE576 /* PopUpPickerView.swift */; };
+		E4742E151D1171DD005BE576 /* PickerDialog.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4742E141D1171DD005BE576 /* PickerDialog.swift */; };
 		E47E36CA1D059EB90095FA6B /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = E47E36C91D059EB90095FA6B /* Podfile */; };
 		E47E36CD1D05A5080095FA6B /* EstateListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E47E36CC1D05A5080095FA6B /* EstateListModel.swift */; };
 /* End PBXBuildFile section */
@@ -140,7 +140,7 @@
 		E45A740F1D059A4800CC9162 /* EstateUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EstateUtil.swift; sourceTree = "<group>"; };
 		E467BCCC1D0ABFF700A289B5 /* LiquidFloatingActionButton.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = LiquidFloatingActionButton.framework; path = "Pods/../build/Debug-iphoneos/LiquidFloatingActionButton/LiquidFloatingActionButton.framework"; sourceTree = "<group>"; };
 		E46B88AD1D103C7500D9553F /* SpinnerUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpinnerUtil.swift; sourceTree = "<group>"; };
-		E4742E121D115C4C005BE576 /* PopUpPickerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopUpPickerView.swift; sourceTree = "<group>"; };
+		E4742E141D1171DD005BE576 /* PickerDialog.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PickerDialog.swift; sourceTree = "<group>"; };
 		E47E36C91D059EB90095FA6B /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		E47E36CC1D05A5080095FA6B /* EstateListModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EstateListModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -296,7 +296,7 @@
 		C5C1CE631A70F7C400B6E411 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
-				E4742E121D115C4C005BE576 /* PopUpPickerView.swift */,
+				E4742E141D1171DD005BE576 /* PickerDialog.swift */,
 				E454A7AC1D0189D90001CE17 /* SOAPEngine-Bridging-Header.h */,
 				C539E64B1A315E87003B7CC7 /* MainViewController.swift */,
 				C539E66B1A316C78003B7CC7 /* LeftViewController.swift */,
@@ -605,7 +605,6 @@
 				C5BD39DC1A6CD15700D0AF95 /* JavaViewController.swift in Sources */,
 				E45A74101D059A4800CC9162 /* EstateUtil.swift in Sources */,
 				57873B561D0AEEA700F4309A /* ContentViewController.swift in Sources */,
-				E4742E131D115C4C005BE576 /* PopUpPickerView.swift in Sources */,
 				E45A740B1D05725A00CC9162 /* BaseMenuItemViewController.swift in Sources */,
 				C5BA8AA61A43E2EF00863FB9 /* SlideMenuController.swift in Sources */,
 				C539E66E1A316F5F003B7CC7 /* RightViewController.swift in Sources */,
@@ -614,6 +613,7 @@
 				57DFCF981D01BFCD00A69B8A /* AgenciesViewController.swift in Sources */,
 				E40A3AAA1D080C170009D3E0 /* LoginUtil.swift in Sources */,
 				C5F179D01BEB2CB500EEDD9A /* UIView.swift in Sources */,
+				E4742E151D1171DD005BE576 /* PickerDialog.swift in Sources */,
 				C5BD39DA1A6CD12300D0AF95 /* SwiftViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
