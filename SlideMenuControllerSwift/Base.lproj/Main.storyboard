@@ -232,6 +232,9 @@
                                         <state key="normal" title="Nincs megadva">
                                             <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <action selector="kilatas:" destination="In8-Mc-X7I" eventType="touchUpInside" id="iMI-ai-CGN"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B1a-FK-54P">
                                         <rect key="frame" x="8" y="669" width="544" height="30"/>
@@ -475,6 +478,7 @@
                     <connections>
                         <outlet property="allapotText" destination="wlp-oZ-jqY" id="be9-Fd-Wec"/>
                         <outlet property="etanText" destination="TU4-hF-O87" id="MBu-ox-XPw"/>
+                        <outlet property="kilatasText" destination="4kQ-8e-Djy" id="Eog-XV-u2u"/>
                         <outlet property="kivitelText" destination="alp-eS-QUA" id="9mR-w5-07X"/>
                         <outlet property="liftText" destination="NHK-yA-QbD" id="GTc-36-RVw"/>
                         <outlet property="parkolasText" destination="qMg-fx-hcX" id="IIW-uu-hOa"/>
@@ -545,16 +549,22 @@
                                             <constraint firstAttribute="width" constant="160" id="pJO-wJ-mbJ"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="italicSystem" pointSize="13"/>
-                                        <state key="normal" title="Ár szerint csökkenő">
+                                        <state key="normal" title="Dátum szerint">
                                             <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <action selector="ordering:" destination="BYZ-38-t0r" eventType="touchUpInside" id="7FB-mq-t2N"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="98n-BK-0sh">
                                         <rect key="frame" x="229" y="3" width="363" height="30"/>
                                         <color key="backgroundColor" red="0.0" green="0.40000000000000002" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
-                                        <state key="normal" title="Eladó">
+                                        <state key="normal" title="Mindegy">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <action selector="elado_kiado:" destination="BYZ-38-t0r" eventType="touchUpInside" id="9sV-MC-eO5"/>
+                                        </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Típus:" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IYr-c2-nBF">
                                         <rect key="frame" x="176" y="3" width="45" height="30"/>
@@ -562,7 +572,7 @@
                                             <constraint firstAttribute="width" constant="45" id="Qmp-rG-jRS"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="italicSystem" pointSize="15"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
@@ -603,6 +613,8 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="elado_kiado_text" destination="98n-BK-0sh" id="4R5-LG-QUG"/>
+                        <outlet property="ordering_text" destination="AaY-Vs-1rc" id="1Va-7r-71Y"/>
                         <outlet property="tableView" destination="MNw-nN-8ak" id="OEx-Z5-027"/>
                     </connections>
                 </viewController>

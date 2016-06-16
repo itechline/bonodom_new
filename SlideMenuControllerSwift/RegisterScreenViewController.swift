@@ -25,7 +25,7 @@ class RegisterScreenViewController: UIViewController, CLLocationManagerDelegate 
     var lng = 0.0
     var mobileString = ""
     
-    var tipus = "maganyszemely"
+    var tipus = "maganszemely"
     
     
     override func viewDidLoad() {
@@ -50,18 +50,33 @@ class RegisterScreenViewController: UIViewController, CLLocationManagerDelegate 
             if (!isValidEmail(mailString_test)) {
                 isFilled = false
             }
+        } else {
+            isFilled = false
+            email_text.attributedPlaceholder = NSAttributedString(string:"Email:",
+                                                                  attributes:[NSForegroundColorAttributeName: UIColor.redColor()])
         }
         
         if (jelszo_text.text == "") {
             isFilled = false
+            jelszo_text.attributedPlaceholder = NSAttributedString(string:"Jelszó:",
+                                                                  attributes:[NSForegroundColorAttributeName: UIColor.redColor()])
         }
         
         if (vezeteknev_text.text == "") {
             isFilled = false
+            vezeteknev_text.attributedPlaceholder = NSAttributedString(string:"Vezetéknév:",
+                                                                  attributes:[NSForegroundColorAttributeName: UIColor.redColor()])
         }
         
         if (keresztnev_text.text == "") {
             isFilled = false
+            if (tipus == "maganszemely") {
+                keresztnev_text.attributedPlaceholder = NSAttributedString(string:"Keresztnév:",
+                                                                           attributes:[NSForegroundColorAttributeName: UIColor.redColor()])
+            } else {
+                keresztnev_text.attributedPlaceholder = NSAttributedString(string:"Cégnév:",
+                                                                           attributes:[NSForegroundColorAttributeName: UIColor.redColor()])
+            }
         }
         
         if (isFilled) {
@@ -169,7 +184,7 @@ class RegisterScreenViewController: UIViewController, CLLocationManagerDelegate 
             vezeteknev_text.placeholder = "Vezetéknév:"
             keresztnev_text.placeholder = "Keresztnév:"
             vezeteknev_text.hidden = false
-            tipus = "maganyszemely"
+            tipus = "maganszemely"
         } else {
             vezeteknev_text.hidden = true
             keresztnev_text.placeholder = "Cégnév:"

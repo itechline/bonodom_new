@@ -17,6 +17,7 @@ class RightViewController : UIViewController {
     var pickerData_etan = [[String : String]]()
     var pickerData_allapot = [[String : String]]()
     var pickerData_parkolas = [[String : String]]()
+    var pickerData_kilatas = [[String : String]]()
     
     @IBOutlet weak var liftText: UIButton!
     @IBAction func lift(sender: AnyObject) {
@@ -73,6 +74,17 @@ class RightViewController : UIViewController {
         }
     }
     
+    
+    
+    @IBOutlet weak var kilatasText: UIButton!
+    @IBAction func kilatas(sender: AnyObject) {
+        PickerDialog().show("Kilátás", options: pickerData_kilatas, selected: "0") {
+            (value, display) -> Void in
+            self.kilatasText.setTitle(display, forState: UIControlState.Normal)
+            print("Unit selected: \(value)")
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -118,8 +130,6 @@ class RightViewController : UIViewController {
         }
         
         SpinnerUtil.sharedInstance.get_list_ingatlanparkolas{ (json: JSON) in
-            print ("PARKOLAS")
-            print (json)
             self.type_items.removeAll()
             if let results = json.array {
                 for entry in results {
@@ -128,6 +138,21 @@ class RightViewController : UIViewController {
                 
                 for i in 0...self.type_items.count-1 {
                     self.pickerData_parkolas.append(["value": self.type_items[i].value, "display": self.type_items[i].display])
+                }
+            }
+        }
+        
+        SpinnerUtil.sharedInstance.get_list_ingatlankilatas{ (json: JSON) in
+            print ("KILÁTÁS")
+            print (json)
+            self.type_items.removeAll()
+            if let results = json.array {
+                for entry in results {
+                    self.type_items.append(SpinnerModel(json: entry, type: "kilatas"))
+                }
+                
+                for i in 0...self.type_items.count-1 {
+                    self.pickerData_kilatas.append(["value": self.type_items[i].value, "display": self.type_items[i].display])
                 }
             }
         }
