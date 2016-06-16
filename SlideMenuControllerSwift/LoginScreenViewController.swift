@@ -14,6 +14,9 @@ class LoginScreenViewController: UIViewController {
 
     @IBOutlet weak var pass: UITextField!
     @IBOutlet weak var email: UITextField!
+    
+    var alertController = UIAlertController()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.hideKeyboardWhenTappedAround()
@@ -45,6 +48,7 @@ class LoginScreenViewController: UIViewController {
         }
         
         if (isFilled) {
+            showLoadingDialog()
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             let subContentsVC = storyboard.instantiateViewControllerWithIdentifier("MainViewController") as! MainViewController
             
@@ -56,11 +60,13 @@ class LoginScreenViewController: UIViewController {
                     SettingUtil.sharedInstance.setToken(json["token"].stringValue)
                     print ("TOKEN SAVED")
                     dispatch_async(dispatch_get_main_queue(),{
+                        self.alertController.dismissViewControllerAnimated(true, completion: nil)
                         self.navigationController?.pushViewController(subContentsVC, animated: true)
                     })
                     
                 } else {
                     dispatch_async(dispatch_get_main_queue(),{
+                        self.alertController.dismissViewControllerAnimated(true, completion: nil)
                         print ("COULD NOT LOGGED IN")
                         let alert = UIAlertController(title: "HIBA", message: "Hibás felhasználónév vagy jelszó", preferredStyle: UIAlertControllerStyle.Alert)
                         alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
@@ -74,6 +80,16 @@ class LoginScreenViewController: UIViewController {
             alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
             self.presentViewController(alert, animated: true, completion: nil)
         }
+    }
+    
+    func showLoadingDialog() {
+        alertController = UIAlertController(title: nil, message: "Please wait\n\n", preferredStyle: UIAlertControllerStyle.Alert)
+        let spinnerIndicator: UIActivityIndicatorView = UIActivityIndicatorView(activityIndicatorStyle: UIActivityIndicatorViewStyle.WhiteLarge)
+        spinnerIndicator.center = CGPointMake(135.0, 65.5)
+        spinnerIndicator.color = UIColor.blackColor()
+        spinnerIndicator.startAnimating()
+        alertController.view.addSubview(spinnerIndicator)
+        self.presentViewController(alertController, animated: false, completion: nil)
     }
     
     

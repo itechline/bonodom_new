@@ -27,6 +27,8 @@ class RegisterScreenViewController: UIViewController, CLLocationManagerDelegate 
     
     var tipus = "maganszemely"
     
+    var alertController = UIAlertController()
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -80,6 +82,7 @@ class RegisterScreenViewController: UIViewController, CLLocationManagerDelegate 
         }
         
         if (isFilled) {
+            showLoadingDialog()
             let mailString : String = email_text!.text!
             let passString : String = jelszo_text!.text!
             let vezeteknevString : String = vezeteknev_text!.text!
@@ -91,6 +94,7 @@ class RegisterScreenViewController: UIViewController, CLLocationManagerDelegate 
                     SettingUtil.sharedInstance.setToken(json["token"].stringValue)
                     print ("TOKEN SAVED")
                     dispatch_async(dispatch_get_main_queue(),{
+                        self.alertController.dismissViewControllerAnimated(true, completion: nil)
                         let storyboard = UIStoryboard(name: "LoginView", bundle: nil)
                         let subContentsVC = storyboard.instantiateViewControllerWithIdentifier("FirstSetting") as! RegisterScreenViewController
                         self.navigationController?.pushViewController(subContentsVC, animated: true)
@@ -98,6 +102,7 @@ class RegisterScreenViewController: UIViewController, CLLocationManagerDelegate 
                     
                 } else {
                     dispatch_async(dispatch_get_main_queue(),{
+                        self.alertController.dismissViewControllerAnimated(true, completion: nil)
                         let alert = UIAlertController(title: "HIBA", message: "Regisztráció nem sikerült", preferredStyle: UIAlertControllerStyle.Alert)
                         alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
                         self.presentViewController(alert, animated: true, completion: nil)
@@ -112,6 +117,16 @@ class RegisterScreenViewController: UIViewController, CLLocationManagerDelegate 
             
             missingFieldsUIAlert()
         }
+    }
+    
+    func showLoadingDialog() {
+        alertController = UIAlertController(title: nil, message: "Please wait\n\n", preferredStyle: UIAlertControllerStyle.Alert)
+        let spinnerIndicator: UIActivityIndicatorView = UIActivityIndicatorView(activityIndicatorStyle: UIActivityIndicatorViewStyle.WhiteLarge)
+        spinnerIndicator.center = CGPointMake(135.0, 65.5)
+        spinnerIndicator.color = UIColor.blackColor()
+        spinnerIndicator.startAnimating()
+        alertController.view.addSubview(spinnerIndicator)
+        self.presentViewController(alertController, animated: false, completion: nil)
     }
     
     func missingFieldsUIAlert() {
@@ -132,10 +147,12 @@ class RegisterScreenViewController: UIViewController, CLLocationManagerDelegate 
     
     
     @IBAction func updatereg_finish(sender: AnyObject) {
+        showLoadingDialog()
         LoginUtil.sharedInstance.doUpdateReg(String(lat), lng: String(lng), mobile: mobileString, onCompletion: { (json: JSON) in
             print (json)
             if (!json["error"].boolValue) {
                 dispatch_async(dispatch_get_main_queue(),{
+                    self.alertController.dismissViewControllerAnimated(true, completion: nil)
                     let storyboard = UIStoryboard(name: "Main", bundle: nil)
                     let mvc = storyboard.instantiateViewControllerWithIdentifier("MainViewController") as! MainViewController
                     self.navigationController?.pushViewController(mvc, animated: true)
@@ -143,6 +160,7 @@ class RegisterScreenViewController: UIViewController, CLLocationManagerDelegate 
                 
             } else {
                 dispatch_async(dispatch_get_main_queue(),{
+                    self.alertController.dismissViewControllerAnimated(true, completion: nil)
                     let alert = UIAlertController(title: "HIBA", message: "Adatok hozzáadása sikertelen", preferredStyle: UIAlertControllerStyle.Alert)
                     alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
                     self.presentViewController(alert, animated: true, completion: nil)
