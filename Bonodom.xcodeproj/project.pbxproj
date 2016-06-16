@@ -24,6 +24,7 @@
 		57D5DC691D12DF06002548B7 /* MessageThreadView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 57D5DC681D12DF06002548B7 /* MessageThreadView.storyboard */; };
 		57D5DC6B1D12E2CF002548B7 /* MessageThreadItemView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 57D5DC6A1D12E2CF002548B7 /* MessageThreadItemView.xib */; };
 		57D5DC6F1D12E427002548B7 /* MessageThreadItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57D5DC6E1D12E427002548B7 /* MessageThreadItemView.swift */; };
+		57D5DC711D12E7CD002548B7 /* AdmonitorDataCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 57D5DC701D12E7CD002548B7 /* AdmonitorDataCell.xib */; };
 		57DFCF961D01BBB900A69B8A /* AdMonitorController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57DFCF951D01BBB900A69B8A /* AdMonitorController.swift */; };
 		57DFCF981D01BFCD00A69B8A /* AgenciesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57DFCF971D01BFCD00A69B8A /* AgenciesViewController.swift */; };
 		57DFCF9A1D01C22A00A69B8A /* InviteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57DFCF991D01C22A00A69B8A /* InviteViewController.swift */; };
@@ -101,6 +102,7 @@
 		57D5DC681D12DF06002548B7 /* MessageThreadView.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MessageThreadView.storyboard; sourceTree = "<group>"; };
 		57D5DC6A1D12E2CF002548B7 /* MessageThreadItemView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MessageThreadItemView.xib; sourceTree = "<group>"; };
 		57D5DC6E1D12E427002548B7 /* MessageThreadItemView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageThreadItemView.swift; sourceTree = "<group>"; };
+		57D5DC701D12E7CD002548B7 /* AdmonitorDataCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AdmonitorDataCell.xib; sourceTree = "<group>"; };
 		57DFCF951D01BBB900A69B8A /* AdMonitorController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdMonitorController.swift; sourceTree = "<group>"; };
 		57DFCF971D01BFCD00A69B8A /* AgenciesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AgenciesViewController.swift; sourceTree = "<group>"; };
 		57DFCF991D01C22A00A69B8A /* InviteViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InviteViewController.swift; sourceTree = "<group>"; };
@@ -276,6 +278,7 @@
 				576D35EB1D05A83B00DFA2BD /* MessageItemViewController.xib */,
 				57D5DC6A1D12E2CF002548B7 /* MessageThreadItemView.xib */,
 				57D5DC6E1D12E427002548B7 /* MessageThreadItemView.swift */,
+				57D5DC701D12E7CD002548B7 /* AdmonitorDataCell.xib */,
 			);
 			name = TableViewCell;
 			sourceTree = "<group>";
@@ -505,6 +508,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				57873B4E1D0AE33000F4309A /* LoginView.storyboard in Resources */,
+				57D5DC711D12E7CD002548B7 /* AdmonitorDataCell.xib in Resources */,
 				E45A74071D0571E200CC9162 /* MenuItemView.xib in Resources */,
 				57C21E601D0EE42100CBCDFF /* AddEstate.storyboard in Resources */,
 				C5498C801BE897660076A7C5 /* ImageHeaderView.xib in Resources */,
