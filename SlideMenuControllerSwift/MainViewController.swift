@@ -206,8 +206,8 @@ class MainViewController: UIViewController, LiquidFloatingActionButtonDataSource
                     self.items.append(EstateListModel(json: entry))
                 }
                 dispatch_async(dispatch_get_main_queue(),{
+                    self.alertController.dismissViewControllerAnimated(true, completion: nil)
                     if (results.count != 0) {
-                        self.alertController.dismissViewControllerAnimated(true, completion: nil)
                         self.tableView.reloadData()
                     }
                 })
