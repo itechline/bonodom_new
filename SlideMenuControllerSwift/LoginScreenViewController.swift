@@ -32,10 +32,16 @@ class LoginScreenViewController: UIViewController {
             } else {
                 print ("VALID MAIL")
             }
+        } else {
+            isFilled = false
+            email.attributedPlaceholder = NSAttributedString(string:"Email:",
+                                                                       attributes:[NSForegroundColorAttributeName: UIColor.redColor()])
         }
         
         if (pass.text == "") {
             isFilled = false
+            pass.attributedPlaceholder = NSAttributedString(string:"Jelszó:",
+                                                                       attributes:[NSForegroundColorAttributeName: UIColor.redColor()])
         }
         
         if (isFilled) {
@@ -64,7 +70,7 @@ class LoginScreenViewController: UIViewController {
                 
                 })
         } else {
-            let alert = UIAlertController(title: "HIBA", message: "Töltösön ki minden mezőt!", preferredStyle: UIAlertControllerStyle.Alert)
+            let alert = UIAlertController(title: "HIBA", message: "Töltösön ki minden mezőt helyesen!", preferredStyle: UIAlertControllerStyle.Alert)
             alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
             self.presentViewController(alert, animated: true, completion: nil)
         }
