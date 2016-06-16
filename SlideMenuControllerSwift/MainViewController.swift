@@ -27,9 +27,11 @@ class MainViewController: UIViewController, LiquidFloatingActionButtonDataSource
     var pickerData_elado_kiado = [[String : String]]()
     var adType = 0
     var order = 0
+    var alertController = UIAlertController()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         self.tableView.registerCellNib(DataTableViewCell.self)
         //SettingUtil.sharedInstance.setToken("2d1933ceaf3fba2095fe8a4d4995cfc1")
         
@@ -42,6 +44,7 @@ class MainViewController: UIViewController, LiquidFloatingActionButtonDataSource
         
         
         if (SettingUtil.sharedInstance.getToken() != "") {
+            showLoadingDialog()
             LoginUtil.sharedInstance.getTokenValidator { (json: JSON) in
                 print (json)
                 var msg: Bool!
@@ -71,18 +74,19 @@ class MainViewController: UIViewController, LiquidFloatingActionButtonDataSource
             return floatingActionButton
         }
         
-        //let cellFactory: (String) -> LiquidFloatingCell = { (iconName) in
-        //    return LiquidFloatingCell(icon: UIImage(named: iconName)!)
-        //}
-        //cells.append(cellFactory("ic_action_envelop"))
-        //cells.append(cellFactory("ic_action_heart"))
-        
-        
         let floatingFrame = CGRect(x: self.view.frame.width - 56 - 16, y: self.view.frame.height - 56 - 16, width: 56, height: 56)
         let bottomRightButton = createButton(floatingFrame, .Up)
-        
-        //let floatingFrame2 = CGRect(x: 16, y: 16, width: 56, height: 56)
         self.view.addSubview(bottomRightButton)
+    }
+    
+    func showLoadingDialog() {
+        alertController = UIAlertController(title: nil, message: "Please wait\n\n", preferredStyle: UIAlertControllerStyle.Alert)
+        let spinnerIndicator: UIActivityIndicatorView = UIActivityIndicatorView(activityIndicatorStyle: UIActivityIndicatorViewStyle.WhiteLarge)
+        spinnerIndicator.center = CGPointMake(135.0, 65.5)
+        spinnerIndicator.color = UIColor.blackColor()
+        spinnerIndicator.startAnimating()
+        alertController.view.addSubview(spinnerIndicator)
+        self.presentViewController(alertController, animated: false, completion: nil)
     }
     
     func pickImage () {
@@ -145,6 +149,7 @@ class MainViewController: UIViewController, LiquidFloatingActionButtonDataSource
     func handleRefresh(refreshControl: UIRefreshControl) {
         self.items.removeAll()
         currentPage = 0
+        showLoadingDialog()
         self.loadEstateList(0, page: 0, fav: 0, etype: self.adType, ordering: self.order, justme: 0)
         
         refreshControl.endRefreshing()
@@ -168,6 +173,7 @@ class MainViewController: UIViewController, LiquidFloatingActionButtonDataSource
         }
         self.items.removeAll()
         self.currentPage = 0
+        showLoadingDialog()
         self.loadEstateList(0, page: 0, fav: 0, etype: self.adType, ordering: self.order, justme: 0)
     }
     
@@ -188,6 +194,7 @@ class MainViewController: UIViewController, LiquidFloatingActionButtonDataSource
         }
         self.items.removeAll()
         self.currentPage = 0
+        showLoadingDialog()
         self.loadEstateList(0, page: 0, fav: 0, etype: self.adType, ordering: self.order, justme: 0)
     }
     
@@ -200,6 +207,7 @@ class MainViewController: UIViewController, LiquidFloatingActionButtonDataSource
                 }
                 dispatch_async(dispatch_get_main_queue(),{
                     if (results.count != 0) {
+                        self.alertController.dismissViewControllerAnimated(true, completion: nil)
                         self.tableView.reloadData()
                     }
                 })
@@ -267,6 +275,7 @@ extension MainViewController : UITableViewDataSource {
         if (indexPath.row == self.items.count - 1) {
             print ("BOTTOM REACHED")
             currentPage += 1
+            showLoadingDialog()
             self.loadEstateList(largest_id, page: currentPage, fav: 0, etype: self.adType, ordering: self.order, justme: 0)
         }
         return cell
