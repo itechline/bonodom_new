@@ -26,6 +26,7 @@ class MainViewController: UIViewController, LiquidFloatingActionButtonDataSource
     var elado_kiado_items = [SpinnerModel]()
     var pickerData_elado_kiado = [[String : String]]()
     var adType = 0
+    var order = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -49,7 +50,7 @@ class MainViewController: UIViewController, LiquidFloatingActionButtonDataSource
                     let userInfo: [String:AnyObject] = [ "userName": json["veznev"].stringValue + " " + json["kernev"].stringValue]
                     NSNotificationCenter.defaultCenter().postNotificationName("logged", object: userInfo)
                     //ImageHeaderView.sharedInstance.setName(json["veznev"].stringValue)
-                    self.loadEstateList(0, page: 0, fav: 0, etype: self.adType, ordering: 0, justme: 0)
+                    self.loadEstateList(0, page: 0, fav: 0, etype: self.adType, ordering: self.order, justme: 0)
                     self.tableView.addSubview(self.refreshControl)
                 } else {
                     self.loadRegistration()
@@ -144,7 +145,7 @@ class MainViewController: UIViewController, LiquidFloatingActionButtonDataSource
     func handleRefresh(refreshControl: UIRefreshControl) {
         self.items.removeAll()
         currentPage = 0
-        self.loadEstateList(0, page: 0, fav: 0, etype: self.adType, ordering: 0, justme: 0)
+        self.loadEstateList(0, page: 0, fav: 0, etype: self.adType, ordering: self.order, justme: 0)
         
         refreshControl.endRefreshing()
     }
@@ -152,7 +153,22 @@ class MainViewController: UIViewController, LiquidFloatingActionButtonDataSource
     
     @IBOutlet weak var ordering_text: UIButton!
     @IBAction func ordering(sender: AnyObject) {
-        
+        self.order += 1
+        switch self.order {
+        case 1:
+            ordering_text.setTitle("Ár szerint növekvő", forState: UIControlState.Normal)
+            break
+        case 2:
+            ordering_text.setTitle("Ár szerint csökkenő", forState: UIControlState.Normal)
+            break
+        default:
+            ordering_text.setTitle("Dátum szerint", forState: UIControlState.Normal)
+            self.order = 0
+            break
+        }
+        self.items.removeAll()
+        self.currentPage = 0
+        self.loadEstateList(0, page: 0, fav: 0, etype: self.adType, ordering: self.order, justme: 0)
     }
     
     @IBOutlet weak var elado_kiado_text: UIButton!
@@ -172,7 +188,7 @@ class MainViewController: UIViewController, LiquidFloatingActionButtonDataSource
         }
         self.items.removeAll()
         self.currentPage = 0
-        self.loadEstateList(0, page: 0, fav: 0, etype: self.adType, ordering: 0, justme: 0)
+        self.loadEstateList(0, page: 0, fav: 0, etype: self.adType, ordering: self.order, justme: 0)
     }
     
     func loadEstateList(id: Int, page: Int, fav: Int, etype: Int, ordering: Int, justme: Int) {
@@ -251,7 +267,7 @@ extension MainViewController : UITableViewDataSource {
         if (indexPath.row == self.items.count - 1) {
             print ("BOTTOM REACHED")
             currentPage += 1
-            self.loadEstateList(largest_id, page: currentPage, fav: 0, etype: self.adType, ordering: 0, justme: 0)
+            self.loadEstateList(largest_id, page: currentPage, fav: 0, etype: self.adType, ordering: self.order, justme: 0)
         }
         return cell
     }
