@@ -56,10 +56,16 @@ class MainViewController: UIViewController, LiquidFloatingActionButtonDataSource
                     self.loadEstateList(0, page: 0, fav: 0, etype: self.adType, ordering: self.order, justme: 0)
                     self.tableView.addSubview(self.refreshControl)
                 } else {
-                    self.loadRegistration()
+                    dispatch_async(dispatch_get_main_queue(),{
+                        print ("TOKEN_INACTIVE_1")
+                        self.alertController.dismissViewControllerAnimated(true, completion: nil)
+                        self.loadRegistration()
+                    })
                 }
             }
         } else {
+            print ("TOKEN_INACTIVE_2")
+            self.alertController.dismissViewControllerAnimated(true, completion: nil)
             self.loadRegistration()
         }
         

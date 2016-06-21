@@ -152,7 +152,6 @@
                                         </state>
                                         <connections>
                                             <action selector="kovetkezo_1_button:" destination="XP6-P6-eka" eventType="touchUpInside" id="RgT-nZ-aZ1"/>
-                                            <segue destination="rEy-yq-uys" kind="show" id="vqx-Rf-dph"/>
                                         </connections>
                                     </button>
                                 </subviews>
