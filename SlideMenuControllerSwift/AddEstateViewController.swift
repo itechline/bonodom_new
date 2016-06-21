@@ -22,13 +22,65 @@ class AddEstateViewController: UIViewController {
     
     @IBOutlet weak var hirdetes_tipusa_text: UIButton!
     @IBAction func hirdetes_tipusa_button(sender: AnyObject) {
+        
     }
     
     @IBOutlet weak var butorozott_text: UIButton!
     @IBAction func butorozott_button(sender: AnyObject) {
+        
     }
     
     @IBAction func kovetkezo_1_button(sender: AnyObject) {
+        var isFilled = true
+        
+        if (hirdetes_cime_text == "") {
+            isFilled = false
+            hirdetes_cime_text.attributedPlaceholder = NSAttributedString(string:"*",
+                                                                           attributes:[NSForegroundColorAttributeName: UIColor.redColor()])
+        }
+        
+        if (hirdetes_leirasa_text == "") {
+            isFilled = false
+            hirdetes_leirasa_text.attributedPlaceholder = NSAttributedString(string:"*",
+                                                                          attributes:[NSForegroundColorAttributeName: UIColor.redColor()])
+        }
+        
+        if (ingatlan_ara_text == "") {
+            isFilled = false
+            ingatlan_ara_text.attributedPlaceholder = NSAttributedString(string:"*",
+                                                                             attributes:[NSForegroundColorAttributeName: UIColor.redColor()])
+        }
+    
+        if (varos_text == "") {
+            isFilled = false
+            varos_text.attributedPlaceholder = NSAttributedString(string:"*",
+                                                                         attributes:[NSForegroundColorAttributeName: UIColor.redColor()])
+        }
+        
+        if (utca_text == "") {
+            isFilled = false
+            utca_text.attributedPlaceholder = NSAttributedString(string:"*",
+                                                                  attributes:[NSForegroundColorAttributeName: UIColor.redColor()])
+        }
+        
+        if (hazszam_text == "") {
+            isFilled = false
+            hazszam_text.attributedPlaceholder = NSAttributedString(string:"*",
+                                                                 attributes:[NSForegroundColorAttributeName: UIColor.redColor()])
+        }
+        
+        if (meret_text == "") {
+            isFilled = false
+            meret_text.attributedPlaceholder = NSAttributedString(string:"*",
+                                                                    attributes:[NSForegroundColorAttributeName: UIColor.redColor()])
+        }
+        
+        if (isFilled) {
+            
+        }
+        
+        
+        
     }
     //FIRST PAGE END
     
