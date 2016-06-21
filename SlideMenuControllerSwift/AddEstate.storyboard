@@ -624,7 +624,7 @@
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
-                                            <segue destination="9rM-lE-GNF" kind="show" id="190-oT-xeo"/>
+                                            <action selector="kovetkezo_3_button:" destination="bpv-Ux-zvj" eventType="touchUpInside" id="uaL-X3-Wlq"/>
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="A képekkel hírdetett ingaltanok X%-al gyorsabban kelnek el mint a kép nélküli társaik" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oey-x7-Ykv">
@@ -647,6 +647,9 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yL6-aV-96D">
                                         <rect key="frame" x="0.0" y="75" width="600" height="66"/>
                                         <state key="normal" image="feltoltes"/>
+                                        <connections>
+                                            <action selector="image_picker_button:" destination="bpv-Ux-zvj" eventType="touchUpInside" id="RL7-Xi-63E"/>
+                                        </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Feltöltés" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="puB-vK-Dj0">
                                         <rect key="frame" x="0.0" y="149" width="600" height="21"/>
@@ -666,6 +669,9 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="quB-vo-q15">
                                         <rect key="frame" x="0.0" y="203" width="600" height="71"/>
                                         <state key="normal" image="fenykepezo"/>
+                                        <connections>
+                                            <action selector="photo_taker_button:" destination="bpv-Ux-zvj" eventType="touchUpInside" id="8xf-xF-3Bh"/>
+                                        </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Kép készítése" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XI6-Jj-ztP">
                                         <rect key="frame" x="0.0" y="282" width="600" height="21"/>
@@ -746,6 +752,10 @@
                             <constraint firstItem="j6b-o0-XYz" firstAttribute="top" secondItem="VlW-BV-eHk" secondAttribute="bottom" constant="8" symbolic="YES" id="wOV-mb-M6u"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="image_picker_picture" destination="yL6-aV-96D" id="twk-eS-qBl"/>
+                        <outlet property="photo_taker_picture" destination="quB-vo-q15" id="gKL-in-Umq"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oPJ-Xc-6iR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

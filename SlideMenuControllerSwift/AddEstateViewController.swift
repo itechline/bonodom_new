@@ -9,8 +9,11 @@
 import UIKit
 import SwiftyJSON
 
-class AddEstateViewController: UIViewController {
+class AddEstateViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
+    
+    var imagePicker = UIImagePickerController()
+    
     var items = [SpinnerModel]()
     var pickerData_hirdetes_tipus = [[String : String]]()
     var pickerData_butorozott = [[String : String]]()
@@ -279,53 +282,136 @@ class AddEstateViewController: UIViewController {
     }
     
     @IBAction func kovetkezo_2_button(sender: AnyObject) {
-        print ("etan")
-        print (etan)
-        
-        print ("butorozott")
-        print (butorozott)
-        
-        print ("kilatas")
-        print (kilatas)
-        
-        print ("lift")
-        print (lift)
-        
-        print ("futes")
-        print (futes)
-        
-        print ("parkolas")
-        print (parkolas)
-        
-        print ("erkely")
-        print (erkely)
-        
-        print ("ing_tipus")
-        print (ing_tipus)
-        
-        print ("emelet")
-        print (emelet)
-        
-        print ("allapot")
-        print (allapot)
-        
-        print ("szobaszam")
-        print (szobaszam)
-        
-        
         
         
         
         if (etan == "0" || kilatas == "0" || lift == "0" || futes == "0" ||
             parkolas == "0" || erkely == "0" || ing_tipus == "0" || emelet == "0" || allapot == "0" ||
             szobaszam == "0") {
-            alertDialog()
+            //alertDialog()
         } else {
             GetAddEstate.estate.insert(AddEstateModel(cim: GetAddEstate.estate[0].cim, varos: GetAddEstate.estate[0].varos, utca: GetAddEstate.estate[0].utca, leiras: GetAddEstate.estate[0].leiras, ar: GetAddEstate.estate[0].ar, meret: GetAddEstate.estate[0].meret, etan: etan, butor: GetAddEstate.estate[0].butor, kilatas: kilatas, lift: lift, futes: futes, parkolas: parkolas, erkely: erkely, tipus: ing_tipus, emelet: emelet, allapot: allapot, szsz: szobaszam, lat: "", lng: "", e_type: "", zipcode: ""), atIndex: 0)
             
             let storyboard = UIStoryboard(name: "AddEstate", bundle: nil)
             let loginView = storyboard.instantiateViewControllerWithIdentifier("AddEstate_3")
             self.navigationController?.pushViewController(loginView, animated: true)
+        }
+    }
+    
+    
+    //SECOND PAGE END
+    
+    
+    
+    
+    //THIRD PAGE
+    @IBOutlet weak var image_picker_picture: UIButton!
+    @IBAction func image_picker_button(sender: AnyObject) {
+        pickImage()
+    }
+    
+    @IBOutlet weak var photo_taker_picture: UIButton!
+    @IBAction func photo_taker_button(sender: AnyObject) {
+        takePhoto()
+    }
+    
+    
+    
+    @IBAction func kovetkezo_3_button(sender: AnyObject) {
+        UploadRequest(image_picker_picture.imageView!)
+    }
+    
+    
+    func pickImage () {
+        if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.SavedPhotosAlbum){
+            imagePicker.delegate = self
+            imagePicker.sourceType = UIImagePickerControllerSourceType.SavedPhotosAlbum;
+            imagePicker.allowsEditing = false
+            
+            self.presentViewController(imagePicker, animated: true, completion: nil)
+        }
+    }
+    
+    func takePhoto () {
+        if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera){
+            imagePicker.delegate = self
+            imagePicker.sourceType = UIImagePickerControllerSourceType.Camera;
+            imagePicker.allowsEditing = false
+            
+            self.presentViewController(imagePicker, animated: true, completion: nil)
+        }
+    }
+    
+    func imagePickerController(picker: UIImagePickerController!, didFinishPickingImage image: UIImage!, editingInfo: NSDictionary!){
+        self.dismissViewControllerAnimated(true, completion: { () -> Void in
+            
+        })
+        image_picker_picture.setImage(image, forState: UIControlState.Normal)
+        //imageView.image = image
+        print ("IMAGE PICKED")
+        
+    }
+    
+    //THIRD PAGE END
+    
+    
+    
+    func alertDialog() {
+        let alert = UIAlertController(title: "HIBA", message: "Töltösön ki minden mezőt helyesen!", preferredStyle: UIAlertControllerStyle.Alert)
+        alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
+        self.presentViewController(alert, animated: true, completion: nil)
+    }
+    
+    @IBOutlet weak var KiemelImage: UIImageView!
+    @IBOutlet weak var KiemelLabel: UILabel!
+    @IBOutlet weak var KiemelLabelHint: UILabel!
+    @IBOutlet weak var AddDescription: UITextField!
+    
+    
+    override func viewDidLoad() {
+        
+        super.viewDidLoad()
+        self.hideKeyboardWhenTappedAround()
+        loadSpinners()
+        
+        
+        
+    }
+
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+    
+
+    
+    
+    
+    @IBAction func KiemelSelector(sender: UISegmentedControl) {
+        
+        switch sender.selectedSegmentIndex {
+        case 0:
+            KiemelImage.hidden = false
+            KiemelImage.image = UIImage(named: "kiemel_a")
+            KiemelLabel.hidden = true
+                    case 1:
+            KiemelImage.hidden = false
+            KiemelImage.image = UIImage(named: "kiemel_b")
+            KiemelLabel.hidden = true
+            
+        case 2:
+            KiemelImage.hidden = false
+            KiemelImage.image = UIImage(named: "kiemel_c")
+            KiemelLabel.hidden = true
+           
+        case 3:
+            KiemelImage.hidden = true
+            KiemelLabel.hidden = false
+            
+        default:
+            KiemelImage.hidden = false
+            KiemelImage.image = UIImage(named: "kiemel_a")
+            KiemelLabel.hidden = true
             
         }
     }
@@ -333,8 +419,6 @@ class AddEstateViewController: UIViewController {
     func loadSpinners() {
         SpinnerUtil.sharedInstance.get_list_ingatlanszoba{ (json: JSON) in
             self.items.removeAll()
-            print ("SZOBASZAM")
-            print (json)
             if let results = json.array {
                 for entry in results {
                     self.items.append(SpinnerModel(json: entry, type: "szsz"))
@@ -487,68 +571,88 @@ class AddEstateViewController: UIViewController {
         }
     }
     
-    //SECOND PAGE END
     
-    
-    
-    func alertDialog() {
-        let alert = UIAlertController(title: "HIBA", message: "Töltösön ki minden mezőt helyesen!", preferredStyle: UIAlertControllerStyle.Alert)
-        alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
-        self.presentViewController(alert, animated: true, completion: nil)
-    }
-    
-    @IBOutlet weak var KiemelImage: UIImageView!
-    @IBOutlet weak var KiemelLabel: UILabel!
-    @IBOutlet weak var KiemelLabelHint: UILabel!
-    @IBOutlet weak var AddDescription: UITextField!
-    
-    
-    override func viewDidLoad() {
+    func UploadRequest(image: UIImageView)
+    {
+        let url = NSURL(string: "https://bonodom.com/upload/uploadtoserver?ing_hash=lut81tla9eli")
         
-        super.viewDidLoad()
-        self.hideKeyboardWhenTappedAround()
-        loadSpinners()
+        let request = NSMutableURLRequest(URL: url!)
+        request.HTTPMethod = "POST"
         
+        let boundary = generateBoundaryString()
+        
+        //define the multipart request type
+        
+        request.setValue("multipart/form-data; boundary=\(boundary)", forHTTPHeaderField: "Content-Type")
+        
+        if (image.image == nil)
+        {
+            return
+        }
+        
+        let image_data = UIImagePNGRepresentation(image.image!)
         
         
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
-
-    
-    
-    
-    @IBAction func KiemelSelector(sender: UISegmentedControl) {
+        if(image_data == nil)
+        {
+            return
+        }
         
-        switch sender.selectedSegmentIndex {
-        case 0:
-            KiemelImage.hidden = false
-            KiemelImage.image = UIImage(named: "kiemel_a")
-            KiemelLabel.hidden = true
-                    case 1:
-            KiemelImage.hidden = false
-            KiemelImage.image = UIImage(named: "kiemel_b")
-            KiemelLabel.hidden = true
+        
+        let body = NSMutableData()
+        
+        let fname = "test.png"
+        let mimetype = "image/png"
+        
+        //define the data post parameter
+        
+        body.appendData("--\(boundary)\r\n".dataUsingEncoding(NSUTF8StringEncoding)!)
+        body.appendData("Content-Disposition:form-data; name=\"test\"\r\n\r\n".dataUsingEncoding(NSUTF8StringEncoding)!)
+        body.appendData("hi\r\n".dataUsingEncoding(NSUTF8StringEncoding)!)
+        
+        
+        
+        body.appendData("--\(boundary)\r\n".dataUsingEncoding(NSUTF8StringEncoding)!)
+        body.appendData("Content-Disposition:form-data; name=\"file\"; filename=\"\(fname)\"\r\n".dataUsingEncoding(NSUTF8StringEncoding)!)
+        body.appendData("Content-Type: \(mimetype)\r\n\r\n".dataUsingEncoding(NSUTF8StringEncoding)!)
+        body.appendData(image_data!)
+        body.appendData("\r\n".dataUsingEncoding(NSUTF8StringEncoding)!)
+        
+        
+        body.appendData("--\(boundary)--\r\n".dataUsingEncoding(NSUTF8StringEncoding)!)
+        
+        
+        
+        request.HTTPBody = body
+        
+        
+        
+        let session = NSURLSession.sharedSession()
+        
+        
+        let task = session.dataTaskWithRequest(request) {
+            (
+            let data, let response, let error) in
             
-        case 2:
-            KiemelImage.hidden = false
-            KiemelImage.image = UIImage(named: "kiemel_c")
-            KiemelLabel.hidden = true
-           
-        case 3:
-            KiemelImage.hidden = true
-            KiemelLabel.hidden = false
+            guard let _:NSData = data, let _:NSURLResponse = response  where error == nil else {
+                print("error")
+                return
+            }
             
-        default:
-            KiemelImage.hidden = false
-            KiemelImage.image = UIImage(named: "kiemel_a")
-            KiemelLabel.hidden = true
+            let dataString = NSString(data: data!, encoding: NSUTF8StringEncoding)
+            print(dataString)
             
         }
+        
+        task.resume()
+        
+        
+    }
+    
+    
+    func generateBoundaryString() -> String
+    {
+        return "Boundary-\(NSUUID().UUIDString)"
     }
 
 }
