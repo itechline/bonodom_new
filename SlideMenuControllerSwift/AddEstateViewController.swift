@@ -10,6 +10,30 @@ import UIKit
 
 class AddEstateViewController: UIViewController {
 
+    
+    //FIRST PAGE
+    @IBOutlet weak var hirdetes_cime_text: UITextField!
+    @IBOutlet weak var hirdetes_leirasa_text: UITextField!
+    @IBOutlet weak var ingatlan_ara_text: UITextField!
+    @IBOutlet weak var varos_text: UITextField!
+    @IBOutlet weak var utca_text: UITextField!
+    @IBOutlet weak var hazszam_text: UITextField!
+    @IBOutlet weak var meret_text: UITextField!
+    
+    @IBOutlet weak var hirdetes_tipusa_text: UIButton!
+    @IBAction func hirdetes_tipusa_button(sender: AnyObject) {
+    }
+    
+    @IBOutlet weak var butorozott_text: UIButton!
+    @IBAction func butorozott_button(sender: AnyObject) {
+    }
+    
+    @IBAction func kovetkezo_1_button(sender: AnyObject) {
+    }
+    //FIRST PAGE END
+    
+    
+    
     @IBOutlet weak var KiemelImage: UIImageView!
     @IBOutlet weak var KiemelLabel: UILabel!
     @IBOutlet weak var KiemelLabelHint: UILabel!
