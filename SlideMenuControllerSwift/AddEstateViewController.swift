@@ -149,7 +149,7 @@ class AddEstateViewController: UIViewController {
             hazszam = hazszam_text!.text!
             meret = meret_text!.text!
             
-            GetAddEstate.estate.append(AddEstateModel(cim: hirdetes_cime, varos: varos, utca: utca + hazszam, leiras: hirdetes_leirasa, ar: ingatlan_ara, meret: meret, etan: "", butor: "", kilatas: "", lift: "", futes: "", parkolas: "", erkely: "", tipus: "", emelet: "", allapot: "", szsz: "", lat: "", lng: "", e_type: "", zipcode: ""))
+            GetAddEstate.estate.append(AddEstateModel(cim: hirdetes_cime, varos: varos, utca: utca + hazszam, leiras: hirdetes_leirasa, ar: ingatlan_ara, meret: meret, etan: "", butor: butorozott, kilatas: "", lift: "", futes: "", parkolas: "", erkely: "", tipus: "", emelet: "", allapot: "", szsz: "", lat: "", lng: "", e_type: "", zipcode: ""))
             
             
             //GetAddEstate.estate[0].cim.write(hirdetes_cime)
@@ -159,9 +159,7 @@ class AddEstateViewController: UIViewController {
             self.navigationController?.pushViewController(loginView, animated: true)
             //self.performSegueWithIdentifier("AddEstate_2", sender: nil)
         } else {
-            let alert = UIAlertController(title: "HIBA", message: "Töltösön ki minden mezőt helyesen!", preferredStyle: UIAlertControllerStyle.Alert)
-            alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
-            self.presentViewController(alert, animated: true, completion: nil)
+            alertDialog()
         }
     }
     //FIRST PAGE END
@@ -210,6 +208,12 @@ class AddEstateViewController: UIViewController {
     
     @IBOutlet weak var erkely_text: UIButton!
     @IBAction func erkely_button(sender: AnyObject) {
+        pickerData_erkely = [
+            ["value": "0", "display": "Nincs megadva"],
+            ["value": "1", "display": "Van"],
+            ["value": "2", "display": "Nincs"]
+        ]
+        
         PickerDialog().show("Erkély", options: pickerData_erkely, selected: "0") {
             (value, display) -> Void in
             self.erkely_text.setTitle(display, forState: UIControlState.Normal)
@@ -240,6 +244,12 @@ class AddEstateViewController: UIViewController {
     
     @IBOutlet weak var lift_text: UIButton!
     @IBAction func lift_button(sender: AnyObject) {
+        pickerData_lift = [
+            ["value": "0", "display": "Nincs megadva"],
+            ["value": "1", "display": "Van"],
+            ["value": "2", "display": "Nincs"]
+        ]
+        
         PickerDialog().show("Lift", options: pickerData_lift, selected: "0") {
             (value, display) -> Void in
             self.lift_text.setTitle(display, forState: UIControlState.Normal)
@@ -269,9 +279,55 @@ class AddEstateViewController: UIViewController {
     }
     
     @IBAction func kovetkezo_2_button(sender: AnyObject) {
-        GetAddEstate.estate.insert(AddEstateModel(cim: GetAddEstate.estate[0].cim, varos: GetAddEstate.estate[0].varos, utca: GetAddEstate.estate[0].utca, leiras: GetAddEstate.estate[0].leiras, ar: GetAddEstate.estate[0].ar, meret: GetAddEstate.estate[0].meret, etan: etan, butor: butorozott, kilatas: kilatas, lift: lift, futes: futes, parkolas: parkolas, erkely: erkely, tipus: ing_tipus, emelet: emelet, allapot: allapot, szsz: szobaszam, lat: "", lng: "", e_type: "", zipcode: ""), atIndex: 0)
-        print (GetAddEstate.estate[0].cim)
-        print (GetAddEstate.estate[0].emelet)
+        print ("etan")
+        print (etan)
+        
+        print ("butorozott")
+        print (butorozott)
+        
+        print ("kilatas")
+        print (kilatas)
+        
+        print ("lift")
+        print (lift)
+        
+        print ("futes")
+        print (futes)
+        
+        print ("parkolas")
+        print (parkolas)
+        
+        print ("erkely")
+        print (erkely)
+        
+        print ("ing_tipus")
+        print (ing_tipus)
+        
+        print ("emelet")
+        print (emelet)
+        
+        print ("allapot")
+        print (allapot)
+        
+        print ("szobaszam")
+        print (szobaszam)
+        
+        
+        
+        
+        
+        if (etan == "0" || kilatas == "0" || lift == "0" || futes == "0" ||
+            parkolas == "0" || erkely == "0" || ing_tipus == "0" || emelet == "0" || allapot == "0" ||
+            szobaszam == "0") {
+            alertDialog()
+        } else {
+            GetAddEstate.estate.insert(AddEstateModel(cim: GetAddEstate.estate[0].cim, varos: GetAddEstate.estate[0].varos, utca: GetAddEstate.estate[0].utca, leiras: GetAddEstate.estate[0].leiras, ar: GetAddEstate.estate[0].ar, meret: GetAddEstate.estate[0].meret, etan: etan, butor: GetAddEstate.estate[0].butor, kilatas: kilatas, lift: lift, futes: futes, parkolas: parkolas, erkely: erkely, tipus: ing_tipus, emelet: emelet, allapot: allapot, szsz: szobaszam, lat: "", lng: "", e_type: "", zipcode: ""), atIndex: 0)
+            
+            let storyboard = UIStoryboard(name: "AddEstate", bundle: nil)
+            let loginView = storyboard.instantiateViewControllerWithIdentifier("AddEstate_3")
+            self.navigationController?.pushViewController(loginView, animated: true)
+            
+        }
     }
     
     func loadSpinners() {
@@ -345,23 +401,6 @@ class AddEstateViewController: UIViewController {
             }
         }
         
-        /*SpinnerUtil.sharedInstance.get_list_erkely{ (json: JSON) in
-            self.items.removeAll()
-            if let results = json.array {
-                for entry in results {
-                    self.items.append(SpinnerModel(json: entry, type: "erkely"))
-                }
-                
-                for i in 0...self.items.count-1 {
-                    if (i != 0) {
-                        self.pickerData_erkely.append(["value": self.items[i].value, "display": self.items[i].display])
-                    } else {
-                        self.pickerData_erkely.append(["value": self.items[i].value, "display": "Nincs megadva"])
-                    }
-                }
-            }
-        }*/
-        
         SpinnerUtil.sharedInstance.get_list_ingatlanparkolas{ (json: JSON) in
             self.items.removeAll()
             if let results = json.array {
@@ -395,23 +434,6 @@ class AddEstateViewController: UIViewController {
                 }
             }
         }
-        
-        /*SpinnerUtil.sharedInstance.get_list_lift{ (json: JSON) in
-            self.items.removeAll()
-            if let results = json.array {
-                for entry in results {
-                    self.items.append(SpinnerModel(json: entry, type: "lift"))
-                }
-                
-                for i in 0...self.items.count-1 {
-                    if (i != 0) {
-                        self.pickerData_lift.append(["value": self.items[i].value, "display": self.items[i].display])
-                    } else {
-                        self.pickerData_lift.append(["value": self.items[i].value, "display": "Nincs megadva"])
-                    }
-                }
-            }
-        }*/
         
         SpinnerUtil.sharedInstance.get_list_ingatlanenergia{ (json: JSON) in
             self.items.removeAll()
@@ -468,6 +490,12 @@ class AddEstateViewController: UIViewController {
     //SECOND PAGE END
     
     
+    
+    func alertDialog() {
+        let alert = UIAlertController(title: "HIBA", message: "Töltösön ki minden mezőt helyesen!", preferredStyle: UIAlertControllerStyle.Alert)
+        alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
+        self.presentViewController(alert, animated: true, completion: nil)
+    }
     
     @IBOutlet weak var KiemelImage: UIImageView!
     @IBOutlet weak var KiemelLabel: UILabel!
