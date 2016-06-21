@@ -152,7 +152,7 @@ class AddEstateViewController: UIViewController, UIImagePickerControllerDelegate
             hazszam = hazszam_text!.text!
             meret = meret_text!.text!
             
-            GetAddEstate.estate.append(AddEstateModel(cim: hirdetes_cime, varos: varos, utca: utca + hazszam, leiras: hirdetes_leirasa, ar: ingatlan_ara, meret: meret, etan: "", butor: butorozott, kilatas: "", lift: "", futes: "", parkolas: "", erkely: "", tipus: "", emelet: "", allapot: "", szsz: "", lat: "", lng: "", e_type: "", zipcode: ""))
+            GetAddEstate.estate.append(AddEstateModel(cim: hirdetes_cime, varos: varos, utca: utca, leiras: hirdetes_leirasa, ar: ingatlan_ara, meret: meret, etan: "", butor: butorozott, kilatas: "", lift: "", futes: "", parkolas: "", erkely: "", tipus: "", emelet: "", allapot: "", szsz: "", lat: "", lng: "", e_type: "", zipcode: "", hsz: hazszam, pictures: nil))
             
             
             //GetAddEstate.estate[0].cim.write(hirdetes_cime)
@@ -290,7 +290,7 @@ class AddEstateViewController: UIViewController, UIImagePickerControllerDelegate
             szobaszam == "0") {
             //alertDialog()
         } else {
-            GetAddEstate.estate.insert(AddEstateModel(cim: GetAddEstate.estate[0].cim, varos: GetAddEstate.estate[0].varos, utca: GetAddEstate.estate[0].utca, leiras: GetAddEstate.estate[0].leiras, ar: GetAddEstate.estate[0].ar, meret: GetAddEstate.estate[0].meret, etan: etan, butor: GetAddEstate.estate[0].butor, kilatas: kilatas, lift: lift, futes: futes, parkolas: parkolas, erkely: erkely, tipus: ing_tipus, emelet: emelet, allapot: allapot, szsz: szobaszam, lat: "", lng: "", e_type: "", zipcode: ""), atIndex: 0)
+            GetAddEstate.estate.insert(AddEstateModel(cim: GetAddEstate.estate[0].cim, varos: GetAddEstate.estate[0].varos, utca: GetAddEstate.estate[0].utca, leiras: GetAddEstate.estate[0].leiras, ar: GetAddEstate.estate[0].ar, meret: GetAddEstate.estate[0].meret, etan: etan, butor: GetAddEstate.estate[0].butor, kilatas: kilatas, lift: lift, futes: futes, parkolas: parkolas, erkely: erkely, tipus: ing_tipus, emelet: emelet, allapot: allapot, szsz: szobaszam, lat: "", lng: "", e_type: "", zipcode: "", hsz: GetAddEstate.estate[0].hsz, pictures: nil), atIndex: 0)
             
             let storyboard = UIStoryboard(name: "AddEstate", bundle: nil)
             let loginView = storyboard.instantiateViewControllerWithIdentifier("AddEstate_3")
@@ -361,7 +361,7 @@ class AddEstateViewController: UIViewController, UIImagePickerControllerDelegate
     @IBAction func upload_estate(sender: AnyObject) {
     
         
-        EstateUtil.sharedInstance.addEstate(GetAddEstate.estate[0].cim, varos: GetAddEstate.estate[0].varos, utca: GetAddEstate.estate[0].utca, leiras: GetAddEstate.estate[0].leiras, ar: GetAddEstate.estate[0].ar, meret: GetAddEstate.estate[0].meret, energiatan_id: GetAddEstate.estate[0].etan, butorozott: GetAddEstate.estate[0].butor, kilatas_id: GetAddEstate.estate[0].kilatas, lift: GetAddEstate.estate[0].lift, futestipus_id: GetAddEstate.estate[0].futes, parkolas_id: GetAddEstate.estate[0].parkolas, erkely: GetAddEstate.estate[0].erkely, tipus_id: GetAddEstate.estate[0].tipus, emelet_id: GetAddEstate.estate[0].emelet, allapot_id: GetAddEstate.estate[0].allapot, szsz_id: GetAddEstate.estate[0].szsz, lat: "0", lng: "0", e_type_id: "1", zipcode: "0", onCompletion: { (json: JSON) in
+        EstateUtil.sharedInstance.addEstate(GetAddEstate.estate[0].cim, varos: GetAddEstate.estate[0].varos, utca: GetAddEstate.estate[0].utca, leiras: GetAddEstate.estate[0].leiras, ar: GetAddEstate.estate[0].ar, meret: GetAddEstate.estate[0].meret, energiatan_id: GetAddEstate.estate[0].etan, butorozott: GetAddEstate.estate[0].butor, kilatas_id: GetAddEstate.estate[0].kilatas, lift: GetAddEstate.estate[0].lift, futestipus_id: GetAddEstate.estate[0].futes, parkolas_id: GetAddEstate.estate[0].parkolas, erkely: GetAddEstate.estate[0].erkely, tipus_id: GetAddEstate.estate[0].tipus, emelet_id: GetAddEstate.estate[0].emelet, allapot_id: GetAddEstate.estate[0].allapot, szsz_id: GetAddEstate.estate[0].szsz, lat: "0", lng: "0", e_type_id: "1", zipcode: "4300", hsz: GetAddEstate.estate[0].hsz ,onCompletion: { (json: JSON) in
             print (json)
             var err: Bool!
             err = json["error"].boolValue
@@ -611,7 +611,6 @@ class AddEstateViewController: UIViewController, UIImagePickerControllerDelegate
         }
         
         let image_data = UIImagePNGRepresentation(image.image!)
-        
         
         if(image_data == nil)
         {

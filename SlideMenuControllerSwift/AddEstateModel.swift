@@ -30,12 +30,14 @@ class AddEstateModel {
     var lng: String
     var e_type: String
     var zipcode: String
+    var hsz: String
+    var pictures: NSData?
     
     
     init(cim: String, varos: String, utca: String, leiras: String, ar: String, meret: String, etan: String,
          butor: String, kilatas: String, lift: String, futes: String, parkolas: String, erkely: String,
          tipus: String, emelet: String, allapot: String, szsz: String, lat: String, lng: String,
-         e_type: String, zipcode: String) {
+         e_type: String, zipcode: String, hsz: String, pictures: NSData?) {
         self.cim = cim
         self.varos = varos
         self.utca = utca
@@ -57,6 +59,8 @@ class AddEstateModel {
         self.lng = lng
         self.e_type = e_type
         self.zipcode = zipcode
+        self.hsz = hsz
+        self.pictures = pictures
     }
     
 }
