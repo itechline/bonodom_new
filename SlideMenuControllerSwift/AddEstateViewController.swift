@@ -318,7 +318,10 @@ class AddEstateViewController: UIViewController, UIImagePickerControllerDelegate
     
     
     @IBAction func kovetkezo_3_button(sender: AnyObject) {
-        UploadRequest(image_picker_picture.imageView!)
+        let storyboard = UIStoryboard(name: "AddEstate", bundle: nil)
+        let loginView = storyboard.instantiateViewControllerWithIdentifier("AddEstate_4")
+        self.navigationController?.pushViewController(loginView, animated: true)
+        //UploadRequest(image_picker_picture.imageView!, ing_hash: "lut81tla9eli")
     }
     
     
@@ -354,6 +357,27 @@ class AddEstateViewController: UIViewController, UIImagePickerControllerDelegate
     
     //THIRD PAGE END
     
+    //FIFTH PAGE
+    @IBAction func upload_estate(sender: AnyObject) {
+    
+        
+        EstateUtil.sharedInstance.addEstate(GetAddEstate.estate[0].cim, varos: GetAddEstate.estate[0].varos, utca: GetAddEstate.estate[0].utca, leiras: GetAddEstate.estate[0].leiras, ar: GetAddEstate.estate[0].ar, meret: GetAddEstate.estate[0].meret, energiatan_id: GetAddEstate.estate[0].etan, butorozott: GetAddEstate.estate[0].butor, kilatas_id: GetAddEstate.estate[0].kilatas, lift: GetAddEstate.estate[0].lift, futestipus_id: GetAddEstate.estate[0].futes, parkolas_id: GetAddEstate.estate[0].parkolas, erkely: GetAddEstate.estate[0].erkely, tipus_id: GetAddEstate.estate[0].tipus, emelet_id: GetAddEstate.estate[0].emelet, allapot_id: GetAddEstate.estate[0].allapot, szsz_id: GetAddEstate.estate[0].szsz, lat: "0", lng: "0", e_type_id: "1", zipcode: "0", onCompletion: { (json: JSON) in
+            print (json)
+            var err: Bool!
+            err = json["error"].boolValue
+            if (!err) {
+                
+            }
+                dispatch_async(dispatch_get_main_queue(),{
+                    
+                })
+        })
+    }
+    
+    
+    
+    //FIFTH PAGE END
+    
     
     
     func alertDialog() {
@@ -369,13 +393,9 @@ class AddEstateViewController: UIViewController, UIImagePickerControllerDelegate
     
     
     override func viewDidLoad() {
-        
         super.viewDidLoad()
         self.hideKeyboardWhenTappedAround()
         loadSpinners()
-        
-        
-        
     }
 
     override func didReceiveMemoryWarning() {
@@ -572,9 +592,9 @@ class AddEstateViewController: UIViewController, UIImagePickerControllerDelegate
     }
     
     
-    func UploadRequest(image: UIImageView)
+    func UploadRequest(image: UIImageView, ing_hash: String)
     {
-        let url = NSURL(string: "https://bonodom.com/upload/uploadtoserver?ing_hash=lut81tla9eli")
+        let url = NSURL(string: "https://bonodom.com/upload/uploadtoserver?ing_hash=" + ing_hash)
         
         let request = NSMutableURLRequest(URL: url!)
         request.HTTPMethod = "POST"
