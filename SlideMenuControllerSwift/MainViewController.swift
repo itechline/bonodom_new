@@ -59,7 +59,13 @@ class MainViewController: UIViewController, LiquidFloatingActionButtonDataSource
                     dispatch_async(dispatch_get_main_queue(),{
                         print ("TOKEN_INACTIVE_1")
                         self.alertController.dismissViewControllerAnimated(true, completion: nil)
-                        self.loadRegistration()
+                        SettingUtil.sharedInstance.setToken("")
+                        if let navController = self.navigationController {
+                            navController.popViewControllerAnimated(true)
+                            self.loadRegistration()
+                        }
+                        
+                        
                     })
                 }
             }

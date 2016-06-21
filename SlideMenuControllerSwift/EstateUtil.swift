@@ -163,11 +163,6 @@ class EstateUtil: NSObject {
         //request.addValue("608f44981dd5241547605947c1dc38e0", forHTTPHeaderField: "token");
         
         do {
-            // Set the POST body for the request
-            //let jsonBody = try NSJSONSerialization.dataWithJSONObject(body, options: .PrettyPrinted)
-            //let asdf = try NSData(body)
-            //request.HTTPBody = jsonBody
-            //let post:NSString = "token=608f44981dd5241547605947c1dc38e0"
             print(body)
             let postData:NSData = body.dataUsingEncoding(NSASCIIStringEncoding)!
             

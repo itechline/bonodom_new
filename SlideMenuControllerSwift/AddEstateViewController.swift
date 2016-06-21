@@ -15,6 +15,30 @@ class AddEstateViewController: UIViewController {
     var pickerData_hirdetes_tipus = [[String : String]]()
     var pickerData_butorozott = [[String : String]]()
     
+    var pickerData_szobaszam = [[String : String]]()
+    var pickerData_allapot = [[String : String]]()
+    var pickerData_emelet = [[String : String]]()
+    var pickerData_ing_tipus = [[String : String]]()
+    var pickerData_erkely = [[String : String]]()
+    var pickerData_parkolas = [[String : String]]()
+    var pickerData_futes = [[String : String]]()
+    var pickerData_lift = [[String : String]]()
+    var pickerData_etan = [[String : String]]()
+    var pickerData_kilatas = [[String : String]]()
+    
+    var szobaszam: String! = "0"
+    var allapot: String! = "0"
+    var emelet: String! = "0"
+    var ing_tipus: String! = "0"
+    var erkely: String! = "0"
+    var parkolas: String! = "0"
+    var futes: String! = "0"
+    var lift: String! = "0"
+    var etan: String! = "0"
+    var kilatas: String! = "0"
+    
+    
+    
     
     
     //FIRST PAGE
@@ -33,8 +57,8 @@ class AddEstateViewController: UIViewController {
     var utca: String!
     var hazszam: String!
     var meret: String!
-    var hirdetes_tipusa: String!
-    var butorozott: String!
+    var hirdetes_tipusa: String! = "0"
+    var butorozott: String! = "0"
     
     @IBOutlet weak var hirdetes_tipusa_text: UIButton!
     @IBAction func hirdetes_tipusa_button(sender: AnyObject) {
@@ -108,6 +132,14 @@ class AddEstateViewController: UIViewController {
                                                                     attributes:[NSForegroundColorAttributeName: UIColor.redColor()])
         }
         
+        if (hirdetes_tipusa == "" || hirdetes_tipusa == "0") {
+            isFilled = false
+        }
+        
+        if (butorozott == "" || butorozott == "0") {
+            isFilled = false
+        }
+        
         if (isFilled) {
             hirdetes_cime = hirdetes_cime_text!.text!
             hirdetes_leirasa = hirdetes_leirasa_text!.text!
@@ -117,39 +149,306 @@ class AddEstateViewController: UIViewController {
             hazszam = hazszam_text!.text!
             meret = meret_text!.text!
             
-            print ("CÍM")
-            print (hirdetes_cime)
+            GetAddEstate.estate.append(AddEstateModel(cim: hirdetes_cime, varos: varos, utca: utca + hazszam, leiras: hirdetes_leirasa, ar: ingatlan_ara, meret: meret, etan: "", butor: "", kilatas: "", lift: "", futes: "", parkolas: "", erkely: "", tipus: "", emelet: "", allapot: "", szsz: "", lat: "", lng: "", e_type: "", zipcode: ""))
+            
+            
+            //GetAddEstate.estate[0].cim.write(hirdetes_cime)
+            //TODO: adatokat kimenteni mert nullázódnak view váltásnál
             let storyboard = UIStoryboard(name: "AddEstate", bundle: nil)
-            let loginView = storyboard.instantiateViewControllerWithIdentifier("AddEstate_2") as! AddEstateViewController
+            let loginView = storyboard.instantiateViewControllerWithIdentifier("AddEstate_2")
             self.navigationController?.pushViewController(loginView, animated: true)
+            //self.performSegueWithIdentifier("AddEstate_2", sender: nil)
         } else {
-            print ("NOT FILLED")
+            let alert = UIAlertController(title: "HIBA", message: "Töltösön ki minden mezőt helyesen!", preferredStyle: UIAlertControllerStyle.Alert)
+            alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
+            self.presentViewController(alert, animated: true, completion: nil)
         }
-        
-        
-        
     }
     //FIRST PAGE END
     
     
+    //SECOND PAGE
+    @IBOutlet weak var szobaszam_text: UIButton!
+    @IBAction func szobaszam_button(sender: AnyObject) {
+        PickerDialog().show("Szobaszám", options: pickerData_szobaszam, selected: "0") {
+            (value, display) -> Void in
+            self.szobaszam_text.setTitle(display, forState: UIControlState.Normal)
+            self.szobaszam = value
+            print("Unit selected: \(value)")
+        }
+    }
     
-    @IBOutlet weak var KiemelImage: UIImageView!
-    @IBOutlet weak var KiemelLabel: UILabel!
-    @IBOutlet weak var KiemelLabelHint: UILabel!
-    @IBOutlet weak var AddDescription: UITextField!
+    @IBOutlet weak var allapot_text: UIButton!
+    @IBAction func allapot_button(sender: AnyObject) {
+        PickerDialog().show("Állapot", options: pickerData_allapot, selected: "0") {
+            (value, display) -> Void in
+            self.allapot_text.setTitle(display, forState: UIControlState.Normal)
+            self.allapot = value
+            print("Unit selected: \(value)")
+        }
+    }
     
+    @IBOutlet weak var emelet_text: UIButton!
+    @IBAction func emelet_button(sender: AnyObject) {
+        PickerDialog().show("Emelet", options: pickerData_emelet, selected: "0") {
+            (value, display) -> Void in
+            self.emelet_text.setTitle(display, forState: UIControlState.Normal)
+            self.emelet = value
+            print("Unit selected: \(value)")
+        }
+    }
     
-    override func viewDidLoad() {
+    @IBOutlet weak var ingatlan_tipus_text: UIButton!
+    @IBAction func ingatlan_tipus_button(sender: AnyObject) {
+        PickerDialog().show("Ingatlan típus", options: pickerData_ing_tipus, selected: "0") {
+            (value, display) -> Void in
+            self.ingatlan_tipus_text.setTitle(display, forState: UIControlState.Normal)
+            self.ing_tipus = value
+            print("Unit selected: \(value)")
+        }
+    }
+    
+    @IBOutlet weak var erkely_text: UIButton!
+    @IBAction func erkely_button(sender: AnyObject) {
+        PickerDialog().show("Erkély", options: pickerData_erkely, selected: "0") {
+            (value, display) -> Void in
+            self.erkely_text.setTitle(display, forState: UIControlState.Normal)
+            self.erkely = value
+            print("Unit selected: \(value)")
+        }
+    }
+    
+    @IBOutlet weak var parkolas_text: UIButton!
+    @IBAction func parkolas_button(sender: AnyObject) {
+        PickerDialog().show("Parkolás", options: pickerData_parkolas, selected: "0") {
+            (value, display) -> Void in
+            self.parkolas_text.setTitle(display, forState: UIControlState.Normal)
+            self.parkolas = value
+            print("Unit selected: \(value)")
+        }
+    }
+    
+    @IBOutlet weak var futes_text: UIButton!
+    @IBAction func futes_button(sender: AnyObject) {
+        PickerDialog().show("Fűtés", options: pickerData_futes, selected: "0") {
+            (value, display) -> Void in
+            self.futes_text.setTitle(display, forState: UIControlState.Normal)
+            self.futes = value
+            print("Unit selected: \(value)")
+        }
+    }
+    
+    @IBOutlet weak var lift_text: UIButton!
+    @IBAction func lift_button(sender: AnyObject) {
+        PickerDialog().show("Lift", options: pickerData_lift, selected: "0") {
+            (value, display) -> Void in
+            self.lift_text.setTitle(display, forState: UIControlState.Normal)
+            self.lift = value
+            print("Unit selected: \(value)")
+        }
+    }
+    
+    @IBOutlet weak var etan_text: UIButton!
+    @IBAction func etan_button(sender: AnyObject) {
+        PickerDialog().show("Energia tanusítvány", options: pickerData_etan, selected: "0") {
+            (value, display) -> Void in
+            self.etan_text.setTitle(display, forState: UIControlState.Normal)
+            self.etan = value
+            print("Unit selected: \(value)")
+        }
+    }
+    
+    @IBOutlet weak var kilatas_text: UIButton!
+    @IBAction func kilatas_button(sender: AnyObject) {
+        PickerDialog().show("Kilátás", options: pickerData_kilatas, selected: "0") {
+            (value, display) -> Void in
+            self.kilatas_text.setTitle(display, forState: UIControlState.Normal)
+            self.kilatas = value
+            print("Unit selected: \(value)")
+        }
+    }
+    
+    @IBAction func kovetkezo_2_button(sender: AnyObject) {
+        GetAddEstate.estate.insert(AddEstateModel(cim: GetAddEstate.estate[0].cim, varos: GetAddEstate.estate[0].varos, utca: GetAddEstate.estate[0].utca, leiras: GetAddEstate.estate[0].leiras, ar: GetAddEstate.estate[0].ar, meret: GetAddEstate.estate[0].meret, etan: etan, butor: butorozott, kilatas: kilatas, lift: lift, futes: futes, parkolas: parkolas, erkely: erkely, tipus: ing_tipus, emelet: emelet, allapot: allapot, szsz: szobaszam, lat: "", lng: "", e_type: "", zipcode: ""), atIndex: 0)
+        print (GetAddEstate.estate[0].cim)
+        print (GetAddEstate.estate[0].emelet)
+    }
+    
+    func loadSpinners() {
+        SpinnerUtil.sharedInstance.get_list_ingatlanszoba{ (json: JSON) in
+            self.items.removeAll()
+            print ("SZOBASZAM")
+            print (json)
+            if let results = json.array {
+                for entry in results {
+                    self.items.append(SpinnerModel(json: entry, type: "szsz"))
+                }
+                
+                for i in 0...self.items.count-1 {
+                    if (i != 0) {
+                        self.pickerData_szobaszam.append(["value": self.items[i].value, "display": self.items[i].display])
+                    } else {
+                        self.pickerData_szobaszam.append(["value": self.items[i].value, "display": "Nincs megadva"])
+                    }
+                }
+            }
+        }
         
-        super.viewDidLoad()
+        SpinnerUtil.sharedInstance.get_list_ingatlantipus{ (json: JSON) in
+            self.items.removeAll()
+            if let results = json.array {
+                for entry in results {
+                    self.items.append(SpinnerModel(json: entry, type: "tipus"))
+                }
+                
+                for i in 0...self.items.count-1 {
+                    if (i != 0) {
+                        self.pickerData_ing_tipus.append(["value": self.items[i].value, "display": self.items[i].display])
+                    } else {
+                        self.pickerData_ing_tipus.append(["value": self.items[i].value, "display": "Nincs megadva"])
+                    }
+                }
+            }
+        }
         
+        SpinnerUtil.sharedInstance.get_list_ingatlanallapota{ (json: JSON) in
+            self.items.removeAll()
+            if let results = json.array {
+                for entry in results {
+                    self.items.append(SpinnerModel(json: entry, type: "allapot"))
+                }
+                
+                for i in 0...self.items.count-1 {
+                    if (i != 0) {
+                        self.pickerData_allapot.append(["value": self.items[i].value, "display": self.items[i].display])
+                    } else {
+                        self.pickerData_allapot.append(["value": self.items[i].value, "display": "Nincs megadva"])
+                    }
+                }
+            }
+        }
         
+        SpinnerUtil.sharedInstance.get_list_ingatlanemelet{ (json: JSON) in
+            self.items.removeAll()
+            if let results = json.array {
+                for entry in results {
+                    self.items.append(SpinnerModel(json: entry, type: "emelet"))
+                }
+                
+                for i in 0...self.items.count-1 {
+                    if (i != 0) {
+                        self.pickerData_emelet.append(["value": self.items[i].value, "display": self.items[i].display])
+                    } else {
+                        self.pickerData_emelet.append(["value": self.items[i].value, "display": "Nincs megadva"])
+                    }
+                }
+            }
+        }
         
+        /*SpinnerUtil.sharedInstance.get_list_erkely{ (json: JSON) in
+            self.items.removeAll()
+            if let results = json.array {
+                for entry in results {
+                    self.items.append(SpinnerModel(json: entry, type: "erkely"))
+                }
+                
+                for i in 0...self.items.count-1 {
+                    if (i != 0) {
+                        self.pickerData_erkely.append(["value": self.items[i].value, "display": self.items[i].display])
+                    } else {
+                        self.pickerData_erkely.append(["value": self.items[i].value, "display": "Nincs megadva"])
+                    }
+                }
+            }
+        }*/
+        
+        SpinnerUtil.sharedInstance.get_list_ingatlanparkolas{ (json: JSON) in
+            self.items.removeAll()
+            if let results = json.array {
+                for entry in results {
+                    self.items.append(SpinnerModel(json: entry, type: "parkolas"))
+                }
+                
+                for i in 0...self.items.count-1 {
+                    if (i != 0) {
+                        self.pickerData_parkolas.append(["value": self.items[i].value, "display": self.items[i].display])
+                    } else {
+                        self.pickerData_parkolas.append(["value": self.items[i].value, "display": "Nincs megadva"])
+                    }
+                }
+            }
+        }
+        
+        SpinnerUtil.sharedInstance.get_list_ingatlanfutes{ (json: JSON) in
+            self.items.removeAll()
+            if let results = json.array {
+                for entry in results {
+                    self.items.append(SpinnerModel(json: entry, type: "futestipus"))
+                }
+                
+                for i in 0...self.items.count-1 {
+                    if (i != 0) {
+                        self.pickerData_futes.append(["value": self.items[i].value, "display": self.items[i].display])
+                    } else {
+                        self.pickerData_futes.append(["value": self.items[i].value, "display": "Nincs megadva"])
+                    }
+                }
+            }
+        }
+        
+        /*SpinnerUtil.sharedInstance.get_list_lift{ (json: JSON) in
+            self.items.removeAll()
+            if let results = json.array {
+                for entry in results {
+                    self.items.append(SpinnerModel(json: entry, type: "lift"))
+                }
+                
+                for i in 0...self.items.count-1 {
+                    if (i != 0) {
+                        self.pickerData_lift.append(["value": self.items[i].value, "display": self.items[i].display])
+                    } else {
+                        self.pickerData_lift.append(["value": self.items[i].value, "display": "Nincs megadva"])
+                    }
+                }
+            }
+        }*/
+        
+        SpinnerUtil.sharedInstance.get_list_ingatlanenergia{ (json: JSON) in
+            self.items.removeAll()
+            if let results = json.array {
+                for entry in results {
+                    self.items.append(SpinnerModel(json: entry, type: "etan"))
+                }
+                
+                for i in 0...self.items.count-1 {
+                    if (i != 0) {
+                        self.pickerData_etan.append(["value": self.items[i].value, "display": self.items[i].display])
+                    } else {
+                        self.pickerData_etan.append(["value": self.items[i].value, "display": "Nincs megadva"])
+                    }
+                }
+            }
+        }
+        
+        SpinnerUtil.sharedInstance.get_list_ingatlankilatas{ (json: JSON) in
+            self.items.removeAll()
+            if let results = json.array {
+                for entry in results {
+                    self.items.append(SpinnerModel(json: entry, type: "kilatas"))
+                }
+                
+                for i in 0...self.items.count-1 {
+                    if (i != 0) {
+                        self.pickerData_kilatas.append(["value": self.items[i].value, "display": self.items[i].display])
+                    } else {
+                        self.pickerData_kilatas.append(["value": self.items[i].value, "display": "Nincs megadva"])
+                    }
+                }
+            }
+        }
         
         SpinnerUtil.sharedInstance.get_list_hirdetestipusa{ (json: JSON) in
             self.items.removeAll()
-            print ("ASDF")
-            print (json)
             if let results = json.array {
                 for entry in results {
                     self.items.append(SpinnerModel(json: entry, type: "ing_e_type"))
@@ -164,6 +463,26 @@ class AddEstateViewController: UIViewController {
                 }
             }
         }
+    }
+    
+    //SECOND PAGE END
+    
+    
+    
+    @IBOutlet weak var KiemelImage: UIImageView!
+    @IBOutlet weak var KiemelLabel: UILabel!
+    @IBOutlet weak var KiemelLabelHint: UILabel!
+    @IBOutlet weak var AddDescription: UITextField!
+    
+    
+    override func viewDidLoad() {
+        
+        super.viewDidLoad()
+        self.hideKeyboardWhenTappedAround()
+        loadSpinners()
+        
+        
+        
     }
 
     override func didReceiveMemoryWarning() {
