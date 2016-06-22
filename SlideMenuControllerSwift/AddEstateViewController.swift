@@ -64,6 +64,12 @@ class AddEstateViewController: UIViewController, UIImagePickerControllerDelegate
     var hirdetes_tipusa: String! = "0"
     var butorozott: String! = "0"
     
+    func setButtonBack(button: UIButton) {
+        button.layer.cornerRadius = 5
+        button.layer.borderWidth = 1
+        button.layer.borderColor = UIColor.darkGrayColor().CGColor
+    }
+    
     @IBOutlet weak var hirdetes_tipusa_text: UIButton!
     @IBAction func hirdetes_tipusa_button(sender: AnyObject) {
         PickerDialog().show("Hirdetés típusa", options: pickerData_hirdetes_tipus, selected: "0") {
@@ -440,6 +446,20 @@ class AddEstateViewController: UIViewController, UIImagePickerControllerDelegate
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        /*setButtonBack(hirdetes_tipusa_text)
+        setButtonBack(butorozott_text)
+        setButtonBack(szobaszam_text)
+        setButtonBack(allapot_text)
+        setButtonBack(emelet_text)
+        setButtonBack(ingatlan_tipus_text)
+        setButtonBack(erkely_text)
+        setButtonBack(parkolas_text)
+        setButtonBack(futes_text)
+        setButtonBack(lift_text)
+        setButtonBack(etan_text)
+        setButtonBack(kilatas_text)*/
+        
         self.hideKeyboardWhenTappedAround()
         loadSpinners()
     }
