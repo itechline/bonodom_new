@@ -79,6 +79,7 @@ class SubContentsViewController : UIViewController, LiquidFloatingActionButtonDa
     }
     
     func setTexts() {
+        self.advertiserName.text = estateItem[0].vezeteknev + " " + estateItem[0].keresztnev
         self.adressText.text = estateItem[0].adress
         self.streetText.text = estateItem[0].street
         self.descriptionText.text = estateItem[0].description
