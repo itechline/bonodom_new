@@ -9,7 +9,7 @@
 import SwiftyJSON
 
 class EstateModel {
-    //var id: Int!
+    var id: Int!
     var adress: String!
     var street: String!
     var description: String!
@@ -109,7 +109,8 @@ class EstateModel {
      */
     
     required init(json: JSON) {
-        //id = json["ingatlan_id"].intValue
+        id = json["ingatlan_id"].intValue
+        ingatlan_title = json["ingatlan_title"].stringValue
         adress = json["ingatlan_varos"].stringValue
         street = json["ingatlan_utca"].stringValue
         description = json["ingatlan_rovidleiras"].stringValue
@@ -118,6 +119,22 @@ class EstateModel {
         rooms = json["ingatlan_szsz_id"].stringValue
         keresztnev = json["keresztnev"].stringValue
         vezeteknev = json["vezeteknev"].stringValue
+        ing_e_type = json["ing_e_type"].stringValue
+        ing_e_type_id = json["ing_e_type_id"].stringValue
+        ingatlan_futestipus_id = json["ingatlan_futestipus_id"].stringValue
+        ingatlan_szsz_id = json["ingatlan_szsz_id"].stringValue
+        ingatlan_parkolas_id = json["ingatlan_parkolas_id"].stringValue
+        mobil = json["mobil"].stringValue
+        ingatlan_lift = json["ingatlan_lift"].stringValue
+        ingatlan_emelet_id = json["ingatlan_emelet_id"].stringValue
+        ingatlan_allapot_id = json["ingatlan_allapot_id"].stringValue
+        ingatlan_energiatan_id = json["ingatlan_energiatan_id"].stringValue
+        ingatlan_butorozott = json["ingatlan_butorozott"].stringValue
+        ingatlan_tipus_id = json["ingatlan_tipus_id"].stringValue
+        ingatlan_kilatas_id = json["ingatlan_kilatas_id"].stringValue
+        kedvenc = json["kedvenc"].boolValue
+        ingatlan_lat = json["ingatlan_lat"].stringValue
+        ingatlan_lng = json["ingatlan_lng"].stringValue
         
         for picArray in json["kepek"] {
             print ("PICTURE")
