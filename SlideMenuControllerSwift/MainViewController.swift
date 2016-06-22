@@ -149,7 +149,7 @@ class MainViewController: UIViewController, LiquidFloatingActionButtonDataSource
         print ("Load Registration")
         let storyboard = UIStoryboard(name: "LoginView", bundle: nil)
         let loginView = storyboard.instantiateViewControllerWithIdentifier("LoginView") as! LoginScreenViewController
-        self.navigationController?.pushViewController(loginView, animated: true)
+        self.navigationController?.pushViewController(loginView, animated: false)
     }
     
     lazy var refreshControl: UIRefreshControl = {

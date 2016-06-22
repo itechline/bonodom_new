@@ -32,12 +32,21 @@ class AddEstateModel {
     var zipcode: String
     var hsz: String
     var pictures: NSData?
+    var hetfo: String
+    var kedd: String
+    var szerda: String
+    var csut: String
+    var pentek: String
+    var szombat: String
+    var vasarnap: String
+    var kezdes: String
+    var vege: String
     
     
     init(cim: String, varos: String, utca: String, leiras: String, ar: String, meret: String, etan: String,
          butor: String, kilatas: String, lift: String, futes: String, parkolas: String, erkely: String,
          tipus: String, emelet: String, allapot: String, szsz: String, lat: String, lng: String,
-         e_type: String, zipcode: String, hsz: String, pictures: NSData?) {
+         e_type: String, zipcode: String, hsz: String, hetfo: String, kedd: String, szerda: String, csut: String, pentek: String, szombat: String, vasarnap: String, kezdes: String, vege: String ,pictures: NSData?) {
         self.cim = cim
         self.varos = varos
         self.utca = utca
@@ -60,6 +69,15 @@ class AddEstateModel {
         self.e_type = e_type
         self.zipcode = zipcode
         self.hsz = hsz
+        self.hetfo = hetfo
+        self.kedd = kedd
+        self.szerda = szerda
+        self.csut = csut
+        self.pentek = pentek
+        self.szombat = szombat
+        self.vasarnap = vasarnap
+        self.kezdes = kezdes
+        self.vege = vege
         self.pictures = pictures
     }
     

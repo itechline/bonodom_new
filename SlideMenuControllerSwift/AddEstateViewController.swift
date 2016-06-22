@@ -152,7 +152,8 @@ class AddEstateViewController: UIViewController, UIImagePickerControllerDelegate
             hazszam = hazszam_text!.text!
             meret = meret_text!.text!
             
-            GetAddEstate.estate.append(AddEstateModel(cim: hirdetes_cime, varos: varos, utca: utca, leiras: hirdetes_leirasa, ar: ingatlan_ara, meret: meret, etan: "", butor: butorozott, kilatas: "", lift: "", futes: "", parkolas: "", erkely: "", tipus: "", emelet: "", allapot: "", szsz: "", lat: "", lng: "", e_type: "", zipcode: "", hsz: hazszam, pictures: nil))
+            GetAddEstate.estate.append(AddEstateModel(cim: hirdetes_cime, varos: varos, utca: utca, leiras: hirdetes_leirasa, ar: ingatlan_ara, meret: meret, etan: "", butor: butorozott, kilatas: "", lift: "", futes: "", parkolas: "", erkely: "", tipus: "", emelet: "", allapot: "", szsz: "", lat: "", lng: "", e_type: "", zipcode: "", hsz: hazszam, hetfo: "", kedd: "", szerda: "", csut: "",
+                pentek: "", szombat: "", vasarnap: "", kezdes: "", vege: "" ,pictures: nil))
             
             
             //GetAddEstate.estate[0].cim.write(hirdetes_cime)
@@ -288,9 +289,9 @@ class AddEstateViewController: UIViewController, UIImagePickerControllerDelegate
         if (etan == "0" || kilatas == "0" || lift == "0" || futes == "0" ||
             parkolas == "0" || erkely == "0" || ing_tipus == "0" || emelet == "0" || allapot == "0" ||
             szobaszam == "0") {
-            //alertDialog()
+            alertDialog()
         } else {
-            GetAddEstate.estate.insert(AddEstateModel(cim: GetAddEstate.estate[0].cim, varos: GetAddEstate.estate[0].varos, utca: GetAddEstate.estate[0].utca, leiras: GetAddEstate.estate[0].leiras, ar: GetAddEstate.estate[0].ar, meret: GetAddEstate.estate[0].meret, etan: etan, butor: GetAddEstate.estate[0].butor, kilatas: kilatas, lift: lift, futes: futes, parkolas: parkolas, erkely: erkely, tipus: ing_tipus, emelet: emelet, allapot: allapot, szsz: szobaszam, lat: "", lng: "", e_type: "", zipcode: "", hsz: GetAddEstate.estate[0].hsz, pictures: nil), atIndex: 0)
+            GetAddEstate.estate.insert(AddEstateModel(cim: GetAddEstate.estate[0].cim, varos: GetAddEstate.estate[0].varos, utca: GetAddEstate.estate[0].utca, leiras: GetAddEstate.estate[0].leiras, ar: GetAddEstate.estate[0].ar, meret: GetAddEstate.estate[0].meret, etan: etan, butor: GetAddEstate.estate[0].butor, kilatas: kilatas, lift: lift, futes: futes, parkolas: parkolas, erkely: erkely, tipus: ing_tipus, emelet: emelet, allapot: allapot, szsz: szobaszam, lat: "", lng: "", e_type: "", zipcode: "", hsz: GetAddEstate.estate[0].hsz, hetfo: "", kedd: "", szerda: "", csut: "", pentek: "", szombat: "", vasarnap: "", kezdes: "", vege: "" ,pictures: nil), atIndex: 0)
             
             let storyboard = UIStoryboard(name: "AddEstate", bundle: nil)
             let loginView = storyboard.instantiateViewControllerWithIdentifier("AddEstate_3")
@@ -366,7 +367,7 @@ class AddEstateViewController: UIViewController, UIImagePickerControllerDelegate
             var err: Bool!
             err = json["error"].boolValue
             if (!err) {
-                
+                self.UploadRequest(self.image_picker_picture.imageView!, ing_hash: json["hash"].stringValue)
             }
                 dispatch_async(dispatch_get_main_queue(),{
                     

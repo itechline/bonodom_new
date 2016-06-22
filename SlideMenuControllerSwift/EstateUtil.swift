@@ -150,8 +150,17 @@ class EstateUtil: NSObject {
         let lng_post = "ingatlan_lng=" + lng
         let e_type_post = "ing_e_type_id=" + e_type_id
         let zipcode_post = "ingatlan_irszam=" + zipcode
+        let mon_post = "mon=" + "0"
+        let tue_post = "tue=" + "0"
+        let wed_post = "wed=" + "0"
+        let thu_post = "thu=" + "0"
+        let fri_post = "fri=" + "0"
+        let sat_post = "sat=" + "0"
+        let sun_post = "sun=" + "0"
+        let start_post = "start=" + "0"
+        let finish_post = "finish=" + "0"
  
-        let pa = [ tokenpost, title_post, varos_post, utca_post, leiras_post, ar_post, meret_post, energiatan_post, butor_post, kilatas_post, lift_post, futes_post, parkolas_post, erkely_post, tipus_post, emelet_post, allapot_post, szsz_post, lat_post, lng_post, e_type_post, zipcode_post, hsz_post]
+        let pa = [ tokenpost, title_post, varos_post, utca_post, leiras_post, ar_post, meret_post, energiatan_post, butor_post, kilatas_post, lift_post, futes_post, parkolas_post, erkely_post, tipus_post, emelet_post, allapot_post, szsz_post, lat_post, lng_post, e_type_post, zipcode_post, hsz_post, mon_post, tue_post, wed_post, thu_post, fri_post, sat_post, sun_post, start_post, finish_post]
         let postbody = pa.joinWithSeparator("&")
         
         let route = baseURL + "add_estate"
