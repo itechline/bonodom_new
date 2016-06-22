@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 class AddEstateModel {
     var cim: String
@@ -31,7 +32,7 @@ class AddEstateModel {
     var e_type: String
     var zipcode: String
     var hsz: String
-    var pictures: NSData?
+    let pictures: [UIImage]?
     var hetfo: String
     var kedd: String
     var szerda: String
@@ -46,7 +47,7 @@ class AddEstateModel {
     init(cim: String, varos: String, utca: String, leiras: String, ar: String, meret: String, etan: String,
          butor: String, kilatas: String, lift: String, futes: String, parkolas: String, erkely: String,
          tipus: String, emelet: String, allapot: String, szsz: String, lat: String, lng: String,
-         e_type: String, zipcode: String, hsz: String, hetfo: String, kedd: String, szerda: String, csut: String, pentek: String, szombat: String, vasarnap: String, kezdes: String, vege: String ,pictures: NSData?) {
+         e_type: String, zipcode: String, hsz: String, hetfo: String, kedd: String, szerda: String, csut: String, pentek: String, szombat: String, vasarnap: String, kezdes: String, vege: String ,pictures: [UIImage]?) {
         self.cim = cim
         self.varos = varos
         self.utca = utca

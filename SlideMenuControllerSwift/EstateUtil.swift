@@ -87,45 +87,10 @@ class EstateUtil: NSObject {
                    energiatan_id: String, butorozott: String, kilatas_id: String,
                    lift: String, futestipus_id: String, parkolas_id: String, erkely: String,
                    tipus_id: String, emelet_id: String, allapot_id: String, szsz_id: String,
-                   lat: String, lng: String, e_type_id: String, zipcode: String, hsz: String
-                   , onCompletion: (JSON) -> Void) {
+                   lat: String, lng: String, e_type_id: String, zipcode: String, hsz: String,
+                   mon: String, tue: String, wed: String, thu: String, fri: String, sat: String,
+                   sun: String, start: String, finish: String, onCompletion: (JSON) -> Void) {
         
-        
-        /*
-         postadatok.put("id", String.valueOf(updateingid));
-         postadatok.put("ingatlan_meret", meret);
-         postadatok.put("ingatlan_varos", varos);
-         postadatok.put("ingatlan_utca", utca);
-         postadatok.put("ingatlan_hsz", hsz);
-         postadatok.put("ingatlan_rovidleiras", leiras);
-         postadatok.put("ingatlan_ar", ar);
-         postadatok.put("ingatlan_energiatan_id", energia);
-         postadatok.put("ingatlan_butorozott", butor);
-         postadatok.put("ingatlan_kilatas_id", kilatas);
-         postadatok.put("ingatlan_lift", lift);
-         postadatok.put("ingatlan_futestipus_id", futes);
-         postadatok.put("ingatlan_parkolas_id", parkolas);
-         postadatok.put("ingatlan_erkely", erkely);
-         postadatok.put("ingatlan_tipus_id", tipus);
-         postadatok.put("ingatlan_emelet_id", emelet);
-         postadatok.put("ingatlan_allapot_id", allapot);
-         postadatok.put("ingatlan_szsz_id", szobaszam);
-         postadatok.put("ingatlan_lng", lng);
-         postadatok.put("ingatlan_lat", lat);
-         postadatok.put("ingatlan_title", title);
-         postadatok.put("ing_e_type_id", type);
-         postadatok.put("token", token);
-         postadatok.put("ingatlan_irszam", zipcode);
-         postadatok.put("mon", mon);
-         postadatok.put("tue", tue);
-         postadatok.put("wed", wed);
-         postadatok.put("thu", thu);
-         postadatok.put("fri", fri);
-         postadatok.put("sat", sat);
-         postadatok.put("sun", sun);
-         postadatok.put("start", start);
-         postadatok.put("finish", finish);
- */
         let token = [ "token", SettingUtil.sharedInstance.getToken()]
         let tokenpost = token.joinWithSeparator("=")
         let title_post = "ingatlan_title=" + title
@@ -150,15 +115,15 @@ class EstateUtil: NSObject {
         let lng_post = "ingatlan_lng=" + lng
         let e_type_post = "ing_e_type_id=" + e_type_id
         let zipcode_post = "ingatlan_irszam=" + zipcode
-        let mon_post = "mon=" + "0"
-        let tue_post = "tue=" + "0"
-        let wed_post = "wed=" + "0"
-        let thu_post = "thu=" + "0"
-        let fri_post = "fri=" + "0"
-        let sat_post = "sat=" + "0"
-        let sun_post = "sun=" + "0"
-        let start_post = "start=" + "0"
-        let finish_post = "finish=" + "0"
+        let mon_post = "mon=" + mon
+        let tue_post = "tue=" + tue
+        let wed_post = "wed=" + wed
+        let thu_post = "thu=" + thu
+        let fri_post = "fri=" + fri
+        let sat_post = "sat=" + sat
+        let sun_post = "sun=" + sun
+        let start_post = "start=" + start
+        let finish_post = "finish=" + finish
  
         let pa = [ tokenpost, title_post, varos_post, utca_post, leiras_post, ar_post, meret_post, energiatan_post, butor_post, kilatas_post, lift_post, futes_post, parkolas_post, erkely_post, tipus_post, emelet_post, allapot_post, szsz_post, lat_post, lng_post, e_type_post, zipcode_post, hsz_post, mon_post, tue_post, wed_post, thu_post, fri_post, sat_post, sun_post, start_post, finish_post]
         let postbody = pa.joinWithSeparator("&")
