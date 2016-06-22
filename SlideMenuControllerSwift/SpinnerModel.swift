@@ -22,8 +22,12 @@ class SpinnerModel {
     
     
     required init(json: JSON, type: String) {
-        value = json[type + "_id"].stringValue
         display = json[type + "_val"].stringValue
+        if(display.isEmpty) {
+           display = json[type + "_name"].stringValue
+        }
+        value = json[type + "_id"].stringValue
+       
     }
 }
 

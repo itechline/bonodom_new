@@ -105,6 +105,9 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xhq-pZ-bVn">
                                         <rect key="frame" x="169" y="114" width="407" height="30"/>
                                         <state key="normal" title="Button"/>
+                                        <connections>
+                                            <action selector="hirdetes_tipusa_button:" destination="XP6-P6-eka" eventType="touchUpInside" id="TgR-Zv-cKU"/>
+                                        </connections>
                                     </button>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="m4C-Nl-rbC">
                                         <rect key="frame" x="169" y="152" width="407" height="30"/>
@@ -134,6 +137,9 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YLD-7d-Qa0">
                                         <rect key="frame" x="169" y="342" width="407" height="30"/>
                                         <state key="normal" title="Button"/>
+                                        <connections>
+                                            <action selector="butorozott_button:" destination="XP6-P6-eka" eventType="touchUpInside" id="GDh-Ib-Fua"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JSt-K7-rQU">
                                         <rect key="frame" x="250" y="452" width="100" height="30"/>
@@ -145,7 +151,7 @@
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
-                                            <segue destination="rEy-yq-uys" kind="show" id="vqx-Rf-dph"/>
+                                            <action selector="kovetkezo_1_button:" destination="XP6-P6-eka" eventType="touchUpInside" id="RgT-nZ-aZ1"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -241,11 +247,20 @@
                     </view>
                     <connections>
                         <outlet property="AddDescription" destination="arM-oG-lIa" id="srs-0g-lCl"/>
+                        <outlet property="butorozott_text" destination="YLD-7d-Qa0" id="TPp-es-qT4"/>
+                        <outlet property="hazszam_text" destination="jaR-E4-nYz" id="vPB-kv-jef"/>
+                        <outlet property="hirdetes_cime_text" destination="peY-UL-93A" id="9Ch-sW-uKo"/>
+                        <outlet property="hirdetes_leirasa_text" destination="arM-oG-lIa" id="pGr-K4-pVu"/>
+                        <outlet property="hirdetes_tipusa_text" destination="Xhq-pZ-bVn" id="eKw-AR-7uT"/>
+                        <outlet property="ingatlan_ara_text" destination="m4C-Nl-rbC" id="akf-tJ-fEp"/>
+                        <outlet property="meret_text" destination="ovc-j0-1U9" id="5E0-DT-Gdl"/>
+                        <outlet property="utca_text" destination="s45-25-Fcv" id="qLx-DW-l8C"/>
+                        <outlet property="varos_text" destination="M3Z-To-esi" id="baF-Re-pMA"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dnv-PH-dAJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="174" y="519"/>
+            <point key="canvasLocation" x="98" y="503"/>
         </scene>
         <!--Hírdetésfeladás_2-->
         <scene sceneID="hrs-gM-D6x">
@@ -290,7 +305,7 @@
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
-                                            <segue destination="bpv-Ux-zvj" kind="show" id="1az-6t-x3J"/>
+                                            <action selector="kovetkezo_2_button:" destination="rEy-yq-uys" eventType="touchUpInside" id="NNI-0S-3ae"/>
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Szobák Száma*:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JJi-iK-tEP">
@@ -388,46 +403,73 @@
                                         <rect key="frame" x="134" y="104" width="450" height="19"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                         <state key="normal" title="Button"/>
+                                        <connections>
+                                            <action selector="szobaszam_button:" destination="rEy-yq-uys" eventType="touchUpInside" id="chC-Qi-1f0"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="unM-uG-rB9">
                                         <rect key="frame" x="134" y="131" width="450" height="19"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                         <state key="normal" title="Button"/>
+                                        <connections>
+                                            <action selector="allapot_button:" destination="rEy-yq-uys" eventType="touchUpInside" id="odB-cs-Ia2"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ucx-CJ-4Y7">
                                         <rect key="frame" x="134" y="158" width="450" height="19"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                         <state key="normal" title="Button"/>
+                                        <connections>
+                                            <action selector="emelet_button:" destination="rEy-yq-uys" eventType="touchUpInside" id="Qju-j9-HwS"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PIu-dA-2Fy">
                                         <rect key="frame" x="134" y="185" width="450" height="19"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                         <state key="normal" title="Button"/>
+                                        <connections>
+                                            <action selector="ingatlan_tipus_button:" destination="rEy-yq-uys" eventType="touchUpInside" id="sUS-3o-eza"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DJZ-bQ-CPL">
                                         <rect key="frame" x="134" y="212" width="450" height="19"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                         <state key="normal" title="Button"/>
+                                        <connections>
+                                            <action selector="erkely_button:" destination="rEy-yq-uys" eventType="touchUpInside" id="GBa-hT-jd6"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="agS-5o-Pvf">
                                         <rect key="frame" x="134" y="239" width="450" height="19"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                         <state key="normal" title="Button"/>
+                                        <connections>
+                                            <action selector="parkolas_button:" destination="rEy-yq-uys" eventType="touchUpInside" id="Rd1-Do-6nC"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZcB-KA-J6w">
                                         <rect key="frame" x="134" y="266" width="450" height="19"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                         <state key="normal" title="Button"/>
+                                        <connections>
+                                            <action selector="futes_button:" destination="rEy-yq-uys" eventType="touchUpInside" id="UTT-fa-IgE"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GJG-bb-fQG">
                                         <rect key="frame" x="134" y="293" width="450" height="19"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                         <state key="normal" title="Button"/>
+                                        <connections>
+                                            <action selector="lift_button:" destination="rEy-yq-uys" eventType="touchUpInside" id="Law-Na-uA3"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4fs-Vv-gmY">
                                         <rect key="frame" x="134" y="320" width="450" height="19"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                         <state key="normal" title="Button"/>
+                                        <connections>
+                                            <action selector="etan_button:" destination="rEy-yq-uys" eventType="touchUpInside" id="Kq8-Ih-2kg"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tgy-PO-q3Q">
                                         <rect key="frame" x="134" y="348" width="450" height="28"/>
@@ -436,6 +478,9 @@
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                         <state key="normal" title="Button"/>
+                                        <connections>
+                                            <action selector="kilatas_button:" destination="rEy-yq-uys" eventType="touchUpInside" id="y9F-6u-tN5"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -531,6 +576,18 @@
                             <constraint firstItem="yBy-YO-ZKB" firstAttribute="top" secondItem="Sfi-jV-vEc" secondAttribute="bottom" constant="8" symbolic="YES" id="zTo-iL-w7T"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="allapot_text" destination="unM-uG-rB9" id="VFb-MU-ay7"/>
+                        <outlet property="emelet_text" destination="Ucx-CJ-4Y7" id="vXv-cL-MDa"/>
+                        <outlet property="erkely_text" destination="DJZ-bQ-CPL" id="zWx-K1-ehs"/>
+                        <outlet property="etan_text" destination="4fs-Vv-gmY" id="hLP-9C-xcg"/>
+                        <outlet property="futes_text" destination="ZcB-KA-J6w" id="fU4-eq-HHX"/>
+                        <outlet property="ingatlan_tipus_text" destination="PIu-dA-2Fy" id="QDX-YS-pQM"/>
+                        <outlet property="kilatas_text" destination="Tgy-PO-q3Q" id="seB-xF-wgQ"/>
+                        <outlet property="lift_text" destination="GJG-bb-fQG" id="BTF-wU-6Cq"/>
+                        <outlet property="parkolas_text" destination="agS-5o-Pvf" id="ify-fd-koU"/>
+                        <outlet property="szobaszam_text" destination="IVq-Yt-G5b" id="st8-59-dTj"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qfQ-ga-U7W" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -567,7 +624,7 @@
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
-                                            <segue destination="9rM-lE-GNF" kind="show" id="190-oT-xeo"/>
+                                            <action selector="kovetkezo_3_button:" destination="bpv-Ux-zvj" eventType="touchUpInside" id="uaL-X3-Wlq"/>
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="A képekkel hírdetett ingaltanok X%-al gyorsabban kelnek el mint a kép nélküli társaik" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oey-x7-Ykv">
@@ -583,21 +640,24 @@
                                         <rect key="frame" x="8" y="37" width="584" height="30"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     </view>
-                                    <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ucb-AE-KZC">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ucb-AE-KZC">
                                         <rect key="frame" x="0.0" y="336" width="600" height="104"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     </view>
-                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yL6-aV-96D">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yL6-aV-96D">
                                         <rect key="frame" x="0.0" y="75" width="600" height="66"/>
                                         <state key="normal" image="feltoltes"/>
+                                        <connections>
+                                            <action selector="image_picker_button:" destination="bpv-Ux-zvj" eventType="touchUpInside" id="RL7-Xi-63E"/>
+                                        </connections>
                                     </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Feltöltés" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="puB-vK-Dj0">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Feltöltés" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="puB-vK-Dj0">
                                         <rect key="frame" x="0.0" y="149" width="600" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Telefonon meglévők képek közül a fotók kiválasztása" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TEY-2a-BbF">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Telefonon meglévők képek közül a fotók kiválasztása" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TEY-2a-BbF">
                                         <rect key="frame" x="0.0" y="178" width="600" height="17"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="17" id="gy0-Xf-Qrp"/>
@@ -606,17 +666,20 @@
                                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="quB-vo-q15">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="quB-vo-q15">
                                         <rect key="frame" x="0.0" y="203" width="600" height="71"/>
                                         <state key="normal" image="fenykepezo"/>
+                                        <connections>
+                                            <action selector="photo_taker_button:" destination="bpv-Ux-zvj" eventType="touchUpInside" id="8xf-xF-3Bh"/>
+                                        </connections>
                                     </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Kép készítése" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XI6-Jj-ztP">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Kép készítése" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XI6-Jj-ztP">
                                         <rect key="frame" x="0.0" y="282" width="600" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="A telefon segítségével készítsen képet az ingatlanról" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P0U-Ng-bxa">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="A telefon segítségével készítsen képet az ingatlanról" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P0U-Ng-bxa">
                                         <rect key="frame" x="0.0" y="311" width="600" height="17"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="17" id="cSj-Nf-zPu"/>
@@ -689,6 +752,10 @@
                             <constraint firstItem="j6b-o0-XYz" firstAttribute="top" secondItem="VlW-BV-eHk" secondAttribute="bottom" constant="8" symbolic="YES" id="wOV-mb-M6u"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="image_picker_picture" destination="yL6-aV-96D" id="twk-eS-qBl"/>
+                        <outlet property="photo_taker_picture" destination="quB-vo-q15" id="gKL-in-Umq"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oPJ-Xc-6iR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1026,6 +1093,9 @@
                                         <state key="normal" title="Következő">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <action selector="upload_estate:" destination="7wW-Dv-EY7" eventType="touchUpInside" id="08g-Wk-EwY"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>

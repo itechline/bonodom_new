@@ -56,10 +56,22 @@ class MainViewController: UIViewController, LiquidFloatingActionButtonDataSource
                     self.loadEstateList(0, page: 0, fav: 0, etype: self.adType, ordering: self.order, justme: 0)
                     self.tableView.addSubview(self.refreshControl)
                 } else {
-                    self.loadRegistration()
+                    dispatch_async(dispatch_get_main_queue(),{
+                        print ("TOKEN_INACTIVE_1")
+                        self.alertController.dismissViewControllerAnimated(true, completion: nil)
+                        SettingUtil.sharedInstance.setToken("")
+                        if let navController = self.navigationController {
+                            navController.popViewControllerAnimated(true)
+                            self.loadRegistration()
+                        }
+                        
+                        
+                    })
                 }
             }
         } else {
+            print ("TOKEN_INACTIVE_2")
+            self.alertController.dismissViewControllerAnimated(true, completion: nil)
             self.loadRegistration()
         }
         
@@ -137,7 +149,7 @@ class MainViewController: UIViewController, LiquidFloatingActionButtonDataSource
         print ("Load Registration")
         let storyboard = UIStoryboard(name: "LoginView", bundle: nil)
         let loginView = storyboard.instantiateViewControllerWithIdentifier("LoginView") as! LoginScreenViewController
-        self.navigationController?.pushViewController(loginView, animated: true)
+        self.navigationController?.pushViewController(loginView, animated: false)
     }
     
     lazy var refreshControl: UIRefreshControl = {

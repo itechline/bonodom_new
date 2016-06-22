@@ -87,14 +87,16 @@ class EstateUtil: NSObject {
                    energiatan_id: String, butorozott: String, kilatas_id: String,
                    lift: String, futestipus_id: String, parkolas_id: String, erkely: String,
                    tipus_id: String, emelet_id: String, allapot_id: String, szsz_id: String,
-                   lat: String, lng: String, e_type_id: String, zipcode: String
-                   , onCompletion: (JSON) -> Void) {
+                   lat: String, lng: String, e_type_id: String, zipcode: String, hsz: String,
+                   mon: String, tue: String, wed: String, thu: String, fri: String, sat: String,
+                   sun: String, start: String, finish: String, onCompletion: (JSON) -> Void) {
         
         let token = [ "token", SettingUtil.sharedInstance.getToken()]
         let tokenpost = token.joinWithSeparator("=")
         let title_post = "ingatlan_title=" + title
         let varos_post = "ingatlan_varos=" + varos
         let utca_post = "ingatlan_utca=" + utca
+        let hsz_post = "ingatlan_hsz=" + hsz
         let leiras_post = "ingatlan_rovidleiras=" + leiras
         let ar_post = "ingatlan_ar=" + ar
         let meret_post = "ingatlan_meret=" + meret
@@ -113,8 +115,17 @@ class EstateUtil: NSObject {
         let lng_post = "ingatlan_lng=" + lng
         let e_type_post = "ing_e_type_id=" + e_type_id
         let zipcode_post = "ingatlan_irszam=" + zipcode
+        let mon_post = "mon=" + mon
+        let tue_post = "tue=" + tue
+        let wed_post = "wed=" + wed
+        let thu_post = "thu=" + thu
+        let fri_post = "fri=" + fri
+        let sat_post = "sat=" + sat
+        let sun_post = "sun=" + sun
+        let start_post = "start=" + start
+        let finish_post = "finish=" + finish
  
-        let pa = [ tokenpost, title_post, varos_post, utca_post, leiras_post, ar_post, meret_post, energiatan_post, butor_post, kilatas_post, lift_post, futes_post, parkolas_post, erkely_post, tipus_post, emelet_post, allapot_post, szsz_post, lat_post, lng_post, e_type_post, zipcode_post]
+        let pa = [ tokenpost, title_post, varos_post, utca_post, leiras_post, ar_post, meret_post, energiatan_post, butor_post, kilatas_post, lift_post, futes_post, parkolas_post, erkely_post, tipus_post, emelet_post, allapot_post, szsz_post, lat_post, lng_post, e_type_post, zipcode_post, hsz_post, mon_post, tue_post, wed_post, thu_post, fri_post, sat_post, sun_post, start_post, finish_post]
         let postbody = pa.joinWithSeparator("&")
         
         let route = baseURL + "add_estate"
@@ -163,11 +174,6 @@ class EstateUtil: NSObject {
         //request.addValue("608f44981dd5241547605947c1dc38e0", forHTTPHeaderField: "token");
         
         do {
-            // Set the POST body for the request
-            //let jsonBody = try NSJSONSerialization.dataWithJSONObject(body, options: .PrettyPrinted)
-            //let asdf = try NSData(body)
-            //request.HTTPBody = jsonBody
-            //let post:NSString = "token=608f44981dd5241547605947c1dc38e0"
             print(body)
             let postData:NSData = body.dataUsingEncoding(NSASCIIStringEncoding)!
             
