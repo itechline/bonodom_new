@@ -32,6 +32,8 @@ class SubContentsViewController : UIViewController, LiquidFloatingActionButtonDa
         //self.setTexts("FASZ")
         EstateUtil.sharedInstance.getEstate(id, onCompletion: { (json: JSON) in
             self.estateItem.append(EstateModel(json: json))
+            print ("ESTATE")
+            print (json)
             dispatch_async(dispatch_get_main_queue(),{
                 //self.tableView.reloadData()
                 self.setTexts()

@@ -8,8 +8,9 @@
 
 import UIKit
 import SwiftyJSON
+import CoreLocation
 
-class AddEstateViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class AddEstateViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, CLLocationManagerDelegate {
 
     
     var imagePicker = UIImagePickerController()
@@ -151,8 +152,9 @@ class AddEstateViewController: UIViewController, UIImagePickerControllerDelegate
             utca = utca_text!.text!
             hazszam = hazszam_text!.text!
             meret = meret_text!.text!
+            forwardGeocoding(varos + " " + utca + " " + hazszam)
             
-            GetAddEstate.estate.append(AddEstateModel(cim: hirdetes_cime, varos: varos, utca: utca, leiras: hirdetes_leirasa, ar: ingatlan_ara, meret: meret, etan: "", butor: butorozott, kilatas: "", lift: "", futes: "", parkolas: "", erkely: "", tipus: "", emelet: "", allapot: "", szsz: "", lat: "", lng: "", e_type: "", zipcode: "", hsz: hazszam, hetfo: "", kedd: "", szerda: "", csut: "",
+            GetAddEstate.estate.append(AddEstateModel(cim: hirdetes_cime, varos: varos, utca: utca, leiras: hirdetes_leirasa, ar: ingatlan_ara, meret: meret, etan: "", butor: butorozott, kilatas: "", lift: "", futes: "", parkolas: "", erkely: "", tipus: "", emelet: "", allapot: "", szsz: "", lat: String(lat), lng: String(lng), e_type: "", zipcode: "", hsz: hazszam, hetfo: "", kedd: "", szerda: "", csut: "",
                 pentek: "", szombat: "", vasarnap: "", kezdes: "", vege: "" ,pictures: nil))
             
             
@@ -291,7 +293,7 @@ class AddEstateViewController: UIViewController, UIImagePickerControllerDelegate
             szobaszam == "0") {
             alertDialog()
         } else {
-            GetAddEstate.estate.insert(AddEstateModel(cim: GetAddEstate.estate[0].cim, varos: GetAddEstate.estate[0].varos, utca: GetAddEstate.estate[0].utca, leiras: GetAddEstate.estate[0].leiras, ar: GetAddEstate.estate[0].ar, meret: GetAddEstate.estate[0].meret, etan: etan, butor: GetAddEstate.estate[0].butor, kilatas: kilatas, lift: lift, futes: futes, parkolas: parkolas, erkely: erkely, tipus: ing_tipus, emelet: emelet, allapot: allapot, szsz: szobaszam, lat: "", lng: "", e_type: "", zipcode: "", hsz: GetAddEstate.estate[0].hsz, hetfo: "", kedd: "", szerda: "", csut: "", pentek: "", szombat: "", vasarnap: "", kezdes: "", vege: "" ,pictures: nil), atIndex: 0)
+            GetAddEstate.estate.insert(AddEstateModel(cim: GetAddEstate.estate[0].cim, varos: GetAddEstate.estate[0].varos, utca: GetAddEstate.estate[0].utca, leiras: GetAddEstate.estate[0].leiras, ar: GetAddEstate.estate[0].ar, meret: GetAddEstate.estate[0].meret, etan: etan, butor: GetAddEstate.estate[0].butor, kilatas: kilatas, lift: lift, futes: futes, parkolas: parkolas, erkely: erkely, tipus: ing_tipus, emelet: emelet, allapot: allapot, szsz: szobaszam, lat: GetAddEstate.estate[0].lat, lng: GetAddEstate.estate[0].lng, e_type: "", zipcode: "", hsz: GetAddEstate.estate[0].hsz, hetfo: "", kedd: "", szerda: "", csut: "", pentek: "", szombat: "", vasarnap: "", kezdes: "", vege: "" ,pictures: nil), atIndex: 0)
             
             let storyboard = UIStoryboard(name: "AddEstate", bundle: nil)
             let loginView = storyboard.instantiateViewControllerWithIdentifier("AddEstate_3")
@@ -364,22 +366,28 @@ class AddEstateViewController: UIViewController, UIImagePickerControllerDelegate
     //THIRD PAGE END
     
     //FIFTH PAGE
+    var alertController = UIAlertController()
     @IBAction func upload_estate(sender: AnyObject) {
     
         
-        EstateUtil.sharedInstance.addEstate(GetAddEstate.estate[0].cim, varos: GetAddEstate.estate[0].varos, utca: GetAddEstate.estate[0].utca, leiras: GetAddEstate.estate[0].leiras, ar: GetAddEstate.estate[0].ar, meret: GetAddEstate.estate[0].meret, energiatan_id: GetAddEstate.estate[0].etan, butorozott: GetAddEstate.estate[0].butor, kilatas_id: GetAddEstate.estate[0].kilatas, lift: GetAddEstate.estate[0].lift, futestipus_id: GetAddEstate.estate[0].futes, parkolas_id: GetAddEstate.estate[0].parkolas, erkely: GetAddEstate.estate[0].erkely, tipus_id: GetAddEstate.estate[0].tipus, emelet_id: GetAddEstate.estate[0].emelet, allapot_id: GetAddEstate.estate[0].allapot, szsz_id: GetAddEstate.estate[0].szsz, lat: "0", lng: "0", e_type_id: "1", zipcode: "4300", hsz: GetAddEstate.estate[0].hsz,
+        EstateUtil.sharedInstance.addEstate(GetAddEstate.estate[0].cim, varos: GetAddEstate.estate[0].varos, utca: GetAddEstate.estate[0].utca, leiras: GetAddEstate.estate[0].leiras, ar: GetAddEstate.estate[0].ar, meret: GetAddEstate.estate[0].meret, energiatan_id: GetAddEstate.estate[0].etan, butorozott: GetAddEstate.estate[0].butor, kilatas_id: GetAddEstate.estate[0].kilatas, lift: GetAddEstate.estate[0].lift, futestipus_id: GetAddEstate.estate[0].futes, parkolas_id: GetAddEstate.estate[0].parkolas, erkely: GetAddEstate.estate[0].erkely, tipus_id: GetAddEstate.estate[0].tipus, emelet_id: GetAddEstate.estate[0].emelet, allapot_id: GetAddEstate.estate[0].allapot, szsz_id: GetAddEstate.estate[0].szsz, lat: GetAddEstate.estate[0].lat, lng: GetAddEstate.estate[0].lng, e_type_id: "1", zipcode: "4300", hsz: GetAddEstate.estate[0].hsz,
             mon: "0", tue: "0", wed: "0", thu: "0", fri: "0", sat: "0", sun: "0", start: "0", finish: "0" ,onCompletion: { (json: JSON) in
             print (json)
             var err: Bool!
             err = json["error"].boolValue
             if (!err) {
-                for i in 0...GetAddEstate.estate[0].pictures!.count-1 {
-                    self.UploadRequest(GetAddEstate.estate[0].pictures![i], ing_hash: json["hash"].stringValue)
-                }
-            }
                 dispatch_async(dispatch_get_main_queue(),{
-                    
+                //self.progressBarDisplayer("Képek feltöltése", true)
+                    self.showLoadingDialog()
+                for i in 0...GetAddEstate.estate[0].pictures!.count-1 {
+                    //self.strLabel.text = String(i)
+                    self.UploadRequest(GetAddEstate.estate[0].pictures![i], ing_hash: json["hash"].stringValue, i: i)
+                }
                 })
+            }
+                
+                    
+                
         })
     }
     
@@ -387,7 +395,36 @@ class AddEstateViewController: UIViewController, UIImagePickerControllerDelegate
     
     //FIFTH PAGE END
     
+    func showLoadingDialog() {
+        alertController = UIAlertController(title: nil, message: "Please wait\n\n", preferredStyle: UIAlertControllerStyle.Alert)
+        let spinnerIndicator: UIActivityIndicatorView = UIActivityIndicatorView(activityIndicatorStyle: UIActivityIndicatorViewStyle.WhiteLarge)
+        spinnerIndicator.center = CGPointMake(135.0, 65.5)
+        spinnerIndicator.color = UIColor.blackColor()
+        spinnerIndicator.startAnimating()
+        alertController.view.addSubview(spinnerIndicator)
+        self.presentViewController(alertController, animated: false, completion: nil)
+    }
     
+    var messageFrame = UIView()
+    var activityIndicator = UIActivityIndicatorView()
+    var strLabel = UILabel()
+    
+    func progressBarDisplayer(msg:String, _ indicator:Bool ) {
+        strLabel = UILabel(frame: CGRect(x: 50, y: 0, width: 200, height: 50))
+        strLabel.text = msg
+        strLabel.textColor = UIColor.whiteColor()
+        messageFrame = UIView(frame: CGRect(x: view.frame.midX - 90, y: view.frame.midY - 25 , width: 180, height: 50))
+        messageFrame.layer.cornerRadius = 15
+        messageFrame.backgroundColor = UIColor(white: 0, alpha: 0.7)
+        if indicator {
+            activityIndicator = UIActivityIndicatorView(activityIndicatorStyle: UIActivityIndicatorViewStyle.White)
+            activityIndicator.frame = CGRect(x: 0, y: 0, width: 50, height: 50)
+            activityIndicator.startAnimating()
+            messageFrame.addSubview(activityIndicator)
+        }
+        messageFrame.addSubview(strLabel)
+        view.addSubview(messageFrame)
+    }
     
     func alertDialog() {
         let alert = UIAlertController(title: "HIBA", message: "Töltösön ki minden mezőt helyesen!", preferredStyle: UIAlertControllerStyle.Alert)
@@ -443,6 +480,25 @@ class AddEstateViewController: UIViewController, UIImagePickerControllerDelegate
             KiemelLabel.hidden = true
             
         }
+    }
+    
+    var lat = 0.0
+    var lng = 0.0
+    func forwardGeocoding(address: String) {
+        CLGeocoder().geocodeAddressString(address, completionHandler: { (placemarks, error) in
+            if error != nil {
+                print(error)
+                return
+            }
+            if placemarks?.count > 0 {
+                let placemark = placemarks?[0]
+                let location = placemark?.location
+                let coordinate = location?.coordinate
+                print("\nlat: \(coordinate!.latitude), long: \(coordinate!.longitude)")
+                self.lat = coordinate!.latitude
+                self.lng = coordinate!.longitude
+            }
+        })
     }
     
     func loadSpinners() {
@@ -601,7 +657,7 @@ class AddEstateViewController: UIViewController, UIImagePickerControllerDelegate
     }
     
     
-    func UploadRequest(image: UIImage, ing_hash: String)
+    func UploadRequest(image: UIImage, ing_hash: String, i: Int)
     {
         let url = NSURL(string: "https://bonodom.com/upload/uploadtoserver?ing_hash=" + ing_hash)
         
@@ -669,6 +725,9 @@ class AddEstateViewController: UIViewController, UIImagePickerControllerDelegate
             
             let dataString = NSString(data: data!, encoding: NSUTF8StringEncoding)
             print(dataString)
+            if (i == GetAddEstate.estate[0].pictures!.count-1) {
+                self.alertController.dismissViewControllerAnimated(true, completion: nil)
+            }
             
         }
         
