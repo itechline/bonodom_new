@@ -15,7 +15,6 @@ class EstateModel {
     var description: String!
     var price: String!
     var size: String!
-    var rooms: String!
     var pic: String!
     
     var ingatlan_szsz_id: String!
@@ -116,23 +115,22 @@ class EstateModel {
         description = json["ingatlan_rovidleiras"].stringValue
         price = json["ingatlan_ar"].stringValue
         size = json["ingatlan_meret"].stringValue
-        rooms = json["ingatlan_szsz_id"].stringValue
         keresztnev = json["keresztnev"].stringValue
         vezeteknev = json["vezeteknev"].stringValue
         ing_e_type = json["ing_e_type"].stringValue
-        ing_e_type_id = json["ing_e_type_id"].stringValue
-        ingatlan_futestipus_id = json["ingatlan_futestipus_id"].stringValue
-        ingatlan_szsz_id = json["ingatlan_szsz_id"].stringValue
-        ingatlan_parkolas_id = json["ingatlan_parkolas_id"].stringValue
+        ingatlan_futestipus = json["ingatlan_futestipus"].stringValue
+        ingatlan_szsz = json["ingatlan_szsz"].stringValue
+        ingatlan_parkolas = json["ingatlan_parkolas"].stringValue
         mobil = json["mobil"].stringValue
         ingatlan_lift = json["ingatlan_lift"].stringValue
-        ingatlan_emelet_id = json["ingatlan_emelet_id"].stringValue
-        ingatlan_allapot_id = json["ingatlan_allapot_id"].stringValue
-        ingatlan_energiatan_id = json["ingatlan_energiatan_id"].stringValue
+        ingatlan_emelet = json["ingatlan_emelet"].stringValue
+        ingatlan_allapot = json["ingatlan_allapot"].stringValue
+        ingatlan_energiatan = json["ingatlan_energiatan"].stringValue
         ingatlan_butorozott = json["ingatlan_butorozott"].stringValue
-        ingatlan_tipus_id = json["ingatlan_tipus_id"].stringValue
-        ingatlan_kilatas_id = json["ingatlan_kilatas_id"].stringValue
+        ingatlan_tipus = json["ingatlan_tipus"].stringValue
+        ingatlan_kilatas = json["ingatlan_kilatas"].stringValue
         kedvenc = json["kedvenc"].boolValue
+        ingatlan_erkely = json["ingatlan_erkely"].stringValue
         ingatlan_lat = json["ingatlan_lat"].stringValue
         ingatlan_lng = json["ingatlan_lng"].stringValue
         

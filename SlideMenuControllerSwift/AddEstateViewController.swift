@@ -72,6 +72,7 @@ class AddEstateViewController: UIViewController, UIImagePickerControllerDelegate
     
     @IBOutlet weak var hirdetes_tipusa_text: UIButton!
     @IBAction func hirdetes_tipusa_button(sender: AnyObject) {
+        self.dismissKeyboard()
         PickerDialog().show("Hirdetés típusa", options: pickerData_hirdetes_tipus, selected: "0") {
             (value, display) -> Void in
             self.hirdetes_tipusa_text.setTitle(display, forState: UIControlState.Normal)
@@ -82,6 +83,7 @@ class AddEstateViewController: UIViewController, UIImagePickerControllerDelegate
     
     @IBOutlet weak var butorozott_text: UIButton!
     @IBAction func butorozott_button(sender: AnyObject) {
+        self.dismissKeyboard()
         pickerData_butorozott = [
             ["value": "0", "display": "Nincs megadva"],
             ["value": "1", "display": "Igen"],
@@ -160,15 +162,7 @@ class AddEstateViewController: UIViewController, UIImagePickerControllerDelegate
             meret = meret_text!.text!
             forwardGeocoding(varos + " " + utca + " " + hazszam)
             
-            GetAddEstate.estate.append(AddEstateModel(cim: hirdetes_cime, varos: varos, utca: utca, leiras: hirdetes_leirasa, ar: ingatlan_ara, meret: meret, etan: "", butor: butorozott, kilatas: "", lift: "", futes: "", parkolas: "", erkely: "", tipus: "", emelet: "", allapot: "", szsz: "", lat: String(lat), lng: String(lng), e_type: "", zipcode: "", hsz: hazszam, hetfo: "", kedd: "", szerda: "", csut: "",
-                pentek: "", szombat: "", vasarnap: "", kezdes: "", vege: "" ,pictures: nil))
             
-            
-            //GetAddEstate.estate[0].cim.write(hirdetes_cime)
-            //TODO: adatokat kimenteni mert nullázódnak view váltásnál
-            let storyboard = UIStoryboard(name: "AddEstate", bundle: nil)
-            let loginView = storyboard.instantiateViewControllerWithIdentifier("AddEstate_2")
-            self.navigationController?.pushViewController(loginView, animated: true)
             //self.performSegueWithIdentifier("AddEstate_2", sender: nil)
         } else {
             alertDialog()
@@ -328,7 +322,29 @@ class AddEstateViewController: UIViewController, UIImagePickerControllerDelegate
     var imagesToUpload: [UIImage] = []
     
     @IBAction func kovetkezo_3_button(sender: AnyObject) {
-         GetAddEstate.estate.insert(AddEstateModel(cim: GetAddEstate.estate[0].cim, varos: GetAddEstate.estate[0].varos, utca: GetAddEstate.estate[0].utca, leiras: GetAddEstate.estate[0].leiras, ar: GetAddEstate.estate[0].ar, meret: GetAddEstate.estate[0].meret, etan: etan, butor: GetAddEstate.estate[0].butor, kilatas: kilatas, lift: lift, futes: futes, parkolas: parkolas, erkely: erkely, tipus: ing_tipus, emelet: emelet, allapot: allapot, szsz: szobaszam, lat: "", lng: "", e_type: "", zipcode: "", hsz: GetAddEstate.estate[0].hsz, hetfo: "", kedd: "", szerda: "", csut: "", pentek: "", szombat: "", vasarnap: "", kezdes: "", vege: "" ,pictures: imagesToUpload), atIndex: 0)
+         GetAddEstate.estate.insert(AddEstateModel(cim: GetAddEstate.estate[0].cim,
+            varos: GetAddEstate.estate[0].varos,
+            utca: GetAddEstate.estate[0].utca,
+            leiras: GetAddEstate.estate[0].leiras,
+            ar: GetAddEstate.estate[0].ar,
+            meret: GetAddEstate.estate[0].meret,
+            etan: GetAddEstate.estate[0].etan,
+            butor: GetAddEstate.estate[0].butor,
+            kilatas: GetAddEstate.estate[0].kilatas,
+            lift: GetAddEstate.estate[0].lift,
+            futes: GetAddEstate.estate[0].futes,
+            parkolas: GetAddEstate.estate[0].parkolas,
+            erkely: GetAddEstate.estate[0].erkely,
+            tipus: GetAddEstate.estate[0].tipus,
+            emelet: GetAddEstate.estate[0].emelet,
+            allapot: GetAddEstate.estate[0].allapot,
+            szsz: GetAddEstate.estate[0].szsz,
+            lat: GetAddEstate.estate[0].lat,
+            lng: GetAddEstate.estate[0].lng,
+            e_type: "", zipcode: "",
+            hsz: GetAddEstate.estate[0].hsz,
+            hetfo: "", kedd: "", szerda: "", csut: "", pentek: "", szombat: "", vasarnap: "", kezdes: "", vege: "" ,
+            pictures: imagesToUpload), atIndex: 0)
         
         
         let storyboard = UIStoryboard(name: "AddEstate", bundle: nil)
@@ -387,7 +403,7 @@ class AddEstateViewController: UIViewController, UIImagePickerControllerDelegate
                     self.showLoadingDialog()
                 for i in 0...GetAddEstate.estate[0].pictures!.count-1 {
                     //self.strLabel.text = String(i)
-                    self.UploadRequest(GetAddEstate.estate[0].pictures![i], ing_hash: json["hash"].stringValue, i: i)
+                    self.UploadRequest(GetAddEstate.estate[0].pictures![i], ing_hash: json["hash"].stringValue, i: i, id: json["id"].intValue)
                 }
                 })
             }
@@ -508,6 +524,12 @@ class AddEstateViewController: UIViewController, UIImagePickerControllerDelegate
         CLGeocoder().geocodeAddressString(address, completionHandler: { (placemarks, error) in
             if error != nil {
                 print(error)
+                GetAddEstate.estate.append(AddEstateModel(cim: self.hirdetes_cime, varos: self.varos, utca: self.utca, leiras: self.hirdetes_leirasa, ar: self.ingatlan_ara, meret: self.meret, etan: "", butor: self.butorozott, kilatas: "", lift: "", futes: "", parkolas: "", erkely: "", tipus: "", emelet: "", allapot: "", szsz: "", lat: "0", lng: "0", e_type: "", zipcode: "", hsz: self.hazszam, hetfo: "", kedd: "", szerda: "", csut: "",
+                    pentek: "", szombat: "", vasarnap: "", kezdes: "", vege: "" ,pictures: nil))
+                
+                let storyboard = UIStoryboard(name: "AddEstate", bundle: nil)
+                let loginView = storyboard.instantiateViewControllerWithIdentifier("AddEstate_2")
+                self.navigationController?.pushViewController(loginView, animated: true)
                 return
             }
             if placemarks?.count > 0 {
@@ -517,6 +539,13 @@ class AddEstateViewController: UIViewController, UIImagePickerControllerDelegate
                 print("\nlat: \(coordinate!.latitude), long: \(coordinate!.longitude)")
                 self.lat = coordinate!.latitude
                 self.lng = coordinate!.longitude
+                
+                GetAddEstate.estate.append(AddEstateModel(cim: self.hirdetes_cime, varos: self.varos, utca: self.utca, leiras: self.hirdetes_leirasa, ar: self.ingatlan_ara, meret: self.meret, etan: "", butor: self.butorozott, kilatas: "", lift: "", futes: "", parkolas: "", erkely: "", tipus: "", emelet: "", allapot: "", szsz: "", lat: String(self.lat), lng: String(self.lng), e_type: "", zipcode: "", hsz: self.hazszam, hetfo: "", kedd: "", szerda: "", csut: "",
+                    pentek: "", szombat: "", vasarnap: "", kezdes: "", vege: "" ,pictures: nil))
+                
+                let storyboard = UIStoryboard(name: "AddEstate", bundle: nil)
+                let loginView = storyboard.instantiateViewControllerWithIdentifier("AddEstate_2")
+                self.navigationController?.pushViewController(loginView, animated: true)
             }
         })
     }
@@ -677,7 +706,7 @@ class AddEstateViewController: UIViewController, UIImagePickerControllerDelegate
     }
     
     
-    func UploadRequest(image: UIImage, ing_hash: String, i: Int)
+    func UploadRequest(image: UIImage, ing_hash: String, i: Int, id: Int)
     {
         let url = NSURL(string: "https://bonodom.com/upload/uploadtoserver?ing_hash=" + ing_hash)
         
@@ -746,14 +775,16 @@ class AddEstateViewController: UIViewController, UIImagePickerControllerDelegate
             let dataString = NSString(data: data!, encoding: NSUTF8StringEncoding)
             print(dataString)
             if (i == GetAddEstate.estate[0].pictures!.count-1) {
+                print ("FINISHED UPLOADING")
+                //GetAddEstate.estate.removeAll()
                 self.alertController.dismissViewControllerAnimated(true, completion: nil)
+                let storyboard = UIStoryboard(name: "SubContentsViewController", bundle: nil)
+                let subContentsVC = storyboard.instantiateViewControllerWithIdentifier("SubContentsViewController") as! SubContentsViewController
+                subContentsVC.id = id
+                self.navigationController?.pushViewController(subContentsVC, animated: true)
             }
-            
         }
-        
         task.resume()
-        
-        
     }
     
     

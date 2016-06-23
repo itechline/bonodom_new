@@ -56,6 +56,7 @@ class MainViewController: UIViewController, LiquidFloatingActionButtonDataSource
                     self.loadEstateList(0, page: 0, fav: 0, etype: self.adType, ordering: self.order, justme: 0)
                     self.tableView.addSubview(self.refreshControl)
                 } else {
+                    self.alertController.dismissViewControllerAnimated(true, completion: nil)
                     dispatch_async(dispatch_get_main_queue(),{
                         print ("TOKEN_INACTIVE_1")
                         self.alertController.dismissViewControllerAnimated(true, completion: nil)
@@ -287,7 +288,6 @@ extension MainViewController : UITableViewDataSource {
         if (indexPath.row == self.items.count - 1) {
             print ("BOTTOM REACHED")
             currentPage += 1
-            showLoadingDialog()
             self.loadEstateList(largest_id, page: currentPage, fav: 0, etype: self.adType, ordering: self.order, justme: 0)
         }
         return cell

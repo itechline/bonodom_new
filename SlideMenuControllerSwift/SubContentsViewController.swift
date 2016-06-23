@@ -22,6 +22,22 @@ class SubContentsViewController : UIViewController, LiquidFloatingActionButtonDa
     @IBOutlet weak var streetText: UILabel!
     @IBOutlet weak var descriptionText: UITextView!
     
+    @IBOutlet weak var szobaszam: UILabel!
+    @IBOutlet weak var meret: UILabel!
+    @IBOutlet weak var tipus: UILabel!
+    @IBOutlet weak var lift: UILabel!
+    @IBOutlet weak var erkely: UILabel!
+    @IBOutlet weak var parkolas: UILabel!
+    
+    @IBOutlet weak var kilatas: UILabel!
+    @IBOutlet weak var allapot: UILabel!
+    @IBOutlet weak var szintek: UILabel!
+    @IBOutlet weak var futes: UILabel!
+    @IBOutlet weak var etan: UILabel!
+    @IBOutlet weak var butor: UILabel!
+    
+    
+    
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     var id = 0;
     
@@ -80,10 +96,23 @@ class SubContentsViewController : UIViewController, LiquidFloatingActionButtonDa
     
     func setTexts() {
         self.advertiserName.text = estateItem[0].vezeteknev + " " + estateItem[0].keresztnev
-        self.adressText.text = estateItem[0].adress
-        self.streetText.text = estateItem[0].street
+        self.adressText.text = estateItem[0].ingatlan_title
+        self.streetText.text = estateItem[0].adress + " " + estateItem[0].street
         self.descriptionText.text = estateItem[0].description
         self.priceText.text = estateItem[0].price
+        self.meret.text = estateItem[0].size
+        self.szobaszam.text = estateItem[0].ingatlan_szsz
+        self.tipus.text = estateItem[0].ingatlan_tipus
+        self.lift.text = estateItem[0].ingatlan_lift //MEGCSINÁLNI H JÓ ADATOK JELENJENEK MEG
+        self.erkely.text = estateItem[0].ingatlan_erkely //MEGCSINÁLNI H JÓ ADATOK JELENJENEK MEG
+        self.parkolas.text = estateItem[0].ingatlan_parkolas
+        self.kilatas.text = estateItem[0].ingatlan_kilatas
+        self.allapot.text = estateItem[0].ingatlan_allapot
+        self.szintek.text = estateItem[0].ingatlan_emelet
+        self.futes.text = estateItem[0].ingatlan_futestipus
+        self.etan.text = estateItem[0].ingatlan_energiatan
+        self.butor.text = estateItem[0].ingatlan_butorozott
+          
         self.mainImage.setImageFromURL(estateItem[0].pic, indicator: activityIndicator)
     }
 }

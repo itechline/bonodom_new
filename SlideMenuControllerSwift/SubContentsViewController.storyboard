@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -436,10 +436,22 @@
                         <outlet property="activityIndicator" destination="yJp-z4-BK0" id="6rV-0J-R4y"/>
                         <outlet property="adressText" destination="JUv-Wk-DGE" id="bBa-Hw-NdL"/>
                         <outlet property="advertiserName" destination="11w-Fi-GU1" id="kZ9-ri-hQr"/>
+                        <outlet property="allapot" destination="d7n-2a-2Po" id="IVe-cM-tS1"/>
+                        <outlet property="butor" destination="92x-zm-dcC" id="Yfe-Z0-6U6"/>
                         <outlet property="descriptionText" destination="ZFk-qp-xRT" id="EjI-Mh-Idg"/>
+                        <outlet property="erkely" destination="ePl-Y4-VJl" id="6M8-QL-s67"/>
+                        <outlet property="etan" destination="UbH-xQ-QQj" id="pu2-nD-Xh7"/>
+                        <outlet property="futes" destination="ewH-u7-PBo" id="rQ0-2a-lMK"/>
+                        <outlet property="kilatas" destination="3CS-Lm-2J9" id="eJb-Kz-6lt"/>
+                        <outlet property="lift" destination="Ewd-Qt-Cu2" id="9xS-l2-Qel"/>
                         <outlet property="mainImage" destination="oGB-nQ-Fuh" id="UiX-KS-b38"/>
+                        <outlet property="meret" destination="krb-Hc-pmI" id="ipn-RS-SbB"/>
+                        <outlet property="parkolas" destination="VdH-QJ-BOK" id="ocf-B3-8h9"/>
                         <outlet property="priceText" destination="JPO-k4-sJH" id="qZK-lO-ORW"/>
                         <outlet property="streetText" destination="MoQ-65-vdP" id="xBk-0i-RKE"/>
+                        <outlet property="szintek" destination="Otb-ty-dg8" id="ziB-QT-uW8"/>
+                        <outlet property="szobaszam" destination="J1j-vI-9oz" id="BhO-1A-O1l"/>
+                        <outlet property="tipus" destination="TNo-pg-ljv" id="v9k-kq-qrT"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RcS-82-FP2" userLabel="First Responder" sceneMemberID="firstResponder"/>
