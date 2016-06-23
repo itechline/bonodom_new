@@ -103,8 +103,6 @@ class SubContentsViewController : UIViewController, LiquidFloatingActionButtonDa
         self.meret.text = estateItem[0].size
         self.szobaszam.text = estateItem[0].ingatlan_szsz
         self.tipus.text = estateItem[0].ingatlan_tipus
-        self.lift.text = estateItem[0].ingatlan_lift //MEGCSINÁLNI H JÓ ADATOK JELENJENEK MEG
-        self.erkely.text = estateItem[0].ingatlan_erkely //MEGCSINÁLNI H JÓ ADATOK JELENJENEK MEG
         self.parkolas.text = estateItem[0].ingatlan_parkolas
         self.kilatas.text = estateItem[0].ingatlan_kilatas
         self.allapot.text = estateItem[0].ingatlan_allapot
@@ -112,6 +110,24 @@ class SubContentsViewController : UIViewController, LiquidFloatingActionButtonDa
         self.futes.text = estateItem[0].ingatlan_futestipus
         self.etan.text = estateItem[0].ingatlan_energiatan
         self.butor.text = estateItem[0].ingatlan_butorozott
+        
+        if (estateItem[0].ing_e_type_id == 1) {
+            self.priceText.text = estateItem[0].price + " Ft"
+        } else {
+            self.priceText.text = estateItem[0].price + " Ft/hó"
+        }
+        
+        if (estateItem[0].ingatlan_lift == 1) {
+            self.lift.text = "Van"
+        } else {
+            self.lift.text = "Nincs"
+        }
+        
+        if (estateItem[0].ingatlan_erkely == 1) {
+            self.erkely.text = "Van"
+        } else {
+            self.erkely.text = "Nincs"
+        }
           
         self.mainImage.setImageFromURL(estateItem[0].pic, indicator: activityIndicator)
     }

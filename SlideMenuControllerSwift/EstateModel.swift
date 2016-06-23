@@ -21,7 +21,7 @@ class EstateModel {
     var ingatlan_szsz: String!
     var ingatlan_parkolas_id: String!
     var mobil: String!
-    var ingatlan_lift: String!
+    var ingatlan_lift: Int!
     var ingatlan_emelet_id: String!
     var ingatlan_parkolas: String!
     var ingatlan_title: String!
@@ -48,7 +48,7 @@ class EstateModel {
     var ingatlan_futestipus: String!
     var ingatlan_emelet: String!
     var face: String!
-    var ingatlan_erkely: String!
+    var ingatlan_erkely: Int!
     var tipus: String!
     var ingatlan_energiatan: String!
     var ingatlan_futestipus_id: String!
@@ -123,7 +123,7 @@ class EstateModel {
         ingatlan_szsz = json["ingatlan_szsz"].stringValue
         ingatlan_parkolas = json["ingatlan_parkolas"].stringValue
         mobil = json["mobil"].stringValue
-        ingatlan_lift = json["ingatlan_lift"].stringValue
+        ingatlan_lift = json["ingatlan_lift"].intValue
         ingatlan_emelet = json["ingatlan_emelet"].stringValue
         ingatlan_allapot = json["ingatlan_allapot"].stringValue
         ingatlan_energiatan = json["ingatlan_energiatan"].stringValue
@@ -131,7 +131,7 @@ class EstateModel {
         ingatlan_tipus = json["ingatlan_tipus"].stringValue
         ingatlan_kilatas = json["ingatlan_kilatas"].stringValue
         kedvenc = json["kedvenc"].boolValue
-        ingatlan_erkely = json["ingatlan_erkely"].stringValue
+        ingatlan_erkely = json["ingatlan_erkely"].intValue
         ingatlan_lat = json["ingatlan_lat"].stringValue
         ingatlan_lng = json["ingatlan_lng"].stringValue
         
