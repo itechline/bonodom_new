@@ -272,7 +272,8 @@ extension MainViewController : UITableViewDataSource {
                                          description: items[indexPath.row].description,
                                          size: items[indexPath.row].size,
                                          rooms: items[indexPath.row].rooms,
-                                         price: items[indexPath.row].price)
+                                         price: items[indexPath.row].price,
+                                         e_type: items[indexPath.row].e_type)
         cell.setData(data)
         
         if (largest_id < items[indexPath.row].id) {

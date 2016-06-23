@@ -4,7 +4,7 @@ import UIKit
 
 struct DataTableViewCellData {
     
-    init(imageUrl: String, adress: String, street: String,description: String, size: String, rooms: String, price: String) {
+    init(imageUrl: String, adress: String, street: String,description: String, size: String, rooms: String, price: String, e_type: Int) {
         self.imageUrl = imageUrl
         self.adress = adress
         self.street = street
@@ -12,6 +12,7 @@ struct DataTableViewCellData {
         self.size = size
         self.rooms = rooms
         self.price = price
+        self.e_type = e_type
     }
     var imageUrl: String
     var adress: String
@@ -20,6 +21,7 @@ struct DataTableViewCellData {
     var size: String
     var rooms: String
     var price: String
+    var e_type: Int
 }
 
 class DataTableViewCell : BaseTableViewCell {
@@ -56,7 +58,11 @@ class DataTableViewCell : BaseTableViewCell {
             self.descriptionText.text = data.description
             self.roomsText.text = data.rooms
             self.streetText.text = data.street
-            self.priceText.text = data.price
+            if (data.e_type == 1) {
+                self.priceText.text = data.price + " Ft"
+            } else {
+                self.priceText.text = data.price + " Ft/hó"
+            }
         }
     }
     
