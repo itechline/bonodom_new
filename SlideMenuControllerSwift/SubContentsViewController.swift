@@ -72,6 +72,7 @@ class SubContentsViewController : UIViewController, LiquidFloatingActionButtonDa
         }
         cells.append(cellFactory("ic_action_envelop"))
         cells.append(cellFactory("ic_action_heart"))
+        cells.append(cellFactory("ic_action_envelop"))
         
         
         let floatingFrame = CGRect(x: self.view.frame.width - 56 - 16, y: self.view.frame.height - 56 - 16, width: 56, height: 56)
@@ -88,9 +89,14 @@ class SubContentsViewController : UIViewController, LiquidFloatingActionButtonDa
         return cells[index]
     }
     
-    
+    var mobile = ""
     func liquidFloatingActionButton(liquidFloatingActionButton: LiquidFloatingActionButton, didSelectItemAtIndex index: Int) {
         print("did Tapped! \(index)")
+        if (index == 2) {
+            if let url = NSURL(string: "tel://\(mobile)") {
+                UIApplication.sharedApplication().openURL(url)
+            }
+        }
         liquidFloatingActionButton.close()
     }
     
@@ -109,6 +115,7 @@ class SubContentsViewController : UIViewController, LiquidFloatingActionButtonDa
         self.szintek.text = estateItem[0].ingatlan_emelet
         self.futes.text = estateItem[0].ingatlan_futestipus
         self.etan.text = estateItem[0].ingatlan_energiatan
+        self.mobile = estateItem[0].mobil
         
         
         if (estateItem[0].ing_e_type_id == 1) {
