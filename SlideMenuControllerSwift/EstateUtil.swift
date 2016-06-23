@@ -175,7 +175,7 @@ class EstateUtil: NSObject {
         
         do {
             print(body)
-            let postData:NSData = body.dataUsingEncoding(NSASCIIStringEncoding)!
+            let postData:NSData = body.dataUsingEncoding(NSUTF8StringEncoding)!
             
             request.HTTPBody = postData
             

@@ -96,12 +96,23 @@ class SubContentsViewController : UIViewController, LiquidFloatingActionButtonDa
     
     func setTexts() {
         self.advertiserName.text = estateItem[0].vezeteknev + " " + estateItem[0].keresztnev
-        self.adressText.text = estateItem[0].adress
-        self.streetText.text = estateItem[0].street
+        self.adressText.text = estateItem[0].ingatlan_title
+        self.streetText.text = estateItem[0].adress + " " + estateItem[0].street
         self.descriptionText.text = estateItem[0].description
         self.priceText.text = estateItem[0].price
         self.meret.text = estateItem[0].size
-        
+        self.szobaszam.text = estateItem[0].ingatlan_szsz
+        self.tipus.text = estateItem[0].ingatlan_tipus
+        self.lift.text = estateItem[0].ingatlan_lift //MEGCSINÁLNI H JÓ ADATOK JELENJENEK MEG
+        self.erkely.text = estateItem[0].ingatlan_erkely //MEGCSINÁLNI H JÓ ADATOK JELENJENEK MEG
+        self.parkolas.text = estateItem[0].ingatlan_parkolas
+        self.kilatas.text = estateItem[0].ingatlan_kilatas
+        self.allapot.text = estateItem[0].ingatlan_allapot
+        self.szintek.text = estateItem[0].ingatlan_emelet
+        self.futes.text = estateItem[0].ingatlan_futestipus
+        self.etan.text = estateItem[0].ingatlan_energiatan
+        self.butor.text = estateItem[0].ingatlan_butorozott
+          
         self.mainImage.setImageFromURL(estateItem[0].pic, indicator: activityIndicator)
     }
 }
