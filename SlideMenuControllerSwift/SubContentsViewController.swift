@@ -109,7 +109,7 @@ class SubContentsViewController : UIViewController, LiquidFloatingActionButtonDa
         self.szintek.text = estateItem[0].ingatlan_emelet
         self.futes.text = estateItem[0].ingatlan_futestipus
         self.etan.text = estateItem[0].ingatlan_energiatan
-        self.butor.text = estateItem[0].ingatlan_butorozott
+        
         
         if (estateItem[0].ing_e_type_id == 1) {
             self.priceText.text = estateItem[0].price + " Ft"
@@ -128,7 +128,15 @@ class SubContentsViewController : UIViewController, LiquidFloatingActionButtonDa
         } else {
             self.erkely.text = "Nincs"
         }
-          
+        
+        if (estateItem[0].ingatlan_butorozott == 1) {
+            self.butor.text = "Nem"
+        } else if (estateItem[0].ingatlan_butorozott == 2){
+            self.butor.text = "Igen"
+        } else {
+            self.butor.text = "Alku tárgya"
+        }
+        
         self.mainImage.setImageFromURL(estateItem[0].pic, indicator: activityIndicator)
     }
 }

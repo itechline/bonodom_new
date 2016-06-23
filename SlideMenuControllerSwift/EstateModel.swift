@@ -29,7 +29,7 @@ class EstateModel {
     var ingatlan_allapot_id: String!
     var ingatlan_varos: String!
     var ingatlan_energiatan_id: String!
-    var ingatlan_butorozott: String!
+    var ingatlan_butorozott: Int!
     var ingatlan_tipus_id: String!
     var ingatlan_tipus: String!
     var ingatlan_kilatas_id: String!
@@ -127,7 +127,7 @@ class EstateModel {
         ingatlan_emelet = json["ingatlan_emelet"].stringValue
         ingatlan_allapot = json["ingatlan_allapot"].stringValue
         ingatlan_energiatan = json["ingatlan_energiatan"].stringValue
-        ingatlan_butorozott = json["ingatlan_butorozott"].stringValue
+        ingatlan_butorozott = json["ingatlan_butorozott"].intValue
         ingatlan_tipus = json["ingatlan_tipus"].stringValue
         ingatlan_kilatas = json["ingatlan_kilatas"].stringValue
         kedvenc = json["kedvenc"].boolValue

@@ -86,8 +86,8 @@ class AddEstateViewController: UIViewController, UIImagePickerControllerDelegate
         self.dismissKeyboard()
         pickerData_butorozott = [
             ["value": "0", "display": "Nincs megadva"],
-            ["value": "1", "display": "Igen"],
-            ["value": "2", "display": "Nem"],
+            ["value": "1", "display": "Nem"],
+            ["value": "2", "display": "Igen"],
             ["value": "3", "display": "Alku tárgya"]
         ]
         
