@@ -33,15 +33,8 @@ class MainViewController: UIViewController, LiquidFloatingActionButtonDataSource
         super.viewDidLoad()
         
         self.tableView.registerCellNib(DataTableViewCell.self)
-        //SettingUtil.sharedInstance.setToken("2d1933ceaf3fba2095fe8a4d4995cfc1")
-        
-        
-        //TESZT
-        
-        //TESZT VÉGE
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(MainViewController.openAddestate(_:)), name: "estate_adding", object: nil)
-        
         
         if (SettingUtil.sharedInstance.getToken() != "") {
             showLoadingDialog()
@@ -91,6 +84,7 @@ class MainViewController: UIViewController, LiquidFloatingActionButtonDataSource
         let bottomRightButton = createButton(floatingFrame, .Up)
         self.view.addSubview(bottomRightButton)
     }
+    
     
     func showLoadingDialog() {
         alertController = UIAlertController(title: nil, message: "Please wait\n\n", preferredStyle: UIAlertControllerStyle.Alert)
