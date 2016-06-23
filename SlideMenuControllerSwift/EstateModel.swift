@@ -43,7 +43,7 @@ class EstateModel {
     var ingatlan_lat: String!
     var ingatlan_lng: String!
     var ingatlan_id: String!
-    var ing_e_type_id: String!
+    var ing_e_type_id: Int!
     var ingatlan_rovidleiras: String!
     var ingatlan_futestipus: String!
     var ingatlan_emelet: String!
@@ -118,6 +118,7 @@ class EstateModel {
         keresztnev = json["keresztnev"].stringValue
         vezeteknev = json["vezeteknev"].stringValue
         ing_e_type = json["ing_e_type"].stringValue
+        ing_e_type_id = json["ing_e_type_id"].intValue
         ingatlan_futestipus = json["ingatlan_futestipus"].stringValue
         ingatlan_szsz = json["ingatlan_szsz"].stringValue
         ingatlan_parkolas = json["ingatlan_parkolas"].stringValue
