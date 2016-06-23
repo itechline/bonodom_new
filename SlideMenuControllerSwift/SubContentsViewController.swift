@@ -22,6 +22,22 @@ class SubContentsViewController : UIViewController, LiquidFloatingActionButtonDa
     @IBOutlet weak var streetText: UILabel!
     @IBOutlet weak var descriptionText: UITextView!
     
+    @IBOutlet weak var szobaszam: UILabel!
+    @IBOutlet weak var meret: UILabel!
+    @IBOutlet weak var tipus: UILabel!
+    @IBOutlet weak var lift: UILabel!
+    @IBOutlet weak var erkely: UILabel!
+    @IBOutlet weak var parkolas: UILabel!
+    
+    @IBOutlet weak var kilatas: UILabel!
+    @IBOutlet weak var allapot: UILabel!
+    @IBOutlet weak var szintek: UILabel!
+    @IBOutlet weak var futes: UILabel!
+    @IBOutlet weak var etan: UILabel!
+    @IBOutlet weak var butor: UILabel!
+    
+    
+    
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     var id = 0;
     
@@ -84,6 +100,8 @@ class SubContentsViewController : UIViewController, LiquidFloatingActionButtonDa
         self.streetText.text = estateItem[0].street
         self.descriptionText.text = estateItem[0].description
         self.priceText.text = estateItem[0].price
+        self.meret.text = estateItem[0].size
+        
         self.mainImage.setImageFromURL(estateItem[0].pic, indicator: activityIndicator)
     }
 }
