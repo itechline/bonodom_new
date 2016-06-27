@@ -266,14 +266,16 @@ extension MainViewController : UITableViewDataSource {
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
         let cell = self.tableView.dequeueReusableCellWithIdentifier(DataTableViewCell.identifier) as! DataTableViewCell
-        let data = DataTableViewCellData(imageUrl: items[indexPath.row].pic,
+        let data = DataTableViewCellData(id: items[indexPath.row].id,
+                                         imageUrl: items[indexPath.row].pic,
                                          adress: String(items[indexPath.row].id),
                                          street: items[indexPath.row].street,
                                          description: items[indexPath.row].description,
                                          size: items[indexPath.row].size,
                                          rooms: items[indexPath.row].rooms,
                                          price: items[indexPath.row].price,
-                                         e_type: items[indexPath.row].e_type)
+                                         e_type: items[indexPath.row].e_type,
+                                         fav: items[indexPath.row].fav)
         cell.setData(data)
         
         if (largest_id < items[indexPath.row].id) {
