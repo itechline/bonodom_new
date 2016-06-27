@@ -72,6 +72,7 @@ class SubContentsViewController : UIViewController, LiquidFloatingActionButtonDa
         }
         cells.append(cellFactory("ic_action_envelop"))
         cells.append(cellFactory("ic_action_heart"))
+        cells.append(cellFactory("ic_action_envelop"))
         
         
         let floatingFrame = CGRect(x: self.view.frame.width - 56 - 16, y: self.view.frame.height - 56 - 16, width: 56, height: 56)
@@ -88,9 +89,14 @@ class SubContentsViewController : UIViewController, LiquidFloatingActionButtonDa
         return cells[index]
     }
     
-    
+    var mobile = ""
     func liquidFloatingActionButton(liquidFloatingActionButton: LiquidFloatingActionButton, didSelectItemAtIndex index: Int) {
         print("did Tapped! \(index)")
+        if (index == 2) {
+            if let url = NSURL(string: "tel://\(mobile)") {
+                UIApplication.sharedApplication().openURL(url)
+            }
+        }
         liquidFloatingActionButton.close()
     }
     
@@ -103,16 +109,41 @@ class SubContentsViewController : UIViewController, LiquidFloatingActionButtonDa
         self.meret.text = estateItem[0].size
         self.szobaszam.text = estateItem[0].ingatlan_szsz
         self.tipus.text = estateItem[0].ingatlan_tipus
-        self.lift.text = estateItem[0].ingatlan_lift //MEGCSINÁLNI H JÓ ADATOK JELENJENEK MEG
-        self.erkely.text = estateItem[0].ingatlan_erkely //MEGCSINÁLNI H JÓ ADATOK JELENJENEK MEG
         self.parkolas.text = estateItem[0].ingatlan_parkolas
         self.kilatas.text = estateItem[0].ingatlan_kilatas
         self.allapot.text = estateItem[0].ingatlan_allapot
         self.szintek.text = estateItem[0].ingatlan_emelet
         self.futes.text = estateItem[0].ingatlan_futestipus
         self.etan.text = estateItem[0].ingatlan_energiatan
-        self.butor.text = estateItem[0].ingatlan_butorozott
-          
+        self.mobile = estateItem[0].mobil
+        
+        
+        if (estateItem[0].ing_e_type_id == 1) {
+            self.priceText.text = estateItem[0].price + " Ft"
+        } else {
+            self.priceText.text = estateItem[0].price + " Ft/hó"
+        }
+        
+        if (estateItem[0].ingatlan_lift == 1) {
+            self.lift.text = "Van"
+        } else {
+            self.lift.text = "Nincs"
+        }
+        
+        if (estateItem[0].ingatlan_erkely == 1) {
+            self.erkely.text = "Van"
+        } else {
+            self.erkely.text = "Nincs"
+        }
+        
+        if (estateItem[0].ingatlan_butorozott == 1) {
+            self.butor.text = "Nem"
+        } else if (estateItem[0].ingatlan_butorozott == 2){
+            self.butor.text = "Igen"
+        } else {
+            self.butor.text = "Alku tárgya"
+        }
+        
         self.mainImage.setImageFromURL(estateItem[0].pic, indicator: activityIndicator)
     }
 }

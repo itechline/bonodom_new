@@ -1,10 +1,12 @@
 
 
 import UIKit
+import SwiftyJSON
 
 struct DataTableViewCellData {
     
-    init(imageUrl: String, adress: String, street: String,description: String, size: String, rooms: String, price: String) {
+    init(id: Int, imageUrl: String, adress: String, street: String,description: String, size: String, rooms: String, price: String, e_type: Int, fav: Bool) {
+        self.id = id
         self.imageUrl = imageUrl
         self.adress = adress
         self.street = street
@@ -12,7 +14,10 @@ struct DataTableViewCellData {
         self.size = size
         self.rooms = rooms
         self.price = price
+        self.e_type = e_type
+        self.fav = fav
     }
+    var id: Int
     var imageUrl: String
     var adress: String
     var street: String
@@ -20,9 +25,43 @@ struct DataTableViewCellData {
     var size: String
     var rooms: String
     var price: String
+    var e_type: Int
+    var fav: Bool
 }
 
 class DataTableViewCell : BaseTableViewCell {
+    
+    var favorite : Bool!
+    var id : Int!
+    @IBOutlet weak var heart_button: UIButton!
+    @IBAction func heart_button_action(sender: AnyObject) {
+        var favToSend = 0
+        if (self.favorite == true) {
+            favToSend = 0
+        } else {
+            favToSend = 1
+        }
+        EstateUtil.sharedInstance.setFavorite(self.id, favorit: favToSend, onCompletion: { (json: JSON) in
+            print (json)
+            dispatch_async(dispatch_get_main_queue(),{
+                if (!json["error"].boolValue) {
+                    if (favToSend == 0) {
+                        print ("NOT FAV")
+                        print (self.id)
+                        self.favorite = false
+                    } else {
+                        print ("FAV")
+                        self.favorite = true
+                        print (self.id)
+                    }
+                } else {
+                    
+                }
+            })
+        })
+    }
+    
+    
     
     @IBOutlet weak var dataImage: UIImageView!
     
@@ -56,7 +95,13 @@ class DataTableViewCell : BaseTableViewCell {
             self.descriptionText.text = data.description
             self.roomsText.text = data.rooms
             self.streetText.text = data.street
-            self.priceText.text = data.price
+            self.favorite = data.fav
+            self.id = data.id
+            if (data.e_type == 1) {
+                self.priceText.text = data.price + " Ft"
+            } else {
+                self.priceText.text = data.price + " Ft/hó"
+            }
         }
     }
     

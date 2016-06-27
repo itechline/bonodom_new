@@ -16,6 +16,8 @@ class EstateListModel {
     var size: String!
     var rooms: String!
     var pic: String!
+    var e_type: Int!
+    var fav: Bool!
     
     
     
@@ -27,6 +29,8 @@ class EstateListModel {
         price = json["ingatlan_ar"].stringValue
         size = json["ingatlan_meret"].stringValue
         rooms = json["ingatlan_szsz_id"].stringValue
+        e_type = json["ingatlan_e_type_id"].intValue
+        fav = json["kedvenc"].boolValue
         
         for picArray in json["kepek"] {
             print ("PICTURE")

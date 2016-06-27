@@ -108,8 +108,41 @@ class LoginUtil: NSObject {
         let pa = [ token_post, lat_post, lng_post, mobil_post]
         let postbody = pa.joinWithSeparator("&")
         
+        let route = baseURL + "updatereg"
+        makeHTTPPostRequest(route, body: postbody, onCompletion: { json, err in
+            onCompletion(json as JSON)
+        })
+    }
+    
+    
+    func doUpdateProfile(vezeteknev: String, keresztnev: String, mobile: String, jelsz: String ,onCompletion: (JSON) -> Void) {
+        
+        let token = [ "token", SettingUtil.sharedInstance.getToken()]
+        let token_post = token.joinWithSeparator("=")
+        let vez = [ "fel_vezeteknev", vezeteknev]
+        let vez_post = vez.joinWithSeparator("=")
+        let ker = [ "fel_keresztnev", keresztnev]
+        let ker_post = ker.joinWithSeparator("=")
+        let mobil = [ "fel_mobilszam", mobile]
+        let mobil_post = mobil.joinWithSeparator("=")
+        let jelszo = [ "fel_jelszo", jelsz]
+        let jelszo_post = jelszo.joinWithSeparator("=")
+        
+        let pa = [ token_post, vez_post, ker_post, mobil_post, jelszo_post]
+        let postbody = pa.joinWithSeparator("&")
+        
         let route = baseURL + "update_profile"
         makeHTTPPostRequest(route, body: postbody, onCompletion: { json, err in
+            onCompletion(json as JSON)
+        })
+    }
+    
+    func getProfile(onCompletion: (JSON) -> Void) {
+        let token = [ "token", SettingUtil.sharedInstance.getToken()]
+        let token_post = token.joinWithSeparator("=")
+        
+        let route = baseURL + "get_profile"
+        makeHTTPPostRequest(route, body: token_post, onCompletion: { json, err in
             onCompletion(json as JSON)
         })
     }
@@ -154,7 +187,7 @@ class LoginUtil: NSObject {
             //request.HTTPBody = jsonBody
             //let post:NSString = "token=608f44981dd5241547605947c1dc38e0"
             print(body)
-            let postData:NSData = body.dataUsingEncoding(NSASCIIStringEncoding)!
+            let postData:NSData = body.dataUsingEncoding(NSUTF8StringEncoding)!
             
             request.HTTPBody = postData
             

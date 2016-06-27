@@ -33,15 +33,8 @@ class MainViewController: UIViewController, LiquidFloatingActionButtonDataSource
         super.viewDidLoad()
         
         self.tableView.registerCellNib(DataTableViewCell.self)
-        //SettingUtil.sharedInstance.setToken("2d1933ceaf3fba2095fe8a4d4995cfc1")
-        
-        
-        //TESZT
-        
-        //TESZT VÉGE
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(MainViewController.openAddestate(_:)), name: "estate_adding", object: nil)
-        
         
         if (SettingUtil.sharedInstance.getToken() != "") {
             showLoadingDialog()
@@ -91,6 +84,7 @@ class MainViewController: UIViewController, LiquidFloatingActionButtonDataSource
         let bottomRightButton = createButton(floatingFrame, .Up)
         self.view.addSubview(bottomRightButton)
     }
+    
     
     func showLoadingDialog() {
         alertController = UIAlertController(title: nil, message: "Please wait\n\n", preferredStyle: UIAlertControllerStyle.Alert)
@@ -272,13 +266,16 @@ extension MainViewController : UITableViewDataSource {
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
         let cell = self.tableView.dequeueReusableCellWithIdentifier(DataTableViewCell.identifier) as! DataTableViewCell
-        let data = DataTableViewCellData(imageUrl: items[indexPath.row].pic,
+        let data = DataTableViewCellData(id: items[indexPath.row].id,
+                                         imageUrl: items[indexPath.row].pic,
                                          adress: String(items[indexPath.row].id),
                                          street: items[indexPath.row].street,
                                          description: items[indexPath.row].description,
                                          size: items[indexPath.row].size,
                                          rooms: items[indexPath.row].rooms,
-                                         price: items[indexPath.row].price)
+                                         price: items[indexPath.row].price,
+                                         e_type: items[indexPath.row].e_type,
+                                         fav: items[indexPath.row].fav)
         cell.setData(data)
         
         if (largest_id < items[indexPath.row].id) {
