@@ -49,10 +49,12 @@ class DataTableViewCell : BaseTableViewCell {
                         print ("NOT FAV")
                         print (self.id)
                         self.favorite = false
+                        self.heart_button.setImage(UIImage(named: "heart_empty")!, forState: UIControlState.Normal)
                     } else {
                         print ("FAV")
                         self.favorite = true
                         print (self.id)
+                        self.heart_button.setImage(UIImage(named: "heart_filled")!, forState: UIControlState.Normal)
                     }
                 } else {
                     
