@@ -136,8 +136,31 @@ class EstateUtil: NSObject {
     }
 
     
+    func jelentes(ingatlan_id: Int, onCompletion: (JSON) -> Void) {
+        let token = [ "token", SettingUtil.sharedInstance.getToken()]
+        let tokenpost = token.joinWithSeparator("=")
+        let ingatlan_ = [ "ingid", String(ingatlan_id)]
+        let ingatlanid = ingatlan_.joinWithSeparator("=")
+        
+        let pa = [ tokenpost, ingatlanid]
+        let postbody = pa.joinWithSeparator("&")
+        
+        let route = baseURL + "addserto"
+        makeHTTPPostRequest(route, body: postbody, onCompletion: { json, err in
+            onCompletion(json as JSON)
+        })
+    }
     
     
+    func vr(onCompletion: (JSON) -> Void) {
+        let token = [ "token", SettingUtil.sharedInstance.getToken()]
+        let tokenpost = token.joinWithSeparator("=")
+        
+        let route = baseURL + "addvr"
+        makeHTTPPostRequest(route, body: tokenpost, onCompletion: { json, err in
+            onCompletion(json as JSON)
+        })
+    }
     
     
     
