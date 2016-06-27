@@ -42,6 +42,8 @@ class MainViewController: UIViewController, LiquidFloatingActionButtonDataSource
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(MainViewController.setJustMe(_:)), name: "setJustMe", object: nil)
         
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(MainViewController.logout(_:)), name: "logout", object: nil)
+        
         if (SettingUtil.sharedInstance.getToken() != "") {
             showLoadingDialog()
             LoginUtil.sharedInstance.getTokenValidator { (json: JSON) in
@@ -89,6 +91,24 @@ class MainViewController: UIViewController, LiquidFloatingActionButtonDataSource
         let floatingFrame = CGRect(x: self.view.frame.width - 56 - 16, y: self.view.frame.height - 56 - 16, width: 56, height: 56)
         let bottomRightButton = createButton(floatingFrame, .Up)
         self.view.addSubview(bottomRightButton)
+    }
+    
+    func logout(notification: NSNotification) {
+        LoginUtil.sharedInstance.doLogout({ (json: JSON) in
+            print (json)
+            dispatch_async(dispatch_get_main_queue(),{
+                if (!json["error"].boolValue){
+                    SettingUtil.sharedInstance.setToken("")
+                    let storyboard = UIStoryboard(name: "LoginView", bundle: nil)
+                    let loginView = storyboard.instantiateViewControllerWithIdentifier("LoginView") as! LoginScreenViewController
+                    self.navigationController?.pushViewController(loginView, animated: false)
+                } else {
+                    let alert = UIAlertController(title: "HIBA", message: "Sikertelen kijelentkezés", preferredStyle: UIAlertControllerStyle.Alert)
+                    alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
+                    self.presentViewController(alert, animated: true, completion: nil)
+                }
+            })
+        })
     }
     
     func setJustMe(notification: NSNotification) {

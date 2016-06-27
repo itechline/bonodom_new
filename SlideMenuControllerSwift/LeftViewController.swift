@@ -120,6 +120,8 @@ class LeftViewController : UIViewController, LeftMenuProtocol {
         case .Invite:
             self.slideMenuController()?.changeMainViewController(self.inviteVWController, close: true)
         case .Logout:
+            closeLeft()
+            NSNotificationCenter.defaultCenter().postNotificationName("logout", object: nil)
             print ("Kijelentkezés")
         }
     }
