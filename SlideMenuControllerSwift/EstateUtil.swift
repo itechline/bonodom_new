@@ -65,7 +65,7 @@ class EstateUtil: NSObject {
     func setFavorite(ingatlan_id: Int, favorit: Int ,onCompletion: (JSON) -> Void) {
         let token = [ "token", SettingUtil.sharedInstance.getToken()]
         let tokenpost = token.joinWithSeparator("=")
-        let ingatlan_ = [ "id", String(ingatlan_id)]
+        let ingatlan_ = [ "ingatlan_id", String(ingatlan_id)]
         let ingatlanid = ingatlan_.joinWithSeparator("=")
         let favorite = [ "favorite", String(favorit)]
         let favorite_post = favorite.joinWithSeparator("=")

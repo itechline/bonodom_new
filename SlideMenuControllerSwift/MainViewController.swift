@@ -28,6 +28,8 @@ class MainViewController: UIViewController, LiquidFloatingActionButtonDataSource
     var adType = 0
     var order = 0
     var alertController = UIAlertController()
+    var isShowingFavs : Int = 0
+    var isJustMe : Int = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,6 +37,10 @@ class MainViewController: UIViewController, LiquidFloatingActionButtonDataSource
         self.tableView.registerCellNib(DataTableViewCell.self)
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(MainViewController.openAddestate(_:)), name: "estate_adding", object: nil)
+        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(MainViewController.setShowingFavs(_:)), name: "setShowingFavs", object: nil)
+        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(MainViewController.setJustMe(_:)), name: "setJustMe", object: nil)
         
         if (SettingUtil.sharedInstance.getToken() != "") {
             showLoadingDialog()
@@ -46,7 +52,7 @@ class MainViewController: UIViewController, LiquidFloatingActionButtonDataSource
                     let userInfo: [String:AnyObject] = [ "userName": json["veznev"].stringValue + " " + json["kernev"].stringValue]
                     NSNotificationCenter.defaultCenter().postNotificationName("logged", object: userInfo)
                     //ImageHeaderView.sharedInstance.setName(json["veznev"].stringValue)
-                    self.loadEstateList(0, page: 0, fav: 0, etype: self.adType, ordering: self.order, justme: 0)
+                    self.loadEstateList(0, page: 0, fav: self.isShowingFavs, etype: self.adType, ordering: self.order, justme: self.isJustMe)
                     self.tableView.addSubview(self.refreshControl)
                 } else {
                     self.alertController.dismissViewControllerAnimated(true, completion: nil)
@@ -83,6 +89,32 @@ class MainViewController: UIViewController, LiquidFloatingActionButtonDataSource
         let floatingFrame = CGRect(x: self.view.frame.width - 56 - 16, y: self.view.frame.height - 56 - 16, width: 56, height: 56)
         let bottomRightButton = createButton(floatingFrame, .Up)
         self.view.addSubview(bottomRightButton)
+    }
+    
+    func setJustMe(notification: NSNotification) {
+        isJustMe = 1
+        isShowingFavs = 0
+        self.items.removeAll()
+        currentPage = 0
+        showLoadingDialog()
+        self.loadEstateList(0, page: 0, fav: self.isShowingFavs, etype: self.adType, ordering: self.order, justme: isJustMe)
+    }
+    
+    func setShowingFavs(notification: NSNotification) {
+        if let info = notification.object as? [String:AnyObject] {
+            if let isFavs = info["isFavs"] as? String {
+                if (isFavs == "1") {
+                    isShowingFavs = 1
+                } else {
+                    isShowingFavs = 0
+                }
+            }
+        }
+        isJustMe = 0
+        self.items.removeAll()
+        currentPage = 0
+        showLoadingDialog()
+        self.loadEstateList(0, page: 0, fav: self.isShowingFavs, etype: self.adType, ordering: self.order, justme: isJustMe)
     }
     
     
@@ -157,7 +189,7 @@ class MainViewController: UIViewController, LiquidFloatingActionButtonDataSource
         self.items.removeAll()
         currentPage = 0
         showLoadingDialog()
-        self.loadEstateList(0, page: 0, fav: 0, etype: self.adType, ordering: self.order, justme: 0)
+        self.loadEstateList(0, page: 0, fav: isShowingFavs, etype: self.adType, ordering: self.order, justme: isJustMe)
         
         refreshControl.endRefreshing()
     }
@@ -181,7 +213,7 @@ class MainViewController: UIViewController, LiquidFloatingActionButtonDataSource
         self.items.removeAll()
         self.currentPage = 0
         showLoadingDialog()
-        self.loadEstateList(0, page: 0, fav: 0, etype: self.adType, ordering: self.order, justme: 0)
+        self.loadEstateList(0, page: 0, fav: isShowingFavs, etype: self.adType, ordering: self.order, justme: isJustMe)
     }
     
     @IBOutlet weak var elado_kiado_text: UIButton!
@@ -202,7 +234,7 @@ class MainViewController: UIViewController, LiquidFloatingActionButtonDataSource
         self.items.removeAll()
         self.currentPage = 0
         showLoadingDialog()
-        self.loadEstateList(0, page: 0, fav: 0, etype: self.adType, ordering: self.order, justme: 0)
+        self.loadEstateList(0, page: 0, fav: isShowingFavs, etype: self.adType, ordering: self.order, justme: isJustMe)
     }
     
     func loadEstateList(id: Int, page: Int, fav: Int, etype: Int, ordering: Int, justme: Int) {
@@ -285,7 +317,7 @@ extension MainViewController : UITableViewDataSource {
         if (indexPath.row == self.items.count - 1) {
             print ("BOTTOM REACHED")
             currentPage += 1
-            self.loadEstateList(largest_id, page: currentPage, fav: 0, etype: self.adType, ordering: self.order, justme: 0)
+            self.loadEstateList(largest_id, page: currentPage, fav: isShowingFavs, etype: self.adType, ordering: self.order, justme: isJustMe)
         }
         return cell
     }
