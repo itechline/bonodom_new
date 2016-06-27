@@ -899,6 +899,9 @@
                                 <state key="normal" title="Elküld">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="send_button:" destination="C4t-fa-eQ4" eventType="touchUpInside" id="3Id-QA-aJe"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -933,6 +936,12 @@
                             <constraint firstAttribute="bottom" secondItem="Bza-N5-RkD" secondAttribute="bottom" constant="20" symbolic="YES" id="zcF-34-eYL"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="mail1" destination="j1d-tN-GN7" id="tmf-aD-qbo"/>
+                        <outlet property="mail2" destination="8cI-4X-MAB" id="lHK-1p-cpS"/>
+                        <outlet property="mail3" destination="g8j-h7-Nd6" id="8EQ-4I-xPW"/>
+                        <outlet property="mail4" destination="27I-mj-WD4" id="7kX-2l-fO6"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qi0-wT-7Eu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
