@@ -31,7 +31,8 @@ class MessageThreadItemView: BaseTableViewCell {
     
     
     override func awakeFromNib() {
-        
+        self.msg_1.layer.masksToBounds = true
+        self.msg_2.layer.masksToBounds = true
         self.msg_1.layer.cornerRadius = 6
         self.msg_1.layer.backgroundColor = UIColor.init(hex: "0066cc").CGColor
         self.msg_2.layer.cornerRadius = 6
