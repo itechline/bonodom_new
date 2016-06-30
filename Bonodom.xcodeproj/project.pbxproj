@@ -73,6 +73,7 @@
 		E47E36CD1D05A5080095FA6B /* EstateListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E47E36CC1D05A5080095FA6B /* EstateListModel.swift */; };
 		E4BEF8941D2516B60066F6A4 /* MessageUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4BEF8931D2516B60066F6A4 /* MessageUtil.swift */; };
 		E4BEF8961D251B290066F6A4 /* MessagesListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4BEF8951D251B290066F6A4 /* MessagesListModel.swift */; };
+		E4BEF8981D2529230066F6A4 /* MessageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4BEF8971D2529230066F6A4 /* MessageModel.swift */; };
 		E4D687F11D196DD400D8FA40 /* AddEstateModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4D687F01D196DD400D8FA40 /* AddEstateModel.swift */; };
 		E4D687F31D19728D00D8FA40 /* GetAddEstate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4D687F21D19728D00D8FA40 /* GetAddEstate.swift */; };
 /* End PBXBuildFile section */
@@ -161,6 +162,7 @@
 		E47E36CC1D05A5080095FA6B /* EstateListModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EstateListModel.swift; sourceTree = "<group>"; };
 		E4BEF8931D2516B60066F6A4 /* MessageUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageUtil.swift; sourceTree = "<group>"; };
 		E4BEF8951D251B290066F6A4 /* MessagesListModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessagesListModel.swift; sourceTree = "<group>"; };
+		E4BEF8971D2529230066F6A4 /* MessageModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageModel.swift; sourceTree = "<group>"; };
 		E4D687F01D196DD400D8FA40 /* AddEstateModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddEstateModel.swift; sourceTree = "<group>"; };
 		E4D687F21D19728D00D8FA40 /* GetAddEstate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetAddEstate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -388,6 +390,7 @@
 				E4D687F01D196DD400D8FA40 /* AddEstateModel.swift */,
 				E4D687F21D19728D00D8FA40 /* GetAddEstate.swift */,
 				E4BEF8951D251B290066F6A4 /* MessagesListModel.swift */,
+				E4BEF8971D2529230066F6A4 /* MessageModel.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -644,6 +647,7 @@
 				E4D687F31D19728D00D8FA40 /* GetAddEstate.swift in Sources */,
 				E45A74101D059A4800CC9162 /* EstateUtil.swift in Sources */,
 				57873B561D0AEEA700F4309A /* ContentViewController.swift in Sources */,
+				E4BEF8981D2529230066F6A4 /* MessageModel.swift in Sources */,
 				E45A740B1D05725A00CC9162 /* BaseMenuItemViewController.swift in Sources */,
 				57D5DC651D12DEAA002548B7 /* MessageThreadViewController.swift in Sources */,
 				C5BA8AA61A43E2EF00863FB9 /* SlideMenuController.swift in Sources */,

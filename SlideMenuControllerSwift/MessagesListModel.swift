@@ -15,7 +15,7 @@ class MessagesListModel {
     var ingatlan_varos: String!
     var ingatlan_utca: String!
     var hash: String!
-    var uid: String!
+    var uid: Int!
     
     
     
@@ -26,6 +26,6 @@ class MessagesListModel {
         ingatlan_varos = json["ingatlan_varos"].stringValue
         ingatlan_utca = json["ingatlan_utca"].stringValue
         hash = json["hash"].stringValue
-        uid = json["uid"].stringValue
+        uid = json["uid"].intValue
     }
 }

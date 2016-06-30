@@ -63,10 +63,10 @@ extension JavaViewController : UITableViewDataSource {
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        print (items[indexPath.row].uid)
-        /*let storyboard = UIStoryboard(name: "SubContentsViewController", bundle: nil)
-         let subContentsVC = storyboard.instantiateViewControllerWithIdentifier("SubContentsViewController") as! SubContentsViewController
-         subContentsVC.id = items[indexPath.row].id
-         self.navigationController?.pushViewController(subContentsVC, animated: true)*/
+        let storyboard = UIStoryboard(name: "MessageThreadView", bundle: nil)
+        let msg = storyboard.instantiateViewControllerWithIdentifier("MessageThreadViewController") as! MessageThreadViewController
+        msg.id = items[indexPath.row].uid
+        msg.hsh = items[indexPath.row].hash
+        self.navigationController?.pushViewController(msg, animated: true)
     }
 }

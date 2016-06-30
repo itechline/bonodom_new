@@ -9,7 +9,7 @@
         <!--Message Thread View Controller-->
         <scene sceneID="3Zr-D2-uWr">
             <objects>
-                <viewController id="TYT-Gx-K4B" customClass="MessageThreadViewController" customModule="Bonodom" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MessageThreadViewController" id="TYT-Gx-K4B" customClass="MessageThreadViewController" customModule="Bonodom" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="eFp-dd-Z8J"/>
                         <viewControllerLayoutGuide type="bottom" id="zY0-Ma-N6p"/>
@@ -64,7 +64,7 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="tableView" destination="3gS-ho-qND" id="4oi-at-KTO"/>
+                        <outlet property="tableView" destination="3gS-ho-qND" id="9ZT-Mq-Sfi"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EYc-VO-Gj6" userLabel="First Responder" sceneMemberID="firstResponder"/>

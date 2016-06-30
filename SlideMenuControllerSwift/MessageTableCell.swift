@@ -11,7 +11,7 @@ import SwiftyJSON
 
 struct MessageTableCellData {
     
-    init(date: String, fel_vezeteknev: String, fel_keresztnev: String, ingatlan_varos: String, ingatlan_utca: String, hash: String, uid: String) {
+    init(date: String, fel_vezeteknev: String, fel_keresztnev: String, ingatlan_varos: String, ingatlan_utca: String, hash: String, uid: Int) {
         self.date = date
         self.fel_keresztnev = fel_keresztnev
         self.fel_vezeteknev = fel_vezeteknev
@@ -26,7 +26,7 @@ struct MessageTableCellData {
     var ingatlan_varos: String
     var ingatlan_utca: String
     var hash: String
-    var uid: String
+    var uid: Int
 }
 
 class MessageTableCell: BaseTableViewCell {
@@ -42,7 +42,7 @@ class MessageTableCell: BaseTableViewCell {
     }
     
     override class func height() -> CGFloat {
-        return 100
+        return 57
     }
     
     

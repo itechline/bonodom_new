@@ -26,7 +26,7 @@ class MessageUtil: NSObject {
     
     
     //get_messagebyestate
-    func getMessageListForEstate(hash: String, uid: String, onCompletion: (JSON) -> Void) {
+    func getMessageListForEstate(hash: String, uid: Int, onCompletion: (JSON) -> Void) {
         
         let token = [ "token", SettingUtil.sharedInstance.getToken()]
         let tokenpost = token.joinWithSeparator("=")
@@ -34,7 +34,11 @@ class MessageUtil: NSObject {
         let hsh = [ "hash", hash]
         let hsh_post = hsh.joinWithSeparator("=")
         
-        let id = [ "uid", uid]
+        var id = ["uid", ""]
+        if (uid != 0) {
+            id = [ "uid", String(uid)]
+        }
+        
         let id_post = id.joinWithSeparator("=")
         
         let pa = [ tokenpost, hsh_post, id_post]
@@ -46,7 +50,36 @@ class MessageUtil: NSObject {
         })
     }
     
+    func sendMessage(hash: String, msg: String, onCompletion: (JSON) -> Void) {
+        
+        let token = [ "token", SettingUtil.sharedInstance.getToken()]
+        let tokenpost = token.joinWithSeparator("=")
+        
+        let hsh = [ "hash", hash]
+        let hsh_post = hsh.joinWithSeparator("=")
+        
+        let message = ["msg", msg]
+        let message_post = message.joinWithSeparator("=")
+        
+        let pa = [ tokenpost, hsh_post, message_post]
+        let postbody = pa.joinWithSeparator("&")
+        
+        let route = baseURL + "send_message"
+        makeHTTPPostRequest(route, body: postbody, onCompletion: { json, err in
+            onCompletion(json as JSON)
+        })
+    }
     
+    //get_messagecount
+    func getMessagecount(hash: String, msg: String, onCompletion: (JSON) -> Void) {
+        let token = [ "token", SettingUtil.sharedInstance.getToken()]
+        let tokenpost = token.joinWithSeparator("=")
+        
+        let route = baseURL + "get_messagecount"
+        makeHTTPPostRequest(route, body: tokenpost, onCompletion: { json, err in
+            onCompletion(json as JSON)
+        })
+    }
     
     
     private func makeHTTPPostRequest(path: String, body: String, onCompletion: ServiceResponse) {
