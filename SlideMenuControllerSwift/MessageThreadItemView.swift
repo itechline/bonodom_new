@@ -29,6 +29,17 @@ class MessageThreadItemView: BaseTableViewCell {
     
     @IBOutlet weak var msg_2: UILabel!
     
+    func heightForView(text:String, label: UILabel) -> CGFloat{
+        //let label:UILabel = UILabel(frame: CGRectMake(0, 0, width, CGFloat.max))
+        label.numberOfLines = 0
+        label.lineBreakMode = NSLineBreakMode.ByWordWrapping
+        label.text = text
+        
+        label.sizeToFit()
+        return label.frame.height
+    }
+
+    
     
     override func awakeFromNib() {
         self.msg_1.layer.masksToBounds = true
@@ -50,11 +61,13 @@ class MessageThreadItemView: BaseTableViewCell {
     override func setData(data: Any?) {
         if let data = data as? MessageThreadItemData {
             if (data.fromme == 0) {
-                self.msg_1.text = data.conv_msg
+                heightForView(data.conv_msg, label: self.msg_1)
+                //self.msg_1.text = data.conv_msg
                 self.msg_2.hidden = true
                 self.profilepic_2.hidden = true
             } else {
-                self.msg_2.text = data.conv_msg
+                heightForView(data.conv_msg, label: self.msg_2)
+                //self.msg_2.text = data.conv_msg
                 self.msg_1.hidden = true
                 self.profilepic_1.hidden = true
             }
