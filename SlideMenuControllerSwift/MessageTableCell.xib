@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -7,22 +7,13 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MessageItemViewController" customModule="Bonodom" customModuleProvider="target">
-            <connections>
-                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
-            </connections>
-        </placeholder>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" customClass="MessageItemViewController" customModule="Bonodom" customModuleProvider="target"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
-            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-        </view>
-        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="57" id="YlW-GS-Sbz">
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="57" id="YlW-GS-Sbz" customClass="MessageTableCell" customModule="Bonodom" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="320" height="57"/>
             <autoresizingMask key="autoresizingMask"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="YlW-GS-Sbz" id="boT-6g-ZgW">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="56"/>
+                <rect key="frame" x="0.0" y="0.0" width="320" height="56.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="user_avatar" translatesAutoresizingMaskIntoConstraints="NO" id="Qva-nZ-i4J">
@@ -69,6 +60,12 @@
                     <constraint firstItem="Qva-nZ-i4J" firstAttribute="centerY" secondItem="3XY-oy-tTa" secondAttribute="centerY" id="zd2-tI-qsE"/>
                 </constraints>
             </tableViewCellContentView>
+            <connections>
+                <outlet property="adress_text" destination="3XY-oy-tTa" id="UEx-Dw-jhb"/>
+                <outlet property="date_text" destination="j3r-d6-sXn" id="sH5-Iu-fEy"/>
+                <outlet property="name_text" destination="gZz-jf-xxz" id="JXP-8s-9oA"/>
+                <outlet property="profile_picture" destination="Qva-nZ-i4J" id="Bxe-mg-sVd"/>
+            </connections>
             <point key="canvasLocation" x="439" y="347.5"/>
         </tableViewCell>
     </objects>

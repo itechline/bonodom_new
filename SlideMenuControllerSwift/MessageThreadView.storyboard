@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -9,7 +9,7 @@
         <!--Message Thread View Controller-->
         <scene sceneID="3Zr-D2-uWr">
             <objects>
-                <viewController id="TYT-Gx-K4B" customClass="MessageThreadViewController" customModule="Bonodom" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MessageThreadViewController" id="TYT-Gx-K4B" customClass="MessageThreadViewController" customModule="Bonodom" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="eFp-dd-Z8J"/>
                         <viewControllerLayoutGuide type="bottom" id="zY0-Ma-N6p"/>
@@ -21,6 +21,10 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="3gS-ho-qND">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="538"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="TYT-Gx-K4B" id="6Cf-KO-X9r"/>
+                                    <outlet property="delegate" destination="TYT-Gx-K4B" id="MyO-cF-iHn"/>
+                                </connections>
                             </tableView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7X2-MA-hB6">
                                 <rect key="frame" x="0.0" y="546" width="600" height="54"/>
@@ -33,36 +37,44 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7ok-Ow-3bS">
                                         <rect key="frame" x="472" y="12" width="120" height="30"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="120" id="Yq6-aR-2sV"/>
+                                            <constraint firstAttribute="width" constant="120" id="bu7-23-dcc"/>
                                         </constraints>
                                         <state key="normal" title=" Küldés" image="send_icon">
                                             <color key="titleColor" red="0.43529411759999997" green="0.4431372549" blue="0.47450980390000003" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
+                                        <connections>
+                                            <action selector="send_message_button:" destination="TYT-Gx-K4B" eventType="touchUpInside" id="D95-K8-OVu"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstItem="ZFZ-ct-23s" firstAttribute="leading" secondItem="7X2-MA-hB6" secondAttribute="leadingMargin" id="G3m-0N-b8j"/>
-                                    <constraint firstItem="7ok-Ow-3bS" firstAttribute="leading" secondItem="ZFZ-ct-23s" secondAttribute="trailing" constant="8" symbolic="YES" id="Gxx-q2-B0H"/>
-                                    <constraint firstItem="ZFZ-ct-23s" firstAttribute="top" secondItem="7ok-Ow-3bS" secondAttribute="top" id="K65-7s-FBn"/>
-                                    <constraint firstItem="ZFZ-ct-23s" firstAttribute="top" secondItem="7X2-MA-hB6" secondAttribute="top" constant="12" id="l5O-9v-SP0"/>
-                                    <constraint firstItem="7ok-Ow-3bS" firstAttribute="trailing" secondItem="7X2-MA-hB6" secondAttribute="trailingMargin" id="ppj-ET-cMH"/>
-                                    <constraint firstItem="ZFZ-ct-23s" firstAttribute="centerY" secondItem="7X2-MA-hB6" secondAttribute="centerY" id="uc5-S0-OtW"/>
-                                    <constraint firstItem="ZFZ-ct-23s" firstAttribute="bottom" secondItem="7ok-Ow-3bS" secondAttribute="bottom" id="zqQ-cx-pl6"/>
+                                    <constraint firstItem="ZFZ-ct-23s" firstAttribute="leading" secondItem="7X2-MA-hB6" secondAttribute="leadingMargin" id="DwV-ym-4hs"/>
+                                    <constraint firstItem="ZFZ-ct-23s" firstAttribute="top" secondItem="7ok-Ow-3bS" secondAttribute="top" id="FqJ-oz-8GB"/>
+                                    <constraint firstItem="7ok-Ow-3bS" firstAttribute="leading" secondItem="ZFZ-ct-23s" secondAttribute="trailing" constant="8" symbolic="YES" id="K7S-lB-KDs"/>
+                                    <constraint firstItem="ZFZ-ct-23s" firstAttribute="top" secondItem="7X2-MA-hB6" secondAttribute="top" constant="12" id="QiA-kA-FVy"/>
+                                    <constraint firstItem="7ok-Ow-3bS" firstAttribute="trailing" secondItem="7X2-MA-hB6" secondAttribute="trailingMargin" id="edj-jG-qOn"/>
+                                    <constraint firstItem="ZFZ-ct-23s" firstAttribute="centerY" secondItem="7X2-MA-hB6" secondAttribute="centerY" id="mOo-tW-o0s"/>
+                                    <constraint firstItem="ZFZ-ct-23s" firstAttribute="bottom" secondItem="7ok-Ow-3bS" secondAttribute="bottom" id="spy-Xw-QRL"/>
                                 </constraints>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="3gS-ho-qND" firstAttribute="leading" secondItem="7X2-MA-hB6" secondAttribute="leading" id="Ajt-JP-SVF"/>
-                            <constraint firstItem="7X2-MA-hB6" firstAttribute="top" secondItem="3gS-ho-qND" secondAttribute="bottom" constant="8" symbolic="YES" id="Xe2-hc-wdW"/>
-                            <constraint firstItem="3gS-ho-qND" firstAttribute="leading" secondItem="Dzu-Dq-B8F" secondAttribute="leading" id="b3W-TS-bQ4"/>
-                            <constraint firstItem="3gS-ho-qND" firstAttribute="top" secondItem="Dzu-Dq-B8F" secondAttribute="top" id="fNd-5f-TdM"/>
-                            <constraint firstAttribute="trailing" secondItem="3gS-ho-qND" secondAttribute="trailing" id="iMJ-6a-4Kc"/>
-                            <constraint firstItem="3gS-ho-qND" firstAttribute="trailing" secondItem="7X2-MA-hB6" secondAttribute="trailing" id="kpK-pj-2dR"/>
-                            <constraint firstItem="7X2-MA-hB6" firstAttribute="bottom" secondItem="zY0-Ma-N6p" secondAttribute="top" id="s9u-9p-rpQ"/>
+                            <constraint firstItem="3gS-ho-qND" firstAttribute="top" secondItem="Dzu-Dq-B8F" secondAttribute="top" id="1jS-YF-jqT"/>
+                            <constraint firstItem="7X2-MA-hB6" firstAttribute="bottom" secondItem="zY0-Ma-N6p" secondAttribute="top" id="Bvd-Uf-edQ"/>
+                            <constraint firstItem="3gS-ho-qND" firstAttribute="leading" secondItem="Dzu-Dq-B8F" secondAttribute="leading" id="Cwm-3S-vPt"/>
+                            <constraint firstItem="7X2-MA-hB6" firstAttribute="top" secondItem="3gS-ho-qND" secondAttribute="bottom" constant="8" symbolic="YES" id="QKZ-4J-v9o"/>
+                            <constraint firstAttribute="trailing" secondItem="3gS-ho-qND" secondAttribute="trailing" id="TDo-fx-HBh"/>
+                            <constraint firstItem="3gS-ho-qND" firstAttribute="leading" secondItem="7X2-MA-hB6" secondAttribute="leading" id="pnf-y8-SDP"/>
+                            <constraint firstItem="3gS-ho-qND" firstAttribute="trailing" secondItem="7X2-MA-hB6" secondAttribute="trailing" id="rIB-dk-bCd"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="message_input" destination="ZFZ-ct-23s" id="9ER-Gn-Jro"/>
+                        <outlet property="send_message_text" destination="7ok-Ow-3bS" id="bOR-Oh-m2B"/>
+                        <outlet property="tableView" destination="3gS-ho-qND" id="9ZT-Mq-Sfi"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EYc-VO-Gj6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

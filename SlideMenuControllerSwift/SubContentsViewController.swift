@@ -146,4 +146,35 @@ class SubContentsViewController : UIViewController, LiquidFloatingActionButtonDa
         
         self.mainImage.setImageFromURL(estateItem[0].pic, indicator: activityIndicator)
     }
+    
+    
+    @IBAction func virtual_reality_button(sender: AnyObject) {
+        EstateUtil.sharedInstance.vr({ (json: JSON) in
+            print ("VIRTUAL REALITY")
+            print (json)
+        })
+    }
+    
+    @IBAction func hibas_serto_button(sender: AnyObject) {
+        let alert = UIAlertController(title: "Figyelem!", message: "Jelenti a hirdetést?", preferredStyle: UIAlertControllerStyle.Alert)
+        alert.addAction(UIAlertAction(title: "Nem", style: UIAlertActionStyle.Default, handler: nil))
+        alert.addAction(UIAlertAction(title: "Igen", style: .Default, handler: { action in
+            switch action.style{
+            case .Default:
+                EstateUtil.sharedInstance.jelentes(self.id, onCompletion: { (json: JSON) in
+                    print ("HIBAS SERTO")
+                    print (json)
+                })
+                
+            case .Cancel:
+                print("cancel")
+                
+            case .Destructive:
+                print("destructive")
+            }
+        }))
+        self.presentViewController(alert, animated: true, completion: nil)
+    }
+    
+    
 }

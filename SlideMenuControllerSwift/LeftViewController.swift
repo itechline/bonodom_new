@@ -94,6 +94,8 @@ class LeftViewController : UIViewController, LeftMenuProtocol {
     func changeViewController(menu: LeftMenu) {
         switch menu {
         case .Main:
+            let fav: [String:AnyObject] = [ "isFavs": "0"]
+            NSNotificationCenter.defaultCenter().postNotificationName("setShowingFavs", object: fav)
             self.slideMenuController()?.changeMainViewController(self.mainViewController, close: true)
         case .Swift:
             self.slideMenuController()?.changeMainViewController(self.swiftViewController, close: true)
@@ -102,9 +104,15 @@ class LeftViewController : UIViewController, LeftMenuProtocol {
         case .Go:
             self.slideMenuController()?.changeMainViewController(self.goViewController, close: true)
         case .NonMenu:
-            self.slideMenuController()?.changeMainViewController(self.nonMenuViewController, close: true)
+            //HIRDETÉSEIM
+            NSNotificationCenter.defaultCenter().postNotificationName("setJustMe", object: nil)
+            self.slideMenuController()?.changeMainViewController(self.mainViewController, close: true)
+            //self.slideMenuController()?.changeMainViewController(self.nonMenuViewController, close: true)
         case .FavMenu:
-            self.slideMenuController()?.changeMainViewController(self.isFavMenuController, close: true)
+            let fav: [String:AnyObject] = [ "isFavs": "1"]
+            NSNotificationCenter.defaultCenter().postNotificationName("setShowingFavs", object: fav)
+            self.slideMenuController()?.changeMainViewController(self.mainViewController, close: true)
+            //self.slideMenuController()?.changeMainViewController(self.isFavMenuController, close: true)
         case .Admonitor:
             self.slideMenuController()?.changeMainViewController(self.advertMonitorController, close: true)
         case .AgenciesMenu:
@@ -112,6 +120,8 @@ class LeftViewController : UIViewController, LeftMenuProtocol {
         case .Invite:
             self.slideMenuController()?.changeMainViewController(self.inviteVWController, close: true)
         case .Logout:
+            closeLeft()
+            NSNotificationCenter.defaultCenter().postNotificationName("logout", object: nil)
             print ("Kijelentkezés")
         }
     }

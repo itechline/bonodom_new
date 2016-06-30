@@ -65,7 +65,7 @@ class EstateUtil: NSObject {
     func setFavorite(ingatlan_id: Int, favorit: Int ,onCompletion: (JSON) -> Void) {
         let token = [ "token", SettingUtil.sharedInstance.getToken()]
         let tokenpost = token.joinWithSeparator("=")
-        let ingatlan_ = [ "id", String(ingatlan_id)]
+        let ingatlan_ = [ "ingatlan_id", String(ingatlan_id)]
         let ingatlanid = ingatlan_.joinWithSeparator("=")
         let favorite = [ "favorite", String(favorit)]
         let favorite_post = favorite.joinWithSeparator("=")
@@ -136,8 +136,62 @@ class EstateUtil: NSObject {
     }
 
     
+    func jelentes(ingatlan_id: Int, onCompletion: (JSON) -> Void) {
+        let token = [ "token", SettingUtil.sharedInstance.getToken()]
+        let tokenpost = token.joinWithSeparator("=")
+        let ingatlan_ = [ "ingid", String(ingatlan_id)]
+        let ingatlanid = ingatlan_.joinWithSeparator("=")
+        
+        let pa = [ tokenpost, ingatlanid]
+        let postbody = pa.joinWithSeparator("&")
+        
+        let route = baseURL + "addserto"
+        makeHTTPPostRequest(route, body: postbody, onCompletion: { json, err in
+            onCompletion(json as JSON)
+        })
+    }
     
     
+    func vr(onCompletion: (JSON) -> Void) {
+        let token = [ "token", SettingUtil.sharedInstance.getToken()]
+        let tokenpost = token.joinWithSeparator("=")
+        
+        let route = baseURL + "addvr"
+        makeHTTPPostRequest(route, body: tokenpost, onCompletion: { json, err in
+            onCompletion(json as JSON)
+        })
+    }
+    
+    func list_map_estates(onCompletion: (JSON) -> Void) {
+        let token = [ "token", SettingUtil.sharedInstance.getToken()]
+        let tokenpost = token.joinWithSeparator("=")
+        
+        //VISSZAJÖN ARRAYBEN --> ingatlan_id, ingatlan_lat, ingatlan_lng
+        
+        let route = baseURL + "list_maps_estates"
+        makeHTTPPostRequest(route, body: tokenpost, onCompletion: { json, err in
+            onCompletion(json as JSON)
+        })
+    }
+    
+    func send_invites(email1: String, email2: String, email3: String, email4: String, email5: String, onCompletion: (JSON) -> Void) {
+        let token = [ "token", SettingUtil.sharedInstance.getToken()]
+        let tokenpost = token.joinWithSeparator("=")
+        let mail1 = "email1=" + email1
+        let mail2 = "email2=" + email2
+        let mail3 = "email3=" + email3
+        let mail4 = "email4=" + email4
+        let mail5 = "email5=" + email5
+        
+        let pa = [ tokenpost, mail1, mail2, mail3, mail4, mail5]
+        let postbody = pa.joinWithSeparator("&")
+        
+        
+        let route = baseURL + "sendmeghivo"
+        makeHTTPPostRequest(route, body: postbody, onCompletion: { json, err in
+            onCompletion(json as JSON)
+        })
+    }
     
     
     

@@ -41,6 +41,10 @@ class DataTableViewCell : BaseTableViewCell {
         } else {
             favToSend = 1
         }
+        print ("ID")
+        print (self.id)
+        print ("FAVORITE")
+        print (favToSend)
         EstateUtil.sharedInstance.setFavorite(self.id, favorit: favToSend, onCompletion: { (json: JSON) in
             print (json)
             dispatch_async(dispatch_get_main_queue(),{
@@ -49,10 +53,12 @@ class DataTableViewCell : BaseTableViewCell {
                         print ("NOT FAV")
                         print (self.id)
                         self.favorite = false
+                        self.heart_button.setImage(UIImage(named: "heart_empty")!, forState: UIControlState.Normal)
                     } else {
                         print ("FAV")
                         self.favorite = true
                         print (self.id)
+                        self.heart_button.setImage(UIImage(named: "heart_filled")!, forState: UIControlState.Normal)
                     }
                 } else {
                     
@@ -97,6 +103,13 @@ class DataTableViewCell : BaseTableViewCell {
             self.streetText.text = data.street
             self.favorite = data.fav
             self.id = data.id
+            
+            if (self.favorite == true) {
+                self.heart_button.setImage(UIImage(named: "heart_filled")!, forState: UIControlState.Normal)
+            } else {
+                self.heart_button.setImage(UIImage(named: "heart_empty")!, forState: UIControlState.Normal)
+            }
+            
             if (data.e_type == 1) {
                 self.priceText.text = data.price + " Ft"
             } else {

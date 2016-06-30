@@ -102,12 +102,18 @@
                                         <state key="normal" title=" VR hamarosan" image="vr_icon">
                                             <color key="titleColor" red="0.0" green="0.40000000000000002" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
+                                        <connections>
+                                            <action selector="virtual_reality_button:" destination="vxl-gz-eiI" eventType="touchUpInside" id="Kly-bZ-rU1"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cit-nN-8NY">
                                         <rect key="frame" x="8" y="789" width="584" height="29"/>
                                         <state key="normal" title=" Hibás, sértő hírdetés bejelentése" image="hibas_serto">
                                             <color key="titleColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
+                                        <connections>
+                                            <action selector="hibas_serto_button:" destination="vxl-gz-eiI" eventType="touchUpInside" id="CT3-kZ-9RB"/>
+                                        </connections>
                                     </button>
                                     <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pRh-5T-7pt">
                                         <rect key="frame" x="8" y="320" width="584" height="187"/>
