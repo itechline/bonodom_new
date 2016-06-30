@@ -43,10 +43,12 @@ class MessageThreadItemView: BaseTableViewCell {
         if let data = data as? MessageThreadItemData {
             if (data.fromme == 0) {
                 self.msg_1.text = data.conv_msg
-                //self.msg_2.enabled = false
+                self.msg_2.hidden = true
+                self.profilepic_2.hidden = true
             } else {
                 self.msg_2.text = data.conv_msg
-                //self.msg_1.enabled = false
+                self.msg_1.hidden = true
+                self.profilepic_1.hidden = true
             }
         }
     }

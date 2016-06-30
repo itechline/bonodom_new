@@ -16,8 +16,31 @@ class MessageThreadViewController: UIViewController {
     var id = 0
     var hsh = ""
     
+    @IBOutlet weak var message_input: UITextField!
+    @IBOutlet weak var send_message_text: UIButton!
+    @IBAction func send_message_button(sender: AnyObject) {
+        let message : String = message_input!.text!
+        if (!message.isEmpty) {
+        
+            MessageUtil.sharedInstance.sendMessage(hsh, msg: message, onCompletion: { (json: JSON) in
+            print (json)
+                
+            dispatch_async(dispatch_get_main_queue(),{
+                if (!json["error"].boolValue) {
+                    print ("MESSAGE SENT")
+                    self.message_input.text = ""
+                }
+                        
+            })
+                
+        })
+        }
+    }
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.hideKeyboardWhenTappedAround()
         
         self.tableView.registerCellNib(MessageThreadItemView.self)
         
@@ -25,13 +48,11 @@ class MessageThreadViewController: UIViewController {
             print (json)
             if let results = json.array {
                 for entry in results {
-                    print ("APPEND DATA")
                     self.items.append(MessageModel(json: entry))
                 }
                 dispatch_async(dispatch_get_main_queue(),{
                     //self.alertController.dismissViewControllerAnimated(true, completion: nil)
                     if (results.count != 0) {
-                        print ("RELOAD TABLEVIEW")
                         self.tableView.reloadData()
                     }
                 })
@@ -49,26 +70,20 @@ class MessageThreadViewController: UIViewController {
 
 extension MessageThreadViewController : UITableViewDelegate {
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        print ("RETURN HIGHT")
         return MessageThreadItemView.height()
     }
 }
 
 extension MessageThreadViewController : UITableViewDataSource {
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        print ("RETURN ITEMS COUNT")
         return items.count
     }
     
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        print ("MAKE CELL")
         let cell = self.tableView.dequeueReusableCellWithIdentifier(MessageThreadItemView.identifier) as! MessageThreadItemView
-        print ("SET DATA")
         let data = MessageThreadItemData(conv_msg: items[indexPath.row].conv_msg, fromme: items[indexPath.row].fromme)
-        print ("SET DATA 2")
         cell.setData(data)
-        print ("RETURN CELL")
         return cell
     }
     

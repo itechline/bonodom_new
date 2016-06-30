@@ -21,6 +21,10 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="3gS-ho-qND">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="538"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="TYT-Gx-K4B" id="6Cf-KO-X9r"/>
+                                    <outlet property="delegate" destination="TYT-Gx-K4B" id="MyO-cF-iHn"/>
+                                </connections>
                             </tableView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7X2-MA-hB6">
                                 <rect key="frame" x="0.0" y="546" width="600" height="54"/>
@@ -38,6 +42,9 @@
                                         <state key="normal" title=" Küldés" image="send_icon">
                                             <color key="titleColor" red="0.43529411759999997" green="0.4431372549" blue="0.47450980390000003" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
+                                        <connections>
+                                            <action selector="send_message_button:" destination="TYT-Gx-K4B" eventType="touchUpInside" id="D95-K8-OVu"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -64,6 +71,8 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="message_input" destination="ZFZ-ct-23s" id="9ER-Gn-Jro"/>
+                        <outlet property="send_message_text" destination="7ok-Ow-3bS" id="bOR-Oh-m2B"/>
                         <outlet property="tableView" destination="3gS-ho-qND" id="9ZT-Mq-Sfi"/>
                     </connections>
                 </viewController>
