@@ -30,6 +30,10 @@ class MessageThreadViewController: UIViewController {
                     print ("MESSAGE SENT")
                     self.message_input.text = ""
                     self.loadMessages()
+                } else {
+                    let alert = UIAlertController(title: "HIBA", message: "Sikertelen művelet!", preferredStyle: UIAlertControllerStyle.Alert)
+                    alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
+                    self.presentViewController(alert, animated: true, completion: nil)
                 }
                         
             })
