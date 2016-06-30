@@ -18,7 +18,7 @@ class JavaViewController: UIViewController {
         super.viewDidLoad()
         self.tableView.registerCellNib(MessageTableCell.self)
         // Do any additional setup after loading the view.
-        
+        self.setNavigationBarItem()
         MessageUtil.sharedInstance.getMessageList({ (json: JSON) in
             print ("MESSAGES")
             print (json)
