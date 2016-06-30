@@ -12,8 +12,8 @@
 		0EB8EBFF1BE3CF3C00BC2A99 /* SlideMenuControllerSwift.h in Headers */ = {isa = PBXBuildFile; fileRef = 0E75C5A51BE3CAFE00844634 /* SlideMenuControllerSwift.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		2F51954CCFC481E375B5516A /* Pods_Bonodom.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0548151CAB503CF2A92885A8 /* Pods_Bonodom.framework */; };
 		57449A941D01B1B400539442 /* FavMenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57449A931D01B1B400539442 /* FavMenuController.swift */; };
-		576D35EC1D05A83B00DFA2BD /* MessageItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 576D35EA1D05A83B00DFA2BD /* MessageItemViewController.swift */; };
-		576D35ED1D05A83B00DFA2BD /* MessageItemViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 576D35EB1D05A83B00DFA2BD /* MessageItemViewController.xib */; };
+		576D35EC1D05A83B00DFA2BD /* MessageTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 576D35EA1D05A83B00DFA2BD /* MessageTableCell.swift */; };
+		576D35ED1D05A83B00DFA2BD /* MessageTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 576D35EB1D05A83B00DFA2BD /* MessageTableCell.xib */; };
 		57873B4E1D0AE33000F4309A /* LoginView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 57873B4D1D0AE33000F4309A /* LoginView.storyboard */; };
 		57873B501D0AE82000F4309A /* LoginScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57873B4F1D0AE82000F4309A /* LoginScreenViewController.swift */; };
 		57873B521D0AE84900F4309A /* RegisterScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57873B511D0AE84900F4309A /* RegisterScreenViewController.swift */; };
@@ -71,6 +71,8 @@
 		E4742E171D118A5A005BE576 /* SpinnerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4742E161D118A5A005BE576 /* SpinnerModel.swift */; };
 		E47E36CA1D059EB90095FA6B /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = E47E36C91D059EB90095FA6B /* Podfile */; };
 		E47E36CD1D05A5080095FA6B /* EstateListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E47E36CC1D05A5080095FA6B /* EstateListModel.swift */; };
+		E4BEF8941D2516B60066F6A4 /* MessageUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4BEF8931D2516B60066F6A4 /* MessageUtil.swift */; };
+		E4BEF8961D251B290066F6A4 /* MessagesListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4BEF8951D251B290066F6A4 /* MessagesListModel.swift */; };
 		E4D687F11D196DD400D8FA40 /* AddEstateModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4D687F01D196DD400D8FA40 /* AddEstateModel.swift */; };
 		E4D687F31D19728D00D8FA40 /* GetAddEstate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4D687F21D19728D00D8FA40 /* GetAddEstate.swift */; };
 /* End PBXBuildFile section */
@@ -92,8 +94,8 @@
 		0E75C5A51BE3CAFE00844634 /* SlideMenuControllerSwift.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SlideMenuControllerSwift.h; path = Source/SlideMenuControllerSwift.h; sourceTree = "<group>"; };
 		3C7157A7A045A61A09152526 /* Pods-Bonodom.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bonodom.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Bonodom/Pods-Bonodom.debug.xcconfig"; sourceTree = "<group>"; };
 		57449A931D01B1B400539442 /* FavMenuController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavMenuController.swift; sourceTree = "<group>"; };
-		576D35EA1D05A83B00DFA2BD /* MessageItemViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageItemViewController.swift; sourceTree = "<group>"; };
-		576D35EB1D05A83B00DFA2BD /* MessageItemViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MessageItemViewController.xib; sourceTree = "<group>"; };
+		576D35EA1D05A83B00DFA2BD /* MessageTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageTableCell.swift; sourceTree = "<group>"; };
+		576D35EB1D05A83B00DFA2BD /* MessageTableCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MessageTableCell.xib; sourceTree = "<group>"; };
 		57873B4D1D0AE33000F4309A /* LoginView.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LoginView.storyboard; sourceTree = "<group>"; };
 		57873B4F1D0AE82000F4309A /* LoginScreenViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginScreenViewController.swift; sourceTree = "<group>"; };
 		57873B511D0AE84900F4309A /* RegisterScreenViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterScreenViewController.swift; sourceTree = "<group>"; };
@@ -157,6 +159,8 @@
 		E4742E161D118A5A005BE576 /* SpinnerModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpinnerModel.swift; sourceTree = "<group>"; };
 		E47E36C91D059EB90095FA6B /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		E47E36CC1D05A5080095FA6B /* EstateListModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EstateListModel.swift; sourceTree = "<group>"; };
+		E4BEF8931D2516B60066F6A4 /* MessageUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageUtil.swift; sourceTree = "<group>"; };
+		E4BEF8951D251B290066F6A4 /* MessagesListModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessagesListModel.swift; sourceTree = "<group>"; };
 		E4D687F01D196DD400D8FA40 /* AddEstateModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddEstateModel.swift; sourceTree = "<group>"; };
 		E4D687F21D19728D00D8FA40 /* GetAddEstate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetAddEstate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -278,8 +282,8 @@
 				E45A74061D0571E200CC9162 /* MenuItemView.xib */,
 				E45A74081D05721D00CC9162 /* MenuItemView.swift */,
 				E45A740A1D05725A00CC9162 /* BaseMenuItemViewController.swift */,
-				576D35EA1D05A83B00DFA2BD /* MessageItemViewController.swift */,
-				576D35EB1D05A83B00DFA2BD /* MessageItemViewController.xib */,
+				576D35EA1D05A83B00DFA2BD /* MessageTableCell.swift */,
+				576D35EB1D05A83B00DFA2BD /* MessageTableCell.xib */,
 				57D5DC6A1D12E2CF002548B7 /* MessageThreadItemView.xib */,
 				57D5DC6E1D12E427002548B7 /* MessageThreadItemView.swift */,
 				57D5DC701D12E7CD002548B7 /* AdmonitorDataCell.xib */,
@@ -370,6 +374,7 @@
 				E40A3AA91D080C170009D3E0 /* LoginUtil.swift */,
 				E43ECE441D0965B60026A3AD /* SettingUtil.swift */,
 				E46B88AD1D103C7500D9553F /* SpinnerUtil.swift */,
+				E4BEF8931D2516B60066F6A4 /* MessageUtil.swift */,
 			);
 			name = Utils;
 			sourceTree = "<group>";
@@ -382,6 +387,7 @@
 				E4742E161D118A5A005BE576 /* SpinnerModel.swift */,
 				E4D687F01D196DD400D8FA40 /* AddEstateModel.swift */,
 				E4D687F21D19728D00D8FA40 /* GetAddEstate.swift */,
+				E4BEF8951D251B290066F6A4 /* MessagesListModel.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -527,7 +533,7 @@
 				C539E6541A315E87003B7CC7 /* LaunchScreen.xib in Resources */,
 				57D5DC6B1D12E2CF002548B7 /* MessageThreadItemView.xib in Resources */,
 				C539E6511A315E87003B7CC7 /* Images.xcassets in Resources */,
-				576D35ED1D05A83B00DFA2BD /* MessageItemViewController.xib in Resources */,
+				576D35ED1D05A83B00DFA2BD /* MessageTableCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -608,6 +614,7 @@
 				C539E64C1A315E87003B7CC7 /* MainViewController.swift in Sources */,
 				C5BD39E01A6CDC8100D0AF95 /* UIViewController.swift in Sources */,
 				C5C1CE611A70F3B600B6E411 /* UITableViewExtension.swift in Sources */,
+				E4BEF8961D251B290066F6A4 /* MessagesListModel.swift in Sources */,
 				C539E64A1A315E87003B7CC7 /* SlideMenuControllerSwift.xcdatamodeld in Sources */,
 				C5BF6A8C1BF340020064C18E /* ExSlideMenuController.swift in Sources */,
 				57C21E621D0EE44200CBCDFF /* AddEstateViewController.swift in Sources */,
@@ -621,7 +628,8 @@
 				C5F179D21BEB2FAF00EEDD9A /* UIColor.swift in Sources */,
 				C5F179CE1BEB2A5900EEDD9A /* UIImage.swift in Sources */,
 				C5498C821BE8994F0076A7C5 /* UIImageView.swift in Sources */,
-				576D35EC1D05A83B00DFA2BD /* MessageItemViewController.swift in Sources */,
+				E4BEF8941D2516B60066F6A4 /* MessageUtil.swift in Sources */,
+				576D35EC1D05A83B00DFA2BD /* MessageTableCell.swift in Sources */,
 				C5C1CE5B1A70DADF00B6E411 /* NonMenuController.swift in Sources */,
 				C5498C7E1BE897250076A7C5 /* ImageHeaderView.swift in Sources */,
 				57DFCF961D01BBB900A69B8A /* AdMonitorController.swift in Sources */,
