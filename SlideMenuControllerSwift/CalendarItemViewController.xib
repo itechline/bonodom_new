@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CalendarItemViewController" customModule="Bonodom" customModuleProvider="target"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="4Wq-9f-5pI">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="4Wq-9f-5pI" id="fAD-aT-fZI">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="12" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UzO-dC-DCd">
+                        <rect key="frame" x="8" y="8" width="27" height="27"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="27" id="hCm-Lc-S3b"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="26"/>
+                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="30" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NAW-ZW-IYw">
+                        <rect key="frame" x="43" y="8" width="21" height="19"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="21" id="yOB-zb-1Q7"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Szabad időpont" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VH2-Pi-dBq">
+                        <rect key="frame" x="72" y="11" width="130" height="21"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Foglalás" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TMX-0n-25j">
+                        <rect key="frame" x="210" y="10" width="102" height="21"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="102" id="NZ5-N9-6EE"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <color key="textColor" red="0.0" green="0.40000000000000002" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="NAW-ZW-IYw" firstAttribute="leading" secondItem="UzO-dC-DCd" secondAttribute="trailing" constant="8" symbolic="YES" id="16i-tH-0FQ"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="NAW-ZW-IYw" secondAttribute="bottom" constant="8" id="1RO-QH-EOp"/>
+                    <constraint firstItem="UzO-dC-DCd" firstAttribute="top" secondItem="NAW-ZW-IYw" secondAttribute="top" id="6Zv-FU-3Ro"/>
+                    <constraint firstItem="TMX-0n-25j" firstAttribute="trailing" secondItem="fAD-aT-fZI" secondAttribute="trailingMargin" id="KpV-IB-xWm"/>
+                    <constraint firstItem="VH2-Pi-dBq" firstAttribute="baseline" secondItem="TMX-0n-25j" secondAttribute="baseline" id="Nha-A0-O3j"/>
+                    <constraint firstItem="UzO-dC-DCd" firstAttribute="top" secondItem="fAD-aT-fZI" secondAttribute="topMargin" id="TDo-Cd-igr"/>
+                    <constraint firstItem="NAW-ZW-IYw" firstAttribute="firstBaseline" secondItem="TMX-0n-25j" secondAttribute="firstBaseline" id="Vym-uN-btQ"/>
+                    <constraint firstItem="TMX-0n-25j" firstAttribute="leading" secondItem="VH2-Pi-dBq" secondAttribute="trailing" constant="8" symbolic="YES" id="dR6-gL-k08"/>
+                    <constraint firstItem="UzO-dC-DCd" firstAttribute="bottom" secondItem="fAD-aT-fZI" secondAttribute="bottomMargin" id="dSD-kf-23V"/>
+                    <constraint firstItem="VH2-Pi-dBq" firstAttribute="top" secondItem="fAD-aT-fZI" secondAttribute="topMargin" constant="3" id="m68-oK-aLZ"/>
+                    <constraint firstItem="UzO-dC-DCd" firstAttribute="centerY" secondItem="VH2-Pi-dBq" secondAttribute="centerY" id="qG8-0E-vAb"/>
+                    <constraint firstItem="UzO-dC-DCd" firstAttribute="leading" secondItem="fAD-aT-fZI" secondAttribute="leadingMargin" id="u6R-zw-SC5"/>
+                    <constraint firstItem="VH2-Pi-dBq" firstAttribute="leading" secondItem="NAW-ZW-IYw" secondAttribute="trailing" constant="8" symbolic="YES" id="x8I-lp-FL9"/>
+                </constraints>
+            </tableViewCellContentView>
+            <point key="canvasLocation" x="375" y="335"/>
+        </tableViewCell>
+    </objects>
+</document>

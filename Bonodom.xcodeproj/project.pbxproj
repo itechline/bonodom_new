@@ -25,6 +25,8 @@
 		57D5DC6B1D12E2CF002548B7 /* MessageThreadItemView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 57D5DC6A1D12E2CF002548B7 /* MessageThreadItemView.xib */; };
 		57D5DC6F1D12E427002548B7 /* MessageThreadItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57D5DC6E1D12E427002548B7 /* MessageThreadItemView.swift */; };
 		57D5DC711D12E7CD002548B7 /* AdmonitorDataCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 57D5DC701D12E7CD002548B7 /* AdmonitorDataCell.xib */; };
+		57D66BC61D254B1200C522C8 /* CalendarItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57D66BC41D254B1200C522C8 /* CalendarItemViewController.swift */; };
+		57D66BC71D254B1200C522C8 /* CalendarItemViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 57D66BC51D254B1200C522C8 /* CalendarItemViewController.xib */; };
 		57DFCF961D01BBB900A69B8A /* AdMonitorController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57DFCF951D01BBB900A69B8A /* AdMonitorController.swift */; };
 		57DFCF981D01BFCD00A69B8A /* AgenciesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57DFCF971D01BFCD00A69B8A /* AgenciesViewController.swift */; };
 		57DFCF9A1D01C22A00A69B8A /* InviteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57DFCF991D01C22A00A69B8A /* InviteViewController.swift */; };
@@ -108,6 +110,8 @@
 		57D5DC6A1D12E2CF002548B7 /* MessageThreadItemView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MessageThreadItemView.xib; sourceTree = "<group>"; };
 		57D5DC6E1D12E427002548B7 /* MessageThreadItemView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageThreadItemView.swift; sourceTree = "<group>"; };
 		57D5DC701D12E7CD002548B7 /* AdmonitorDataCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AdmonitorDataCell.xib; sourceTree = "<group>"; };
+		57D66BC41D254B1200C522C8 /* CalendarItemViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarItemViewController.swift; sourceTree = "<group>"; };
+		57D66BC51D254B1200C522C8 /* CalendarItemViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CalendarItemViewController.xib; sourceTree = "<group>"; };
 		57DFCF951D01BBB900A69B8A /* AdMonitorController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdMonitorController.swift; sourceTree = "<group>"; };
 		57DFCF971D01BFCD00A69B8A /* AgenciesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AgenciesViewController.swift; sourceTree = "<group>"; };
 		57DFCF991D01C22A00A69B8A /* InviteViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InviteViewController.swift; sourceTree = "<group>"; };
@@ -289,6 +293,8 @@
 				57D5DC6A1D12E2CF002548B7 /* MessageThreadItemView.xib */,
 				57D5DC6E1D12E427002548B7 /* MessageThreadItemView.swift */,
 				57D5DC701D12E7CD002548B7 /* AdmonitorDataCell.xib */,
+				57D66BC41D254B1200C522C8 /* CalendarItemViewController.swift */,
+				57D66BC51D254B1200C522C8 /* CalendarItemViewController.xib */,
 			);
 			name = TableViewCell;
 			sourceTree = "<group>";
@@ -529,6 +535,7 @@
 				C5498C801BE897660076A7C5 /* ImageHeaderView.xib in Resources */,
 				C5BF6A8A1BF3335D0064C18E /* SubContentsViewController.storyboard in Resources */,
 				C5BF6A841BEEF1E70064C18E /* DataTableViewCell.xib in Resources */,
+				57D66BC71D254B1200C522C8 /* CalendarItemViewController.xib in Resources */,
 				57D5DC691D12DF06002548B7 /* MessageThreadView.storyboard in Resources */,
 				0E75C5A61BE3CAFE00844634 /* Info.plist in Resources */,
 				C539E64F1A315E87003B7CC7 /* Main.storyboard in Resources */,
@@ -632,6 +639,7 @@
 				C5F179CE1BEB2A5900EEDD9A /* UIImage.swift in Sources */,
 				C5498C821BE8994F0076A7C5 /* UIImageView.swift in Sources */,
 				E4BEF8941D2516B60066F6A4 /* MessageUtil.swift in Sources */,
+				57D66BC61D254B1200C522C8 /* CalendarItemViewController.swift in Sources */,
 				576D35EC1D05A83B00DFA2BD /* MessageTableCell.swift in Sources */,
 				C5C1CE5B1A70DADF00B6E411 /* NonMenuController.swift in Sources */,
 				C5498C7E1BE897250076A7C5 /* ImageHeaderView.swift in Sources */,
