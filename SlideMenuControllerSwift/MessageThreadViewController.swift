@@ -16,6 +16,13 @@ class MessageThreadViewController: UIViewController {
     var id = 0
     var hsh = ""
     
+    @IBAction func message_input_action(sender: AnyObject) {
+        if (message_input.text!.isEmpty) {
+            send_message_text.enabled = false
+        } else {
+            send_message_text.enabled = true
+        }
+    }
     @IBOutlet weak var message_input: UITextField!
     @IBOutlet weak var send_message_text: UIButton!
     @IBAction func send_message_button(sender: AnyObject) {
@@ -29,6 +36,7 @@ class MessageThreadViewController: UIViewController {
                 if (!json["error"].boolValue) {
                     print ("MESSAGE SENT")
                     self.message_input.text = ""
+                    self.send_message_text.enabled = false
                     self.loadMessages()
                 } else {
                     let alert = UIAlertController(title: "HIBA", message: "Sikertelen művelet!", preferredStyle: UIAlertControllerStyle.Alert)
@@ -50,6 +58,11 @@ class MessageThreadViewController: UIViewController {
         self.tableView.registerCellNib(MessageThreadItemView.self)
         
         loadMessages()
+        
+        if (message_input.text!.isEmpty) {
+            send_message_text.enabled = false
+        }
+        
         
     }
 
