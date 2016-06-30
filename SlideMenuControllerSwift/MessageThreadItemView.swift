@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import QuartzCore
 import SwiftyJSON
 
 struct MessageThreadItemData {
@@ -30,6 +31,12 @@ class MessageThreadItemView: BaseTableViewCell {
     
     
     override func awakeFromNib() {
+        
+        self.msg_1.layer.cornerRadius = 6
+        self.msg_1.layer.backgroundColor = UIColor.init(hex: "0066cc").CGColor
+        self.msg_2.layer.cornerRadius = 6
+        self.msg_2.layer.backgroundColor = UIColor.init(hex: "ffffff").CGColor
+
         //self.dataText?.font = UIFont.boldSystemFontOfSize(16)
         //self.dataText?.textColor = UIColor(hex: "000000")
     }
