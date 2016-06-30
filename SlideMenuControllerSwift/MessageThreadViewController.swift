@@ -29,6 +29,7 @@ class MessageThreadViewController: UIViewController {
                 if (!json["error"].boolValue) {
                     print ("MESSAGE SENT")
                     self.message_input.text = ""
+                    self.loadMessages()
                 }
                         
             })
@@ -44,6 +45,17 @@ class MessageThreadViewController: UIViewController {
         
         self.tableView.registerCellNib(MessageThreadItemView.self)
         
+        loadMessages()
+        
+    }
+
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+    
+    func loadMessages() {
+        items.removeAll()
         MessageUtil.sharedInstance.getMessageListForEstate(hsh, uid: id, onCompletion: { (json: JSON) in
             print (json)
             if let results = json.array {
@@ -58,12 +70,6 @@ class MessageThreadViewController: UIViewController {
                 })
             }
         })
-        
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
 
 }
