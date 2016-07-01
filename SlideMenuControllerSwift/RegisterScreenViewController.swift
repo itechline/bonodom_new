@@ -10,8 +10,9 @@ import UIKit
 import SwiftyJSON
 import CoreLocation
 
-class RegisterScreenViewController: UIViewController, CLLocationManagerDelegate {
+class RegisterScreenViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, CLLocationManagerDelegate {
 
+    var imagePicker = UIImagePickerController()
     
     @IBOutlet weak var vezeteknev_text: UITextField!
     @IBOutlet weak var keresztnev_text: UITextField!
@@ -151,11 +152,16 @@ class RegisterScreenViewController: UIViewController, CLLocationManagerDelegate 
         LoginUtil.sharedInstance.doUpdateReg(String(lat), lng: String(lng), mobile: mobileString, onCompletion: { (json: JSON) in
             print (json)
             if (!json["error"].boolValue) {
+                
                 dispatch_async(dispatch_get_main_queue(),{
-                    self.alertController.dismissViewControllerAnimated(true, completion: nil)
-                    let storyboard = UIStoryboard(name: "Main", bundle: nil)
-                    let mvc = storyboard.instantiateViewControllerWithIdentifier("MainViewController") as! MainViewController
-                    self.navigationController?.pushViewController(mvc, animated: true)
+                    if (self.imageToUpload != nil) {
+                        self.UploadRequest(self.imageToUpload!, token: SettingUtil.sharedInstance.getToken())
+                    } else {
+                        self.alertController.dismissViewControllerAnimated(true, completion: nil)
+                        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                        let mvc = storyboard.instantiateViewControllerWithIdentifier("MainViewController") as! MainViewController
+                        self.navigationController?.pushViewController(mvc, animated: true)
+                    }
                 })
                 
             } else {
@@ -168,11 +174,48 @@ class RegisterScreenViewController: UIViewController, CLLocationManagerDelegate 
             }
         })
     }
-    @IBAction func take_photo(sender: AnyObject) {
-        let alert = UIAlertController(title: "Türelem", message: "A funkció a következő frissítéssel válik elérhetővé!", preferredStyle: UIAlertControllerStyle.Alert)
-        alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
-        self.presentViewController(alert, animated: true, completion: nil)
+    
+    var imageToUpload: UIImage? = nil
+    func pickImage() {
+        if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera){
+            imagePicker.delegate = self
+            imagePicker.sourceType = UIImagePickerControllerSourceType.Camera;
+            imagePicker.allowsEditing = false
+            
+            self.presentViewController(imagePicker, animated: true, completion: nil)
+        }
     }
+    
+    func takePhoto() {
+        if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.SavedPhotosAlbum){
+            imagePicker.delegate = self
+            imagePicker.sourceType = UIImagePickerControllerSourceType.SavedPhotosAlbum;
+            imagePicker.allowsEditing = false
+            
+            self.presentViewController(imagePicker, animated: true, completion: nil)
+        }
+    }
+    
+    
+    @IBOutlet weak var take_photo_image: UIButton!
+    @IBAction func take_photo(sender: AnyObject) {
+        takePhoto()
+    }
+    
+    @IBOutlet weak var pick_image_image: UIButton!
+    @IBAction func pick_image(sender: AnyObject) {
+        pickImage()
+    }
+    
+    func imagePickerController(picker: UIImagePickerController!, didFinishPickingImage image: UIImage!, editingInfo: NSDictionary!){
+        self.dismissViewControllerAnimated(true, completion: { () -> Void in
+            
+        })
+        imageToUpload = image
+    }
+    
+    
+    
     
     @IBAction func updatereg_next_to_photo(sender: AnyObject) {
         if (mobile_text.text != "") {
@@ -233,6 +276,93 @@ class RegisterScreenViewController: UIViewController, CLLocationManagerDelegate 
                  }*/
             }
         })
+    }
+    
+    
+    
+    func UploadRequest(image: UIImage, token: String)
+    {
+        let url = NSURL(string: "https://bonodom.com/upload/uplodeprofilepicture?token=" + token)
+        
+        let request = NSMutableURLRequest(URL: url!)
+        request.HTTPMethod = "POST"
+        
+        let boundary = generateBoundaryString()
+        
+        //define the multipart request type
+        
+        request.setValue("multipart/form-data; boundary=\(boundary)", forHTTPHeaderField: "Content-Type")
+        
+        /*if (image == nil)
+         {
+         return
+         }*/
+        
+        let image_data = UIImagePNGRepresentation(image)
+        
+        if(image_data == nil)
+        {
+            return
+        }
+        
+        
+        let body = NSMutableData()
+        
+        let fname = "test.png"
+        let mimetype = "image/png"
+        
+        //define the data post parameter
+        
+        body.appendData("--\(boundary)\r\n".dataUsingEncoding(NSUTF8StringEncoding)!)
+        body.appendData("Content-Disposition:form-data; name=\"test\"\r\n\r\n".dataUsingEncoding(NSUTF8StringEncoding)!)
+        body.appendData("hi\r\n".dataUsingEncoding(NSUTF8StringEncoding)!)
+        
+        
+        
+        body.appendData("--\(boundary)\r\n".dataUsingEncoding(NSUTF8StringEncoding)!)
+        body.appendData("Content-Disposition:form-data; name=\"file\"; filename=\"\(fname)\"\r\n".dataUsingEncoding(NSUTF8StringEncoding)!)
+        body.appendData("Content-Type: \(mimetype)\r\n\r\n".dataUsingEncoding(NSUTF8StringEncoding)!)
+        body.appendData(image_data!)
+        body.appendData("\r\n".dataUsingEncoding(NSUTF8StringEncoding)!)
+        
+        
+        body.appendData("--\(boundary)--\r\n".dataUsingEncoding(NSUTF8StringEncoding)!)
+        
+        
+        
+        request.HTTPBody = body
+        
+        
+        
+        let session = NSURLSession.sharedSession()
+        
+        
+        let task = session.dataTaskWithRequest(request) {
+            (
+            let data, let response, let error) in
+            
+            guard let _:NSData = data, let _:NSURLResponse = response  where error == nil else {
+                print("error")
+                return
+            }
+            
+            let dataString = NSString(data: data!, encoding: NSUTF8StringEncoding)
+            print(dataString)
+            
+            
+            print ("FINISHED UPLOADING")
+            self.alertController.dismissViewControllerAnimated(true, completion: nil)
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let mvc = storyboard.instantiateViewControllerWithIdentifier("MainViewController") as! MainViewController
+            self.navigationController?.pushViewController(mvc, animated: true)
+        }
+        task.resume()
+    }
+    
+    
+    func generateBoundaryString() -> String
+    {
+        return "Boundary-\(NSUUID().UUIDString)"
     }
     
 
