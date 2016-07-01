@@ -193,6 +193,22 @@ class EstateUtil: NSObject {
         })
     }
     
+    func delete_estate(ingatlan_id: String, onCompletion: (JSON) -> Void) {
+        let token = [ "token", SettingUtil.sharedInstance.getToken()]
+        let tokenpost = token.joinWithSeparator("=")
+        let id_post = "ingatlan_id=" + ingatlan_id
+        let status_post = "ingatlan_status=0"
+        
+        let pa = [ tokenpost, id_post, status_post]
+        let postbody = pa.joinWithSeparator("&")
+        
+        
+        let route = baseURL + "delete_estate"
+        makeHTTPPostRequest(route, body: postbody, onCompletion: { json, err in
+            onCompletion(json as JSON)
+        })
+    }
+    
     
     
     
