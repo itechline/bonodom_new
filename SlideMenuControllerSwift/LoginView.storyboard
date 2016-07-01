@@ -531,6 +531,9 @@
                             <constraint firstItem="nD1-lQ-gqw" firstAttribute="leading" secondItem="K2p-b8-dG7" secondAttribute="leading" id="gux-oz-Z8r"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="mobile_text" destination="Kc2-42-jsN" id="2G4-3s-Aet"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VFe-mH-1aN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
