@@ -78,6 +78,7 @@
 		E4BEF8981D2529230066F6A4 /* MessageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4BEF8971D2529230066F6A4 /* MessageModel.swift */; };
 		E4D687F11D196DD400D8FA40 /* AddEstateModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4D687F01D196DD400D8FA40 /* AddEstateModel.swift */; };
 		E4D687F31D19728D00D8FA40 /* GetAddEstate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4D687F21D19728D00D8FA40 /* GetAddEstate.swift */; };
+		E4E29F591D2677B500FB6DE6 /* AdMonitorUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E29F581D2677B500FB6DE6 /* AdMonitorUtil.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -169,6 +170,7 @@
 		E4BEF8971D2529230066F6A4 /* MessageModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageModel.swift; sourceTree = "<group>"; };
 		E4D687F01D196DD400D8FA40 /* AddEstateModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddEstateModel.swift; sourceTree = "<group>"; };
 		E4D687F21D19728D00D8FA40 /* GetAddEstate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetAddEstate.swift; sourceTree = "<group>"; };
+		E4E29F581D2677B500FB6DE6 /* AdMonitorUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdMonitorUtil.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -383,6 +385,7 @@
 				E43ECE441D0965B60026A3AD /* SettingUtil.swift */,
 				E46B88AD1D103C7500D9553F /* SpinnerUtil.swift */,
 				E4BEF8931D2516B60066F6A4 /* MessageUtil.swift */,
+				E4E29F581D2677B500FB6DE6 /* AdMonitorUtil.swift */,
 			);
 			name = Utils;
 			sourceTree = "<group>";
@@ -652,6 +655,7 @@
 				57D5DC6F1D12E427002548B7 /* MessageThreadItemView.swift in Sources */,
 				E4D687F11D196DD400D8FA40 /* AddEstateModel.swift in Sources */,
 				C5BD39DC1A6CD15700D0AF95 /* JavaViewController.swift in Sources */,
+				E4E29F591D2677B500FB6DE6 /* AdMonitorUtil.swift in Sources */,
 				E4D687F31D19728D00D8FA40 /* GetAddEstate.swift in Sources */,
 				E45A74101D059A4800CC9162 /* EstateUtil.swift in Sources */,
 				57873B561D0AEEA700F4309A /* ContentViewController.swift in Sources */,

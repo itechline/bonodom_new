@@ -407,9 +407,6 @@ class AddEstateViewController: UIViewController, UIImagePickerControllerDelegate
                 }
                 })
             }
-                
-                    
-                
         })
     }
     

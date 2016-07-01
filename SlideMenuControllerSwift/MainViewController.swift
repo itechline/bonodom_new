@@ -53,6 +53,11 @@ class MainViewController: UIViewController, LiquidFloatingActionButtonDataSource
                 if (msg == true) {
                     let userInfo: [String:AnyObject] = [ "userName": json["veznev"].stringValue + " " + json["kernev"].stringValue]
                     NSNotificationCenter.defaultCenter().postNotificationName("logged", object: userInfo)
+                    
+                    //pic
+                    let pic: [String:AnyObject] = [ "pic": json["pic"].stringValue]
+                    NSNotificationCenter.defaultCenter().postNotificationName("prof_picture", object: pic)
+                    
                     //ImageHeaderView.sharedInstance.setName(json["veznev"].stringValue)
                     self.loadEstateList(0, page: 0, fav: self.isShowingFavs, etype: self.adType, ordering: self.order, justme: self.isJustMe)
                     self.tableView.addSubview(self.refreshControl)
