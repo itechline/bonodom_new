@@ -98,20 +98,20 @@ class MainViewController: UIViewController, LiquidFloatingActionButtonDataSource
             // be on the main thread, like this:
             dispatch_async(dispatch_get_main_queue()) {
                 print("Not reachable")
-                let alert = UIAlertController(title: "Hiba!", message: "Nincs internet!", preferredStyle: UIAlertControllerStyle.Alert)
-                alert.addAction(UIAlertAction(title: "OK", style: .Default, handler: { action in
-                    switch action.style{
-                    case .Default:
-                        print ("default")
-                        
-                    case .Cancel:
-                        print("cancel")
-                        
-                    case .Destructive:
-                        print("destructive")
+                let alertController = UIAlertController (title: "HIBA", message: "Internet nem elérhető!", preferredStyle: .Alert)
+                
+                let settingsAction = UIAlertAction(title: "Beállítások", style: .Default) { (_) -> Void in
+                    let settingsUrl = NSURL(string: UIApplicationOpenSettingsURLString)
+                    if let url = settingsUrl {
+                        UIApplication.sharedApplication().openURL(url)
                     }
-                }))
-                self.presentViewController(alert, animated: true, completion: nil)
+                }
+                
+                //let cancelAction = UIAlertAction(title: "Cancel", style: .Default, handler: nil)
+                alertController.addAction(settingsAction)
+                //alertController.addAction(cancelAction)
+                
+                self.presentViewController(alertController, animated: true, completion: nil);
             }
         }
         

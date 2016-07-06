@@ -50,7 +50,7 @@ class MessageUtil: NSObject {
         })
     }
     
-    func sendMessage(hash: String, msg: String, onCompletion: (JSON) -> Void) {
+    func sendMessage(hash: String, msg: String, id: Int, onCompletion: (JSON) -> Void) {
         
         let token = [ "token", SettingUtil.sharedInstance.getToken()]
         let tokenpost = token.joinWithSeparator("=")
@@ -61,7 +61,10 @@ class MessageUtil: NSObject {
         let message = ["msg", msg]
         let message_post = message.joinWithSeparator("=")
         
-        let pa = [ tokenpost, hsh_post, message_post]
+        let uid = ["uid", String(id)]
+        let uid_post = uid.joinWithSeparator("=")
+        
+        let pa = [ tokenpost, hsh_post, message_post, uid_post]
         let postbody = pa.joinWithSeparator("&")
         
         let route = baseURL + "send_message"

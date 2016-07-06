@@ -29,7 +29,7 @@ class MessageThreadViewController: UIViewController {
         let message : String = message_input!.text!
         if (!message.isEmpty) {
         
-            MessageUtil.sharedInstance.sendMessage(hsh, msg: message, onCompletion: { (json: JSON) in
+            MessageUtil.sharedInstance.sendMessage(hsh, msg: message, id: id, onCompletion: { (json: JSON) in
             print (json)
                 
             dispatch_async(dispatch_get_main_queue(),{
