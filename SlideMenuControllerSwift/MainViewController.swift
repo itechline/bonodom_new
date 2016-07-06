@@ -8,6 +8,7 @@
 import UIKit
 import SwiftyJSON
 import LiquidFloatingActionButton
+import ReachabilitySwift
 
 class MainViewController: UIViewController, LiquidFloatingActionButtonDataSource, LiquidFloatingActionButtonDelegate, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
 
@@ -45,37 +46,7 @@ class MainViewController: UIViewController, LiquidFloatingActionButtonDataSource
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(MainViewController.logout(_:)), name: "logout", object: nil)
         
         if (SettingUtil.sharedInstance.getToken() != "") {
-            showLoadingDialog()
-            LoginUtil.sharedInstance.getTokenValidator { (json: JSON) in
-                print (json)
-                var msg: Bool!
-                msg = json["token_active"].boolValue
-                if (msg == true) {
-                    let userInfo: [String:AnyObject] = [ "userName": json["veznev"].stringValue + " " + json["kernev"].stringValue]
-                    NSNotificationCenter.defaultCenter().postNotificationName("logged", object: userInfo)
-                    
-                    //pic
-                    let pic: [String:AnyObject] = [ "pic": json["pic"].stringValue]
-                    NSNotificationCenter.defaultCenter().postNotificationName("prof_picture", object: pic)
-                    
-                    //ImageHeaderView.sharedInstance.setName(json["veznev"].stringValue)
-                    self.loadEstateList(0, page: 0, fav: self.isShowingFavs, etype: self.adType, ordering: self.order, justme: self.isJustMe)
-                    self.tableView.addSubview(self.refreshControl)
-                } else {
-                    self.alertController.dismissViewControllerAnimated(true, completion: nil)
-                    dispatch_async(dispatch_get_main_queue(),{
-                        print ("TOKEN_INACTIVE_1")
-                        self.alertController.dismissViewControllerAnimated(true, completion: nil)
-                        SettingUtil.sharedInstance.setToken("")
-                        if let navController = self.navigationController {
-                            navController.popViewControllerAnimated(true)
-                            self.loadRegistration()
-                        }
-                        
-                        
-                    })
-                }
-            }
+            networkChecker()
         } else {
             print ("TOKEN_INACTIVE_2")
             self.alertController.dismissViewControllerAnimated(true, completion: nil)
@@ -96,6 +67,93 @@ class MainViewController: UIViewController, LiquidFloatingActionButtonDataSource
         let floatingFrame = CGRect(x: self.view.frame.width - 56 - 16, y: self.view.frame.height - 56 - 16, width: 56, height: 56)
         let bottomRightButton = createButton(floatingFrame, .Up)
         self.view.addSubview(bottomRightButton)
+    }
+    
+    
+    func networkChecker() {
+        let reachability: Reachability
+        do {
+            reachability = try Reachability.reachabilityForInternetConnection()
+        } catch {
+            print("Unable to create Reachability")
+            return
+        }
+        
+        
+        reachability.whenReachable = { reachability in
+            // this is called on a background thread, but UI updates must
+            // be on the main thread, like this:
+            dispatch_async(dispatch_get_main_queue()) {
+                if reachability.isReachableViaWiFi() {
+                    print("Reachable via WiFi")
+                    self.tokenValidation()
+                } else {
+                    print("Reachable via Cellular")
+                    self.tokenValidation()
+                }
+            }
+        }
+        reachability.whenUnreachable = { reachability in
+            // this is called on a background thread, but UI updates must
+            // be on the main thread, like this:
+            dispatch_async(dispatch_get_main_queue()) {
+                print("Not reachable")
+                let alert = UIAlertController(title: "Hiba!", message: "Nincs internet!", preferredStyle: UIAlertControllerStyle.Alert)
+                alert.addAction(UIAlertAction(title: "OK", style: .Default, handler: { action in
+                    switch action.style{
+                    case .Default:
+                        print ("default")
+                        
+                    case .Cancel:
+                        print("cancel")
+                        
+                    case .Destructive:
+                        print("destructive")
+                    }
+                }))
+                self.presentViewController(alert, animated: true, completion: nil)
+            }
+        }
+        
+        do {
+            try reachability.startNotifier()
+        } catch {
+            print("Unable to start notifier")
+        }
+    }
+    
+    func tokenValidation() {
+        showLoadingDialog()
+        LoginUtil.sharedInstance.getTokenValidator { (json: JSON) in
+            print (json)
+            var msg: Bool!
+            msg = json["token_active"].boolValue
+            if (msg == true) {
+                let userInfo: [String:AnyObject] = [ "userName": json["veznev"].stringValue + " " + json["kernev"].stringValue]
+                NSNotificationCenter.defaultCenter().postNotificationName("logged", object: userInfo)
+                
+                //pic
+                let pic: [String:AnyObject] = [ "pic": json["pic"].stringValue]
+                NSNotificationCenter.defaultCenter().postNotificationName("prof_picture", object: pic)
+                
+                //ImageHeaderView.sharedInstance.setName(json["veznev"].stringValue)
+                self.loadEstateList(0, page: 0, fav: self.isShowingFavs, etype: self.adType, ordering: self.order, justme: self.isJustMe)
+                self.tableView.addSubview(self.refreshControl)
+            } else {
+                self.alertController.dismissViewControllerAnimated(true, completion: nil)
+                dispatch_async(dispatch_get_main_queue(),{
+                    print ("TOKEN_INACTIVE_1")
+                    self.alertController.dismissViewControllerAnimated(true, completion: nil)
+                    SettingUtil.sharedInstance.setToken("")
+                    if let navController = self.navigationController {
+                        navController.popViewControllerAnimated(true)
+                        self.loadRegistration()
+                    }
+                    
+                    
+                })
+            }
+        }
     }
     
     func logout(notification: NSNotification) {
