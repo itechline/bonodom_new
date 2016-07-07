@@ -101,7 +101,7 @@ class SubContentsViewController : UIViewController, LiquidFloatingActionButtonDa
         if (index == 0) {
             let storyboard = UIStoryboard(name: "MessageThreadView", bundle: nil)
             let msg = storyboard.instantiateViewControllerWithIdentifier("MessageThreadViewController") as! MessageThreadViewController
-            msg.id = id
+            msg.id = 0
             msg.hsh = hsh
             self.navigationController?.pushViewController(msg, animated: true)
         }

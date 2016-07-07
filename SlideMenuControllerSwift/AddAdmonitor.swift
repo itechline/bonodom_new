@@ -7,18 +7,15 @@
 //
 
 import UIKit
+import SwiftyJSON
 
 class AddAdmonitor: UIViewController {
-    var figyelo = ""
-    var search = ""
-    var ar_min = ""
-    var ar_max = ""
     var kivitel_id = 0
     var szintek_min_id = 0
     var szintek_max_id = 0
     var szobaszam_min_id = 0
     var szobaszam_max_id = 0
-    var lif_id = 0
+    var lift_id = 0
     var erkely_id = 0
     var meret_id = 0
     var kilatas_id = 0
@@ -84,13 +81,34 @@ class AddAdmonitor: UIViewController {
     @IBAction func etan_button(sender: AnyObject) {
     }
     
+    
+    
+    
     @IBAction func save_admonitor_button(sender: AnyObject) {
+        let name : String = figyelo_neve!.text!
+        let search : String = kereses!.text!
+        let ar_min : String = ar_min_text!.text!
+        let ar_max : String = ar_max_text!.text!
+        
+        
+        AdMonitorUtil.sharedInstance.add_admonitor(name, butor: String(butorozott_id), lift: String(lift_id), erkely: String(erkely_id), meret: String(meret_id), szsz_max: String(szobaszam_max_id), szsz_min: String(szobaszam_min_id), emelet_max: String(szintek_max_id), emelet_min: String(szintek_min_id), tipus_id: kivitel_id, allapot_id: allapot_id, energia_id: etan_id, kilatas_id: kilatas_id, parkolas: parkolas_id, ar_min: ar_min, ar_max: ar_max, kulcsszo: search, onCompletion: { (json: JSON) in
+            print (json)
+            var err: Bool!
+            err = json["error"].boolValue
+            if (!err) {
+                dispatch_async(dispatch_get_main_queue(),{
+                    //viewController.dismissViewControllerAnimated(true, completion: nil)
+                    self.navigationController?.popViewControllerAnimated(true);
+                })
+            }
+        })
     }
     
     
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.hideKeyboardWhenTappedAround()
         // Do view setup here.
     }
     

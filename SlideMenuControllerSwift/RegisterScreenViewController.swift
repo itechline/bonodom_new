@@ -158,9 +158,10 @@ class RegisterScreenViewController: UIViewController, UIImagePickerControllerDel
                         self.UploadRequest(self.imageToUpload!, token: SettingUtil.sharedInstance.getToken())
                     } else {
                         self.alertController.dismissViewControllerAnimated(true, completion: nil)
-                        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                        /*let storyboard = UIStoryboard(name: "Main", bundle: nil)
                         let mvc = storyboard.instantiateViewControllerWithIdentifier("MainViewController") as! MainViewController
-                        self.navigationController?.pushViewController(mvc, animated: true)
+                        self.navigationController?.pushViewController(mvc, animated: true)*/
+                        self.navigationController?.popViewControllerAnimated(true);
                     }
                 })
                 
@@ -352,9 +353,10 @@ class RegisterScreenViewController: UIViewController, UIImagePickerControllerDel
             
             print ("FINISHED UPLOADING")
             self.alertController.dismissViewControllerAnimated(true, completion: nil)
-            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            /*let storyboard = UIStoryboard(name: "Main", bundle: nil)
             let mvc = storyboard.instantiateViewControllerWithIdentifier("MainViewController") as! MainViewController
-            self.navigationController?.pushViewController(mvc, animated: true)
+            self.navigationController?.pushViewController(mvc, animated: true)*/
+            self.navigationController?.popViewControllerAnimated(true);
         }
         task.resume()
     }

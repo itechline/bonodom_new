@@ -9,10 +9,11 @@
 import SwiftyJSON
 
 class AdMonitorUtil: NSObject {
+    static let sharedInstance = AdMonitorUtil()
     let baseURL = "https://bonodom.com/api/"
     
     
-    func add_admonitor(ingatlan_id: String, name: String, butor: String, lift: String, erkely: String, meret: String, szsz_max: String, szsz_min: String, emelet_max: String, emelet_min: String, tipus_id: Int, allapot_id: Int, energia_id: Int, kilatas_id: Int, parkolas: Int, ar_min: String, ar_max: String, kulcsszo: String, onCompletion: (JSON) -> Void) {
+    func add_admonitor(name: String, butor: String, lift: String, erkely: String, meret: String, szsz_max: String, szsz_min: String, emelet_max: String, emelet_min: String, tipus_id: Int, allapot_id: Int, energia_id: Int, kilatas_id: Int, parkolas: Int, ar_min: String, ar_max: String, kulcsszo: String, onCompletion: (JSON) -> Void) {
         let token = [ "token", SettingUtil.sharedInstance.getToken()]
         let tokenpost = token.joinWithSeparator("=")
         

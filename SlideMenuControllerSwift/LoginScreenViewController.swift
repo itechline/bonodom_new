@@ -49,8 +49,8 @@ class LoginScreenViewController: UIViewController {
         
         if (isFilled) {
             showLoadingDialog()
-            let storyboard = UIStoryboard(name: "Main", bundle: nil)
-            let subContentsVC = storyboard.instantiateViewControllerWithIdentifier("MainViewController") as! MainViewController
+            /*let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let subContentsVC = storyboard.instantiateViewControllerWithIdentifier("MainViewController") as! MainViewController*/
             
             let passString : String = pass!.text!
             LoginUtil.sharedInstance.doLogin(mailString, password: passString, onCompletion: { (json: JSON) in
@@ -61,7 +61,8 @@ class LoginScreenViewController: UIViewController {
                     print ("TOKEN SAVED")
                     dispatch_async(dispatch_get_main_queue(),{
                         self.alertController.dismissViewControllerAnimated(true, completion: nil)
-                        self.navigationController?.pushViewController(subContentsVC, animated: true)
+                        //self.navigationController?.pushViewController(subContentsVC, animated: true)
+                        self.navigationController?.popViewControllerAnimated(true);
                     })
                     
                 } else {

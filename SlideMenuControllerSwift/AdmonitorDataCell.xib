@@ -8,7 +8,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="VMY-by-jWY">
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="60" id="VMY-by-jWY" customClass="AdmonitorDataCell" customModule="Bonodom" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
             <autoresizingMask key="autoresizingMask"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="VMY-by-jWY" id="crh-wx-dSI">
@@ -27,8 +27,11 @@
                             <constraint firstAttribute="width" constant="43" id="aul-3Y-gPR"/>
                         </constraints>
                         <state key="normal" image="admonitor_pirosiksz"/>
+                        <connections>
+                            <action selector="delete_admonitor:" destination="VMY-by-jWY" eventType="touchUpInside" id="S0a-dh-7NB"/>
+                        </connections>
                     </button>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BPm-h7-HP0">
+                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BPm-h7-HP0">
                         <rect key="frame" x="226" y="11" width="35" height="22"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="35" id="Sez-ji-U6B"/>
@@ -47,6 +50,9 @@
                     <constraint firstItem="BPm-h7-HP0" firstAttribute="top" secondItem="iJp-wj-rge" secondAttribute="top" id="v31-aR-Ncw"/>
                 </constraints>
             </tableViewCellContentView>
+            <connections>
+                <outlet property="name" destination="ytx-Bc-aFS" id="p40-5m-okF"/>
+            </connections>
             <point key="canvasLocation" x="448" y="308"/>
         </tableViewCell>
     </objects>

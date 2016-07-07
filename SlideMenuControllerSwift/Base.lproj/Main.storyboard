@@ -1092,6 +1092,10 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="5n8-ZT-wIC">
                                 <rect key="frame" x="0.0" y="70" width="600" height="480"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="uc4-Ss-gMN" id="FfD-BW-jsJ"/>
+                                    <outlet property="delegate" destination="uc4-Ss-gMN" id="4m9-O4-oed"/>
+                                </connections>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="E7G-4r-S1q">
                                 <rect key="frame" x="20" y="558" width="560" height="34"/>
@@ -1129,6 +1133,9 @@
                             <constraint firstItem="0Sl-dM-2g0" firstAttribute="top" secondItem="zUh-su-cl6" secondAttribute="bottom" id="vhR-dH-fd5"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="tableView" destination="5n8-ZT-wIC" id="diG-Iq-9hF"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Lc-jN-cNl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
