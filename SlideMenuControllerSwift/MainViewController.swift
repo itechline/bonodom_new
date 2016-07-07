@@ -69,6 +69,13 @@ class MainViewController: UIViewController, LiquidFloatingActionButtonDataSource
         self.view.addSubview(bottomRightButton)
     }
     
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        networkChecker()
+    }
+    
+
+    
     
     func networkChecker() {
         let reachability: Reachability
@@ -123,7 +130,7 @@ class MainViewController: UIViewController, LiquidFloatingActionButtonDataSource
     }
     
     func tokenValidation() {
-        showLoadingDialog()
+        //showLoadingDialog()
         LoginUtil.sharedInstance.getTokenValidator { (json: JSON) in
             print (json)
             var msg: Bool!

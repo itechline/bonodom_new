@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -1026,10 +1026,16 @@
                                             <constraint firstAttribute="width" constant="60" id="iAF-u0-v3T"/>
                                         </constraints>
                                         <state key="normal" title="Kezdés"/>
+                                        <connections>
+                                            <action selector="kezdes_button:" destination="9rM-lE-GNF" eventType="touchUpInside" id="v1L-W3-i5J"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="493-DJ-r2r">
                                         <rect key="frame" x="8" y="209" width="60" height="30"/>
                                         <state key="normal" title="Vége"/>
+                                        <connections>
+                                            <action selector="vege_button:" destination="9rM-lE-GNF" eventType="touchUpInside" id="vTf-8d-HDb"/>
+                                        </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Adja meg a megtekintések kezdőidőpontját" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wT8-A9-0Hn">
                                         <rect key="frame" x="76" y="171" width="516" height="30"/>
@@ -1067,6 +1073,9 @@
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                         <state key="normal" title="H"/>
+                                        <connections>
+                                            <action selector="hetfo_button:" destination="9rM-lE-GNF" eventType="touchUpInside" id="E33-7p-QCB"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vrb-Z7-JLR">
                                         <rect key="frame" x="104" y="249" width="25" height="25"/>
@@ -1075,6 +1084,9 @@
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                         <state key="normal" title="K"/>
+                                        <connections>
+                                            <action selector="kedd_button:" destination="9rM-lE-GNF" eventType="touchUpInside" id="ARz-kU-NSF"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8i9-or-eaB">
                                         <rect key="frame" x="142" y="249" width="25" height="25"/>
@@ -1083,6 +1095,9 @@
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                         <state key="normal" title="Sz"/>
+                                        <connections>
+                                            <action selector="szerda_button:" destination="9rM-lE-GNF" eventType="touchUpInside" id="H78-64-IEg"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nWI-qC-A47">
                                         <rect key="frame" x="181" y="249" width="25" height="25"/>
@@ -1091,6 +1106,9 @@
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                         <state key="normal" title="Cs"/>
+                                        <connections>
+                                            <action selector="csutortok_button:" destination="9rM-lE-GNF" eventType="touchUpInside" id="Dly-6I-Z9B"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hfZ-9x-xsN">
                                         <rect key="frame" x="219" y="249" width="25" height="25"/>
@@ -1099,6 +1117,9 @@
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                         <state key="normal" title="P"/>
+                                        <connections>
+                                            <action selector="pentek_button:" destination="9rM-lE-GNF" eventType="touchUpInside" id="05N-KS-hHJ"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fnz-5e-H5l">
                                         <rect key="frame" x="257" y="249" width="25" height="25"/>
@@ -1107,6 +1128,9 @@
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                         <state key="normal" title="Sz"/>
+                                        <connections>
+                                            <action selector="szombat_button:" destination="9rM-lE-GNF" eventType="touchUpInside" id="sji-Id-8WV"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q9k-nQ-vsf">
                                         <rect key="frame" x="295" y="249" width="25" height="25"/>
@@ -1115,6 +1139,9 @@
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                         <state key="normal" title="V"/>
+                                        <connections>
+                                            <action selector="vasarnap_button:" destination="9rM-lE-GNF" eventType="touchUpInside" id="9Lg-ZM-qvy"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LiD-9H-TNC">
                                         <rect key="frame" x="250" y="434" width="100" height="30"/>
@@ -1126,6 +1153,7 @@
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
+                                            <action selector="kovetkezo_4_button:" destination="9rM-lE-GNF" eventType="touchUpInside" id="hwK-Qy-34p"/>
                                             <segue destination="7wW-Dv-EY7" kind="show" id="NoP-pK-KYD"/>
                                         </connections>
                                     </button>
@@ -1256,6 +1284,17 @@
                             <constraint firstItem="gfy-6P-yJp" firstAttribute="top" secondItem="Cj3-Jc-zA1" secondAttribute="top" id="zqw-ig-kLO"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="csutortok_text" destination="nWI-qC-A47" id="t8o-T3-yoT"/>
+                        <outlet property="hetfo_text" destination="Pw9-81-Kac" id="sTn-qk-XSD"/>
+                        <outlet property="kedd_text" destination="vrb-Z7-JLR" id="z7e-8w-OOI"/>
+                        <outlet property="kezdes_text" destination="uZm-8A-wsb" id="w2Y-dP-VXa"/>
+                        <outlet property="pentek_text" destination="hfZ-9x-xsN" id="XDd-Uv-5cR"/>
+                        <outlet property="szerda_text" destination="8i9-or-eaB" id="Oog-eg-Yo0"/>
+                        <outlet property="szombat_text" destination="fnz-5e-H5l" id="QcC-FX-5ew"/>
+                        <outlet property="vasarnap_text" destination="q9k-nQ-vsf" id="Waz-PG-g5Z"/>
+                        <outlet property="vege_text" destination="493-DJ-r2r" id="eR9-Ed-3KF"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wz6-M6-quH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

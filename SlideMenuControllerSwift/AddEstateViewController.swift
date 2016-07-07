@@ -29,6 +29,8 @@ class AddEstateViewController: UIViewController, UIImagePickerControllerDelegate
     var pickerData_lift = [[String : String]]()
     var pickerData_etan = [[String : String]]()
     var pickerData_kilatas = [[String : String]]()
+    var pickerData_kezdes = [[String : String]]()
+    var pickerData_vege = [[String : String]]()
     
     var szobaszam: String! = "0"
     var allapot: String! = "0"
@@ -387,13 +389,234 @@ class AddEstateViewController: UIViewController, UIImagePickerControllerDelegate
     
     //THIRD PAGE END
     
+    
+    
+    //FOURTH PAGE
+    var kezdes_id = ""
+    var vege_id = ""
+    var hetfo = 0
+    var kedd = 0
+    var szerda = 0
+    var csutortok = 0
+    var pentek = 0
+    var szombat = 0
+    var vasarnap = 0
+    @IBAction func kovetkezo_4_button(sender: AnyObject) {
+        GetAddEstate.estate.insert(AddEstateModel(cim: GetAddEstate.estate[0].cim,
+            varos: GetAddEstate.estate[0].varos,
+            utca: GetAddEstate.estate[0].utca,
+            leiras: GetAddEstate.estate[0].leiras,
+            ar: GetAddEstate.estate[0].ar,
+            meret: GetAddEstate.estate[0].meret,
+            etan: GetAddEstate.estate[0].etan,
+            butor: GetAddEstate.estate[0].butor,
+            kilatas: GetAddEstate.estate[0].kilatas,
+            lift: GetAddEstate.estate[0].lift,
+            futes: GetAddEstate.estate[0].futes,
+            parkolas: GetAddEstate.estate[0].parkolas,
+            erkely: GetAddEstate.estate[0].erkely,
+            tipus: GetAddEstate.estate[0].tipus,
+            emelet: GetAddEstate.estate[0].emelet,
+            allapot: GetAddEstate.estate[0].allapot,
+            szsz: GetAddEstate.estate[0].szsz,
+            lat: GetAddEstate.estate[0].lat,
+            lng: GetAddEstate.estate[0].lng,
+            e_type: GetAddEstate.estate[0].e_type, zipcode: "",
+            hsz: GetAddEstate.estate[0].hsz,
+            hetfo: String(hetfo),
+            kedd: String(kedd),
+            szerda: String(szerda),
+            csut: String(csutortok),
+            pentek: String(pentek),
+            szombat: String(szombat),
+            vasarnap: String(vasarnap),
+            kezdes: kezdes_id,
+            vege: vege_id ,
+            pictures: imagesToUpload), atIndex: 0)
+    }
+    
+    @IBOutlet weak var kezdes_text: UIButton!
+    @IBAction func kezdes_button(sender: AnyObject) {
+        pickerData_kezdes = [
+            ["value": "0", "display": "Nincs megadva"],
+            ["value": "1", "display": "8:00"],
+            ["value": "2", "display": "8:30"],
+            ["value": "3", "display": "9:00"],
+            ["value": "4", "display": "9:30"],
+            ["value": "5", "display": "10:00"],
+            ["value": "6", "display": "10:30"],
+            ["value": "7", "display": "11:00"],
+            ["value": "8", "display": "11:30"],
+            ["value": "9", "display": "12:00"],
+            ["value": "10", "display": "12:30"],
+            ["value": "11", "display": "13:00"],
+            ["value": "12", "display": "13:30"],
+            ["value": "13", "display": "14:00"],
+            ["value": "14", "display": "14:30"],
+            ["value": "15", "display": "15:00"],
+            ["value": "16", "display": "15:30"],
+            ["value": "17", "display": "16:00"],
+            ["value": "18", "display": "16:30"],
+            ["value": "19", "display": "17:00"],
+            ["value": "20", "display": "17:30"],
+            ["value": "21", "display": "18:00"]
+        ]
+        
+        PickerDialog().show("Kezdés", options: pickerData_kezdes, selected: "0") {
+            (value, display) -> Void in
+            if (value != "0") {
+                self.kezdes_text.setTitle(display, forState: UIControlState.Normal)
+            } else {
+                self.kezdes_text.setTitle("Kezdés", forState: UIControlState.Normal)
+            }
+            self.kezdes_id = value
+            print("Unit selected: \(value)")
+        }
+    }
+    
+    @IBOutlet weak var vege_text: UIButton!
+    @IBAction func vege_button(sender: AnyObject) {
+        pickerData_vege = [
+            ["value": "0", "display": "Nincs megadva"],
+            ["value": "1", "display": "8:00"],
+            ["value": "2", "display": "8:30"],
+            ["value": "3", "display": "9:00"],
+            ["value": "4", "display": "9:30"],
+            ["value": "5", "display": "10:00"],
+            ["value": "6", "display": "10:30"],
+            ["value": "7", "display": "11:00"],
+            ["value": "8", "display": "11:30"],
+            ["value": "9", "display": "12:00"],
+            ["value": "10", "display": "12:30"],
+            ["value": "11", "display": "13:00"],
+            ["value": "12", "display": "13:30"],
+            ["value": "13", "display": "14:00"],
+            ["value": "14", "display": "14:30"],
+            ["value": "15", "display": "15:00"],
+            ["value": "16", "display": "15:30"],
+            ["value": "17", "display": "16:00"],
+            ["value": "18", "display": "16:30"],
+            ["value": "19", "display": "17:00"],
+            ["value": "20", "display": "17:30"],
+            ["value": "21", "display": "18:00"]
+        ]
+        
+        PickerDialog().show("Vége", options: pickerData_vege, selected: "0") {
+            (value, display) -> Void in
+            if (value != "0") {
+                self.vege_text.setTitle(display, forState: UIControlState.Normal)
+            } else {
+                self.vege_text.setTitle("Vége", forState: UIControlState.Normal)
+            }
+            self.vege_id = value
+            print("Unit selected: \(value)")
+        }
+    }
+    
+    @IBOutlet weak var hetfo_text: UIButton!
+    @IBAction func hetfo_button(sender: AnyObject) {
+        if (hetfo == 0) {
+            hetfo = 1
+            hetfo_text.layer.backgroundColor = UIColor(hex: "0066CC").CGColor
+            hetfo_text.setTitleColor(UIColor(hex: "FFFFFF"), forState: UIControlState.Normal)
+        } else {
+            hetfo = 0
+            hetfo_text.layer.backgroundColor = UIColor(hex: "FFFFFF").CGColor
+            hetfo_text.setTitleColor(UIColor(hex: "0066CC"), forState: UIControlState.Normal)
+        }
+    }
+    
+    @IBOutlet weak var kedd_text: UIButton!
+    @IBAction func kedd_button(sender: AnyObject) {
+        if (kedd == 0) {
+            kedd = 1
+            kedd_text.layer.backgroundColor = UIColor(hex: "0066CC").CGColor
+            kedd_text.setTitleColor(UIColor(hex: "FFFFFF"), forState: UIControlState.Normal)
+        } else {
+            kedd = 0
+            kedd_text.layer.backgroundColor = UIColor(hex: "FFFFFF").CGColor
+            kedd_text.setTitleColor(UIColor(hex: "0066CC"), forState: UIControlState.Normal)
+        }
+    }
+    
+    @IBOutlet weak var szerda_text: UIButton!
+    @IBAction func szerda_button(sender: AnyObject) {
+        if (szerda == 0) {
+            szerda = 1
+            szerda_text.layer.backgroundColor = UIColor(hex: "0066CC").CGColor
+            szerda_text.setTitleColor(UIColor(hex: "FFFFFF"), forState: UIControlState.Normal)
+        } else {
+            szerda = 0
+            szerda_text.layer.backgroundColor = UIColor(hex: "FFFFFF").CGColor
+            szerda_text.setTitleColor(UIColor(hex: "0066CC"), forState: UIControlState.Normal)
+        }
+    }
+    
+    @IBOutlet weak var csutortok_text: UIButton!
+    @IBAction func csutortok_button(sender: AnyObject) {
+        if (csutortok == 0) {
+            csutortok = 1
+            csutortok_text.layer.backgroundColor = UIColor(hex: "0066CC").CGColor
+            csutortok_text.setTitleColor(UIColor(hex: "FFFFFF"), forState: UIControlState.Normal)
+        } else {
+            csutortok = 0
+            csutortok_text.layer.backgroundColor = UIColor(hex: "FFFFFF").CGColor
+            csutortok_text.setTitleColor(UIColor(hex: "0066CC"), forState: UIControlState.Normal)
+        }
+    }
+    
+    @IBOutlet weak var pentek_text: UIButton!
+    @IBAction func pentek_button(sender: AnyObject) {
+        if (pentek == 0) {
+            pentek = 1
+            pentek_text.layer.backgroundColor = UIColor(hex: "0066CC").CGColor
+            pentek_text.setTitleColor(UIColor(hex: "FFFFFF"), forState: UIControlState.Normal)
+        } else {
+            pentek = 0
+            pentek_text.layer.backgroundColor = UIColor(hex: "FFFFFF").CGColor
+            pentek_text.setTitleColor(UIColor(hex: "0066CC"), forState: UIControlState.Normal)
+        }
+    }
+    
+    @IBOutlet weak var szombat_text: UIButton!
+    @IBAction func szombat_button(sender: AnyObject) {
+        if (szombat == 0) {
+            szombat = 1
+            szombat_text.layer.backgroundColor = UIColor(hex: "0066CC").CGColor
+            szombat_text.setTitleColor(UIColor(hex: "FFFFFF"), forState: UIControlState.Normal)
+        } else {
+            szombat = 0
+            szombat_text.layer.backgroundColor = UIColor(hex: "FFFFFF").CGColor
+            szombat_text.setTitleColor(UIColor(hex: "0066CC"), forState: UIControlState.Normal)
+        }
+    }
+    
+    @IBOutlet weak var vasarnap_text: UIButton!
+    @IBAction func vasarnap_button(sender: AnyObject) {
+        if (vasarnap == 0) {
+            vasarnap = 1
+            vasarnap_text.layer.backgroundColor = UIColor(hex: "0066CC").CGColor
+            vasarnap_text.setTitleColor(UIColor(hex: "FFFFFF"), forState: UIControlState.Normal)
+        } else {
+            vasarnap = 0
+            vasarnap_text.layer.backgroundColor = UIColor(hex: "FFFFFF").CGColor
+            vasarnap_text.setTitleColor(UIColor(hex: "0066CC"), forState: UIControlState.Normal)
+        }
+    }
+    
+    
+    //FOURTH PAGE END
+    
+    
+    
+    
     //FIFTH PAGE
     var alertController = UIAlertController()
     @IBAction func upload_estate(sender: AnyObject) {
     
         
         EstateUtil.sharedInstance.addEstate(GetAddEstate.estate[0].cim, varos: GetAddEstate.estate[0].varos, utca: GetAddEstate.estate[0].utca, leiras: GetAddEstate.estate[0].leiras, ar: GetAddEstate.estate[0].ar, meret: GetAddEstate.estate[0].meret, energiatan_id: GetAddEstate.estate[0].etan, butorozott: GetAddEstate.estate[0].butor, kilatas_id: GetAddEstate.estate[0].kilatas, lift: GetAddEstate.estate[0].lift, futestipus_id: GetAddEstate.estate[0].futes, parkolas_id: GetAddEstate.estate[0].parkolas, erkely: GetAddEstate.estate[0].erkely, tipus_id: GetAddEstate.estate[0].tipus, emelet_id: GetAddEstate.estate[0].emelet, allapot_id: GetAddEstate.estate[0].allapot, szsz_id: GetAddEstate.estate[0].szsz, lat: GetAddEstate.estate[0].lat, lng: GetAddEstate.estate[0].lng, e_type_id: GetAddEstate.estate[0].e_type, zipcode: "4300", hsz: GetAddEstate.estate[0].hsz,
-            mon: "0", tue: "0", wed: "0", thu: "0", fri: "0", sat: "0", sun: "0", start: "0", finish: "0" ,onCompletion: { (json: JSON) in
+            mon: GetAddEstate.estate[0].hetfo, tue: GetAddEstate.estate[0].kedd, wed: GetAddEstate.estate[0].szerda, thu: GetAddEstate.estate[0].csut, fri: GetAddEstate.estate[0].pentek, sat: GetAddEstate.estate[0].szombat, sun: GetAddEstate.estate[0].vasarnap, start: GetAddEstate.estate[0].kezdes, finish: GetAddEstate.estate[0].vege ,onCompletion: { (json: JSON) in
             print (json)
             var err: Bool!
             err = json["error"].boolValue

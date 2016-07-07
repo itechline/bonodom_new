@@ -97,6 +97,13 @@ class SubContentsViewController : UIViewController, LiquidFloatingActionButtonDa
                 UIApplication.sharedApplication().openURL(url)
             }
         }
+        if (index == 1) {
+            let storyboard = UIStoryboard(name: "MessageThreadView", bundle: nil)
+            let msg = storyboard.instantiateViewControllerWithIdentifier("MessageThreadViewController") as! MessageThreadViewController
+            //msg.id = estateItem[0].id
+            //msg.hsh = estateItem[0]
+            self.navigationController?.pushViewController(msg, animated: true)
+        }
         liquidFloatingActionButton.close()
     }
     
