@@ -42,6 +42,7 @@ class SubContentsViewController : UIViewController, LiquidFloatingActionButtonDa
     var id = 0;
     
     var estateItem = [EstateModel]()
+    var hsh = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -97,11 +98,11 @@ class SubContentsViewController : UIViewController, LiquidFloatingActionButtonDa
                 UIApplication.sharedApplication().openURL(url)
             }
         }
-        if (index == 1) {
+        if (index == 0) {
             let storyboard = UIStoryboard(name: "MessageThreadView", bundle: nil)
             let msg = storyboard.instantiateViewControllerWithIdentifier("MessageThreadViewController") as! MessageThreadViewController
-            //msg.id = estateItem[0].id
-            //msg.hsh = estateItem[0]
+            msg.id = id
+            msg.hsh = hsh
             self.navigationController?.pushViewController(msg, animated: true)
         }
         liquidFloatingActionButton.close()

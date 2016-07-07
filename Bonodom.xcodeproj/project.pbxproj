@@ -78,7 +78,9 @@
 		E4BEF8981D2529230066F6A4 /* MessageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4BEF8971D2529230066F6A4 /* MessageModel.swift */; };
 		E4D687F11D196DD400D8FA40 /* AddEstateModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4D687F01D196DD400D8FA40 /* AddEstateModel.swift */; };
 		E4D687F31D19728D00D8FA40 /* GetAddEstate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4D687F21D19728D00D8FA40 /* GetAddEstate.swift */; };
+		E4D7F35B1D2E720500D075A7 /* AdmonitorModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4D7F35A1D2E720500D075A7 /* AdmonitorModel.swift */; };
 		E4E29F591D2677B500FB6DE6 /* AdMonitorUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E29F581D2677B500FB6DE6 /* AdMonitorUtil.swift */; };
+		E4E5F73B1D2E547B001A36A4 /* AddAdmonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E5F73A1D2E547B001A36A4 /* AddAdmonitor.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -170,7 +172,9 @@
 		E4BEF8971D2529230066F6A4 /* MessageModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageModel.swift; sourceTree = "<group>"; };
 		E4D687F01D196DD400D8FA40 /* AddEstateModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddEstateModel.swift; sourceTree = "<group>"; };
 		E4D687F21D19728D00D8FA40 /* GetAddEstate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetAddEstate.swift; sourceTree = "<group>"; };
+		E4D7F35A1D2E720500D075A7 /* AdmonitorModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdmonitorModel.swift; sourceTree = "<group>"; };
 		E4E29F581D2677B500FB6DE6 /* AdMonitorUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdMonitorUtil.swift; sourceTree = "<group>"; };
+		E4E5F73A1D2E547B001A36A4 /* AddAdmonitor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddAdmonitor.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -354,6 +358,7 @@
 				57C21E611D0EE44200CBCDFF /* AddEstateViewController.swift */,
 				57D5DC641D12DEAA002548B7 /* MessageThreadViewController.swift */,
 				57D5DC681D12DF06002548B7 /* MessageThreadView.storyboard */,
+				E4E5F73A1D2E547B001A36A4 /* AddAdmonitor.swift */,
 			);
 			name = ViewController;
 			sourceTree = "<group>";
@@ -400,6 +405,7 @@
 				E4D687F21D19728D00D8FA40 /* GetAddEstate.swift */,
 				E4BEF8951D251B290066F6A4 /* MessagesListModel.swift */,
 				E4BEF8971D2529230066F6A4 /* MessageModel.swift */,
+				E4D7F35A1D2E720500D075A7 /* AdmonitorModel.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -659,8 +665,10 @@
 				E4D687F31D19728D00D8FA40 /* GetAddEstate.swift in Sources */,
 				E45A74101D059A4800CC9162 /* EstateUtil.swift in Sources */,
 				57873B561D0AEEA700F4309A /* ContentViewController.swift in Sources */,
+				E4E5F73B1D2E547B001A36A4 /* AddAdmonitor.swift in Sources */,
 				E4BEF8981D2529230066F6A4 /* MessageModel.swift in Sources */,
 				E45A740B1D05725A00CC9162 /* BaseMenuItemViewController.swift in Sources */,
+				E4D7F35B1D2E720500D075A7 /* AdmonitorModel.swift in Sources */,
 				57D5DC651D12DEAA002548B7 /* MessageThreadViewController.swift in Sources */,
 				C5BA8AA61A43E2EF00863FB9 /* SlideMenuController.swift in Sources */,
 				C539E66E1A316F5F003B7CC7 /* RightViewController.swift in Sources */,

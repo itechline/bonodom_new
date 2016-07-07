@@ -416,6 +416,7 @@ extension MainViewController : UITableViewDataSource {
         let storyboard = UIStoryboard(name: "SubContentsViewController", bundle: nil)
         let subContentsVC = storyboard.instantiateViewControllerWithIdentifier("SubContentsViewController") as! SubContentsViewController
         subContentsVC.id = items[indexPath.row].id
+        subContentsVC.hsh = items[indexPath.row].hashString
         self.navigationController?.pushViewController(subContentsVC, animated: true)
     }
 }
