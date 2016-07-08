@@ -123,13 +123,9 @@
                                         <state key="normal" title="Nincs megadva">
                                             <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Z1e-Ss-uCM">
-                                        <rect key="frame" x="49" y="336" width="106" height="29"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <state key="normal" title="Nincs megadva">
-                                            <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
+                                        <connections>
+                                            <action selector="szintek_min_button:" destination="In8-Mc-X7I" eventType="touchUpInside" id="Cyv-u2-zN5"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8gp-31-wSD">
                                         <rect key="frame" x="208" y="336" width="106" height="29"/>
@@ -137,6 +133,9 @@
                                         <state key="normal" title="Nincs megadva">
                                             <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <action selector="szsz_max_button:" destination="In8-Mc-X7I" eventType="touchUpInside" id="elj-XW-r9W"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eTa-GZ-Fs9">
                                         <rect key="frame" x="208" y="269" width="106" height="30"/>
@@ -147,6 +146,9 @@
                                         <state key="normal" title="Nincs megadva">
                                             <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <action selector="szintek_max_button:" destination="In8-Mc-X7I" eventType="touchUpInside" id="JFz-Ag-xig"/>
+                                        </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="max:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4wj-6z-o7q">
                                         <rect key="frame" x="163" y="273" width="37" height="21"/>
@@ -212,6 +214,9 @@
                                         <state key="normal" title="Nincs megadva">
                                             <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <action selector="erkely_button:" destination="In8-Mc-X7I" eventType="touchUpInside" id="cZO-Q5-iq6"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ROA-oY-g04">
                                         <rect key="frame" x="8" y="534" width="544" height="30"/>
@@ -222,6 +227,9 @@
                                         <state key="normal" title="Nincs megadva">
                                             <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <action selector="meret_button:" destination="In8-Mc-X7I" eventType="touchUpInside" id="q58-FL-JlQ"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4kQ-8e-Djy">
                                         <rect key="frame" x="8" y="601" width="544" height="30"/>
@@ -245,6 +253,9 @@
                                         <state key="normal" title="Nincs megadva">
                                             <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <action selector="butorozott_button:" destination="In8-Mc-X7I" eventType="touchUpInside" id="MPN-gu-4xI"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qMg-fx-hcX">
                                         <rect key="frame" x="8" y="735" width="544" height="30"/>
@@ -348,6 +359,19 @@
                                         <state key="normal" title="Mehet">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <action selector="search_button:" destination="In8-Mc-X7I" eventType="touchUpInside" id="rsc-wr-aOV"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Z1e-Ss-uCM">
+                                        <rect key="frame" x="49" y="336" width="106" height="29"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <state key="normal" title="Nincs megadva">
+                                            <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="szsz_min_button:" destination="In8-Mc-X7I" eventType="touchUpInside" id="ZCa-XD-vsg"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <constraints>
@@ -477,11 +501,21 @@
                     <size key="freeformSize" width="600" height="1000"/>
                     <connections>
                         <outlet property="allapotText" destination="wlp-oZ-jqY" id="be9-Fd-Wec"/>
+                        <outlet property="butorozott_text" destination="B1a-FK-54P" id="sD5-UP-Cuz"/>
+                        <outlet property="erkely_text" destination="gFW-FX-5s7" id="SiS-rp-bEH"/>
                         <outlet property="etanText" destination="TU4-hF-O87" id="MBu-ox-XPw"/>
+                        <outlet property="keyword_text" destination="Krp-xs-iIL" id="tuN-j3-QRS"/>
                         <outlet property="kilatasText" destination="4kQ-8e-Djy" id="Eog-XV-u2u"/>
                         <outlet property="kivitelText" destination="alp-eS-QUA" id="9mR-w5-07X"/>
                         <outlet property="liftText" destination="NHK-yA-QbD" id="GTc-36-RVw"/>
+                        <outlet property="max_price_text" destination="wSg-kN-YiC" id="6Qb-lX-iUm"/>
+                        <outlet property="meret_text" destination="ROA-oY-g04" id="MZ6-4w-5rU"/>
+                        <outlet property="min_price_text" destination="JYe-h8-h5P" id="Hag-Vi-Wgb"/>
                         <outlet property="parkolasText" destination="qMg-fx-hcX" id="IIW-uu-hOa"/>
+                        <outlet property="szintek_max_text" destination="eTa-GZ-Fs9" id="KUw-Gi-Wie"/>
+                        <outlet property="szintek_min_text" destination="98n-0S-26q" id="J5x-v9-Hae"/>
+                        <outlet property="szsz_max_text" destination="8gp-31-wSD" id="2tM-79-gBw"/>
+                        <outlet property="szsz_min_text" destination="Z1e-Ss-uCM" id="vOr-z1-DDt"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PvU-KF-Szg" userLabel="First Responder" sceneMemberID="firstResponder"/>

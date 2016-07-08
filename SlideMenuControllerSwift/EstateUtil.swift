@@ -15,7 +15,7 @@ class EstateUtil: NSObject {
     
     let baseURL = "https://bonodom.com/api/"
     
-    func getEstateList(ingatlan_id: Int, page: Int, fav: Int,etype: Int, ordering: Int, justme: Int ,onCompletion: (JSON) -> Void) {
+    func getEstateList(ingatlan_id: Int, page: Int, fav: Int,etype: Int, ordering: Int, justme: Int , butorozott: Int, lift: Int, erkely: Int, meret: Int, szsz_max: Int, szsz_min: Int, emelet_max: Int, emelet_min: Int, tipus: Int, allapot: Int, energia: Int, kilatas: Int, parkolas: Int, ar_min: String, ar_max: String, keyword: String, onCompletion: (JSON) -> Void) {
         
         let token = [ "token", SettingUtil.sharedInstance.getToken()]
         let tokenpost = token.joinWithSeparator("=")
@@ -32,9 +32,26 @@ class EstateUtil: NSObject {
         let justme_ = [ "justme", String(justme)]
         let justme_send = justme_.joinWithSeparator("=")
         
+        let butor_post = "ingatlan_butorozott=" + String(butorozott)
+        let lift_post = "ingatlan_lift=" + String(lift)
+        let erkely_post = "ingatlan_erkely=" + String(erkely)
+        let meret_post = "ingatlan_meret=" + String(meret)
+        let szoba_max_post = "ingatlan_szsz_max=" + String(szsz_max)
+        let szoba_min_post = "ingatlan_szsz_min=" + String(szsz_min)
+        let emelet_max_post = "ingatlan_emelet_max=" + String(emelet_max)
+        let emelet_min_post = "ingatlan_emelet_min=" + String(emelet_min)
+        let tipus_post = "ingatlan_tipus_id=" + String(tipus)
+        let allapot_post = "ingatlan_allapot_id=" + String(allapot)
+        let etan_post = "ingatlan_energiatan_id=" + String(energia)
+        let kilatas_post = "ingatlan_kilatas_id=" + String(kilatas)
+        let ar_min_post = "ingatlan_ar_min=" + ar_min
+        let ar_max_post = "ingatlan_ar_max=" + ar_max
+        let keyword_post = "keyword=" + keyword
+        let parkolas_post = "ingatlan_parkolas_id=" + String(parkolas)
         
         
-        let pa = [ tokenpost, ingatlanid, page_send, fav_send,  etype_send, ordering_send, justme_send]
+        
+        let pa = [ tokenpost, ingatlanid, page_send, fav_send,  etype_send, ordering_send, justme_send, butor_post, lift_post, erkely_post, meret_post, szoba_max_post, szoba_min_post, emelet_max_post, emelet_min_post, tipus_post, allapot_post, etan_post, kilatas_post, ar_min_post, ar_max_post, keyword_post, parkolas_post]
         let postbody = pa.joinWithSeparator("&")
         
         let route = baseURL + "list_estates"

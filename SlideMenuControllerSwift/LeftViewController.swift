@@ -47,6 +47,9 @@ class LeftViewController : UIViewController, LeftMenuProtocol {
     override func viewDidLoad() {
         super.viewDidLoad()
         //self.tableView.registerCellClass(MenuItemViewController.self)
+        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(LeftViewController.changeToMain), name: "changeToMain", object: nil)
+        
         self.tableView.registerCellNib(MenuItemView.self)
         self.tableView.separatorColor = UIColor(red: 224/255, green: 224/255, blue: 224/255, alpha: 1.0)
         
@@ -124,6 +127,12 @@ class LeftViewController : UIViewController, LeftMenuProtocol {
             NSNotificationCenter.defaultCenter().postNotificationName("logout", object: nil)
             print ("Kijelentkezés")
         }
+    }
+    
+    func changeToMain() {
+        let fav: [String:AnyObject] = [ "isFavs": "2"]
+        NSNotificationCenter.defaultCenter().postNotificationName("setShowingFavs", object: fav)
+        self.slideMenuController()?.changeMainViewController(self.mainViewController, close: true)
     }
 }
 

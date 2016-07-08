@@ -126,10 +126,11 @@ extension AdMonitorController : UITableViewDataSource {
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        //let storyboard = UIStoryboard(name: "MessageThreadView", bundle: nil)
-        //let msg = storyboard.instantiateViewControllerWithIdentifier("MessageThreadViewController") as! MessageThreadViewController
-        //msg.id = items[indexPath.row].uid
-        //msg.hsh = items[indexPath.row].hash
-        //self.navigationController?.pushViewController(msg, animated: true)
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let main = storyboard.instantiateViewControllerWithIdentifier("MainViewController") as! MainViewController
+        main.admonitor_model = items
+        main.admonitor_id = indexPath.row
+        main.isAdmonitor = true
+        self.navigationController?.pushViewController(main, animated: true)
     }
 }

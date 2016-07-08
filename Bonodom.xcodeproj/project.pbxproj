@@ -351,6 +351,7 @@
 				C5BF6A8B1BF340020064C18E /* ExSlideMenuController.swift */,
 				57449A931D01B1B400539442 /* FavMenuController.swift */,
 				57DFCF951D01BBB900A69B8A /* AdMonitorController.swift */,
+				E4E5F73A1D2E547B001A36A4 /* AddAdmonitor.swift */,
 				57DFCF971D01BFCD00A69B8A /* AgenciesViewController.swift */,
 				57DFCF991D01C22A00A69B8A /* InviteViewController.swift */,
 				57873B4D1D0AE33000F4309A /* LoginView.storyboard */,
@@ -361,7 +362,6 @@
 				57C21E611D0EE44200CBCDFF /* AddEstateViewController.swift */,
 				57D5DC641D12DEAA002548B7 /* MessageThreadViewController.swift */,
 				57D5DC681D12DF06002548B7 /* MessageThreadView.storyboard */,
-				E4E5F73A1D2E547B001A36A4 /* AddAdmonitor.swift */,
 			);
 			name = ViewController;
 			sourceTree = "<group>";

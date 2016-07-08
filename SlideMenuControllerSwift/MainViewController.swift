@@ -15,6 +15,7 @@ class MainViewController: UIViewController, LiquidFloatingActionButtonDataSource
     @IBOutlet weak var tableView: UITableView!
     
     var items = [EstateListModel]()
+    var admonitor_model = [AdmonitorModel]()
     var currentPage = 0
     
     var cells: [LiquidFloatingCell] = []
@@ -32,6 +33,25 @@ class MainViewController: UIViewController, LiquidFloatingActionButtonDataSource
     var isShowingFavs : Int = 0
     var isJustMe : Int = 0
     
+    var butor_post = 0
+    var lift_post = 0
+    var erkely_post = 0
+    var meret_post = 0
+    var szoba_max_post = 0
+    var szoba_min_post = 0
+    var emelet_max_post = 0
+    var emelet_min_post = 0
+    var tipus_post = 0
+    var allapot_post = 0
+    var etan_post = 0
+    var kilatas_post = 0
+    var ar_min_post = ""
+    var ar_max_post = ""
+    var keyword_post = ""
+    var parkolas_post = 0
+    var isAdmonitor = false
+    var admonitor_id = 0
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -45,8 +65,11 @@ class MainViewController: UIViewController, LiquidFloatingActionButtonDataSource
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(MainViewController.logout(_:)), name: "logout", object: nil)
         
+        
+        
         if (SettingUtil.sharedInstance.getToken() != "") {
             networkChecker()
+            setAdmonitor()
         } else {
             print ("TOKEN_INACTIVE_2")
             self.alertController.dismissViewControllerAnimated(true, completion: nil)
@@ -72,6 +95,48 @@ class MainViewController: UIViewController, LiquidFloatingActionButtonDataSource
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
         networkChecker()
+    
+    }
+    
+    func setAdmonitor() {
+        
+        if (isAdmonitor) {
+            print ("SET ADMONITOR")
+            butor_post = admonitor_model[admonitor_id].ingatlan_butorozott
+            lift_post = admonitor_model[admonitor_id].ingatlan_lift
+            erkely_post = admonitor_model[admonitor_id].ingatlan_erkely
+            meret_post = admonitor_model[admonitor_id].ingatlan_meret
+            szoba_min_post = admonitor_model[admonitor_id].ingatlan_szsz_min
+            szoba_max_post = admonitor_model[admonitor_id].ingatlan_szsz_max
+            emelet_min_post = admonitor_model[admonitor_id].ingatlan_emelet_min
+            emelet_max_post = admonitor_model[admonitor_id].ingatlan_emelet_max
+            tipus_post = admonitor_model[admonitor_id].ingatlan_tipus_id
+            allapot_post = admonitor_model[admonitor_id].ingatlan_allapot_id
+            etan_post = admonitor_model[admonitor_id].ingatlan_energiatan_id
+            kilatas_post = admonitor_model[admonitor_id].ingatlan_kilatas_id
+            ar_max_post = admonitor_model[admonitor_id].ingatlan_ar_max
+            ar_min_post = admonitor_model[admonitor_id].ingatlan_ar_min
+            keyword_post = admonitor_model[admonitor_id].keyword
+            parkolas_post = admonitor_model[admonitor_id].ingatlan_parkolas_id
+        } else {
+            print ("NOT SET ADMONITOR")
+            butor_post = 0
+            lift_post = 0
+            erkely_post = 0
+            meret_post = 0
+            szoba_min_post = 0
+            szoba_max_post = 0
+            emelet_min_post = 0
+            emelet_max_post = 0
+            tipus_post = 0
+            allapot_post = 0
+            etan_post = 0
+            kilatas_post = 0
+            ar_max_post = ""
+            ar_min_post = ""
+            keyword_post = ""
+            parkolas_post = 0
+        }
     }
     
 
@@ -186,6 +251,8 @@ class MainViewController: UIViewController, LiquidFloatingActionButtonDataSource
         isShowingFavs = 0
         self.items.removeAll()
         currentPage = 0
+        isAdmonitor = false
+        setAdmonitor()
         showLoadingDialog()
         self.loadEstateList(0, page: 0, fav: self.isShowingFavs, etype: self.adType, ordering: self.order, justme: isJustMe)
     }
@@ -195,14 +262,23 @@ class MainViewController: UIViewController, LiquidFloatingActionButtonDataSource
             if let isFavs = info["isFavs"] as? String {
                 if (isFavs == "1") {
                     isShowingFavs = 1
-                } else {
+                    isAdmonitor = false
+                    setAdmonitor()
+                } else if (isFavs == "0"){
                     isShowingFavs = 0
+                    isAdmonitor = false
+                    setAdmonitor()
+                } else if (isFavs == "2"){
+                    isShowingFavs = 0
+                    isAdmonitor = true
+                    setAdmonitor()
                 }
             }
         }
         isJustMe = 0
         self.items.removeAll()
         currentPage = 0
+        
         showLoadingDialog()
         self.loadEstateList(0, page: 0, fav: self.isShowingFavs, etype: self.adType, ordering: self.order, justme: isJustMe)
     }
@@ -278,7 +354,7 @@ class MainViewController: UIViewController, LiquidFloatingActionButtonDataSource
     func handleRefresh(refreshControl: UIRefreshControl) {
         self.items.removeAll()
         currentPage = 0
-        showLoadingDialog()
+        setAdmonitor()
         self.loadEstateList(0, page: 0, fav: isShowingFavs, etype: self.adType, ordering: self.order, justme: isJustMe)
         
         refreshControl.endRefreshing()
@@ -327,8 +403,32 @@ class MainViewController: UIViewController, LiquidFloatingActionButtonDataSource
         self.loadEstateList(0, page: 0, fav: isShowingFavs, etype: self.adType, ordering: self.order, justme: isJustMe)
     }
     
+    
     func loadEstateList(id: Int, page: Int, fav: Int, etype: Int, ordering: Int, justme: Int) {
-        EstateUtil.sharedInstance.getEstateList(id, page: page, fav: fav, etype: etype, ordering: ordering, justme: justme, onCompletion: { (json: JSON) in
+        
+        EstateUtil.sharedInstance.getEstateList(id,
+                                                page: page,
+                                                fav: fav,
+                                                etype: etype,
+                                                ordering: ordering,
+                                                justme: justme,
+                                                butorozott: butor_post,
+                                                lift: lift_post,
+                                                erkely: erkely_post,
+                                                meret: meret_post,
+                                                szsz_max: szoba_max_post,
+                                                szsz_min: szoba_min_post,
+                                                emelet_max: emelet_max_post,
+                                                emelet_min: emelet_min_post,
+                                                tipus: tipus_post,
+                                                allapot: allapot_post,
+                                                energia: etan_post,
+                                                kilatas: kilatas_post,
+                                                parkolas: parkolas_post,
+                                                ar_min: ar_min_post,
+                                                ar_max: ar_max_post,
+                                                keyword: keyword_post,
+                                                onCompletion: { (json: JSON) in
             print (json)
             if let results = json.array {
                 for entry in results {
