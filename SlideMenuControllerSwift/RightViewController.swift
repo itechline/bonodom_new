@@ -232,51 +232,27 @@ class RightViewController : UIViewController {
         let ar_min : String = min_price_text!.text!
         let ar_max : String = max_price_text!.text!
         
-        admonitor_item.append(AdmonitorModel(json: nil))
-    
-        admonitor_item[0].keyword = search
-        admonitor_item[0].ingatlan_ar_max = ar_max
-        admonitor_item[0].ingatlan_ar_min = ar_min
-        admonitor_item[0].ingatlan_allapot_id = allapot_id
-        admonitor_item[0].ingatlan_parkolas_id = parkolas_id
-        admonitor_item[0].ingatlan_tipus_id = kivitel_id
-        admonitor_item[0].ingatlan_emelet_min = szintek_min_id
-        admonitor_item[0].ingatlan_emelet_max = szintek_max_id
-        admonitor_item[0].ingatlan_szsz_max = szobaszam_max_id
-        admonitor_item[0].ingatlan_szsz_min = szobaszam_min_id
-        admonitor_item[0].ingatlan_lift = lift_id
-        admonitor_item[0].ingatlan_erkely = erkely_id
-        admonitor_item[0].ingatlan_meret = meret_id
-        admonitor_item[0].ingatlan_kilatas_id = kilatas_id
-        admonitor_item[0].ingatlan_butorozott = butorozott_id
-        admonitor_item[0].ingatlan_energiatan_id = etan_id
-        
-        /*
-         butor_post = admonitor_model[admonitor_id].ingatlan_butorozott
-         lift_post = admonitor_model[admonitor_id].ingatlan_lift
-         erkely_post = admonitor_model[admonitor_id].ingatlan_erkely
-         meret_post = admonitor_model[admonitor_id].ingatlan_meret
-         szoba_min_post = admonitor_model[admonitor_id].ingatlan_szsz_min
-         szoba_max_post = admonitor_model[admonitor_id].ingatlan_szsz_max
-         emelet_min_post = admonitor_model[admonitor_id].ingatlan_emelet_min
-         emelet_max_post = admonitor_model[admonitor_id].ingatlan_emelet_max
-         tipus_post = admonitor_model[admonitor_id].ingatlan_tipus_id
-         allapot_post = admonitor_model[admonitor_id].ingatlan_allapot_id
-         etan_post = admonitor_model[admonitor_id].ingatlan_energiatan_id
-         kilatas_post = admonitor_model[admonitor_id].ingatlan_kilatas_id
-         ar_max_post = admonitor_model[admonitor_id].ingatlan_ar_max
-         ar_min_post = admonitor_model[admonitor_id].ingatlan_ar_min
-         keyword_post = admonitor_model[admonitor_id].keyword
-         parkolas_post = admonitor_model[admonitor_id].ingatlan_parkolas_id
- */
-        
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let main = storyboard.instantiateViewControllerWithIdentifier("MainViewController") as! MainViewController
-        main.admonitor_model = admonitor_item
-        main.admonitor_id = 0
-        main.isAdmonitor = true
-        //self.navigationController?.pushViewController(main, animated: true)
         
+        SearchModel.butor_post = butorozott_id
+        SearchModel.lift_post = lift_id
+        SearchModel.erkely_post = erkely_id
+        SearchModel.meret_post = meret_id
+        SearchModel.szoba_min_post = szobaszam_min_id
+        SearchModel.szoba_max_post = szobaszam_max_id
+        SearchModel.emelet_min_post = szintek_min_id
+        SearchModel.emelet_max_post = szintek_max_id
+        SearchModel.tipus_post = 0
+        SearchModel.allapot_post = allapot_id
+        SearchModel.etan_post = etan_id
+        SearchModel.kilatas_post = kilatas_id
+        SearchModel.ar_max_post = ar_max
+        SearchModel.ar_min_post = ar_min
+        SearchModel.keyword_post = search
+        SearchModel.parkolas_post = parkolas_id
+        main.isAdmonitor = true
+
         NSNotificationCenter.defaultCenter().postNotificationName("changeToMain", object: nil)
     }
     

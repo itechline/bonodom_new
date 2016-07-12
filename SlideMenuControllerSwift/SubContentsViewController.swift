@@ -185,4 +185,13 @@ class SubContentsViewController : UIViewController, LiquidFloatingActionButtonDa
     }
     
     
+    
+    
+    
+    @IBAction func see_on_maps_button(sender: AnyObject) {
+        let storyboard = UIStoryboard(name: "MapsViewController", bundle: nil)
+        let maps = storyboard.instantiateViewControllerWithIdentifier("Maps") as! MapsViewController
+        self.navigationController?.pushViewController(maps, animated: true)
+    }
+    
 }

@@ -100,45 +100,101 @@ class MainViewController: UIViewController, LiquidFloatingActionButtonDataSource
     
     func setAdmonitor() {
         
+        
+        
         if (isAdmonitor) {
-            print ("SET ADMONITOR")
-            butor_post = admonitor_model[admonitor_id].ingatlan_butorozott
-            lift_post = admonitor_model[admonitor_id].ingatlan_lift
-            erkely_post = admonitor_model[admonitor_id].ingatlan_erkely
-            meret_post = admonitor_model[admonitor_id].ingatlan_meret
-            szoba_min_post = admonitor_model[admonitor_id].ingatlan_szsz_min
-            szoba_max_post = admonitor_model[admonitor_id].ingatlan_szsz_max
-            emelet_min_post = admonitor_model[admonitor_id].ingatlan_emelet_min
-            emelet_max_post = admonitor_model[admonitor_id].ingatlan_emelet_max
-            tipus_post = admonitor_model[admonitor_id].ingatlan_tipus_id
-            allapot_post = admonitor_model[admonitor_id].ingatlan_allapot_id
-            etan_post = admonitor_model[admonitor_id].ingatlan_energiatan_id
-            kilatas_post = admonitor_model[admonitor_id].ingatlan_kilatas_id
-            ar_max_post = admonitor_model[admonitor_id].ingatlan_ar_max
-            ar_min_post = admonitor_model[admonitor_id].ingatlan_ar_min
-            keyword_post = admonitor_model[admonitor_id].keyword
-            parkolas_post = admonitor_model[admonitor_id].ingatlan_parkolas_id
+            if (!admonitor_model.isEmpty) {
+                print ("SET ADMONITOR")
+                butor_post = admonitor_model[admonitor_id].ingatlan_butorozott
+                lift_post = admonitor_model[admonitor_id].ingatlan_lift
+                erkely_post = admonitor_model[admonitor_id].ingatlan_erkely
+                meret_post = admonitor_model[admonitor_id].ingatlan_meret
+                szoba_min_post = admonitor_model[admonitor_id].ingatlan_szsz_min
+                szoba_max_post = admonitor_model[admonitor_id].ingatlan_szsz_max
+                emelet_min_post = admonitor_model[admonitor_id].ingatlan_emelet_min
+                emelet_max_post = admonitor_model[admonitor_id].ingatlan_emelet_max
+                tipus_post = admonitor_model[admonitor_id].ingatlan_tipus_id
+                allapot_post = admonitor_model[admonitor_id].ingatlan_allapot_id
+                etan_post = admonitor_model[admonitor_id].ingatlan_energiatan_id
+                kilatas_post = admonitor_model[admonitor_id].ingatlan_kilatas_id
+                ar_max_post = admonitor_model[admonitor_id].ingatlan_ar_max
+                ar_min_post = admonitor_model[admonitor_id].ingatlan_ar_min
+                keyword_post = admonitor_model[admonitor_id].keyword
+                parkolas_post = admonitor_model[admonitor_id].ingatlan_parkolas_id
+            } else {
+                print ("SET ADMONITOR SEARCH")
+                butor_post = SearchModel.butor_post
+                lift_post = SearchModel.lift_post
+                
+                erkely_post = SearchModel.erkely_post
+                
+                meret_post = SearchModel.meret_post
+                
+                szoba_min_post = SearchModel.szoba_min_post
+                
+                szoba_max_post = SearchModel.szoba_max_post
+                
+                emelet_min_post = SearchModel.emelet_min_post
+                
+                emelet_max_post = SearchModel.emelet_max_post
+                
+                tipus_post = SearchModel.tipus_post
+                
+                allapot_post = SearchModel.allapot_post
+                
+                etan_post = SearchModel.etan_post
+                
+                kilatas_post = SearchModel.kilatas_post
+                
+                ar_max_post = SearchModel.ar_max_post
+                
+                ar_min_post = SearchModel.ar_min_post
+                
+                keyword_post = SearchModel.keyword_post
+                
+                parkolas_post = SearchModel.parkolas_post
+                
+            }
+            
         } else {
+            
             print ("NOT SET ADMONITOR")
+            
             butor_post = 0
+            
             lift_post = 0
+            
             erkely_post = 0
+            
             meret_post = 0
+            
             szoba_min_post = 0
+            
             szoba_max_post = 0
+            
             emelet_min_post = 0
+            
             emelet_max_post = 0
+            
             tipus_post = 0
+            
             allapot_post = 0
+            
             etan_post = 0
+            
             kilatas_post = 0
+            
             ar_max_post = ""
+            
             ar_min_post = ""
+            
             keyword_post = ""
+            
             parkolas_post = 0
+            
         }
+        
     }
-    
 
     
     

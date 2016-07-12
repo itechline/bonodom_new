@@ -64,7 +64,7 @@
                                                     <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
                                                 <connections>
-                                                    <action selector="butorozott_button:" destination="XP6-P6-eka" eventType="touchUpInside" id="6RL-ml-gns"/>
+                                                    <action selector="hirdetes_tipusa_button:" destination="XP6-P6-eka" eventType="touchUpInside" id="xXf-Bd-7Dz"/>
                                                 </connections>
                                             </button>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ok3-Tn-UJH">
@@ -93,7 +93,7 @@
                                                     <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
                                                 <connections>
-                                                    <action selector="hirdetes_tipusa_button:" destination="XP6-P6-eka" eventType="touchUpInside" id="w7u-6P-CIW"/>
+                                                    <action selector="butorozott_button:" destination="XP6-P6-eka" eventType="touchUpInside" id="gHt-P1-APV"/>
                                                 </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hírdetés Típusa*:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dQa-ss-4wS">

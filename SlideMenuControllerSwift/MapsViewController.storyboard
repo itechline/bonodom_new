@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <scenes>
+        <!--Maps View Controller-->
+        <scene sceneID="42F-R1-TRW">
+            <objects>
+                <viewController storyboardIdentifier="Maps" id="AcK-bI-fRA" customClass="MapsViewController" customModule="Bonodom" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="72G-NZ-SFU"/>
+                        <viewControllerLayoutGuide type="bottom" id="ms8-Oz-Z4X"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="xec-M3-6BM">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="RMI-gA-X52">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                            </mapView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="RMI-gA-X52" secondAttribute="trailing" id="6fP-Gv-cpz"/>
+                            <constraint firstItem="RMI-gA-X52" firstAttribute="top" secondItem="xec-M3-6BM" secondAttribute="top" id="6zz-AY-4JZ"/>
+                            <constraint firstItem="RMI-gA-X52" firstAttribute="leading" secondItem="xec-M3-6BM" secondAttribute="leading" id="JNp-U2-s2d"/>
+                            <constraint firstItem="RMI-gA-X52" firstAttribute="bottom" secondItem="ms8-Oz-Z4X" secondAttribute="top" id="dcM-bL-ucP"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="maps" destination="RMI-gA-X52" id="TY8-WE-ab0"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="uRh-HQ-A8j" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="77" y="112"/>
+        </scene>
+    </scenes>
+</document>

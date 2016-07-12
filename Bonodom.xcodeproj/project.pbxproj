@@ -82,6 +82,10 @@
 		E4D7F35D1D2E794800D075A7 /* AdmonitorDataCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4D7F35C1D2E794800D075A7 /* AdmonitorDataCell.swift */; };
 		E4E29F591D2677B500FB6DE6 /* AdMonitorUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E29F581D2677B500FB6DE6 /* AdMonitorUtil.swift */; };
 		E4E5F73B1D2E547B001A36A4 /* AddAdmonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E5F73A1D2E547B001A36A4 /* AddAdmonitor.swift */; };
+		E4F35EF31D35222C00903A44 /* SearchModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F35EF21D35222C00903A44 /* SearchModel.swift */; };
+		E4F35EF51D35239000903A44 /* MapsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F35EF41D35239000903A44 /* MapsViewController.swift */; };
+		E4F35EF71D3523C800903A44 /* MapsViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E4F35EF61D3523C800903A44 /* MapsViewController.storyboard */; };
+		E4F35EF91D35245B00903A44 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E4F35EF81D35245B00903A44 /* MapKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -177,6 +181,10 @@
 		E4D7F35C1D2E794800D075A7 /* AdmonitorDataCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdmonitorDataCell.swift; sourceTree = "<group>"; };
 		E4E29F581D2677B500FB6DE6 /* AdMonitorUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdMonitorUtil.swift; sourceTree = "<group>"; };
 		E4E5F73A1D2E547B001A36A4 /* AddAdmonitor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddAdmonitor.swift; sourceTree = "<group>"; };
+		E4F35EF21D35222C00903A44 /* SearchModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchModel.swift; sourceTree = "<group>"; };
+		E4F35EF41D35239000903A44 /* MapsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapsViewController.swift; sourceTree = "<group>"; };
+		E4F35EF61D3523C800903A44 /* MapsViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MapsViewController.storyboard; sourceTree = "<group>"; };
+		E4F35EF81D35245B00903A44 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -191,6 +199,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E4F35EF91D35245B00903A44 /* MapKit.framework in Frameworks */,
 				2F51954CCFC481E375B5516A /* Pods_Bonodom.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -362,6 +371,8 @@
 				57C21E611D0EE44200CBCDFF /* AddEstateViewController.swift */,
 				57D5DC641D12DEAA002548B7 /* MessageThreadViewController.swift */,
 				57D5DC681D12DF06002548B7 /* MessageThreadView.storyboard */,
+				E4F35EF41D35239000903A44 /* MapsViewController.swift */,
+				E4F35EF61D3523C800903A44 /* MapsViewController.storyboard */,
 			);
 			name = ViewController;
 			sourceTree = "<group>";
@@ -379,6 +390,7 @@
 		E454A7A51D0186DD0001CE17 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				E4F35EF81D35245B00903A44 /* MapKit.framework */,
 				E467BCCC1D0ABFF700A289B5 /* LiquidFloatingActionButton.framework */,
 				0548151CAB503CF2A92885A8 /* Pods_Bonodom.framework */,
 			);
@@ -409,6 +421,7 @@
 				E4BEF8951D251B290066F6A4 /* MessagesListModel.swift */,
 				E4BEF8971D2529230066F6A4 /* MessageModel.swift */,
 				E4D7F35A1D2E720500D075A7 /* AdmonitorModel.swift */,
+				E4F35EF21D35222C00903A44 /* SearchModel.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -555,6 +568,7 @@
 				C539E6541A315E87003B7CC7 /* LaunchScreen.xib in Resources */,
 				57D5DC6B1D12E2CF002548B7 /* MessageThreadItemView.xib in Resources */,
 				C539E6511A315E87003B7CC7 /* Images.xcassets in Resources */,
+				E4F35EF71D3523C800903A44 /* MapsViewController.storyboard in Resources */,
 				576D35ED1D05A83B00DFA2BD /* MessageTableCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -657,6 +671,7 @@
 				C5498C7E1BE897250076A7C5 /* ImageHeaderView.swift in Sources */,
 				57DFCF961D01BBB900A69B8A /* AdMonitorController.swift in Sources */,
 				E45A74091D05721D00CC9162 /* MenuItemView.swift in Sources */,
+				E4F35EF31D35222C00903A44 /* SearchModel.swift in Sources */,
 				57DFCF9A1D01C22A00A69B8A /* InviteViewController.swift in Sources */,
 				E40A3AA81D0808770009D3E0 /* EstateModel.swift in Sources */,
 				E47E36CD1D05A5080095FA6B /* EstateListModel.swift in Sources */,
@@ -679,6 +694,7 @@
 				E43ECE451D0965B60026A3AD /* SettingUtil.swift in Sources */,
 				C5C1CE5F1A70F2FD00B6E411 /* String.swift in Sources */,
 				57DFCF981D01BFCD00A69B8A /* AgenciesViewController.swift in Sources */,
+				E4F35EF51D35239000903A44 /* MapsViewController.swift in Sources */,
 				E40A3AAA1D080C170009D3E0 /* LoginUtil.swift in Sources */,
 				C5F179D01BEB2CB500EEDD9A /* UIView.swift in Sources */,
 				E4742E151D1171DD005BE576 /* PickerDialog.swift in Sources */,
