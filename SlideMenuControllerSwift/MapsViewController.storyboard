@@ -19,6 +19,9 @@
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="RMI-gA-X52">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <connections>
+                                    <outlet property="delegate" destination="AcK-bI-fRA" id="876-TZ-ESt"/>
+                                </connections>
                             </mapView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -30,7 +33,7 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="maps" destination="RMI-gA-X52" id="TY8-WE-ab0"/>
+                        <outlet property="mapView" destination="RMI-gA-X52" id="tph-Iv-Usj"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uRh-HQ-A8j" userLabel="First Responder" sceneMemberID="firstResponder"/>

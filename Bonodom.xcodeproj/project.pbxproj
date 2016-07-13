@@ -81,6 +81,7 @@
 		E4D7F35B1D2E720500D075A7 /* AdmonitorModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4D7F35A1D2E720500D075A7 /* AdmonitorModel.swift */; };
 		E4D7F35D1D2E794800D075A7 /* AdmonitorDataCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4D7F35C1D2E794800D075A7 /* AdmonitorDataCell.swift */; };
 		E4E29F591D2677B500FB6DE6 /* AdMonitorUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E29F581D2677B500FB6DE6 /* AdMonitorUtil.swift */; };
+		E4E5C8391D36458E005C7989 /* EstateMapListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E5C8381D36458E005C7989 /* EstateMapListModel.swift */; };
 		E4E5F73B1D2E547B001A36A4 /* AddAdmonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E5F73A1D2E547B001A36A4 /* AddAdmonitor.swift */; };
 		E4F35EF31D35222C00903A44 /* SearchModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F35EF21D35222C00903A44 /* SearchModel.swift */; };
 		E4F35EF51D35239000903A44 /* MapsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F35EF41D35239000903A44 /* MapsViewController.swift */; };
@@ -180,6 +181,7 @@
 		E4D7F35A1D2E720500D075A7 /* AdmonitorModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdmonitorModel.swift; sourceTree = "<group>"; };
 		E4D7F35C1D2E794800D075A7 /* AdmonitorDataCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdmonitorDataCell.swift; sourceTree = "<group>"; };
 		E4E29F581D2677B500FB6DE6 /* AdMonitorUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdMonitorUtil.swift; sourceTree = "<group>"; };
+		E4E5C8381D36458E005C7989 /* EstateMapListModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EstateMapListModel.swift; sourceTree = "<group>"; };
 		E4E5F73A1D2E547B001A36A4 /* AddAdmonitor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddAdmonitor.swift; sourceTree = "<group>"; };
 		E4F35EF21D35222C00903A44 /* SearchModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchModel.swift; sourceTree = "<group>"; };
 		E4F35EF41D35239000903A44 /* MapsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapsViewController.swift; sourceTree = "<group>"; };
@@ -413,6 +415,7 @@
 		E47E36CB1D05A4B70095FA6B /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				E4E5C8381D36458E005C7989 /* EstateMapListModel.swift */,
 				E47E36CC1D05A5080095FA6B /* EstateListModel.swift */,
 				E40A3AA71D0808770009D3E0 /* EstateModel.swift */,
 				E4742E161D118A5A005BE576 /* SpinnerModel.swift */,
@@ -683,6 +686,7 @@
 				E4D687F31D19728D00D8FA40 /* GetAddEstate.swift in Sources */,
 				E45A74101D059A4800CC9162 /* EstateUtil.swift in Sources */,
 				57873B561D0AEEA700F4309A /* ContentViewController.swift in Sources */,
+				E4E5C8391D36458E005C7989 /* EstateMapListModel.swift in Sources */,
 				E4D7F35D1D2E794800D075A7 /* AdmonitorDataCell.swift in Sources */,
 				E4E5F73B1D2E547B001A36A4 /* AddAdmonitor.swift in Sources */,
 				E4BEF8981D2529230066F6A4 /* MessageModel.swift in Sources */,
