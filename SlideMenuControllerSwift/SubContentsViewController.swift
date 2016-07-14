@@ -9,11 +9,14 @@
 import UIKit
 import SwiftyJSON
 import LiquidFloatingActionButton
+import ImageSlideshow
 
 class SubContentsViewController : UIViewController, LiquidFloatingActionButtonDataSource, LiquidFloatingActionButtonDelegate {
     
     var cells: [LiquidFloatingCell] = []
     var floatingActionButton: LiquidFloatingActionButton!
+    
+    @IBOutlet var slideshow: ImageSlideshow!
     
     @IBOutlet weak var mainImage: UIImageView!
     @IBOutlet weak var advertiserName: UILabel!
@@ -54,6 +57,7 @@ class SubContentsViewController : UIViewController, LiquidFloatingActionButtonDa
             dispatch_async(dispatch_get_main_queue(),{
                 //self.tableView.reloadData()
                 self.setTexts()
+                self.loadSlideShow()
             })
         })
         
@@ -80,6 +84,38 @@ class SubContentsViewController : UIViewController, LiquidFloatingActionButtonDa
         let bottomRightButton = createButton(floatingFrame, .Up)
         
         self.view.addSubview(bottomRightButton)
+    }
+    
+    func loadSlideShow() {
+        slideshow.backgroundColor = UIColor.whiteColor()
+        slideshow.slideshowInterval = 5.0
+        slideshow.pageControlPosition = PageControlPosition.UnderScrollView
+        slideshow.pageControl.currentPageIndicatorTintColor = UIColor.lightGrayColor();
+        slideshow.pageControl.pageIndicatorTintColor = UIColor.blackColor();
+        
+        slideshow.setImageInputs([AlamofireSource(urlString: "https://images.unsplash.com/photo-1432679963831-2dab49187847?w=1080")!, AlamofireSource(urlString: "https://images.unsplash.com/photo-1447746249824-4be4e1b76d66?w=1080")!, AlamofireSource(urlString: "https://images.unsplash.com/photo-1463595373836-6e0b0a8ee322?w=1080")!])
+        
+        let recognizer = UITapGestureRecognizer(target: self, action: #selector(SubContentsViewController.click))
+        slideshow.addGestureRecognizer(recognizer)
+    }
+    
+    func click() {
+        let ctr = FullScreenSlideshowViewController()
+        ctr.pageSelected = {(page: Int) in
+            self.slideshow.setScrollViewPage(page, animated: false)
+        }
+        
+        //ctr.initialImageIndex = slideshow.scrollViewPage
+        ctr.inputs = slideshow.images
+        //self.transitionDelegate = ZoomAnimatedTransitioningDelegate(slideshowView: slideshow, slideshowController: ctr)
+        
+        
+        // Uncomment if you want disable the slide-to-dismiss feature
+        // self.transitionDelegate?.slideToDismissEnabled = false
+        
+        
+        //ctr.transitioningDelegate = self.transitionDelegate
+        self.presentViewController(ctr, animated: true, completion: nil)
     }
     
     func numberOfCells(liquidFloatingActionButton: LiquidFloatingActionButton) -> Int {
@@ -152,7 +188,7 @@ class SubContentsViewController : UIViewController, LiquidFloatingActionButtonDa
             self.butor.text = "Alku tárgya"
         }
         
-        self.mainImage.setImageFromURL(estateItem[0].pic, indicator: activityIndicator)
+        //self.mainImage.setImageFromURL(estateItem[0].pic, indicator: activityIndicator)
     }
     
     
