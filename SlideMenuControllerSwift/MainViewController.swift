@@ -101,7 +101,7 @@ class MainViewController: UIViewController, LiquidFloatingActionButtonDataSource
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
-        networkChecker()
+        //networkChecker()
     
     }
     
@@ -236,6 +236,7 @@ class MainViewController: UIViewController, LiquidFloatingActionButtonDataSource
                 NSNotificationCenter.defaultCenter().postNotificationName("prof_picture", object: pic)
                 
                 //ImageHeaderView.sharedInstance.setName(json["veznev"].stringValue)
+                self.items.removeAll()
                 self.loadEstateList(0, page: 0, fav: self.isShowingFavs, etype: self.adType, ordering: self.order, justme: self.isJustMe)
                 self.tableView.addSubview(self.refreshControl)
             } else {
@@ -432,7 +433,7 @@ class MainViewController: UIViewController, LiquidFloatingActionButtonDataSource
     
     
     func loadEstateList(id: Int, page: Int, fav: Int, etype: Int, ordering: Int, justme: Int) {
-        
+        print ("LOAD ESTATE LIST")
         EstateUtil.sharedInstance.getEstateList(id,
                                                 page: page,
                                                 fav: fav,
