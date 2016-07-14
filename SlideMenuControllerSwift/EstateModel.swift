@@ -15,7 +15,7 @@ class EstateModel {
     var description: String!
     var price: String!
     var size: String!
-    var pic: String!
+    var pictures: [String]! = []
     
     var ingatlan_szsz_id: String!
     var ingatlan_szsz: String!
@@ -138,11 +138,13 @@ class EstateModel {
         for picArray in json["kepek"] {
             print ("PICTURE")
             print(picArray.1["kepek_url"].stringValue)
-            pic = picArray.1["kepek_url"].stringValue
+            pictures.append(picArray.1["kepek_url"].stringValue)
+            //pic = picArray.1["kepek_url"].stringValue
             //pic.append(picArray.1["kepek_url"].stringValue)
         }
-        if (pic == nil) {
-            pic = ""
-        }
+        
+        /*if (pictures.isEmpty) {
+            pictures.append("")
+        }*/
     }
 }

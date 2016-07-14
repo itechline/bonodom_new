@@ -167,7 +167,6 @@
 		E45A74081D05721D00CC9162 /* MenuItemView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuItemView.swift; sourceTree = "<group>"; };
 		E45A740A1D05725A00CC9162 /* BaseMenuItemViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseMenuItemViewController.swift; sourceTree = "<group>"; };
 		E45A740F1D059A4800CC9162 /* EstateUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EstateUtil.swift; sourceTree = "<group>"; };
-		E467BCCC1D0ABFF700A289B5 /* LiquidFloatingActionButton.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = LiquidFloatingActionButton.framework; path = "Pods/../build/Debug-iphoneos/LiquidFloatingActionButton/LiquidFloatingActionButton.framework"; sourceTree = "<group>"; };
 		E46B88AD1D103C7500D9553F /* SpinnerUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpinnerUtil.swift; sourceTree = "<group>"; };
 		E4742E141D1171DD005BE576 /* PickerDialog.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PickerDialog.swift; sourceTree = "<group>"; };
 		E4742E161D118A5A005BE576 /* SpinnerModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpinnerModel.swift; sourceTree = "<group>"; };
@@ -393,7 +392,6 @@
 			isa = PBXGroup;
 			children = (
 				E4F35EF81D35245B00903A44 /* MapKit.framework */,
-				E467BCCC1D0ABFF700A289B5 /* LiquidFloatingActionButton.framework */,
 				0548151CAB503CF2A92885A8 /* Pods_Bonodom.framework */,
 			);
 			name = Frameworks;
