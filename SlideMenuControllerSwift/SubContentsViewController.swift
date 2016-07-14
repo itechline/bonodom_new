@@ -18,7 +18,6 @@ class SubContentsViewController : UIViewController, LiquidFloatingActionButtonDa
     
     @IBOutlet var slideshow: ImageSlideshow!
     
-    @IBOutlet weak var mainImage: UIImageView!
     @IBOutlet weak var advertiserName: UILabel!
     @IBOutlet weak var priceText: UILabel!
     @IBOutlet weak var adressText: UILabel!
@@ -38,10 +37,7 @@ class SubContentsViewController : UIViewController, LiquidFloatingActionButtonDa
     @IBOutlet weak var futes: UILabel!
     @IBOutlet weak var etan: UILabel!
     @IBOutlet weak var butor: UILabel!
-    
-    
-    
-    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+
     var id = 0;
     
     var estateItem = [EstateModel]()
@@ -199,8 +195,6 @@ class SubContentsViewController : UIViewController, LiquidFloatingActionButtonDa
         } else {
             self.butor.text = "Alku tárgya"
         }
-        
-        //self.mainImage.setImageFromURL(estateItem[0].pic, indicator: activityIndicator)
     }
     
     

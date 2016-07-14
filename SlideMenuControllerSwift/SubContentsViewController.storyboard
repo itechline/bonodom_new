@@ -23,13 +23,13 @@
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tTv-4A-nBA">
                                 <rect key="frame" x="0.0" y="20" width="600" height="857"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Debrecen - Belváros" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JUv-Wk-DGE">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Debrecen - Belváros" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JUv-Wk-DGE">
                                         <rect key="frame" x="8" y="272" width="584" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="15600000 Ft" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JPO-k4-sJH">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="15600000 Ft" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JPO-k4-sJH">
                                         <rect key="frame" x="492" y="233" width="100" height="21"/>
                                         <color key="backgroundColor" red="0.0" green="0.40000000000000002" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -61,7 +61,7 @@
                                             <constraint firstAttribute="width" constant="40" id="CjV-mA-84Z"/>
                                         </constraints>
                                     </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Simonffy utca 4-6." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MoQ-65-vdP">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Simonffy utca 4-6." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MoQ-65-vdP">
                                         <rect key="frame" x="8" y="301" width="584" height="19"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="19" id="VwM-Ig-no3"/>
@@ -70,10 +70,7 @@
                                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="yJp-z4-BK0">
-                                        <rect key="frame" x="282" y="93" width="37" height="37"/>
-                                    </activityIndicatorView>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="ZFk-qp-xRT">
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="ZFk-qp-xRT">
                                         <rect key="frame" x="8" y="523" width="584" height="190"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
@@ -83,7 +80,7 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fsr-AN-SZf">
+                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fsr-AN-SZf">
                                         <rect key="frame" x="8" y="721" width="584" height="30"/>
                                         <color key="backgroundColor" red="0.0" green="0.40000000000000002" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
                                         <state key="normal" title="Megnézem a térképen">
@@ -93,7 +90,7 @@
                                             <action selector="see_on_maps_button:" destination="vxl-gz-eiI" eventType="touchUpInside" id="VJC-i0-lwX"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EDf-ZR-LeX">
+                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EDf-ZR-LeX">
                                         <rect key="frame" x="8" y="759" width="584" height="30"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
@@ -106,7 +103,7 @@
                                             <action selector="virtual_reality_button:" destination="vxl-gz-eiI" eventType="touchUpInside" id="Kly-bZ-rU1"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cit-nN-8NY">
+                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cit-nN-8NY">
                                         <rect key="frame" x="8" y="797" width="584" height="29"/>
                                         <state key="normal" title=" Hibás, sértő hírdetés bejelentése" image="hibas_serto">
                                             <color key="titleColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -115,7 +112,7 @@
                                             <action selector="hibas_serto_button:" destination="vxl-gz-eiI" eventType="touchUpInside" id="CT3-kZ-9RB"/>
                                         </connections>
                                     </button>
-                                    <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pRh-5T-7pt">
+                                    <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pRh-5T-7pt">
                                         <rect key="frame" x="8" y="328" width="584" height="187"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UbH-xQ-QQj">
@@ -402,11 +399,9 @@
                                     <constraint firstItem="Fsr-AN-SZf" firstAttribute="top" secondItem="ZFk-qp-xRT" secondAttribute="bottom" constant="8" symbolic="YES" id="BSy-TS-48f"/>
                                     <constraint firstItem="cit-nN-8NY" firstAttribute="top" secondItem="EDf-ZR-LeX" secondAttribute="bottom" constant="8" symbolic="YES" id="Bcx-lq-Rzs"/>
                                     <constraint firstItem="KAR-M8-4Qu" firstAttribute="top" secondItem="11w-Fi-GU1" secondAttribute="bottom" constant="5" id="Bvk-Dt-sKy"/>
-                                    <constraint firstItem="S5z-ja-s9h" firstAttribute="centerX" secondItem="yJp-z4-BK0" secondAttribute="centerX" id="D2g-aZ-2LZ"/>
                                     <constraint firstItem="S5z-ja-s9h" firstAttribute="centerX" secondItem="tTv-4A-nBA" secondAttribute="centerX" id="EZo-ey-y41"/>
                                     <constraint firstItem="S5z-ja-s9h" firstAttribute="top" secondItem="tTv-4A-nBA" secondAttribute="top" id="F0N-Ky-iKZ"/>
                                     <constraint firstItem="EDf-ZR-LeX" firstAttribute="trailing" secondItem="cit-nN-8NY" secondAttribute="trailing" id="I2J-QV-5tM"/>
-                                    <constraint firstItem="yJp-z4-BK0" firstAttribute="centerX" secondItem="JUv-Wk-DGE" secondAttribute="centerX" id="Joi-v8-FVW"/>
                                     <constraint firstItem="ZFk-qp-xRT" firstAttribute="leading" secondItem="Fsr-AN-SZf" secondAttribute="leading" id="KgC-MQ-QE2"/>
                                     <constraint firstItem="JPO-k4-sJH" firstAttribute="trailing" secondItem="JUv-Wk-DGE" secondAttribute="trailing" id="Mpz-Tf-2Um"/>
                                     <constraint firstAttribute="trailing" secondItem="S5z-ja-s9h" secondAttribute="trailing" id="Owy-bb-bc2"/>
@@ -422,7 +417,6 @@
                                     <constraint firstItem="EDf-ZR-LeX" firstAttribute="leading" secondItem="cit-nN-8NY" secondAttribute="leading" id="d4d-ie-kw8"/>
                                     <constraint firstItem="bB6-Tn-VKh" firstAttribute="top" secondItem="S5z-ja-s9h" secondAttribute="bottom" constant="7" id="fcm-jF-0vM"/>
                                     <constraint firstItem="JUv-Wk-DGE" firstAttribute="trailing" secondItem="MoQ-65-vdP" secondAttribute="trailing" id="h1f-qh-9uz"/>
-                                    <constraint firstItem="yJp-z4-BK0" firstAttribute="top" secondItem="tTv-4A-nBA" secondAttribute="top" constant="93" id="h3M-aN-oAr"/>
                                     <constraint firstItem="EDf-ZR-LeX" firstAttribute="top" secondItem="Fsr-AN-SZf" secondAttribute="bottom" constant="8" symbolic="YES" id="haT-Qd-EIS"/>
                                     <constraint firstItem="JPO-k4-sJH" firstAttribute="top" secondItem="S5z-ja-s9h" secondAttribute="bottom" constant="16" id="rgx-1I-jCS"/>
                                     <constraint firstItem="11w-Fi-GU1" firstAttribute="leading" secondItem="bB6-Tn-VKh" secondAttribute="trailing" constant="8" symbolic="YES" id="tAh-fi-6xx"/>
@@ -443,7 +437,6 @@
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="600" height="877"/>
                     <connections>
-                        <outlet property="activityIndicator" destination="yJp-z4-BK0" id="6rV-0J-R4y"/>
                         <outlet property="adressText" destination="JUv-Wk-DGE" id="bBa-Hw-NdL"/>
                         <outlet property="advertiserName" destination="11w-Fi-GU1" id="kZ9-ri-hQr"/>
                         <outlet property="allapot" destination="d7n-2a-2Po" id="IVe-cM-tS1"/>

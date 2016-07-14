@@ -10,6 +10,7 @@ import SwiftyJSON
 import LiquidFloatingActionButton
 import ReachabilitySwift
 import Foundation
+import SDWebImage
 
 class MainViewController: UIViewController, LiquidFloatingActionButtonDataSource, LiquidFloatingActionButtonDelegate, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
 
@@ -526,6 +527,8 @@ extension MainViewController : UITableViewDataSource {
                                          price: items[indexPath.row].price,
                                          e_type: items[indexPath.row].e_type,
                                          fav: items[indexPath.row].fav)
+        
+        
         cell.setData(data)
         
         if (largest_id < items[indexPath.row].id) {
