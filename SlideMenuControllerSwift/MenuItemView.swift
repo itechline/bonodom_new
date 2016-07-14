@@ -20,17 +20,20 @@ import UIKit
 
 struct MenuItemViewCellData2{
     
-    init(imagePath_menu: UIImage, text_menu: String){
+    init(imagePath_menu: UIImage, text_menu: String, messages: Int){
         self.imagePath_menu = imagePath_menu
         self.text_menu = text_menu
+        self.messages = messages
     }
     var imagePath_menu: UIImage
     var text_menu: String
+    var messages: Int
 }
 class MenuItemView: BaseMenuItemViewController {
 
     @IBOutlet weak var dataImage: UIImageView!
     @IBOutlet weak var dataText: UILabel!
+    @IBOutlet weak var messages_text: UILabel!
     
     override func awakeFromNib() {
         self.dataText?.font = UIFont.boldSystemFontOfSize(16)
@@ -52,6 +55,12 @@ class MenuItemView: BaseMenuItemViewController {
         if let data = data as? MenuItemViewCellData2{
             self.dataImage.image = data.imagePath_menu
             self.dataText.text = data.text_menu
+            if (data.messages != 0) {
+                self.messages_text.hidden = false
+                self.messages_text.text = String(data.messages)
+            } else {
+                self.messages_text.hidden = true
+            }
         }
     }
     

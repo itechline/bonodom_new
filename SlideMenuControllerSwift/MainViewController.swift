@@ -9,9 +9,15 @@ import UIKit
 import SwiftyJSON
 import LiquidFloatingActionButton
 import ReachabilitySwift
+import Foundation
 
 class MainViewController: UIViewController, LiquidFloatingActionButtonDataSource, LiquidFloatingActionButtonDelegate, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
 
+    
+    
+    
+    
+    
     @IBOutlet weak var tableView: UITableView!
     
     var items = [EstateListModel]()
@@ -55,6 +61,7 @@ class MainViewController: UIViewController, LiquidFloatingActionButtonDataSource
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
         self.tableView.registerCellNib(DataTableViewCell.self)
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(MainViewController.openAddestate(_:)), name: "estate_adding", object: nil)
@@ -97,6 +104,8 @@ class MainViewController: UIViewController, LiquidFloatingActionButtonDataSource
         networkChecker()
     
     }
+    
+    
     
     func setAdmonitor() {
         if (isAdmonitor) {

@@ -6,6 +6,8 @@
 //
 
 import UIKit
+import SwiftyJSON
+import Foundation
 
 enum LeftMenu: Int {
     case Main = 0
@@ -40,12 +42,16 @@ class LeftViewController : UIViewController, LeftMenuProtocol {
     var inviteVWController: UIViewController!
     var imageHeaderView: ImageHeaderView!
     
+    var messagesCount: Int = 6
+    
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
    
     override func viewDidLoad() {
         super.viewDidLoad()
+        messageCount()
+        _ = NSTimer.scheduledTimerWithTimeInterval(3.0, target: self, selector: #selector(LeftViewController.messageCount), userInfo: nil, repeats: true)
         //self.tableView.registerCellClass(MenuItemViewController.self)
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(LeftViewController.changeToMain), name: "changeToMain", object: nil)
@@ -92,6 +98,20 @@ class LeftViewController : UIViewController, LeftMenuProtocol {
         super.viewDidLayoutSubviews()
         self.imageHeaderView.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: 160)
         self.view.layoutIfNeeded()
+    }
+    
+    func messageCount()
+    {
+        //count
+        MessageUtil.sharedInstance.getMessagecount { (json: JSON) in
+            print (json)
+            if (!json["error"].boolValue) {
+                dispatch_async(dispatch_get_main_queue(),{
+                    self.messagesCount = json["count"].intValue
+                    self.tableView.reloadData()
+                })
+            }
+        }
     }
     
     func changeViewController(menu: LeftMenu) {
@@ -177,8 +197,13 @@ extension LeftViewController : UITableViewDataSource {
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
         let cell = self.tableView.dequeueReusableCellWithIdentifier(MenuItemView.identifier) as! MenuItemView
-        let data = MenuItemViewCellData2(imagePath_menu: logoImage[indexPath.row], text_menu: menus[indexPath.row])
-        cell.setData(data)
+        if (indexPath.row != 2) {
+            let data = MenuItemViewCellData2(imagePath_menu: logoImage[indexPath.row], text_menu: menus[indexPath.row], messages: 0)
+            cell.setData(data)
+        } else {
+            let data = MenuItemViewCellData2(imagePath_menu: logoImage[indexPath.row], text_menu: menus[indexPath.row], messages: messagesCount)
+            cell.setData(data)
+        }
         return cell
     }
     

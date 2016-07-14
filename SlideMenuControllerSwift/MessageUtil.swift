@@ -74,7 +74,7 @@ class MessageUtil: NSObject {
     }
     
     //get_messagecount
-    func getMessagecount(hash: String, msg: String, onCompletion: (JSON) -> Void) {
+    func getMessagecount(onCompletion: (JSON) -> Void) {
         let token = [ "token", SettingUtil.sharedInstance.getToken()]
         let tokenpost = token.joinWithSeparator("=")
         

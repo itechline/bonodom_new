@@ -54,17 +54,15 @@ class MapsViewController: UIViewController {
     }
     
     func setCoordinates(item: [EstateMapListModel]) -> [FBAnnotation] {
-        print ("SET COORDINATES")
         var array:[FBAnnotation] = []
         for i in 0...item.count-1 {
-            print ("ADDING PIN")
             let a:FBAnnotation = FBAnnotation()
             //a.coordinate = CLLocationCoordinate2D(latitude: drand48() * 40 - 20, longitude: drand48() * 80 - 40 )
             if (item[i].lat != 0.0 && item[i].lng != 0.0) {
-                print ("NOT ADDING PIN")
                 a.coordinate = CLLocationCoordinate2D(latitude: item[i].lat, longitude: item[i].lng)
+                a.title = String(item[i].id)
+                array.append(a)
             }
-            array.append(a)
         }
         return array
     }
@@ -84,14 +82,14 @@ class MapsViewController: UIViewController {
                                                                 let array:[MKAnnotation] = self.setCoordinates(self.items)
                                                                 self.clusteringManager.addAnnotations(array)
                                                                 self.clusteringManager.delegate = self;
-                                                                
                                                                 self.mapView.centerCoordinate = CLLocationCoordinate2DMake(0, 0);
                                                             }
                                                         })
                                                     }
         })
     }
-}
+    
+    }
 
 extension MapsViewController : FBClusteringManagerDelegate {
     
@@ -121,10 +119,11 @@ extension MapsViewController : MKMapViewDelegate {
         })
         
     }
+
     
     func mapView(mapView: MKMapView, viewForAnnotation annotation: MKAnnotation) -> MKAnnotationView? {
         
-        var reuseId = ""
+        var reuseId : String
         
         if annotation.isKindOfClass(FBAnnotationCluster) {
             
@@ -133,23 +132,55 @@ extension MapsViewController : MKMapViewDelegate {
             clusterView = FBAnnotationClusterView(annotation: annotation, reuseIdentifier: reuseId, options: nil)
             /*let options = FBAnnotationClusterViewOptions(smallClusterImage: "ic_action_house", mediumClusterImage: "ic_action_house", largeClusterImage: "ic_action_house")
             let clusterView = FBAnnotationClusterView(annotation: annotation, reuseIdentifier: reuseId, options: options)*/
-
+            
+            let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(MapsViewController.clusterTapped))
+            clusterView!.addGestureRecognizer(tap)
             
             return clusterView
             
         } else {
             
-            reuseId = "Pin"
-            var pinView = mapView.dequeueReusableAnnotationViewWithIdentifier(reuseId) as? MKPinAnnotationView
-            pinView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: reuseId)
+            var pinView = mapView.dequeueReusableAnnotationViewWithIdentifier(annotation.title!!) as? MKPinAnnotationView
+            pinView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: annotation.title!!)
+            let tap: MyTapGestureRecognizer = MyTapGestureRecognizer(target: self, action: #selector(MapsViewController.pinTapped(_:)))
+            tap.id = annotation.title!!
+            pinView!.addGestureRecognizer(tap)
             
+            
+            //TESZT
+            pinView!.canShowCallout = true
+            let base = UIView(frame: CGRect(x: 0, y: 0, width: 100, height: 300))
+            base.backgroundColor = UIColor.lightGrayColor()
+            let label1 = UILabel(frame: CGRect(x: 30, y: 10, width: 60, height: 300))
+            label1.textColor = UIColor.blackColor()
+            label1.text = "00"
+            base.addSubview(label1)
+            pinView!.leftCalloutAccessoryView = base
+            pinView!.pinColor = .Red
+            //TESZT END
+            
+
             
             //pinView!.pinTintColor = UIColor.greenColor()
-            
             return pinView
         }
         
     }
     
+    func pinTapped(sender: MyTapGestureRecognizer) {
+        print ("ID_A", sender.id!)
+    }
+    
+    func clusterTapped() {
+        print ("CLUSTER TAPPED")
+    }
+
+    
+    
+    
+}
+
+class MyTapGestureRecognizer: UITapGestureRecognizer {
+    var id: String?
 }
 
