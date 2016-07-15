@@ -121,20 +121,21 @@ extension BookingViewController: CVCalendarViewDelegate, CVCalendarMenuViewDeleg
         let myNSString = asd as NSString
         let date_to_send = myNSString.substringWithRange(NSRange(location: 0, length: 10))
         print ("DATE SELECTED", date_to_send)
+        self.items_by_date.removeAll()
         
         BookingUtil.sharedInstance.get_idoponts_by_datum(id, datum: date_to_send, onCompletion: { (json: JSON) in
             print ("BOOKING BY DATE")
             print (json)
             
-            self.items_by_date.removeAll()
+            
             if let results = json.array {
                 for entry in results {
                     self.items_by_date.append(IdopontokByDateModel(json: entry))
                 }
                 dispatch_async(dispatch_get_main_queue(),{
-                    if (!self.items_by_date.isEmpty) {
+                    //if (!self.items_by_date.isEmpty) {
                         self.tableView.reloadData()
-                    }
+                    //}
                 })
             }
         })

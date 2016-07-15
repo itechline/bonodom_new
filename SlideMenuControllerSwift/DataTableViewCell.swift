@@ -134,7 +134,6 @@ class DataTableViewCell : BaseTableViewCell {
             //self.dataImage.setImageFromURL(data.imageUrl, indicator: activityIndicator)
             if (data.imageUrl != "") {
                 let url: NSURL = NSURL(string: data.imageUrl)!
-                print ("URLGECI", url)
                 self.dataImage.sd_setImageWithURL(url)
             } else {
                 self.dataImage.image = UIImage(named: "noimage")

@@ -181,8 +181,18 @@ class SubContentsViewController : UIViewController, LiquidFloatingActionButtonDa
         self.mobile = estateItem[0].mobil
         
         if (!estateItem[0].face.isEmpty) {
-            self.profile_pic.setImageFromURLWhithoutIndicator("https://bonodom.com/profil/img/250_250/" + estateItem[0].face)
-            self.profile_pic.layer.cornerRadius = self.profile_pic.frame.size.height / 2
+            
+            let url: NSURL = NSURL(string: "https://bonodom.com/profil/img/250_250/" + estateItem[0].face)!
+            self.profile_pic.sd_setImageWithURL(url)
+            
+            /*profile_pic.contentMode = UIViewContentModeCenter;
+            if (imageView.bounds.size.width > ((UIImage*)imagesArray[i]).size.width && imageView.bounds.size.height > ((UIImage*)imagesArray[i]).size.height) {
+                profile_pic.contentMode = UIViewContentMode.ScaleAspectFit;
+            }*/
+            //self.profile_pic = UIImageView(frame:CGRectMake(0, 0, 40, 40))
+            //self.profile_pic.setImageFromURLWhithoutIndicator("https://bonodom.com/profil/img/250_250/" + estateItem[0].face)
+            //self.profile_pic.frame = CGRectMake(100, 150, 150, 150)
+            self.profile_pic.layer.cornerRadius = self.profile_pic.frame.size.height / 10
             self.profile_pic.clipsToBounds = true
             
         }
