@@ -30,6 +30,9 @@ class BookingViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.tableView.registerCellNib(CalendarItemViewController.self)
+        
         let current_date = NSDate()
         presentedDateUpdated(CVDate.init(date: current_date))
         getIdoponts()
@@ -109,18 +112,28 @@ extension BookingViewController: CVCalendarViewDelegate, CVCalendarMenuViewDeleg
     func didSelectDayView(dayView: CVCalendarDayView, animationDidFinish: Bool) {
         print("\(dayView.date.commonDescription) is selected!")
         
-        BookingUtil.sharedInstance.get_idoponts_by_datum(id, datum: "2016-07-28", onCompletion: { (json: JSON) in
+        //KIOLVASVA A DÁTUM ROSZ 1 NAPPAL KEVESEBBET MUTAT ÍGY HOZZÁADOK EGYET, MAJD STRINGGÉ ALAKÍTOM ÉS KIVÁGOM AZ ELSŐ 10 KARAKTERT --> Paraszt megoldás :D
+        let components: NSDateComponents = NSDateComponents()
+        components.setValue(1, forComponent: NSCalendarUnit.Day);
+        let date: NSDate = dayView.date.convertedDate()!
+        let expirationDate = NSCalendar.currentCalendar().dateByAddingComponents(components, toDate: date, options: NSCalendarOptions(rawValue: 0))
+        let asd = String(expirationDate!)
+        let myNSString = asd as NSString
+        let date_to_send = myNSString.substringWithRange(NSRange(location: 0, length: 10))
+        print ("DATE SELECTED", date_to_send)
+        
+        BookingUtil.sharedInstance.get_idoponts_by_datum(id, datum: date_to_send, onCompletion: { (json: JSON) in
             print ("BOOKING BY DATE")
             print (json)
             
+            self.items_by_date.removeAll()
             if let results = json.array {
                 for entry in results {
                     self.items_by_date.append(IdopontokByDateModel(json: entry))
                 }
                 dispatch_async(dispatch_get_main_queue(),{
                     if (!self.items_by_date.isEmpty) {
-                        
-                        
+                        self.tableView.reloadData()
                     }
                 })
             }
@@ -387,3 +400,37 @@ extension BookingViewController {
     }
     
 }
+
+extension BookingViewController : UITableViewDelegate {
+    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        return CalendarItemViewController.height()
+    }
+}
+
+extension BookingViewController : UITableViewDataSource {
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return items_by_date.count
+    }
+    
+    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        
+        let cell = self.tableView.dequeueReusableCellWithIdentifier(CalendarItemViewController.identifier) as! CalendarItemViewController
+        let data = CalendarItemViewDataCell(id: items_by_date[indexPath.row].id, ingatlan_id: items_by_date[indexPath.row].ingatlan_id, datum: items_by_date[indexPath.row].datum, status: items_by_date[indexPath.row].status, fel_id: items_by_date[indexPath.row].fel_id)
+        
+        
+        cell.setData(data)
+        return cell
+    }
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        print ("CELL TAPPED", String(items_by_date[indexPath.row].ingatlan_id))
+        /*let storyboard = UIStoryboard(name: "SubContentsViewController", bundle: nil)
+        let subContentsVC = storyboard.instantiateViewControllerWithIdentifier("SubContentsViewController") as! SubContentsViewController
+        subContentsVC.id = items[indexPath.row].id
+        subContentsVC.hsh = items[indexPath.row].hashString
+        self.navigationController?.pushViewController(subContentsVC, animated: true)
+ */
+    }
+}
+

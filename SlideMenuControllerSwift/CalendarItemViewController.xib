@@ -9,7 +9,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CalendarItemViewController" customModule="Bonodom" customModuleProvider="target"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="4Wq-9f-5pI">
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="4Wq-9f-5pI" customClass="CalendarItemViewController" customModule="Bonodom" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
             <autoresizingMask key="autoresizingMask"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="4Wq-9f-5pI" id="fAD-aT-fZI">
@@ -66,6 +66,10 @@
                     <constraint firstItem="VH2-Pi-dBq" firstAttribute="leading" secondItem="NAW-ZW-IYw" secondAttribute="trailing" constant="8" symbolic="YES" id="x8I-lp-FL9"/>
                 </constraints>
             </tableViewCellContentView>
+            <connections>
+                <outlet property="hour" destination="UzO-dC-DCd" id="QYt-8L-wW0"/>
+                <outlet property="minute" destination="NAW-ZW-IYw" id="DFG-wF-fEX"/>
+            </connections>
             <point key="canvasLocation" x="375" y="335"/>
         </tableViewCell>
     </objects>
