@@ -9,6 +9,7 @@
 import UIKit
 import CVCalendar
 import SwiftyJSON
+import NBMaterialDialogIOS
 
 class BookingViewController: UIViewController {
 
@@ -38,10 +39,17 @@ class BookingViewController: UIViewController {
         getIdoponts()
         
         
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(BookingViewController.snackbar_reserved), name: "snackbar_reserved", object: nil)
         
         
         
         
+        
+    }
+    
+    func snackbar_reserved() {
+        print ("MAKING SNACKBAR")
+        //NBMaterialSnackbar.showWithText(view, text: "Super awesome toast message, cheers!", duration: NBLunchDuration.LONG)
     }
     
     func getIdoponts() {
@@ -122,6 +130,7 @@ extension BookingViewController: CVCalendarViewDelegate, CVCalendarMenuViewDeleg
         let date_to_send = myNSString.substringWithRange(NSRange(location: 0, length: 10))
         print ("DATE SELECTED", date_to_send)
         self.items_by_date.removeAll()
+        self.tableView.reloadData()
         
         BookingUtil.sharedInstance.get_idoponts_by_datum(id, datum: date_to_send, onCompletion: { (json: JSON) in
             print ("BOOKING BY DATE")

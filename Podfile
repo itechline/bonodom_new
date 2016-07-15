@@ -1,4 +1,4 @@
-platform :ios, '8.0'
+platform :ios, '8.1'
 use_frameworks!
 
 target 'Bonodom' do
@@ -11,4 +11,5 @@ pod 'FBAnnotationClusteringSwift'
 pod 'ImageSlideshow/Alamofire'
 pod 'SDWebImage', '~>3.8'
 pod 'CVCalendar', '~> 1.2.9'
+pod 'NBMaterialDialogIOS', '~> 0.2.2'
 end

@@ -30,34 +30,39 @@ struct MydatesViewDataCell{
 }
 class MydatesViewCell: BaseMenuItemViewController {
     var id = 0
+    var status = 0
     
     @IBOutlet weak var name: UILabel!
     @IBOutlet weak var date: UILabel!
     
     @IBOutlet weak var elutasit_text: UIButton!
     @IBAction func elutasit_button(sender: AnyObject) {
-        BookingUtil.sharedInstance.update_idopont(id, status: 1, onCompletion: { (json: JSON) in
-            print ("ELUTASIT")
-            print (json)
-                dispatch_async(dispatch_get_main_queue(),{
-                    self.elutasit_text.hidden = false
-                    self.elfogad_text.hidden = true
-                    self.elutasit_text.setTitle("Elutasitva", forState: UIControlState.Normal)
-                })
-        })
+        if (self.status == 0) {
+            BookingUtil.sharedInstance.update_idopont(id, status: 1, onCompletion: { (json: JSON) in
+                print ("ELUTASIT")
+                print (json)
+                    dispatch_async(dispatch_get_main_queue(),{
+                        self.elutasit_text.hidden = false
+                        self.elfogad_text.hidden = true
+                        self.elutasit_text.setTitle("Elutasitva", forState: UIControlState.Normal)
+                    })
+            })
+        }
     }
     
     @IBOutlet weak var elfogad_text: UIButton!
     @IBAction func elfogad_button(sender: AnyObject) {
-        BookingUtil.sharedInstance.update_idopont(id, status: 2, onCompletion: { (json: JSON) in
-            print ("ELFOGAD")
-            print (json)
-            dispatch_async(dispatch_get_main_queue(),{
-                self.elutasit_text.hidden = true
-                self.elfogad_text.hidden = false
-                self.elfogad_text.setTitle("Elfogadva", forState: UIControlState.Normal)
+        if (self.status == 0) {
+            BookingUtil.sharedInstance.update_idopont(id, status: 2, onCompletion: { (json: JSON) in
+                print ("ELFOGAD")
+                print (json)
+                dispatch_async(dispatch_get_main_queue(),{
+                    self.elutasit_text.hidden = true
+                    self.elfogad_text.hidden = false
+                    self.elfogad_text.setTitle("Elfogadva", forState: UIControlState.Normal)
+                })
             })
-        })
+        }
     }
     
     var phonenumber = ""
@@ -84,6 +89,7 @@ class MydatesViewCell: BaseMenuItemViewController {
             self.date.text = data.datum
             self.phonenumber = data.mobile
             self.id = data.id
+            self.status = data.status
             switch data.status {
             case 0:
                 //NINCS MÉG ELDÖNTVE
