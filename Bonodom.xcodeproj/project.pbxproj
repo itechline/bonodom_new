@@ -11,6 +11,7 @@
 		0E75C5A61BE3CAFE00844634 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0E75C5A41BE3CAFE00844634 /* Info.plist */; };
 		0EB8EBFF1BE3CF3C00BC2A99 /* SlideMenuControllerSwift.h in Headers */ = {isa = PBXBuildFile; fileRef = 0E75C5A51BE3CAFE00844634 /* SlideMenuControllerSwift.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		2F51954CCFC481E375B5516A /* Pods_Bonodom.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0548151CAB503CF2A92885A8 /* Pods_Bonodom.framework */; };
+		572F03231D3917F400606B8A /* MydatesViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 572F03221D3917F400606B8A /* MydatesViewCell.xib */; };
 		57449A941D01B1B400539442 /* FavMenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57449A931D01B1B400539442 /* FavMenuController.swift */; };
 		576D35EC1D05A83B00DFA2BD /* MessageTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 576D35EA1D05A83B00DFA2BD /* MessageTableCell.swift */; };
 		576D35ED1D05A83B00DFA2BD /* MessageTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 576D35EB1D05A83B00DFA2BD /* MessageTableCell.xib */; };
@@ -105,6 +106,7 @@
 		0E75C5A41BE3CAFE00844634 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = Source/Info.plist; sourceTree = "<group>"; };
 		0E75C5A51BE3CAFE00844634 /* SlideMenuControllerSwift.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SlideMenuControllerSwift.h; path = Source/SlideMenuControllerSwift.h; sourceTree = "<group>"; };
 		3C7157A7A045A61A09152526 /* Pods-Bonodom.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bonodom.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Bonodom/Pods-Bonodom.debug.xcconfig"; sourceTree = "<group>"; };
+		572F03221D3917F400606B8A /* MydatesViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MydatesViewCell.xib; sourceTree = "<group>"; };
 		57449A931D01B1B400539442 /* FavMenuController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavMenuController.swift; sourceTree = "<group>"; };
 		576D35EA1D05A83B00DFA2BD /* MessageTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageTableCell.swift; sourceTree = "<group>"; };
 		576D35EB1D05A83B00DFA2BD /* MessageTableCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MessageTableCell.xib; sourceTree = "<group>"; };
@@ -314,6 +316,7 @@
 				57D5DC701D12E7CD002548B7 /* AdmonitorDataCell.xib */,
 				57D66BC41D254B1200C522C8 /* CalendarItemViewController.swift */,
 				57D66BC51D254B1200C522C8 /* CalendarItemViewController.xib */,
+				572F03221D3917F400606B8A /* MydatesViewCell.xib */,
 			);
 			name = TableViewCell;
 			sourceTree = "<group>";
@@ -570,6 +573,7 @@
 				57D5DC6B1D12E2CF002548B7 /* MessageThreadItemView.xib in Resources */,
 				C539E6511A315E87003B7CC7 /* Images.xcassets in Resources */,
 				E4F35EF71D3523C800903A44 /* MapsViewController.storyboard in Resources */,
+				572F03231D3917F400606B8A /* MydatesViewCell.xib in Resources */,
 				576D35ED1D05A83B00DFA2BD /* MessageTableCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
