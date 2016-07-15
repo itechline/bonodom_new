@@ -42,9 +42,6 @@ class CalendarItemViewController: BaseMenuItemViewController {
     override func setData(data: Any?){
         if let data = data as? CalendarItemViewDataCell{
             var time = data.datum.componentsSeparatedByString(":")
-            print ("DIKKTEFI")
-            print (time[0])
-            print (time[1])
             let hour_string = time[0].substringFromIndex(time[0].endIndex.advancedBy(-2))
             self.hour.text = hour_string
             self.minute.text = time[1]
