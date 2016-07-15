@@ -192,7 +192,7 @@ class SubContentsViewController : UIViewController, LiquidFloatingActionButtonDa
             //self.profile_pic = UIImageView(frame:CGRectMake(0, 0, 40, 40))
             //self.profile_pic.setImageFromURLWhithoutIndicator("https://bonodom.com/profil/img/250_250/" + estateItem[0].face)
             //self.profile_pic.frame = CGRectMake(100, 150, 150, 150)
-            self.profile_pic.layer.cornerRadius = self.profile_pic.frame.size.height / 10
+            self.profile_pic.layer.cornerRadius = self.profile_pic.frame.size.height / 2
             self.profile_pic.clipsToBounds = true
             
         }
