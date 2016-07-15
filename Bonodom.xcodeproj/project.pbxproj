@@ -69,6 +69,7 @@
 		E4154DC41D390C5B0098E291 /* IdopontokModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4154DC31D390C5B0098E291 /* IdopontokModel.swift */; };
 		E4154DC61D3913FD0098E291 /* IdopontokByUserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4154DC51D3913FD0098E291 /* IdopontokByUserModel.swift */; };
 		E4154DC81D3918D00098E291 /* IdopontokByDateModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4154DC71D3918D00098E291 /* IdopontokByDateModel.swift */; };
+		E437C4961D397091001FB2C5 /* MydatesViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E437C4951D397091001FB2C5 /* MydatesViewCell.swift */; };
 		E43ECE451D0965B60026A3AD /* SettingUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = E43ECE441D0965B60026A3AD /* SettingUtil.swift */; };
 		E454A7AD1D0189D90001CE17 /* SOAPEngine-Bridging-Header.h in Headers */ = {isa = PBXBuildFile; fileRef = E454A7AC1D0189D90001CE17 /* SOAPEngine-Bridging-Header.h */; };
 		E45A74071D0571E200CC9162 /* MenuItemView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E45A74061D0571E200CC9162 /* MenuItemView.xib */; };
@@ -175,6 +176,7 @@
 		E4154DC31D390C5B0098E291 /* IdopontokModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IdopontokModel.swift; sourceTree = "<group>"; };
 		E4154DC51D3913FD0098E291 /* IdopontokByUserModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IdopontokByUserModel.swift; sourceTree = "<group>"; };
 		E4154DC71D3918D00098E291 /* IdopontokByDateModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IdopontokByDateModel.swift; sourceTree = "<group>"; };
+		E437C4951D397091001FB2C5 /* MydatesViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MydatesViewCell.swift; sourceTree = "<group>"; };
 		E43ECE441D0965B60026A3AD /* SettingUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingUtil.swift; sourceTree = "<group>"; };
 		E454A7AC1D0189D90001CE17 /* SOAPEngine-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SOAPEngine-Bridging-Header.h"; sourceTree = "<group>"; };
 		E45A74061D0571E200CC9162 /* MenuItemView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MenuItemView.xib; sourceTree = "<group>"; };
@@ -329,6 +331,7 @@
 				57D66BC41D254B1200C522C8 /* CalendarItemViewController.swift */,
 				57D66BC51D254B1200C522C8 /* CalendarItemViewController.xib */,
 				572F03221D3917F400606B8A /* MydatesViewCell.xib */,
+				E437C4951D397091001FB2C5 /* MydatesViewCell.swift */,
 			);
 			name = TableViewCell;
 			sourceTree = "<group>";
@@ -717,6 +720,7 @@
 				E4E5F73B1D2E547B001A36A4 /* AddAdmonitor.swift in Sources */,
 				E4BEF8981D2529230066F6A4 /* MessageModel.swift in Sources */,
 				E45A740B1D05725A00CC9162 /* BaseMenuItemViewController.swift in Sources */,
+				E437C4961D397091001FB2C5 /* MydatesViewCell.swift in Sources */,
 				E4D7F35B1D2E720500D075A7 /* AdmonitorModel.swift in Sources */,
 				57D5DC651D12DEAA002548B7 /* MessageThreadViewController.swift in Sources */,
 				C5BA8AA61A43E2EF00863FB9 /* SlideMenuController.swift in Sources */,

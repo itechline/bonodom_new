@@ -8,7 +8,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="110" id="P7C-Ae-ghF">
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="110" id="P7C-Ae-ghF" customClass="MydatesViewCell" customModule="Bonodom" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="320" height="110"/>
             <autoresizingMask key="autoresizingMask"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="P7C-Ae-ghF" id="KaX-Qm-UGs">
@@ -27,6 +27,9 @@
                             <constraint firstAttribute="width" constant="30" id="usc-jd-eL8"/>
                         </constraints>
                         <state key="normal" image="phone_icon"/>
+                        <connections>
+                            <action selector="phone_button:" destination="P7C-Ae-ghF" eventType="touchUpInside" id="Wr6-Ar-686"/>
+                        </connections>
                     </button>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RLr-dk-Sco">
                         <rect key="frame" x="8" y="37" width="110" height="30"/>
@@ -36,6 +39,9 @@
                         <state key="normal" title="Elutasít">
                             <color key="titleColor" red="0.74509803919999995" green="0.08235294118" blue="0.1333333333" alpha="1" colorSpace="calibratedRGB"/>
                         </state>
+                        <connections>
+                            <action selector="elutasit_button:" destination="P7C-Ae-ghF" eventType="touchUpInside" id="35j-oD-zOp"/>
+                        </connections>
                     </button>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2016.08.29. 8.30-9.00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wcr-ax-IYL">
                         <rect key="frame" x="8" y="75" width="304" height="26"/>
@@ -46,6 +52,9 @@
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BiG-tf-CGk">
                         <rect key="frame" x="126" y="40" width="110" height="30"/>
                         <state key="normal" title="Elfogad"/>
+                        <connections>
+                            <action selector="elfogad_button:" destination="P7C-Ae-ghF" eventType="touchUpInside" id="QgD-Us-PUa"/>
+                        </connections>
                     </button>
                 </subviews>
                 <constraints>
@@ -67,6 +76,12 @@
                     <constraint firstItem="x1J-xu-AIK" firstAttribute="leading" secondItem="KaX-Qm-UGs" secondAttribute="leadingMargin" id="xEc-h3-1ea"/>
                 </constraints>
             </tableViewCellContentView>
+            <connections>
+                <outlet property="date" destination="wcr-ax-IYL" id="MOu-Sm-00m"/>
+                <outlet property="elfogad_text" destination="BiG-tf-CGk" id="m68-ro-Q0E"/>
+                <outlet property="elutasit_text" destination="RLr-dk-Sco" id="G74-3P-hnq"/>
+                <outlet property="name" destination="x1J-xu-AIK" id="oVE-bV-m7E"/>
+            </connections>
             <point key="canvasLocation" x="264" y="299"/>
         </tableViewCell>
     </objects>

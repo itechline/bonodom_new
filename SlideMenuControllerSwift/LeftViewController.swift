@@ -42,7 +42,8 @@ class LeftViewController : UIViewController, LeftMenuProtocol {
     var inviteVWController: UIViewController!
     var imageHeaderView: ImageHeaderView!
     
-    var messagesCount: Int = 6
+    var messagesCount: Int = 0
+    var appointmentsCount: Int = 0
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -108,6 +109,16 @@ class LeftViewController : UIViewController, LeftMenuProtocol {
             if (!json["error"].boolValue) {
                 dispatch_async(dispatch_get_main_queue(),{
                     self.messagesCount = json["count"].intValue
+                    self.tableView.reloadData()
+                })
+            }
+        }
+        
+        BookingUtil.sharedInstance.get_idpontcount { (json: JSON) in
+            print (json)
+            if (!json["error"].boolValue) {
+                dispatch_async(dispatch_get_main_queue(),{
+                    self.appointmentsCount = json["count"].intValue
                     self.tableView.reloadData()
                 })
             }
@@ -197,11 +208,18 @@ extension LeftViewController : UITableViewDataSource {
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
         let cell = self.tableView.dequeueReusableCellWithIdentifier(MenuItemView.identifier) as! MenuItemView
-        if (indexPath.row != 2) {
-            let data = MenuItemViewCellData2(imagePath_menu: logoImage[indexPath.row], text_menu: menus[indexPath.row], messages: 0)
+        
+        switch indexPath.row {
+        case 2:
+            let data = MenuItemViewCellData2(imagePath_menu: logoImage[indexPath.row], text_menu: menus[indexPath.row], messages: messagesCount, appointment: 0)
             cell.setData(data)
-        } else {
-            let data = MenuItemViewCellData2(imagePath_menu: logoImage[indexPath.row], text_menu: menus[indexPath.row], messages: messagesCount)
+            break
+        case 3:
+            let data = MenuItemViewCellData2(imagePath_menu: logoImage[indexPath.row], text_menu: menus[indexPath.row], messages: 0, appointment: appointmentsCount)
+            cell.setData(data)
+            break
+        default:
+            let data = MenuItemViewCellData2(imagePath_menu: logoImage[indexPath.row], text_menu: menus[indexPath.row], messages: 0, appointment: 0)
             cell.setData(data)
         }
         return cell

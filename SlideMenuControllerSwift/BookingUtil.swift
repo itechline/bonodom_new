@@ -57,14 +57,38 @@ class BookingUtil: NSObject  {
         })
     }
     
+    func update_idopont(id: Int, status: Int, onCompletion: (JSON) -> Void) {
+        
+        let token = [ "token", SettingUtil.sharedInstance.getToken()]
+        let tokenpost = token.joinWithSeparator("=")
+        let id_post = "id=" + String(id)
+        let status_post = "s=" + String(status)
+        
+        let pa = [ tokenpost, id_post, status_post]
+        let postbody = pa.joinWithSeparator("&")
+        
+        let route = baseURL + "update_idopont"
+        makeHTTPPostRequest(route, body: postbody, onCompletion: { json, err in
+            onCompletion(json as JSON)
+        })
+    }
     
+    func get_idpontcount(onCompletion: (JSON) -> Void) {
+        
+        let token = [ "token", SettingUtil.sharedInstance.getToken()]
+        let tokenpost = token.joinWithSeparator("=")
+        
+        let route = baseURL + "get_idpontcount"
+        makeHTTPPostRequest(route, body: tokenpost, onCompletion: { json, err in
+            onCompletion(json as JSON)
+        })
+    }
     
     private func makeHTTPPostRequest(path: String, body: String, onCompletion: ServiceResponse) {
         let request = NSMutableURLRequest(URL: NSURL(string: path)!)
         
         // Set the method to POST
         request.HTTPMethod = "POST"
-        //request.addValue("608f44981dd5241547605947c1dc38e0", forHTTPHeaderField: "token");
         
         do {
             print(body)

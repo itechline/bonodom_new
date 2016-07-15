@@ -20,14 +20,16 @@ import UIKit
 
 struct MenuItemViewCellData2{
     
-    init(imagePath_menu: UIImage, text_menu: String, messages: Int){
+    init(imagePath_menu: UIImage, text_menu: String, messages: Int, appointment: Int){
         self.imagePath_menu = imagePath_menu
         self.text_menu = text_menu
         self.messages = messages
+        self.appointment = appointment
     }
     var imagePath_menu: UIImage
     var text_menu: String
     var messages: Int
+    var appointment: Int
 }
 class MenuItemView: BaseMenuItemViewController {
 
@@ -58,6 +60,12 @@ class MenuItemView: BaseMenuItemViewController {
             if (data.messages != 0) {
                 self.messages_text.hidden = false
                 self.messages_text.text = String(data.messages)
+            } else {
+                self.messages_text.hidden = true
+            }
+            if (data.appointment != 0) {
+                self.messages_text.hidden = false
+                self.messages_text.text = String(data.appointment)
             } else {
                 self.messages_text.hidden = true
             }

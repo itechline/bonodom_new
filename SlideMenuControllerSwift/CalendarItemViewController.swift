@@ -8,16 +8,6 @@
 
 import UIKit
 
-/*struct MenuItemViewCellData {
- 
- init(imageUrl_menu: String, text_menu: String) {
- self.imageUrl_menu = imageUrl_menu
- self.text_menu = text_menu
- }
- var imageUrl_menu: String
- var text_menu: String
- }*/
-
 struct CalendarItemViewDataCell{
     
     init(id: Int, ingatlan_id: Int, datum: String, status: Int, fel_id: Int){
@@ -48,15 +38,16 @@ class CalendarItemViewController: BaseMenuItemViewController {
         return 44
     }
     
-    /*override func setData(data: Any?) {
-     if let data = data as? MenuItemViewCellData {
-     self.dataImage.setRandomDownloadImage(50, height: 50)
-     self.dataText.text = data.text_menu
-     }
-     }*/
     
     override func setData(data: Any?){
         if let data = data as? CalendarItemViewDataCell{
+            var time = data.datum.componentsSeparatedByString(":")
+            print ("DIKKTEFI")
+            print (time[0])
+            print (time[1])
+            let hour_string = time[0].substringFromIndex(time[0].endIndex.advancedBy(-2))
+            self.hour.text = hour_string
+            self.minute.text = time[1]
             //self.dataImage.image = data.imagePath_menu
             
         }
