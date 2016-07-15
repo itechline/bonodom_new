@@ -7,8 +7,12 @@
 //
 
 import UIKit
+import SwiftyJSON
 
 class GoViewController: UIViewController {
+    
+    @IBOutlet weak var tableView: UITableView!
+    var items = [IdopontokByUserModel]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -17,5 +21,14 @@ class GoViewController: UIViewController {
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         self.setNavigationBarItem()
+    }
+    
+    
+    func loadList() {
+        BookingUtil.sharedInstance.get_idoponts_by_user({ (json: JSON) in
+            print ("BOOKING BY USER")
+            print (json)
+            
+        })
     }
 }

@@ -1059,53 +1059,35 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LFi-qx-V34">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="230"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ezegynaptár" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uXc-sJ-OT1">
-                                        <rect key="frame" x="8" y="8" width="592" height="21"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstItem="uXc-sJ-OT1" firstAttribute="top" secondItem="LFi-qx-V34" secondAttribute="topMargin" id="6k8-N2-HWx"/>
-                                    <constraint firstItem="uXc-sJ-OT1" firstAttribute="leading" secondItem="LFi-qx-V34" secondAttribute="leadingMargin" id="i7i-Lk-Grw"/>
-                                    <constraint firstAttribute="trailing" secondItem="uXc-sJ-OT1" secondAttribute="trailing" id="ze9-0S-Odb"/>
-                                </constraints>
-                            </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="or2-bV-VJ4">
                                 <rect key="frame" x="0.0" y="238" width="600" height="362"/>
-                                <subviews>
-                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="WxC-7q-mad">
-                                        <rect key="frame" x="0.0" y="0.0" width="600" height="362"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                    </tableView>
-                                </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="bottom" secondItem="WxC-7q-mad" secondAttribute="bottom" id="1fQ-0E-EY7"/>
-                                    <constraint firstAttribute="trailing" secondItem="WxC-7q-mad" secondAttribute="trailing" id="ZYH-18-Bnv"/>
-                                    <constraint firstItem="WxC-7q-mad" firstAttribute="top" secondItem="or2-bV-VJ4" secondAttribute="top" id="aOq-65-R8J"/>
-                                    <constraint firstItem="WxC-7q-mad" firstAttribute="leading" secondItem="or2-bV-VJ4" secondAttribute="leading" id="nOa-eG-KNi"/>
-                                </constraints>
                             </view>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="WxC-7q-mad">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="pwN-Wv-Ioh" id="SPM-x1-fnz"/>
+                                    <outlet property="delegate" destination="pwN-Wv-Ioh" id="d8B-9O-kQW"/>
+                                </connections>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" red="0.89411764709999997" green="0.91764705879999997" blue="0.91372549020000005" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="LFi-qx-V34" firstAttribute="leading" secondItem="IWZ-ke-U66" secondAttribute="leading" id="0yk-ep-g1a"/>
-                            <constraint firstAttribute="trailing" secondItem="LFi-qx-V34" secondAttribute="trailing" id="PA3-yq-bud"/>
-                            <constraint firstItem="LFi-qx-V34" firstAttribute="leading" secondItem="or2-bV-VJ4" secondAttribute="leading" id="WOG-9N-Var"/>
-                            <constraint firstItem="LFi-qx-V34" firstAttribute="top" secondItem="IWZ-ke-U66" secondAttribute="top" id="YlG-Oa-X9z"/>
-                            <constraint firstItem="or2-bV-VJ4" firstAttribute="top" secondItem="LFi-qx-V34" secondAttribute="bottom" constant="8" symbolic="YES" id="Zg2-Wp-3Ol"/>
-                            <constraint firstItem="or2-bV-VJ4" firstAttribute="top" secondItem="IWZ-ke-U66" secondAttribute="top" constant="238" id="epP-t7-nmn"/>
-                            <constraint firstItem="or2-bV-VJ4" firstAttribute="bottom" secondItem="4w6-Ph-vE3" secondAttribute="top" id="gPk-2o-0ew"/>
-                            <constraint firstItem="LFi-qx-V34" firstAttribute="trailing" secondItem="or2-bV-VJ4" secondAttribute="trailing" id="kX1-1s-rpb"/>
+                            <constraint firstAttribute="trailing" secondItem="WxC-7q-mad" secondAttribute="trailing" id="65d-w0-3dh"/>
+                            <constraint firstItem="WxC-7q-mad" firstAttribute="bottom" secondItem="4w6-Ph-vE3" secondAttribute="top" id="JQT-Gh-Zp0"/>
+                            <constraint firstItem="WxC-7q-mad" firstAttribute="trailing" secondItem="or2-bV-VJ4" secondAttribute="trailing" id="Qvc-Rr-Q30"/>
+                            <constraint firstItem="WxC-7q-mad" firstAttribute="leading" secondItem="or2-bV-VJ4" secondAttribute="leading" id="VFN-eL-ZY0"/>
+                            <constraint firstItem="or2-bV-VJ4" firstAttribute="top" secondItem="QEC-CO-vAa" secondAttribute="bottom" constant="218" id="Xfy-Ki-uVj"/>
+                            <constraint firstItem="WxC-7q-mad" firstAttribute="leading" secondItem="IWZ-ke-U66" secondAttribute="leading" id="n1A-Pd-0hj"/>
+                            <constraint firstItem="or2-bV-VJ4" firstAttribute="bottom" secondItem="4w6-Ph-vE3" secondAttribute="top" id="vvt-e2-Ybz"/>
+                            <constraint firstItem="WxC-7q-mad" firstAttribute="top" secondItem="IWZ-ke-U66" secondAttribute="top" id="xe8-Cv-D9o"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Wve-YG-p0e"/>
+                    <connections>
+                        <outlet property="tableView" destination="WxC-7q-mad" id="mPB-7w-4FE"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="R0Q-i3-kfU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

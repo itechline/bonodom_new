@@ -23,7 +23,11 @@ public struct SlideMenuOptions {
     public static var leftBezelWidth: CGFloat? = 16.0
     public static var contentViewScale: CGFloat = 0.96
     public static var contentViewOpacity: CGFloat = 0.5
-    public static var contentViewDrag: Bool = false
+    
+    
+    public static var contentViewDrag: Bool = true
+    
+    
     public static var shadowOpacity: CGFloat = 0.0
     public static var shadowRadius: CGFloat = 0.0
     public static var shadowOffset: CGSize = CGSizeMake(0,0)
@@ -1026,7 +1030,13 @@ extension UIViewController {
     
     public func addRightBarButtonWithImage(buttonImage: UIImage) {
         let rightButton: UIBarButtonItem = UIBarButtonItem(image: buttonImage, style: UIBarButtonItemStyle.Plain, target: self, action: #selector(self.toggleRight))
-        navigationItem.rightBarButtonItem = rightButton;
+        //navigationItem.rightBarButtonItem = rightButton;
+        
+        //let add = UIBarButtonItem(barButtonSystemItem: .Add, target: self, action: #selector(addTapped))
+        let maps = UIBarButtonItem(image: UIImage.init(named: "ic_action_map_b"), style: .Plain, target: self, action: #selector(addTapped))
+        //let play = UIBarButtonItem(title: "Play", style: .Plain, target: self, action: #selector(addTapped))
+        
+        navigationItem.rightBarButtonItems = [rightButton , maps]
     }
     
     public func toggleLeft() {

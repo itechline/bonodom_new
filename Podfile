@@ -10,4 +10,5 @@ pod 'FBAnnotationClusteringSwift'
 #pod "ImageSlideshow/AFURL", :path => "../"
 pod 'ImageSlideshow/Alamofire'
 pod 'SDWebImage', '~>3.8'
+pod 'CVCalendar', '~> 1.2.9'
 end

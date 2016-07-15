@@ -30,7 +30,7 @@ class LeftViewController : UIViewController, LeftMenuProtocol {
     
     @IBOutlet weak var tableView: UITableView!
     
-    var menus = ["Összes Hirdetés", "Személyes", "Üzenetek", "Számlázás", "Hirdetéseim", "Kedvenceim","Hirdetésfigyelő","Ügynökség","Meghívás", "Kijelentkezés"]
+    var menus = ["Összes Hirdetés", "Személyes", "Üzenetek", "Időpontjaim", "Hirdetéseim", "Kedvenceim","Hirdetésfigyelő","Ügynökség","Meghívás", "Kijelentkezés"]
     var mainViewController: UIViewController!
     var swiftViewController: UIViewController!
     var javaViewController: UIViewController!

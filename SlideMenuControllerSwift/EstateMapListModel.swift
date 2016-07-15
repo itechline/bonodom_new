@@ -12,6 +12,7 @@ class EstateMapListModel {
     var id: Int!
     var lat: Double!
     var lng: Double!
+    var hsh: String!
     
     
     
@@ -20,5 +21,6 @@ class EstateMapListModel {
         id = json["ingatlan_id"].intValue
         lat = json["ingatlan_lat"].doubleValue
         lng = json["ingatlan_lng"].doubleValue
+        hsh = json["ingatlan_hash"].stringValue
     }
 }

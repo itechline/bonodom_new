@@ -62,6 +62,12 @@
 		C5F179D21BEB2FAF00EEDD9A /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5F179D11BEB2FAF00EEDD9A /* UIColor.swift */; };
 		E40A3AA81D0808770009D3E0 /* EstateModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E40A3AA71D0808770009D3E0 /* EstateModel.swift */; };
 		E40A3AAA1D080C170009D3E0 /* LoginUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = E40A3AA91D080C170009D3E0 /* LoginUtil.swift */; };
+		E4154DBE1D38E7620098E291 /* BookingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4154DBD1D38E7620098E291 /* BookingViewController.swift */; };
+		E4154DC01D38E7B30098E291 /* BookingViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E4154DBF1D38E7B30098E291 /* BookingViewController.storyboard */; };
+		E4154DC21D3904460098E291 /* BookingUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4154DC11D3904460098E291 /* BookingUtil.swift */; };
+		E4154DC41D390C5B0098E291 /* IdopontokModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4154DC31D390C5B0098E291 /* IdopontokModel.swift */; };
+		E4154DC61D3913FD0098E291 /* IdopontokByUserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4154DC51D3913FD0098E291 /* IdopontokByUserModel.swift */; };
+		E4154DC81D3918D00098E291 /* IdopontokByDateModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4154DC71D3918D00098E291 /* IdopontokByDateModel.swift */; };
 		E43ECE451D0965B60026A3AD /* SettingUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = E43ECE441D0965B60026A3AD /* SettingUtil.swift */; };
 		E454A7AD1D0189D90001CE17 /* SOAPEngine-Bridging-Header.h in Headers */ = {isa = PBXBuildFile; fileRef = E454A7AC1D0189D90001CE17 /* SOAPEngine-Bridging-Header.h */; };
 		E45A74071D0571E200CC9162 /* MenuItemView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E45A74061D0571E200CC9162 /* MenuItemView.xib */; };
@@ -161,6 +167,12 @@
 		C5F179D11BEB2FAF00EEDD9A /* UIColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		E40A3AA71D0808770009D3E0 /* EstateModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EstateModel.swift; sourceTree = "<group>"; };
 		E40A3AA91D080C170009D3E0 /* LoginUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginUtil.swift; sourceTree = "<group>"; };
+		E4154DBD1D38E7620098E291 /* BookingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookingViewController.swift; sourceTree = "<group>"; };
+		E4154DBF1D38E7B30098E291 /* BookingViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = BookingViewController.storyboard; sourceTree = "<group>"; };
+		E4154DC11D3904460098E291 /* BookingUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookingUtil.swift; sourceTree = "<group>"; };
+		E4154DC31D390C5B0098E291 /* IdopontokModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IdopontokModel.swift; sourceTree = "<group>"; };
+		E4154DC51D3913FD0098E291 /* IdopontokByUserModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IdopontokByUserModel.swift; sourceTree = "<group>"; };
+		E4154DC71D3918D00098E291 /* IdopontokByDateModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IdopontokByDateModel.swift; sourceTree = "<group>"; };
 		E43ECE441D0965B60026A3AD /* SettingUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingUtil.swift; sourceTree = "<group>"; };
 		E454A7AC1D0189D90001CE17 /* SOAPEngine-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SOAPEngine-Bridging-Header.h"; sourceTree = "<group>"; };
 		E45A74061D0571E200CC9162 /* MenuItemView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MenuItemView.xib; sourceTree = "<group>"; };
@@ -374,6 +386,8 @@
 				57D5DC681D12DF06002548B7 /* MessageThreadView.storyboard */,
 				E4F35EF41D35239000903A44 /* MapsViewController.swift */,
 				E4F35EF61D3523C800903A44 /* MapsViewController.storyboard */,
+				E4154DBD1D38E7620098E291 /* BookingViewController.swift */,
+				E4154DBF1D38E7B30098E291 /* BookingViewController.storyboard */,
 			);
 			name = ViewController;
 			sourceTree = "<group>";
@@ -406,6 +420,7 @@
 				E46B88AD1D103C7500D9553F /* SpinnerUtil.swift */,
 				E4BEF8931D2516B60066F6A4 /* MessageUtil.swift */,
 				E4E29F581D2677B500FB6DE6 /* AdMonitorUtil.swift */,
+				E4154DC11D3904460098E291 /* BookingUtil.swift */,
 			);
 			name = Utils;
 			sourceTree = "<group>";
@@ -423,6 +438,9 @@
 				E4BEF8971D2529230066F6A4 /* MessageModel.swift */,
 				E4D7F35A1D2E720500D075A7 /* AdmonitorModel.swift */,
 				E4F35EF21D35222C00903A44 /* SearchModel.swift */,
+				E4154DC31D390C5B0098E291 /* IdopontokModel.swift */,
+				E4154DC51D3913FD0098E291 /* IdopontokByUserModel.swift */,
+				E4154DC71D3918D00098E291 /* IdopontokByDateModel.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -562,6 +580,7 @@
 				C5BF6A8A1BF3335D0064C18E /* SubContentsViewController.storyboard in Resources */,
 				C5BF6A841BEEF1E70064C18E /* DataTableViewCell.xib in Resources */,
 				57D66BC71D254B1200C522C8 /* CalendarItemViewController.xib in Resources */,
+				E4154DC01D38E7B30098E291 /* BookingViewController.storyboard in Resources */,
 				57D5DC691D12DF06002548B7 /* MessageThreadView.storyboard in Resources */,
 				0E75C5A61BE3CAFE00844634 /* Info.plist in Resources */,
 				C539E64F1A315E87003B7CC7 /* Main.storyboard in Resources */,
@@ -647,6 +666,7 @@
 				C5BF6A8E1BF34A8B0064C18E /* UIApplication.swift in Sources */,
 				E4742E171D118A5A005BE576 /* SpinnerModel.swift in Sources */,
 				C5BD39DE1A6CD17B00D0AF95 /* GoViewController.swift in Sources */,
+				E4154DC61D3913FD0098E291 /* IdopontokByUserModel.swift in Sources */,
 				57873B501D0AE82000F4309A /* LoginScreenViewController.swift in Sources */,
 				C539E64C1A315E87003B7CC7 /* MainViewController.swift in Sources */,
 				C5BD39E01A6CDC8100D0AF95 /* UIViewController.swift in Sources */,
@@ -663,6 +683,7 @@
 				C5BF6A821BEEF1A70064C18E /* DataTableViewCell.swift in Sources */,
 				C539E6471A315E87003B7CC7 /* AppDelegate.swift in Sources */,
 				C5F179D21BEB2FAF00EEDD9A /* UIColor.swift in Sources */,
+				E4154DC81D3918D00098E291 /* IdopontokByDateModel.swift in Sources */,
 				C5F179CE1BEB2A5900EEDD9A /* UIImage.swift in Sources */,
 				C5498C821BE8994F0076A7C5 /* UIImageView.swift in Sources */,
 				E4BEF8941D2516B60066F6A4 /* MessageUtil.swift in Sources */,
@@ -677,9 +698,12 @@
 				E40A3AA81D0808770009D3E0 /* EstateModel.swift in Sources */,
 				E47E36CD1D05A5080095FA6B /* EstateListModel.swift in Sources */,
 				C5BF6A861BEF4C080064C18E /* SubContentsViewController.swift in Sources */,
+				E4154DC21D3904460098E291 /* BookingUtil.swift in Sources */,
 				57D5DC6F1D12E427002548B7 /* MessageThreadItemView.swift in Sources */,
+				E4154DC41D390C5B0098E291 /* IdopontokModel.swift in Sources */,
 				E4D687F11D196DD400D8FA40 /* AddEstateModel.swift in Sources */,
 				C5BD39DC1A6CD15700D0AF95 /* JavaViewController.swift in Sources */,
+				E4154DBE1D38E7620098E291 /* BookingViewController.swift in Sources */,
 				E4E29F591D2677B500FB6DE6 /* AdMonitorUtil.swift in Sources */,
 				E4D687F31D19728D00D8FA40 /* GetAddEstate.swift in Sources */,
 				E45A74101D059A4800CC9162 /* EstateUtil.swift in Sources */,

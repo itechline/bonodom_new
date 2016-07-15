@@ -17,13 +17,19 @@ extension UIViewController {
         self.slideMenuController()?.removeRightGestures()
         self.slideMenuController()?.addLeftGestures()
         self.slideMenuController()?.addRightGestures()
-        self.navigationController?.navigationBar.barTintColor = UIColor(hex: "0066cc")
+        self.navigationController?.navigationBar.barTintColor = UIColor(hex: "1F2126")
         
+    }
+    
+    func addTapped() {
+        let storyboard = UIStoryboard(name: "MapsViewController", bundle: nil)
+        let maps = storyboard.instantiateViewControllerWithIdentifier("Maps") as! MapsViewController
+        self.navigationController?.pushViewController(maps, animated: true)
     }
     
     func removeNavigationBarItem() {
         self.navigationItem.leftBarButtonItem = nil
-        self.navigationItem.rightBarButtonItem = nil
+        self.navigationItem.rightBarButtonItems = nil
         self.slideMenuController()?.removeLeftGestures()
         self.slideMenuController()?.removeRightGestures()
     }

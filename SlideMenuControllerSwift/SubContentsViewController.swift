@@ -10,6 +10,7 @@ import UIKit
 import SwiftyJSON
 import LiquidFloatingActionButton
 import ImageSlideshow
+import SDWebImage
 
 class SubContentsViewController : UIViewController, LiquidFloatingActionButtonDataSource, LiquidFloatingActionButtonDelegate {
     
@@ -38,6 +39,8 @@ class SubContentsViewController : UIViewController, LiquidFloatingActionButtonDa
     @IBOutlet weak var etan: UILabel!
     @IBOutlet weak var butor: UILabel!
 
+    @IBOutlet weak var profile_pic: UIImageView!
+    
     var id = 0;
     
     var estateItem = [EstateModel]()
@@ -45,7 +48,6 @@ class SubContentsViewController : UIViewController, LiquidFloatingActionButtonDa
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //self.setTexts("FASZ")
         EstateUtil.sharedInstance.getEstate(id, onCompletion: { (json: JSON) in
             self.estateItem.append(EstateModel(json: json))
             print ("ESTATE")
@@ -73,6 +75,7 @@ class SubContentsViewController : UIViewController, LiquidFloatingActionButtonDa
         }
         cells.append(cellFactory("ic_action_envelop"))
         cells.append(cellFactory("ic_action_heart"))
+        cells.append(cellFactory("ic_action_envelop"))
         cells.append(cellFactory("ic_action_envelop"))
         
         
@@ -149,6 +152,14 @@ class SubContentsViewController : UIViewController, LiquidFloatingActionButtonDa
             msg.hsh = hsh
             self.navigationController?.pushViewController(msg, animated: true)
         }
+        
+        if (index == 3) {
+            let storyboard = UIStoryboard(name: "BookingViewController", bundle: nil)
+            let booking = storyboard.instantiateViewControllerWithIdentifier("Booking") as! BookingViewController
+            booking.id = id
+            self.navigationController?.pushViewController(booking, animated: true)
+        }
+        
         liquidFloatingActionButton.close()
     }
     
@@ -169,6 +180,12 @@ class SubContentsViewController : UIViewController, LiquidFloatingActionButtonDa
         self.etan.text = estateItem[0].ingatlan_energiatan
         self.mobile = estateItem[0].mobil
         
+        if (!estateItem[0].face.isEmpty) {
+            self.profile_pic.setImageFromURLWhithoutIndicator("https://bonodom.com/profil/img/250_250/" + estateItem[0].face)
+            self.profile_pic.layer.cornerRadius = self.profile_pic.frame.size.height / 2
+            self.profile_pic.clipsToBounds = true
+            
+        }
         
         if (estateItem[0].ing_e_type_id == 1) {
             self.priceText.text = estateItem[0].price + " Ft"
@@ -234,6 +251,41 @@ class SubContentsViewController : UIViewController, LiquidFloatingActionButtonDa
         let storyboard = UIStoryboard(name: "MapsViewController", bundle: nil)
         let maps = storyboard.instantiateViewControllerWithIdentifier("Maps") as! MapsViewController
         self.navigationController?.pushViewController(maps, animated: true)
+    }
+    
+    func cropToBounds(image: UIImage, width: Double, height: Double) -> UIImage {
+        
+        let contextImage: UIImage = UIImage(CGImage: image.CGImage!)
+        
+        let contextSize: CGSize = contextImage.size
+        
+        var posX: CGFloat = 0.0
+        var posY: CGFloat = 0.0
+        var cgwidth: CGFloat = CGFloat(width)
+        var cgheight: CGFloat = CGFloat(height)
+        
+        // See what size is longer and create the center off of that
+        if contextSize.width > contextSize.height {
+            posX = ((contextSize.width - contextSize.height) / 2)
+            posY = 0
+            cgwidth = contextSize.height
+            cgheight = contextSize.height
+        } else {
+            posX = 0
+            posY = ((contextSize.height - contextSize.width) / 2)
+            cgwidth = contextSize.width
+            cgheight = contextSize.width
+        }
+        
+        let rect: CGRect = CGRectMake(posX, posY, cgwidth, cgheight)
+        
+        // Create bitmap image from context using the rect
+        let imageRef: CGImageRef = CGImageCreateWithImageInRect(contextImage.CGImage, rect)!
+        
+        // Create a new image based on the imageRef and rotate back to the original orientation
+        let image: UIImage = UIImage(CGImage: imageRef, scale: image.scale, orientation: image.imageOrientation)
+        
+        return image
     }
     
 }

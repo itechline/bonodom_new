@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <scenes>
+        <!--Calendar Appearance Delegate-->
+        <scene sceneID="ufC-wZ-h7g">
+            <objects>
+                <viewController storyboardIdentifier="Booking" id="vXZ-lx-hvc" customClass="BookingViewController" customModule="Bonodom" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
+                        <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="January, 2015" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xf5-AN-qLk">
+                                <rect key="frame" x="0.0" y="20" width="600" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="BwQ-WT-h4I"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                <color key="textColor" red="0.29803922770000002" green="0.29803922770000002" blue="0.29803922770000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="T1w-UY-QHC" customClass="CVCalendarView" customModule="CVCalendar">
+                                <rect key="frame" x="0.0" y="118" width="600" height="300"/>
+                                <connections>
+                                    <outlet property="calendarAppearanceDelegate" destination="vXZ-lx-hvc" id="esW-84-Ric"/>
+                                    <outlet property="calendarDelegate" destination="vXZ-lx-hvc" id="BGr-mw-JIs"/>
+                                </connections>
+                            </view>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="fJI-3F-2yd">
+                                <rect key="frame" x="0.0" y="426" width="600" height="174"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="174" id="JWQ-4I-kBv"/>
+                                </constraints>
+                            </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZPD-eB-kRA" customClass="CVCalendarMenuView" customModule="CVCalendar">
+                                <rect key="frame" x="20" y="68" width="560" height="42"/>
+                                <connections>
+                                    <outlet property="menuViewDelegate" destination="vXZ-lx-hvc" id="S19-Z5-mn8"/>
+                                </connections>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="xf5-AN-qLk" secondAttribute="trailing" id="57D-17-UQ7"/>
+                            <constraint firstItem="xf5-AN-qLk" firstAttribute="trailing" secondItem="T1w-UY-QHC" secondAttribute="trailing" id="5Ot-9U-oHM"/>
+                            <constraint firstItem="ZPD-eB-kRA" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" id="E6w-Dg-rpR"/>
+                            <constraint firstItem="xf5-AN-qLk" firstAttribute="leading" secondItem="T1w-UY-QHC" secondAttribute="leading" id="EBo-aY-dE8"/>
+                            <constraint firstItem="ZPD-eB-kRA" firstAttribute="top" secondItem="xf5-AN-qLk" secondAttribute="bottom" constant="8" symbolic="YES" id="FBK-Bh-oqE"/>
+                            <constraint firstItem="xf5-AN-qLk" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" id="NKl-eP-flb"/>
+                            <constraint firstItem="xf5-AN-qLk" firstAttribute="centerX" secondItem="ZPD-eB-kRA" secondAttribute="centerX" id="UDr-Gk-azx"/>
+                            <constraint firstItem="fJI-3F-2yd" firstAttribute="bottom" secondItem="2fi-mo-0CV" secondAttribute="top" id="a3g-GN-JXy"/>
+                            <constraint firstItem="fJI-3F-2yd" firstAttribute="top" secondItem="T1w-UY-QHC" secondAttribute="bottom" constant="8" symbolic="YES" id="d5y-wB-e49"/>
+                            <constraint firstItem="T1w-UY-QHC" firstAttribute="top" secondItem="kh9-bI-dsS" secondAttribute="top" constant="118" id="hSO-fj-hFu"/>
+                            <constraint firstItem="T1w-UY-QHC" firstAttribute="leading" secondItem="fJI-3F-2yd" secondAttribute="leading" id="im2-iL-YAm"/>
+                            <constraint firstItem="T1w-UY-QHC" firstAttribute="trailing" secondItem="fJI-3F-2yd" secondAttribute="trailing" id="pRF-4a-K22"/>
+                            <constraint firstItem="T1w-UY-QHC" firstAttribute="top" secondItem="ZPD-eB-kRA" secondAttribute="bottom" constant="8" symbolic="YES" id="tqq-D1-iRe"/>
+                            <constraint firstItem="xf5-AN-qLk" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="ygw-LH-cK5"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="calendarView" destination="T1w-UY-QHC" id="pHU-Al-gF3"/>
+                        <outlet property="menuView" destination="ZPD-eB-kRA" id="Y44-ea-DEE"/>
+                        <outlet property="monthLabel" destination="xf5-AN-qLk" id="f9Q-tp-7h4"/>
+                        <outlet property="tableView" destination="fJI-3F-2yd" id="vhP-SR-mbm"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="18" y="293"/>
+        </scene>
+    </scenes>
+</document>

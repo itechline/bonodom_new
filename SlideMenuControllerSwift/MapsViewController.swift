@@ -23,7 +23,8 @@ class MapsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.setNavigationBarItem()
+        //self.setNavigationBarItem()
+        //self.navigationItem.leftBarButtonItem = nil
         
         /*let array:[MKAnnotation] = randomLocationsWithCount(numberOfLocations)
         
@@ -61,6 +62,7 @@ class MapsViewController: UIViewController {
             if (item[i].lat != 0.0 && item[i].lng != 0.0) {
                 a.coordinate = CLLocationCoordinate2D(latitude: item[i].lat, longitude: item[i].lng)
                 a.title = String(item[i].id)
+                a.subtitle = item[i].hsh
                 array.append(a)
             }
         }
@@ -70,6 +72,7 @@ class MapsViewController: UIViewController {
     
     func getEstates() {
         EstateUtil.sharedInstance.list_map_estates({ (json: JSON) in
+                                                    print ("MAP ESTATES")
                                                     print (json)
                                                     if let results = json.array {
                                                         for entry in results {
@@ -144,6 +147,7 @@ extension MapsViewController : MKMapViewDelegate {
             pinView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: annotation.title!!)
             let tap: MyTapGestureRecognizer = MyTapGestureRecognizer(target: self, action: #selector(MapsViewController.pinTapped(_:)))
             tap.id = annotation.title!!
+            tap.hsh = annotation.subtitle!!
             pinView!.addGestureRecognizer(tap)
             
             
@@ -169,6 +173,12 @@ extension MapsViewController : MKMapViewDelegate {
     
     func pinTapped(sender: MyTapGestureRecognizer) {
         print ("ID_A", sender.id!)
+        print ("HASH", sender.hsh!)
+        let storyboard = UIStoryboard(name: "SubContentsViewController", bundle: nil)
+        let subContentsVC = storyboard.instantiateViewControllerWithIdentifier("SubContentsViewController") as! SubContentsViewController
+        subContentsVC.id = Int(sender.id!)!
+        subContentsVC.hsh = sender.hsh!
+        self.navigationController?.pushViewController(subContentsVC, animated: true)
     }
     
     func clusterTapped() {
@@ -182,5 +192,6 @@ extension MapsViewController : MKMapViewDelegate {
 
 class MyTapGestureRecognizer: UITapGestureRecognizer {
     var id: String?
+    var hsh: String?
 }
 

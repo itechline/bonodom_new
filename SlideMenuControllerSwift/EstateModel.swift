@@ -134,6 +134,7 @@ class EstateModel {
         ingatlan_erkely = json["ingatlan_erkely"].intValue
         ingatlan_lat = json["ingatlan_lat"].stringValue
         ingatlan_lng = json["ingatlan_lng"].stringValue
+        face = json["face"].stringValue
         
         for picArray in json["kepek"] {
             print ("PICTURE")
