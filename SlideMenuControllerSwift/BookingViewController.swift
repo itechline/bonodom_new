@@ -49,7 +49,7 @@ class BookingViewController: UIViewController {
     
     func snackbar_reserved() {
         print ("MAKING SNACKBAR")
-        //NBMaterialSnackbar.showWithText(view, text: "Super awesome toast message, cheers!", duration: NBLunchDuration.LONG)
+        NBMaterialSnackbar.showWithText(view, text: "Az időpont már foglalt!", duration: NBLunchDuration.SHORT)
     }
     
     func getIdoponts() {

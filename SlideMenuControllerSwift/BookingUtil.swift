@@ -84,6 +84,23 @@ class BookingUtil: NSObject  {
         })
     }
     
+    //add_idopont
+    func add_idopont(mikor: String, ingatlan_id: Int, onCompletion: (JSON) -> Void) {
+        
+        let token = [ "token", SettingUtil.sharedInstance.getToken()]
+        let tokenpost = token.joinWithSeparator("=")
+        let mikor_post = "mikor=" + mikor
+        let id_post = "ingatlan_id=" + String(ingatlan_id)
+        
+        let pa = [ tokenpost, mikor_post, id_post]
+        let postbody = pa.joinWithSeparator("&")
+        
+        let route = baseURL + "add_idopont"
+        makeHTTPPostRequest(route, body: postbody, onCompletion: { json, err in
+            onCompletion(json as JSON)
+        })
+    }
+    
     private func makeHTTPPostRequest(path: String, body: String, onCompletion: ServiceResponse) {
         let request = NSMutableURLRequest(URL: NSURL(string: path)!)
         

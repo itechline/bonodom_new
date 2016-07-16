@@ -46,8 +46,34 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         pageController.currentPageIndicatorTintColor = UIColor(hex: "0066cc")
         pageController.backgroundColor = UIColor.whiteColor()
         
+        //LOCAL NOTIFICATION
+        application.registerUserNotificationSettings(UIUserNotificationSettings(forTypes: [.Alert, .Badge, .Sound], categories: nil))
+
         return true
     }
+    
+    /*func scheduleNotification() {
+        //UIApplication.sharedApplication().cancelAllLocalNotifications()
+        
+        // Schedule the notification ********************************************
+        if UIApplication.sharedApplication().scheduledLocalNotifications!.count == 0 {
+            
+            let notification = UILocalNotification()
+            notification.alertBody = "Új üzenete érkezett!"
+            notification.soundName = UILocalNotificationDefaultSoundName
+            notification.fireDate = NSDate()
+            notification.category = "BONODOM_MESSAGE"
+            notification.repeatInterval = NSCalendarUnit.Hour
+            //notification.alertAction = ""
+            
+            UIApplication.sharedApplication().scheduleLocalNotification(notification)
+        }
+    }
+    
+    func application(application: UIApplication, didRegisterUserNotificationSettings notificationSettings: UIUserNotificationSettings) {
+        scheduleNotification()
+    }*/
+    
     
     func applicationWillResignActive(application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
