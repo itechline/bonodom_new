@@ -76,8 +76,10 @@ class SubContentsViewController : UIViewController, LiquidFloatingActionButtonDa
         }
         cells.append(cellFactory("ic_action_envelop"))
         cells.append(cellFactory("ic_action_heart"))
-        cells.append(cellFactory("ic_action_envelop"))
-        cells.append(cellFactory("ic_action_envelop"))
+        cells.append(cellFactory("ic_action_phone_b"))
+        cells.append(cellFactory("ic_action_idopont"))
+        
+        
         
         
         let floatingFrame = CGRect(x: self.view.frame.width - 56 - 16, y: self.view.frame.height - 56 - 16, width: 56, height: 56)
@@ -154,6 +156,15 @@ class SubContentsViewController : UIViewController, LiquidFloatingActionButtonDa
             self.navigationController?.pushViewController(msg, animated: true)
         }
         
+        if (index == 1) {
+            if (estateItem[0].kedvenc == true) {
+                addToFav(estateItem[0].id, favToSend: 0)
+            } else {
+                addToFav(estateItem[0].id, favToSend: 1)
+            }
+            
+        }
+        
         if (index == 3) {
             let storyboard = UIStoryboard(name: "BookingViewController", bundle: nil)
             let booking = storyboard.instantiateViewControllerWithIdentifier("Booking") as! BookingViewController
@@ -162,6 +173,31 @@ class SubContentsViewController : UIViewController, LiquidFloatingActionButtonDa
         }
         
         liquidFloatingActionButton.close()
+    }
+    
+    func addToFav(id: Int, favToSend: Int) {
+        EstateUtil.sharedInstance.setFavorite(self.id, favorit: favToSend, onCompletion: { (json: JSON) in
+            print (json)
+            dispatch_async(dispatch_get_main_queue(),{
+                if (!json["error"].boolValue) {
+                    if (favToSend == 0) {
+                        print ("NOT FAV")
+                        self.cells[1].imageView.image = UIImage(named: "heart_empty")
+                    } else {
+                        print ("FAV")
+                        self.cells[1].imageView.image = UIImage(named: "ic_action_heart")
+                    }
+                } else {
+                    if (favToSend == 0) {
+                        print ("NOT FAV")
+                        self.cells[1].imageView.image = UIImage(named: "ic_action_heart")
+                    } else {
+                        print ("FAV")
+                        self.cells[1].imageView.image = UIImage(named: "heart_empty")
+                    }
+                }
+            })
+        })
     }
     
     func setTexts() {

@@ -35,6 +35,8 @@ class MydatesViewCell: BaseMenuItemViewController {
     @IBOutlet weak var name: UILabel!
     @IBOutlet weak var date: UILabel!
     
+    @IBOutlet weak var cell_back: UIView!
+    
     @IBOutlet weak var elutasit_text: UIButton!
     @IBAction func elutasit_button(sender: AnyObject) {
         if (self.status == 0) {
@@ -97,6 +99,7 @@ class MydatesViewCell: BaseMenuItemViewController {
                 elfogad_text.hidden = false
                 elfogad_text.setTitle("Elfogad", forState: UIControlState.Normal)
                 elutasit_text.setTitle("Elutasít", forState: UIControlState.Normal)
+                cell_back.layer.backgroundColor = UIColor(colorLiteralRed: 0.95, green: 1, blue: 0.85, alpha: 1).CGColor
                 print ("STATUS 0")
                 break
             case 1:
@@ -104,6 +107,7 @@ class MydatesViewCell: BaseMenuItemViewController {
                 elutasit_text.hidden = true
                 elfogad_text.hidden = false
                 elfogad_text.setTitle("Elfogadva", forState: UIControlState.Normal)
+                cell_back.layer.backgroundColor = UIColor(colorLiteralRed: 1, green: 1, blue: 1, alpha: 1).CGColor
                 print ("STATUS 1")
                 break
             default:
@@ -111,6 +115,7 @@ class MydatesViewCell: BaseMenuItemViewController {
                 elfogad_text.hidden = true
                 elutasit_text.hidden = false
                 elutasit_text.setTitle("Elutasítva", forState: UIControlState.Normal)
+                cell_back.layer.backgroundColor = UIColor(colorLiteralRed: 1, green: 1, blue: 1, alpha: 1).CGColor
                 print ("STATUS 2")
             }
         }

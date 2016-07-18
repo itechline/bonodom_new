@@ -51,11 +51,6 @@ class MapsPopOverViewController: UIViewController {
         });
         
         NSNotificationCenter.defaultCenter().postNotificationName("openContentEstate", object: nil)
-        /*let storyboard = UIStoryboard(name: "SubContentsViewController", bundle: nil)
-        let subContentsVC = storyboard.instantiateViewControllerWithIdentifier("SubContentsViewController") as! SubContentsViewController
-        subContentsVC.id = Int(id)!
-        subContentsVC.hsh = hsh
-        self.navigationController?.pushViewController(subContentsVC, animated: true)*/
     }
 
     override func didReceiveMemoryWarning() {
