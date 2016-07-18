@@ -11,6 +11,7 @@ import SwiftyJSON
 import LiquidFloatingActionButton
 import ImageSlideshow
 import SDWebImage
+import NBMaterialDialogIOS
 
 class SubContentsViewController : UIViewController, LiquidFloatingActionButtonDataSource, LiquidFloatingActionButtonDelegate {
     
@@ -258,9 +259,15 @@ class SubContentsViewController : UIViewController, LiquidFloatingActionButtonDa
     
     
     @IBAction func see_on_maps_button(sender: AnyObject) {
-        let storyboard = UIStoryboard(name: "MapsViewController", bundle: nil)
-        let maps = storyboard.instantiateViewControllerWithIdentifier("Maps") as! MapsViewController
-        self.navigationController?.pushViewController(maps, animated: true)
+        if (estateItem[0].ingatlan_lat != 0.0 && estateItem[0].ingatlan_lng != 0.0) {
+            let storyboard = UIStoryboard(name: "MapsViewController", bundle: nil)
+            let maps = storyboard.instantiateViewControllerWithIdentifier("Maps") as! MapsViewController
+            maps.lat = estateItem[0].ingatlan_lat
+            maps.lng = estateItem[0].ingatlan_lng
+            self.navigationController?.pushViewController(maps, animated: true)
+        } else {
+            NBMaterialSnackbar.showWithText(view, text: "Az ingatlan nem tekinthető meg a térképen!", duration: NBLunchDuration.SHORT)
+        }
     }
     
     func cropToBounds(image: UIImage, width: Double, height: Double) -> UIImage {

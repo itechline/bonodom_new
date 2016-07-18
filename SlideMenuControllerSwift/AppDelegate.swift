@@ -41,7 +41,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         self.createMenuView()
         
-        var pageController = UIPageControl.appearance()
+        let pageController = UIPageControl.appearance()
         pageController.pageIndicatorTintColor = UIColor.lightGrayColor()
         pageController.currentPageIndicatorTintColor = UIColor(hex: "0066cc")
         pageController.backgroundColor = UIColor.whiteColor()

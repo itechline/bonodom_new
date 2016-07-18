@@ -131,6 +131,7 @@ extension AdMonitorController : UITableViewDataSource {
         main.admonitor_model = items
         main.admonitor_id = indexPath.row
         main.isAdmonitor = true
+        //NSNotificationCenter.defaultCenter().postNotificationName("changeToMain", object: nil)
         self.navigationController?.pushViewController(main, animated: true)
     }
 }

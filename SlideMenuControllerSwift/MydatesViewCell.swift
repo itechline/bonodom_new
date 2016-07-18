@@ -38,7 +38,7 @@ class MydatesViewCell: BaseMenuItemViewController {
     @IBOutlet weak var elutasit_text: UIButton!
     @IBAction func elutasit_button(sender: AnyObject) {
         if (self.status == 0) {
-            BookingUtil.sharedInstance.update_idopont(id, status: 1, onCompletion: { (json: JSON) in
+            BookingUtil.sharedInstance.update_idopont(id, status: 2, onCompletion: { (json: JSON) in
                 print ("ELUTASIT")
                 print (json)
                     dispatch_async(dispatch_get_main_queue(),{
@@ -53,7 +53,7 @@ class MydatesViewCell: BaseMenuItemViewController {
     @IBOutlet weak var elfogad_text: UIButton!
     @IBAction func elfogad_button(sender: AnyObject) {
         if (self.status == 0) {
-            BookingUtil.sharedInstance.update_idopont(id, status: 2, onCompletion: { (json: JSON) in
+            BookingUtil.sharedInstance.update_idopont(id, status: 1, onCompletion: { (json: JSON) in
                 print ("ELFOGAD")
                 print (json)
                 dispatch_async(dispatch_get_main_queue(),{

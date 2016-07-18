@@ -24,6 +24,8 @@ extension UIViewController {
     func addTapped() {
         let storyboard = UIStoryboard(name: "MapsViewController", bundle: nil)
         let maps = storyboard.instantiateViewControllerWithIdentifier("Maps") as! MapsViewController
+        maps.lat = 0.0
+        maps.lng = 0.0
         self.navigationController?.pushViewController(maps, animated: true)
     }
     

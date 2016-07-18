@@ -11,7 +11,7 @@ import MapKit
 import FBAnnotationClusteringSwift
 import SwiftyJSON
 
-class MapsViewController: UIViewController {
+class MapsViewController: UIViewController, UIPopoverPresentationControllerDelegate {
 
     @IBOutlet weak var mapView: MKMapView!
     
@@ -21,22 +21,57 @@ class MapsViewController: UIViewController {
     
     var items = [EstateMapListModel]()
     
+    
+    var id_saved = ""
+    var hsh_saved = ""
+    
+    var lat : Double = 0.0
+    var lng : Double = 0.0
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        //self.setNavigationBarItem()
-        //self.navigationItem.leftBarButtonItem = nil
         
-        /*let array:[MKAnnotation] = randomLocationsWithCount(numberOfLocations)
-        
-        clusteringManager.addAnnotations(array)
-        clusteringManager.delegate = self;
-        
-        mapView.centerCoordinate = CLLocationCoordinate2DMake(0, 0);*/
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(MapsViewController.openContentEstate), name: "openContentEstate", object: nil)
         
         getEstates()
         
         
+        
         // Do any additional setup after loading the view.
+    }
+    
+    func openContentEstate() {
+        let storyboard = UIStoryboard(name: "SubContentsViewController", bundle: nil)
+        let subContentsVC = storyboard.instantiateViewControllerWithIdentifier("SubContentsViewController") as! SubContentsViewController
+        subContentsVC.id = Int(id_saved)!
+        subContentsVC.hsh = hsh_saved
+        self.navigationController?.pushViewController(subContentsVC, animated: true)
+    }
+    
+    
+    func goToLocation(latitude_: Double, longitude_: Double) {
+        print ("GOTOLOCATION 1")
+        if (latitude_ != 0.0 && longitude_ != 0.0) {
+            print ("GOTOLOCATION 2")
+            let latitude:CLLocationDegrees = latitude_
+            let longitude:CLLocationDegrees = longitude_
+            let latDelta:CLLocationDegrees = 0.015
+            let lonDelta:CLLocationDegrees = 0.015
+            let span:MKCoordinateSpan = MKCoordinateSpanMake(latDelta, lonDelta)
+            let location:CLLocationCoordinate2D = CLLocationCoordinate2DMake(latitude, longitude)
+            let region:MKCoordinateRegion = MKCoordinateRegionMake(location, span)
+            mapView.setRegion(region, animated: false)
+        } else {
+            print ("GOTOLOCATION 3")
+            let latitude:CLLocationDegrees = 47.00
+            let longitude:CLLocationDegrees = 20.00
+            let latDelta:CLLocationDegrees = 7
+            let lonDelta:CLLocationDegrees = 7
+            let span:MKCoordinateSpan = MKCoordinateSpanMake(latDelta, lonDelta)
+            let location:CLLocationCoordinate2D = CLLocationCoordinate2DMake(latitude, longitude)
+            let region:MKCoordinateRegion = MKCoordinateRegionMake(location, span)
+            mapView.setRegion(region, animated: true)
+        }
     }
     
     override func didReceiveMemoryWarning() {
@@ -85,7 +120,8 @@ class MapsViewController: UIViewController {
                                                                 let array:[MKAnnotation] = self.setCoordinates(self.items)
                                                                 self.clusteringManager.addAnnotations(array)
                                                                 self.clusteringManager.delegate = self;
-                                                                self.mapView.centerCoordinate = CLLocationCoordinate2DMake(0, 0);
+                                                                self.goToLocation(self.lat, longitude_: self.lng)
+                                                                //self.mapView.centerCoordinate = CLLocationCoordinate2DMake(0, 0);
                                                             }
                                                         })
                                                     }
@@ -124,6 +160,7 @@ extension MapsViewController : MKMapViewDelegate {
     }
 
     
+    
     func mapView(mapView: MKMapView, viewForAnnotation annotation: MKAnnotation) -> MKAnnotationView? {
         
         var reuseId : String
@@ -148,11 +185,12 @@ extension MapsViewController : MKMapViewDelegate {
             let tap: MyTapGestureRecognizer = MyTapGestureRecognizer(target: self, action: #selector(MapsViewController.pinTapped(_:)))
             tap.id = annotation.title!!
             tap.hsh = annotation.subtitle!!
+            tap.pin = pinView
             pinView!.addGestureRecognizer(tap)
             
             
             //TESZT
-            pinView!.canShowCallout = true
+            /*pinView!.canShowCallout = true
             let base = UIView(frame: CGRect(x: 0, y: 0, width: 100, height: 300))
             base.backgroundColor = UIColor.lightGrayColor()
             let label1 = UILabel(frame: CGRect(x: 30, y: 10, width: 60, height: 300))
@@ -160,7 +198,7 @@ extension MapsViewController : MKMapViewDelegate {
             label1.text = "00"
             base.addSubview(label1)
             pinView!.leftCalloutAccessoryView = base
-            pinView!.pinColor = .Red
+            pinView!.pinColor = .Red*/
             //TESZT END
             
 
@@ -172,26 +210,54 @@ extension MapsViewController : MKMapViewDelegate {
     }
     
     func pinTapped(sender: MyTapGestureRecognizer) {
-        print ("ID_A", sender.id!)
-        print ("HASH", sender.hsh!)
-        let storyboard = UIStoryboard(name: "SubContentsViewController", bundle: nil)
-        let subContentsVC = storyboard.instantiateViewControllerWithIdentifier("SubContentsViewController") as! SubContentsViewController
-        subContentsVC.id = Int(sender.id!)!
-        subContentsVC.hsh = sender.hsh!
-        self.navigationController?.pushViewController(subContentsVC, animated: true)
+        showPopOver(sender.pin!, id: sender.id!, hsh: sender.hsh!)
     }
     
     func clusterTapped() {
         print ("CLUSTER TAPPED")
+        mapView.setZoomByDelta(0.6, animated: true)
     }
 
     
+    func showPopOver(pin: MKPinAnnotationView, id: String, hsh: String) {
+        let vc = storyboard?.instantiateViewControllerWithIdentifier("PopOver") as! MapsPopOverViewController
+        vc.preferredContentSize = CGSize(width: UIScreen.mainScreen().bounds.width, height: 150)
+        let navController = UINavigationController(rootViewController: vc)
+        navController.modalPresentationStyle = UIModalPresentationStyle.Popover
+        
+        let popover = navController.popoverPresentationController
+        popover?.delegate = self
+        popover?.sourceView = pin
+        self.id_saved = id
+        self.hsh_saved = hsh
+        vc.id = id
+        vc.hsh = hsh
+        self.presentViewController(navController, animated: true, completion: nil)
+        
+    }
     
+    func adaptivePresentationStyleForPresentationController(controller: UIPresentationController) -> UIModalPresentationStyle {
+        return.None
+    }
+
+}
+
+extension MKMapView {
     
+    func setZoomByDelta(delta: Double, animated: Bool) {
+        var _region = region;
+        var _span = region.span;
+        _span.latitudeDelta *= delta;
+        _span.longitudeDelta *= delta;
+        _region.span = _span;
+        
+        setRegion(_region, animated: animated)
+    }
 }
 
 class MyTapGestureRecognizer: UITapGestureRecognizer {
     var id: String?
     var hsh: String?
+    var pin: MKPinAnnotationView?
 }
 

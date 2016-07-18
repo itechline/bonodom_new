@@ -40,8 +40,8 @@ class EstateModel {
     var kedvenc: Bool!
     var ing_e_type: String!
     var ingatlan_utca: String!
-    var ingatlan_lat: String!
-    var ingatlan_lng: String!
+    var ingatlan_lat: Double!
+    var ingatlan_lng: Double!
     var ingatlan_id: String!
     var ing_e_type_id: Int!
     var ingatlan_rovidleiras: String!
@@ -132,8 +132,8 @@ class EstateModel {
         ingatlan_kilatas = json["ingatlan_kilatas"].stringValue
         kedvenc = json["kedvenc"].boolValue
         ingatlan_erkely = json["ingatlan_erkely"].intValue
-        ingatlan_lat = json["ingatlan_lat"].stringValue
-        ingatlan_lng = json["ingatlan_lng"].stringValue
+        ingatlan_lat = json["ingatlan_lat"].doubleValue
+        ingatlan_lng = json["ingatlan_lng"].doubleValue
         face = json["face"].stringValue
         
         for picArray in json["kepek"] {
