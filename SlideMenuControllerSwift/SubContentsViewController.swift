@@ -143,35 +143,34 @@ class SubContentsViewController : UIViewController, LiquidFloatingActionButtonDa
     var mobile = ""
     func liquidFloatingActionButton(liquidFloatingActionButton: LiquidFloatingActionButton, didSelectItemAtIndex index: Int) {
         print("did Tapped! \(index)")
-        if (index == 2) {
-            if let url = NSURL(string: "tel://\(mobile)") {
-                UIApplication.sharedApplication().openURL(url)
-            }
-        }
-        if (index == 0) {
+        
+        switch index {
+        case 0:
             let storyboard = UIStoryboard(name: "MessageThreadView", bundle: nil)
             let msg = storyboard.instantiateViewControllerWithIdentifier("MessageThreadViewController") as! MessageThreadViewController
             msg.id = 0
             msg.hsh = hsh
             self.navigationController?.pushViewController(msg, animated: true)
-        }
-        
-        if (index == 1) {
+            break
+        case 1:
             if (estateItem[0].kedvenc == true) {
                 addToFav(estateItem[0].id, favToSend: 0)
             } else {
                 addToFav(estateItem[0].id, favToSend: 1)
             }
-            
-        }
-        
-        if (index == 3) {
+            break
+        case 2:
+            if let url = NSURL(string: "tel://\(mobile)") {
+                UIApplication.sharedApplication().openURL(url)
+            }
+            break
+        default:
             let storyboard = UIStoryboard(name: "BookingViewController", bundle: nil)
             let booking = storyboard.instantiateViewControllerWithIdentifier("Booking") as! BookingViewController
             booking.id = id
             self.navigationController?.pushViewController(booking, animated: true)
+            break
         }
-        
         liquidFloatingActionButton.close()
     }
     
