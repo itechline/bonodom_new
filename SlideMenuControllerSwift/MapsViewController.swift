@@ -33,11 +33,24 @@ class MapsViewController: UIViewController, UIPopoverPresentationControllerDeleg
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let search = UIBarButtonItem(image: UIImage.init(named: "ic_action_searchicon"), style: .Plain, target: self, action: #selector(openSearchMaps))
+        //let search = UIBarButtonItem(image: UIImage.init(named: "ic_action_searchicon"), style: .Plain, target: self, action: #selector(openSearchMaps))
         
-        navigationItem.rightBarButtonItem = search
+        //navigationItem.rightBarButtonItem = search
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(MapsViewController.openContentEstate), name: "openContentEstate", object: nil)
+        
+        
+        searchController.searchResultsUpdater = self
+        searchController.searchBar.delegate = self
+        searchController.hidesNavigationBarDuringPresentation = false
+        searchController.dimsBackgroundDuringPresentation = true
+        definesPresentationContext = true
+        searchController.searchBar.placeholder = "Keresés..."
+        navigationItem.titleView = searchController.searchBar
+        
+        
+        
+        
         
         getEstates()
     }
@@ -48,8 +61,9 @@ class MapsViewController: UIViewController, UIPopoverPresentationControllerDeleg
         searchController.searchBar.delegate = self
         definesPresentationContext = true
         searchController.dimsBackgroundDuringPresentation = true
-        searchController.active = true
+        //searchController.active = true
         
+        navigationItem.titleView = searchController.searchBar
         // Setup the Scope Bar
         //searchController.searchBar.scopeButtonTitles = ["All", "Chocolate", "Hard", "Other"]
     }
@@ -64,9 +78,7 @@ class MapsViewController: UIViewController, UIPopoverPresentationControllerDeleg
     
     
     func goToLocation(latitude_: Double, longitude_: Double) {
-        print ("GOTOLOCATION 1")
         if (latitude_ != 0.0 && longitude_ != 0.0) {
-            print ("GOTOLOCATION 2")
             let latitude:CLLocationDegrees = latitude_
             let longitude:CLLocationDegrees = longitude_
             let latDelta:CLLocationDegrees = 0.015
@@ -74,9 +86,8 @@ class MapsViewController: UIViewController, UIPopoverPresentationControllerDeleg
             let span:MKCoordinateSpan = MKCoordinateSpanMake(latDelta, lonDelta)
             let location:CLLocationCoordinate2D = CLLocationCoordinate2DMake(latitude, longitude)
             let region:MKCoordinateRegion = MKCoordinateRegionMake(location, span)
-            mapView.setRegion(region, animated: false)
+            mapView.setRegion(region, animated: true)
         } else {
-            print ("GOTOLOCATION 3")
             let latitude:CLLocationDegrees = 47.00
             let longitude:CLLocationDegrees = 20.00
             let latDelta:CLLocationDegrees = 7
@@ -86,6 +97,24 @@ class MapsViewController: UIViewController, UIPopoverPresentationControllerDeleg
             let region:MKCoordinateRegion = MKCoordinateRegionMake(location, span)
             mapView.setRegion(region, animated: true)
         }
+    }
+    
+    func forwardGeocoding(address: String) {
+        CLGeocoder().geocodeAddressString(address, completionHandler: { (placemarks, error) in
+            if error != nil {
+                print(error)
+                return
+            }
+            if placemarks?.count > 0 {
+                let placemark = placemarks?[0]
+                let location = placemark?.location
+                let coordinate = location?.coordinate
+                print("\nlat: \(coordinate!.latitude), long: \(coordinate!.longitude)")
+                self.lat = coordinate!.latitude
+                self.lng = coordinate!.longitude
+                self.goToLocation(self.lat, longitude_: self.lng)
+            }
+        })
     }
     
     override func didReceiveMemoryWarning() {
@@ -279,16 +308,19 @@ extension MapsViewController: UISearchBarDelegate {
 extension MapsViewController: UISearchResultsUpdating {
     // MARK: - UISearchResultsUpdating Delegate
     func updateSearchResultsForSearchController(searchController: UISearchController) {
-        let searchBar = searchController.searchBar
-        let scope = searchBar.scopeButtonTitles![searchBar.selectedScopeButtonIndex]
-        //filterContentForSearchText(searchController.searchBar.text!, scope: scope)
+        print ("UPDATE SEARCH", searchController.searchBar.text!)
+        
     }
     
-    func searchDisplayController(controller: UISearchDisplayController, shouldReloadTableForSearchScope searchOption: Int) -> Bool {
-        let searchString = controller.searchBar.text
-        //self.filterContentForSearchText(searchString, scope:searchOption)
-        return true
+    func searchBarSearchButtonClicked(searchBar: UISearchBar) {
+        //customSearchBar.resignFirstResponder()
+        //customDelegate.didTapOnSearchButton()
+        print ("SEARCH", searchBar.text!)
+        forwardGeocoding(searchBar.text!)
+        searchController.active = false
     }
+    
+    
 }
 
 class MyTapGestureRecognizer: UITapGestureRecognizer {

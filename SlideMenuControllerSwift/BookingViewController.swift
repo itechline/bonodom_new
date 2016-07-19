@@ -40,6 +40,7 @@ class BookingViewController: UIViewController {
     var animationFinished = true
     var dates: [NSDate] = []
     var selectedDay:DayView!
+    var selectedDate: String = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -51,12 +52,11 @@ class BookingViewController: UIViewController {
         getIdoponts()
         
         
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(BookingViewController.snackbar_reserved), name: "snackbar_reserved", object: nil)
+        //NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(BookingViewController.snackbar_reserved), name: "snackbar_reserved", object: nil)
     }
     
-    func snackbar_reserved() {
-        print ("MAKING SNACKBAR")
-        NBMaterialSnackbar.showWithText(view, text: "Az időpont már foglalt!", duration: NBLunchDuration.SHORT)
+    func make_snackbar(msg: String) {
+        NBMaterialSnackbar.showWithText(view, text: msg, duration: NBLunchDuration.SHORT)
     }
     
     func getIdoponts() {
@@ -198,6 +198,7 @@ extension BookingViewController: CVCalendarViewDelegate, CVCalendarMenuViewDeleg
         let myNSString = asd as NSString
         let date_to_send = myNSString.substringWithRange(NSRange(location: 0, length: 10))
         print ("DATE SELECTED", date_to_send)
+        selectedDate = date_to_send
         self.foglaltak.removeAll()
         self.appointments.removeAll()
         self.tableView.reloadData()
@@ -538,6 +539,50 @@ extension BookingViewController : UITableViewDataSource {
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        //FOGLALÁS MIKOR: 2016-07-20 09:30:00
+        
+        //let minutesString = String(format: "%02d", appointments[jj].minutes)
+        if (appointments[indexPath.row].foglalt == false) {
+            let mikor = selectedDate + " " + String(format: "%02d", appointments[indexPath.row].hours) + ":" + String(format: "%02d", appointments[indexPath.row].minutes) + ":00"
+            print ("MIKOR", mikor)
+            
+            let alert = UIAlertController(title: "Figyelem", message: "Biztosan lefoglalja az alábbi időpontot?\r\n" + mikor, preferredStyle: UIAlertControllerStyle.Alert)
+            alert.addAction(UIAlertAction(title: "Nem", style: UIAlertActionStyle.Default, handler: nil))
+            alert.addAction(UIAlertAction(title: "Igen", style: .Default, handler: { action in
+                switch action.style{
+                case .Default:
+                    print("default")
+                    BookingUtil.sharedInstance.add_idopont(mikor, ingatlan_id: self.id, onCompletion: { (json: JSON) in
+                        print ("ADD IDOPONT")
+                        print (json)
+                        dispatch_async(dispatch_get_main_queue(),{
+                            if (!json["error"].boolValue) {
+                                print ("SIKERES FOGLALAS")
+                                self.make_snackbar("Sikeres foglalás!")
+                                self.appointments[indexPath.row].foglalt = true
+                                self.tableView.reloadData()
+                            } else {
+                                self.make_snackbar("Sikertelen foglalás!")
+                            }
+                        })
+                    })
+                case .Cancel:
+                    print("cancel")
+                    
+                case .Destructive:
+                    print("destructive")
+                }
+            }))
+            self.presentViewController(alert, animated: true, completion: nil)
+            
+            
+            
+        } else {
+            make_snackbar("Az időpont már foglalt!")
+        }
+        
+        
+        
         //print ("CELL TAPPED", String(appointments[indexPath.row].ingatlan_id))
         /*let storyboard = UIStoryboard(name: "SubContentsViewController", bundle: nil)
         let subContentsVC = storyboard.instantiateViewControllerWithIdentifier("SubContentsViewController") as! SubContentsViewController
