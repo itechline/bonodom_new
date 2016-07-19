@@ -186,39 +186,72 @@ extension BookingViewController: CVCalendarViewDelegate, CVCalendarMenuViewDeleg
     func didSelectDayView(dayView: CVCalendarDayView, animationDidFinish: Bool) {
         //print("\(dayView.date.commonDescription) is selected!")
         print ("DAYVIEW", String(dayView.date.day))
+        var hasAppointments: Bool = false
         
+        if (dayView.weekdayIndex == 1 && hetfo == 1) {
+            hasAppointments = true
+        }
         
+        if (dayView.weekdayIndex == 2 && kedd == 1) {
+            hasAppointments = true
+        }
         
-        //KIOLVASVA A DÁTUM ROSZ 1 NAPPAL KEVESEBBET MUTAT ÍGY HOZZÁADOK EGYET, MAJD STRINGGÉ ALAKÍTOM ÉS KIVÁGOM AZ ELSŐ 10 KARAKTERT --> Paraszt megoldás :D
-        let components: NSDateComponents = NSDateComponents()
-        components.setValue(1, forComponent: NSCalendarUnit.Day);
-        let date: NSDate = dayView.date.convertedDate()!
-        let expirationDate = NSCalendar.currentCalendar().dateByAddingComponents(components, toDate: date, options: NSCalendarOptions(rawValue: 0))
-        let asd = String(expirationDate!)
-        let myNSString = asd as NSString
-        let date_to_send = myNSString.substringWithRange(NSRange(location: 0, length: 10))
-        print ("DATE SELECTED", date_to_send)
-        selectedDate = date_to_send
+        if (dayView.weekdayIndex == 3 && szerda == 1) {
+            hasAppointments = true
+        }
+        
+        if (dayView.weekdayIndex == 4 && csutortok == 1) {
+            hasAppointments = true
+        }
+        
+        if (dayView.weekdayIndex == 5 && pentek == 1) {
+            hasAppointments = true
+        }
+        
+        if (dayView.weekdayIndex == 6 && szombat == 1) {
+            hasAppointments = true
+        }
+        
+        if (dayView.weekdayIndex == 7 && vasarnap == 1) {
+            hasAppointments = true
+        }
+        
         self.foglaltak.removeAll()
         self.appointments.removeAll()
         self.tableView.reloadData()
         
-        BookingUtil.sharedInstance.get_idoponts_by_datum(id, datum: date_to_send, onCompletion: { (json: JSON) in
-            print ("BOOKING BY DATE")
-            print (json)
+        if (hasAppointments) {
+            //KIOLVASVA A DÁTUM ROSZ 1 NAPPAL KEVESEBBET MUTAT ÍGY HOZZÁADOK EGYET, MAJD STRINGGÉ ALAKÍTOM ÉS KIVÁGOM AZ ELSŐ 10 KARAKTERT --> Paraszt megoldás :D
+            let components: NSDateComponents = NSDateComponents()
+            components.setValue(1, forComponent: NSCalendarUnit.Day);
+            let date: NSDate = dayView.date.convertedDate()!
+            let expirationDate = NSCalendar.currentCalendar().dateByAddingComponents(components, toDate: date, options: NSCalendarOptions(rawValue: 0))
+            let asd = String(expirationDate!)
+            let myNSString = asd as NSString
+            let date_to_send = myNSString.substringWithRange(NSRange(location: 0, length: 10))
+            print ("DATE SELECTED", date_to_send)
+            selectedDate = date_to_send
             
-            if let results = json.array {
-                for entry in results {
-                    self.foglaltak.append(IdopontokByDateModel(json: entry))
+        
+            BookingUtil.sharedInstance.get_idoponts_by_datum(id, datum: date_to_send, onCompletion: { (json: JSON) in
+                print ("BOOKING BY DATE")
+                print (json)
+            
+                if let results = json.array {
+                    for entry in results {
+                        self.foglaltak.append(IdopontokByDateModel(json: entry))
+                    }
+                    dispatch_async(dispatch_get_main_queue(),{
+                        //if (!foglaltak.isEmpty) {
+                            //self.tableView.reloadData()
+                            self.getIdoponts_2()
+                        //}
+                    })
                 }
-                dispatch_async(dispatch_get_main_queue(),{
-                    //if (!foglaltak.isEmpty) {
-                        //self.tableView.reloadData()
-                        self.getIdoponts_2()
-                    //}
-                })
-            }
-        })
+            })
+        } else {
+            self.make_snackbar("Erre a napra nem lehet időpontot foglalni!")
+        }
         
         selectedDay = dayView
     }
@@ -298,7 +331,7 @@ extension BookingViewController: CVCalendarViewDelegate, CVCalendarMenuViewDeleg
             return true
         }
         
-        if (dayView.weekdayIndex == 7 && hetfo == vasarnap) {
+        if (dayView.weekdayIndex == 7 && vasarnap == 1) {
             return true
         }
         
