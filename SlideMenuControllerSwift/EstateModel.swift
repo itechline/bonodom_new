@@ -53,6 +53,16 @@ class EstateModel {
     var ingatlan_energiatan: String!
     var ingatlan_futestipus_id: String!
     
+    var finish: String!
+    var start: String!
+    var hetfo: Int!
+    var kedd: Int!
+    var szerda: Int!
+    var csutortok: Int!
+    var pentek: Int!
+    var szombat: Int!
+    var vasarnap: Int!
+    
     /*
      {
      "ingatlan_szsz_id" : "0",
@@ -142,6 +152,19 @@ class EstateModel {
             pictures.append(picArray.1["kepek_url"].stringValue)
             //pic = picArray.1["kepek_url"].stringValue
             //pic.append(picArray.1["kepek_url"].stringValue)
+        }
+        
+        
+        for timeArray in json["showtime"] {
+            start = timeArray.1["start"].stringValue
+            finish = timeArray.1["finish"].stringValue
+            hetfo = timeArray.1["mon"].intValue
+            kedd = timeArray.1["tue"].intValue
+            szerda = timeArray.1["wed"].intValue
+            csutortok = timeArray.1["thu"].intValue
+            pentek = timeArray.1["fri"].intValue
+            szombat = timeArray.1["sat"].intValue
+            vasarnap = timeArray.1["sun"].intValue
         }
         
         /*if (pictures.isEmpty) {

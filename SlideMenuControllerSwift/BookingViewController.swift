@@ -15,8 +15,20 @@ class BookingViewController: UIViewController {
 
     
     var items = [IdopontokModel]()
-    var items_by_date = [IdopontokByDateModel]()
+    var foglaltak = [IdopontokByDateModel]()
+    var appointments = [IdopontokListaModel]()
+    
     var id = 0
+    var start = ""
+    var finish = ""
+    var hetfo = 0
+    var kedd = 0
+    var szerda = 0
+    var csutortok = 0
+    var pentek = 0
+    var szombat = 0
+    var vasarnap = 0
+    
     @IBOutlet weak var menuView: CVCalendarMenuView!
     @IBOutlet weak var calendarView: CVCalendarView!
     
@@ -40,11 +52,6 @@ class BookingViewController: UIViewController {
         
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(BookingViewController.snackbar_reserved), name: "snackbar_reserved", object: nil)
-        
-        
-        
-        
-        
     }
     
     func snackbar_reserved() {
@@ -53,7 +60,10 @@ class BookingViewController: UIViewController {
     }
     
     func getIdoponts() {
+        
         BookingUtil.sharedInstance.get_idoponts(id, onCompletion: { (json: JSON) in
+            print ("BOOKING ID")
+            print (String(self.id))
             print ("BOOKING")
             print (json)
             
@@ -72,12 +82,68 @@ class BookingViewController: UIViewController {
                                 self.dates.append(date!)
                             }
                         
+                        
                     }
                     self.menuView.commitMenuViewUpdate()
                     self.calendarView.commitCalendarViewUpdate()
                 })
             }
         })
+    }
+    
+    func getIdoponts_2() {
+        var starth = 0
+        var startmin = 0
+        var finh = 24
+        var finmin = 0
+        
+        if(!start.isEmpty) {
+            let startArr = start.characters.split{$0 == ":"}.map(String.init)
+            print ("START HOUR", startArr[0])
+            print ("START MIN", startArr[1])
+            starth = Int(startArr[0])!
+            startmin = Int(startArr[1])!
+        }
+        if(!finish.isEmpty) {
+            let finishArr = finish.characters.split{$0 == ":"}.map(String.init)
+            print ("FINISH HOUR", finishArr[0])
+            print ("FINISH MIN", finishArr[1])
+            finh = Int(finishArr[0])!
+            finmin = Int(finishArr[1])!
+        }
+        
+        for i in 0..<24 {
+            for j in 0...1 {
+                var j_: Int = 0
+                if (j == 0) {
+                    j_ = j
+                } else {
+                    j_ = 30
+                }
+                if(starth <= i && finh >= i) {
+                    if ((starth == i && startmin <= j_) || starth != i) {
+                        if ((finh == i && finmin >= j_) || finh != j_) {
+                            self.appointments.append(IdopontokListaModel(h: i, m: j_, fogl: false))
+                        }
+                    }
+                }
+                
+            }
+        }
+        
+        for ii in 0..<foglaltak.count {
+            let ttt = foglaltak[ii].datum.characters.split{$0 == ":"}.map(String.init)
+            for jj in 0..<appointments.count {
+                print ("APPOINTMENT MINUTES", String(appointments[jj].minutes))
+                let minutesString = String(format: "%02d", appointments[jj].minutes)
+                let hoursString = String(format: "%02d", appointments[jj].hours)
+                if (ttt[1] == minutesString && ttt[0].substring(ttt[0].length-2) == hoursString) {
+                    appointments[jj].foglalt = true
+                }
+            }
+        }
+        
+        self.tableView.reloadData()
     }
     
     override func viewDidLayoutSubviews() {
@@ -118,7 +184,10 @@ extension BookingViewController: CVCalendarViewDelegate, CVCalendarMenuViewDeleg
     }
     
     func didSelectDayView(dayView: CVCalendarDayView, animationDidFinish: Bool) {
-        print("\(dayView.date.commonDescription) is selected!")
+        //print("\(dayView.date.commonDescription) is selected!")
+        print ("DAYVIEW", String(dayView.date.day))
+        
+        
         
         //KIOLVASVA A DÁTUM ROSZ 1 NAPPAL KEVESEBBET MUTAT ÍGY HOZZÁADOK EGYET, MAJD STRINGGÉ ALAKÍTOM ÉS KIVÁGOM AZ ELSŐ 10 KARAKTERT --> Paraszt megoldás :D
         let components: NSDateComponents = NSDateComponents()
@@ -129,21 +198,22 @@ extension BookingViewController: CVCalendarViewDelegate, CVCalendarMenuViewDeleg
         let myNSString = asd as NSString
         let date_to_send = myNSString.substringWithRange(NSRange(location: 0, length: 10))
         print ("DATE SELECTED", date_to_send)
-        self.items_by_date.removeAll()
+        self.foglaltak.removeAll()
+        self.appointments.removeAll()
         self.tableView.reloadData()
         
         BookingUtil.sharedInstance.get_idoponts_by_datum(id, datum: date_to_send, onCompletion: { (json: JSON) in
             print ("BOOKING BY DATE")
             print (json)
             
-            
             if let results = json.array {
                 for entry in results {
-                    self.items_by_date.append(IdopontokByDateModel(json: entry))
+                    self.foglaltak.append(IdopontokByDateModel(json: entry))
                 }
                 dispatch_async(dispatch_get_main_queue(),{
-                    //if (!self.items_by_date.isEmpty) {
-                        self.tableView.reloadData()
+                    //if (!foglaltak.isEmpty) {
+                        //self.tableView.reloadData()
+                        self.getIdoponts_2()
                     //}
                 })
             }
@@ -200,7 +270,38 @@ extension BookingViewController: CVCalendarViewDelegate, CVCalendarMenuViewDeleg
         if day == randomDay {
             return true
         }*/
-        if (!dates.isEmpty) {
+        
+        //print ("DAYVIEW LABEL", String(dayView.weekdayIndex))
+        //1: HÉTFŐ, 2:KEDD...
+        if (dayView.weekdayIndex == 1 && hetfo == 1) {
+            return true
+        }
+        
+        if (dayView.weekdayIndex == 2 && kedd == 1) {
+            return true
+        }
+        
+        if (dayView.weekdayIndex == 3 && szerda == 1) {
+            return true
+        }
+        
+        if (dayView.weekdayIndex == 4 && csutortok == 1) {
+            return true
+        }
+        
+        if (dayView.weekdayIndex == 5 && pentek == 1) {
+            return true
+        }
+        
+        if (dayView.weekdayIndex == 6 && szombat == 1) {
+            return true
+        }
+        
+        if (dayView.weekdayIndex == 7 && hetfo == vasarnap) {
+            return true
+        }
+        
+        /*if (!dates.isEmpty) {
             for i in 0...dates.count-1 {
                 if dayView.date.convertedDate()! == dates[i] {
                     return true
@@ -208,10 +309,10 @@ extension BookingViewController: CVCalendarViewDelegate, CVCalendarMenuViewDeleg
                     
                 }
             }
-        }
+        }*/
         
         
-        
+        dayView.dayLabel.textColor = UIColor.lightGrayColor()
         return false
     }
     
@@ -411,6 +512,10 @@ extension BookingViewController {
     
 }
 
+/*
+ 
+ */
+
 extension BookingViewController : UITableViewDelegate {
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         return CalendarItemViewController.height()
@@ -419,22 +524,21 @@ extension BookingViewController : UITableViewDelegate {
 
 extension BookingViewController : UITableViewDataSource {
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return items_by_date.count
+        return appointments.count
     }
     
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
         let cell = self.tableView.dequeueReusableCellWithIdentifier(CalendarItemViewController.identifier) as! CalendarItemViewController
-        let data = CalendarItemViewDataCell(id: items_by_date[indexPath.row].id, ingatlan_id: items_by_date[indexPath.row].ingatlan_id, datum: items_by_date[indexPath.row].datum, status: items_by_date[indexPath.row].status, fel_id: items_by_date[indexPath.row].fel_id)
-        
+        let data = CalendarItemViewDataCell(hours: appointments[indexPath.row].hours, minutes: appointments[indexPath.row].minutes, foglalt: appointments[indexPath.row].foglalt)
         
         cell.setData(data)
         return cell
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        print ("CELL TAPPED", String(items_by_date[indexPath.row].ingatlan_id))
+        //print ("CELL TAPPED", String(appointments[indexPath.row].ingatlan_id))
         /*let storyboard = UIStoryboard(name: "SubContentsViewController", bundle: nil)
         let subContentsVC = storyboard.instantiateViewControllerWithIdentifier("SubContentsViewController") as! SubContentsViewController
         subContentsVC.id = items[indexPath.row].id

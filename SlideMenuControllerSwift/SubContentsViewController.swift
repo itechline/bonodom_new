@@ -168,6 +168,17 @@ class SubContentsViewController : UIViewController, LiquidFloatingActionButtonDa
             let storyboard = UIStoryboard(name: "BookingViewController", bundle: nil)
             let booking = storyboard.instantiateViewControllerWithIdentifier("Booking") as! BookingViewController
             booking.id = id
+            booking.start = estateItem[0].start
+            booking.finish = estateItem[0].finish
+            booking.hetfo = estateItem[0].hetfo
+            booking.kedd = estateItem[0].kedd
+            booking.szerda = estateItem[0].szerda
+            booking.csutortok = estateItem[0].csutortok
+            booking.pentek = estateItem[0].pentek
+            booking.szombat = estateItem[0].szombat
+            booking.vasarnap = estateItem[0].vasarnap
+            
+            
             self.navigationController?.pushViewController(booking, animated: true)
             break
         }
@@ -217,17 +228,8 @@ class SubContentsViewController : UIViewController, LiquidFloatingActionButtonDa
         self.mobile = estateItem[0].mobil
         
         if (!estateItem[0].face.isEmpty) {
-            
             let url: NSURL = NSURL(string: "https://bonodom.com/profil/img/250_250/" + estateItem[0].face)!
             self.profile_pic.sd_setImageWithURL(url)
-            
-            /*profile_pic.contentMode = UIViewContentModeCenter;
-            if (imageView.bounds.size.width > ((UIImage*)imagesArray[i]).size.width && imageView.bounds.size.height > ((UIImage*)imagesArray[i]).size.height) {
-                profile_pic.contentMode = UIViewContentMode.ScaleAspectFit;
-            }*/
-            //self.profile_pic = UIImageView(frame:CGRectMake(0, 0, 40, 40))
-            //self.profile_pic.setImageFromURLWhithoutIndicator("https://bonodom.com/profil/img/250_250/" + estateItem[0].face)
-            //self.profile_pic.frame = CGRectMake(100, 150, 150, 150)
             self.profile_pic.layer.cornerRadius = self.profile_pic.frame.size.height / 2
             self.profile_pic.clipsToBounds = true
             

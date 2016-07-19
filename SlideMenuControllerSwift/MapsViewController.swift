@@ -28,16 +28,30 @@ class MapsViewController: UIViewController, UIPopoverPresentationControllerDeleg
     var lat : Double = 0.0
     var lng : Double = 0.0
     
+    let searchController = UISearchController(searchResultsController: nil)
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let search = UIBarButtonItem(image: UIImage.init(named: "ic_action_searchicon"), style: .Plain, target: self, action: #selector(openSearchMaps))
+        
+        navigationItem.rightBarButtonItem = search
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(MapsViewController.openContentEstate), name: "openContentEstate", object: nil)
         
         getEstates()
+    }
+    
+    func openSearchMaps() {
+        print ("SEARCH MAP")
+        searchController.searchResultsUpdater = self
+        searchController.searchBar.delegate = self
+        definesPresentationContext = true
+        searchController.dimsBackgroundDuringPresentation = true
+        searchController.active = true
         
-        
-        
-        // Do any additional setup after loading the view.
+        // Setup the Scope Bar
+        //searchController.searchBar.scopeButtonTitles = ["All", "Chocolate", "Hard", "Other"]
     }
     
     func openContentEstate() {
@@ -255,9 +269,33 @@ extension MKMapView {
     }
 }
 
+extension MapsViewController: UISearchBarDelegate {
+    // MARK: - UISearchBar Delegate
+    func searchBar(searchBar: UISearchBar, selectedScopeButtonIndexDidChange selectedScope: Int) {
+        //filterContentForSearchText(searchBar.text!, scope: searchBar.scopeButtonTitles![selectedScope])
+    }
+}
+
+extension MapsViewController: UISearchResultsUpdating {
+    // MARK: - UISearchResultsUpdating Delegate
+    func updateSearchResultsForSearchController(searchController: UISearchController) {
+        let searchBar = searchController.searchBar
+        let scope = searchBar.scopeButtonTitles![searchBar.selectedScopeButtonIndex]
+        //filterContentForSearchText(searchController.searchBar.text!, scope: scope)
+    }
+    
+    func searchDisplayController(controller: UISearchDisplayController, shouldReloadTableForSearchScope searchOption: Int) -> Bool {
+        let searchString = controller.searchBar.text
+        //self.filterContentForSearchText(searchString, scope:searchOption)
+        return true
+    }
+}
+
 class MyTapGestureRecognizer: UITapGestureRecognizer {
     var id: String?
     var hsh: String?
     var pin: MKPinAnnotationView?
 }
+
+
 

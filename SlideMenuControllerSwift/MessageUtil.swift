@@ -93,7 +93,7 @@ class MessageUtil: NSObject {
         //request.addValue("608f44981dd5241547605947c1dc38e0", forHTTPHeaderField: "token");
         
         do {
-            print(body)
+            //print(body)
             let postData:NSData = body.dataUsingEncoding(NSUTF8StringEncoding)!
             
             request.HTTPBody = postData

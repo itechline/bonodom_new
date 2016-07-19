@@ -45,14 +45,20 @@ class BookingUtil: NSObject  {
         
         let token = [ "token", SettingUtil.sharedInstance.getToken()]
         let tokenpost = token.joinWithSeparator("=")
-        let id_post = "ingatlan_id=" + String(id)
         let datum_post = "datum=" + datum
+        let id_post = "ingatlan_id=" + String(id)
         
-        let pa = [ tokenpost, id_post, datum_post]
+        
+        print ("IDOPONT DATUM", datum)
+        print ("IDOPONT INGATLAN ID", String(id))
+        
+        
+        let pa = [ tokenpost, datum_post, id_post]
         let postbody = pa.joinWithSeparator("&")
         
         let route = baseURL + "get_idopont_by_date"
         makeHTTPPostRequest(route, body: postbody, onCompletion: { json, err in
+            print ("IDOPONT ERROR", json)
             onCompletion(json as JSON)
         })
     }
