@@ -23,6 +23,21 @@ class EstateListModel {
     var furniture: Int!
     var parking: Int!
     
+    var energiatan_id: Int!
+    var kilatas_id: Int!
+    var futes_id: Int!
+    var tipus_id: Int!
+    var emelet_id: Int!
+    var allapot_id: Int!
+    var szsz_id: Int!
+    var lift_id: Int!
+    
+    var house_number: String!
+    var city_id: Int!
+    
+    var title: String!
+    
+    
     
     
     required init(json: JSON) {
@@ -40,6 +55,22 @@ class EstateListModel {
         balcony = json["ingatlan_erkely"].intValue
         furniture = json["ingatlan_butorozott"].intValue
         parking = json["ingatlan_parkolas_id"].intValue
+        
+        
+        energiatan_id = json["ingatlan_energiatan_id"].intValue
+        kilatas_id = json["ingatlan_kilatas_id"].intValue
+        futes_id = json["ingatlan_futestipus_id"].intValue
+        tipus_id = json["ingatlan_tipus_id"].intValue
+        emelet_id = json["ingatlan_emelet_id"].intValue
+        allapot_id = json["ingatlan_allapot_id"].intValue
+        szsz_id = json["ingatlan_szsz_id"].intValue
+        lift_id = json["ingatlan_lift"].intValue
+        
+        house_number = json["ingatlan_hsz"].stringValue
+        city_id = json["ingatlan_varos_id"].intValue
+        
+        title = json["ingatlan_title"].stringValue
+        
         
         for picArray in json["kepek"] {
             print ("PICTURE")

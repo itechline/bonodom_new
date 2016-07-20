@@ -27,6 +27,11 @@ class SpinnerModel {
            display = json[type + "_name"].stringValue
         }
         value = json[type + "_id"].stringValue
+        
+        if (display.isEmpty && value.isEmpty) {
+            display = json["nev"].stringValue
+            value = json["id"].stringValue
+        }
        
     }
 }

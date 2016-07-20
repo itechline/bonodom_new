@@ -11,7 +11,6 @@ import SwiftyJSON
 import CoreLocation
 
 class AddEstateViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, CLLocationManagerDelegate {
-
     
     var imagePicker = UIImagePickerController()
     
@@ -75,7 +74,11 @@ class AddEstateViewController: UIViewController, UIImagePickerControllerDelegate
     @IBOutlet weak var hirdetes_tipusa_text: UIButton!
     @IBAction func hirdetes_tipusa_button(sender: AnyObject) {
         self.dismissKeyboard()
-        PickerDialog().show("Hirdetés típusa", options: pickerData_hirdetes_tipus, selected: "0") {
+        var selected = "0"
+        if (!GetAddEstate.update_estate.isEmpty) {
+            selected = String(GetAddEstate.update_estate[0].e_type!)
+        }
+        PickerDialog().show("Hirdetés típusa", options: pickerData_hirdetes_tipus, selected: selected) {
             (value, display) -> Void in
             self.hirdetes_tipusa_text.setTitle(display, forState: UIControlState.Normal)
             self.hirdetes_tipusa = value
@@ -86,14 +89,12 @@ class AddEstateViewController: UIViewController, UIImagePickerControllerDelegate
     @IBOutlet weak var butorozott_text: UIButton!
     @IBAction func butorozott_button(sender: AnyObject) {
         self.dismissKeyboard()
-        pickerData_butorozott = [
-            ["value": "0", "display": "Nincs megadva"],
-            ["value": "1", "display": "Nem"],
-            ["value": "2", "display": "Igen"],
-            ["value": "3", "display": "Alku tárgya"]
-        ]
         
-        PickerDialog().show("Bútor", options: pickerData_butorozott, selected: "0") {
+        var selected = "0"
+        if (!GetAddEstate.update_estate.isEmpty) {
+            selected = String(GetAddEstate.update_estate[0].furniture!)
+        }
+        PickerDialog().show("Bútor", options: pickerData_butorozott, selected: selected) {
             (value, display) -> Void in
             self.butorozott_text.setTitle(display, forState: UIControlState.Normal)
             self.butorozott = value
@@ -176,7 +177,11 @@ class AddEstateViewController: UIViewController, UIImagePickerControllerDelegate
     //SECOND PAGE
     @IBOutlet weak var szobaszam_text: UIButton!
     @IBAction func szobaszam_button(sender: AnyObject) {
-        PickerDialog().show("Szobaszám", options: pickerData_szobaszam, selected: "0") {
+        var selected = "0"
+        if (!GetAddEstate.update_estate.isEmpty) {
+            selected = String(GetAddEstate.update_estate[0].szsz_id!)
+        }
+        PickerDialog().show("Szobaszám", options: pickerData_szobaszam, selected: selected) {
             (value, display) -> Void in
             self.szobaszam_text.setTitle(display, forState: UIControlState.Normal)
             self.szobaszam = value
@@ -186,7 +191,11 @@ class AddEstateViewController: UIViewController, UIImagePickerControllerDelegate
     
     @IBOutlet weak var allapot_text: UIButton!
     @IBAction func allapot_button(sender: AnyObject) {
-        PickerDialog().show("Állapot", options: pickerData_allapot, selected: "0") {
+        var selected = "0"
+        if (!GetAddEstate.update_estate.isEmpty) {
+            selected = String(GetAddEstate.update_estate[0].allapot_id!)
+        }
+        PickerDialog().show("Állapot", options: pickerData_allapot, selected: selected) {
             (value, display) -> Void in
             self.allapot_text.setTitle(display, forState: UIControlState.Normal)
             self.allapot = value
@@ -196,7 +205,11 @@ class AddEstateViewController: UIViewController, UIImagePickerControllerDelegate
     
     @IBOutlet weak var emelet_text: UIButton!
     @IBAction func emelet_button(sender: AnyObject) {
-        PickerDialog().show("Emelet", options: pickerData_emelet, selected: "0") {
+        var selected = "0"
+        if (!GetAddEstate.update_estate.isEmpty) {
+            selected = String(GetAddEstate.update_estate[0].emelet_id!)
+        }
+        PickerDialog().show("Emelet", options: pickerData_emelet, selected: selected) {
             (value, display) -> Void in
             self.emelet_text.setTitle(display, forState: UIControlState.Normal)
             self.emelet = value
@@ -206,7 +219,11 @@ class AddEstateViewController: UIViewController, UIImagePickerControllerDelegate
     
     @IBOutlet weak var ingatlan_tipus_text: UIButton!
     @IBAction func ingatlan_tipus_button(sender: AnyObject) {
-        PickerDialog().show("Ingatlan típus", options: pickerData_ing_tipus, selected: "0") {
+        var selected = "0"
+        if (!GetAddEstate.update_estate.isEmpty) {
+            selected = String(GetAddEstate.update_estate[0].tipus_id!)
+        }
+        PickerDialog().show("Ingatlan típus", options: pickerData_ing_tipus, selected: selected) {
             (value, display) -> Void in
             self.ingatlan_tipus_text.setTitle(display, forState: UIControlState.Normal)
             self.ing_tipus = value
@@ -216,13 +233,13 @@ class AddEstateViewController: UIViewController, UIImagePickerControllerDelegate
     
     @IBOutlet weak var erkely_text: UIButton!
     @IBAction func erkely_button(sender: AnyObject) {
-        pickerData_erkely = [
-            ["value": "0", "display": "Nincs megadva"],
-            ["value": "1", "display": "Van"],
-            ["value": "2", "display": "Nincs"]
-        ]
+        var selected = "0"
+        if (!GetAddEstate.update_estate.isEmpty) {
+            selected = String(GetAddEstate.update_estate[0].balcony!)
+        }
         
-        PickerDialog().show("Erkély", options: pickerData_erkely, selected: "0") {
+        
+        PickerDialog().show("Erkély", options: pickerData_erkely, selected: selected) {
             (value, display) -> Void in
             self.erkely_text.setTitle(display, forState: UIControlState.Normal)
             self.erkely = value
@@ -232,7 +249,11 @@ class AddEstateViewController: UIViewController, UIImagePickerControllerDelegate
     
     @IBOutlet weak var parkolas_text: UIButton!
     @IBAction func parkolas_button(sender: AnyObject) {
-        PickerDialog().show("Parkolás", options: pickerData_parkolas, selected: "0") {
+        var selected = "0"
+        if (!GetAddEstate.update_estate.isEmpty) {
+            selected = String(GetAddEstate.update_estate[0].parking!)
+        }
+        PickerDialog().show("Parkolás", options: pickerData_parkolas, selected: selected) {
             (value, display) -> Void in
             self.parkolas_text.setTitle(display, forState: UIControlState.Normal)
             self.parkolas = value
@@ -242,7 +263,11 @@ class AddEstateViewController: UIViewController, UIImagePickerControllerDelegate
     
     @IBOutlet weak var futes_text: UIButton!
     @IBAction func futes_button(sender: AnyObject) {
-        PickerDialog().show("Fűtés", options: pickerData_futes, selected: "0") {
+        var selected = "0"
+        if (!GetAddEstate.update_estate.isEmpty) {
+            selected = String(GetAddEstate.update_estate[0].futes_id!)
+        }
+        PickerDialog().show("Fűtés", options: pickerData_futes, selected: selected) {
             (value, display) -> Void in
             self.futes_text.setTitle(display, forState: UIControlState.Normal)
             self.futes = value
@@ -252,13 +277,11 @@ class AddEstateViewController: UIViewController, UIImagePickerControllerDelegate
     
     @IBOutlet weak var lift_text: UIButton!
     @IBAction func lift_button(sender: AnyObject) {
-        pickerData_lift = [
-            ["value": "0", "display": "Nincs megadva"],
-            ["value": "1", "display": "Van"],
-            ["value": "2", "display": "Nincs"]
-        ]
-        
-        PickerDialog().show("Lift", options: pickerData_lift, selected: "0") {
+        var selected = "0"
+        if (!GetAddEstate.update_estate.isEmpty) {
+            selected = String(GetAddEstate.update_estate[0].lift_id!)
+        }
+        PickerDialog().show("Lift", options: pickerData_lift, selected: selected) {
             (value, display) -> Void in
             self.lift_text.setTitle(display, forState: UIControlState.Normal)
             self.lift = value
@@ -268,7 +291,11 @@ class AddEstateViewController: UIViewController, UIImagePickerControllerDelegate
     
     @IBOutlet weak var etan_text: UIButton!
     @IBAction func etan_button(sender: AnyObject) {
-        PickerDialog().show("Energia tanusítvány", options: pickerData_etan, selected: "0") {
+        var selected = "0"
+        if (!GetAddEstate.update_estate.isEmpty) {
+            selected = String(GetAddEstate.update_estate[0].energiatan_id!)
+        }
+        PickerDialog().show("Energia tanusítvány", options: pickerData_etan, selected: selected) {
             (value, display) -> Void in
             self.etan_text.setTitle(display, forState: UIControlState.Normal)
             self.etan = value
@@ -278,7 +305,11 @@ class AddEstateViewController: UIViewController, UIImagePickerControllerDelegate
     
     @IBOutlet weak var kilatas_text: UIButton!
     @IBAction func kilatas_button(sender: AnyObject) {
-        PickerDialog().show("Kilátás", options: pickerData_kilatas, selected: "0") {
+        var selected = "0"
+        if (!GetAddEstate.update_estate.isEmpty) {
+            selected = String(GetAddEstate.update_estate[0].kilatas_id!)
+        }
+        PickerDialog().show("Kilátás", options: pickerData_kilatas, selected: selected) {
             (value, display) -> Void in
             self.kilatas_text.setTitle(display, forState: UIControlState.Normal)
             self.kilatas = value
@@ -298,7 +329,10 @@ class AddEstateViewController: UIViewController, UIImagePickerControllerDelegate
             GetAddEstate.estate.insert(AddEstateModel(cim: GetAddEstate.estate[0].cim, varos: GetAddEstate.estate[0].varos, utca: GetAddEstate.estate[0].utca, leiras: GetAddEstate.estate[0].leiras, ar: GetAddEstate.estate[0].ar, meret: GetAddEstate.estate[0].meret, etan: etan, butor: GetAddEstate.estate[0].butor, kilatas: kilatas, lift: lift, futes: futes, parkolas: parkolas, erkely: erkely, tipus: ing_tipus, emelet: emelet, allapot: allapot, szsz: szobaszam, lat: GetAddEstate.estate[0].lat, lng: GetAddEstate.estate[0].lng, e_type: GetAddEstate.estate[0].e_type, zipcode: GetAddEstate.estate[0].zipcode, hsz: GetAddEstate.estate[0].hsz, hetfo: "", kedd: "", szerda: "", csut: "", pentek: "", szombat: "", vasarnap: "", kezdes: "", vege: "" ,pictures: nil), atIndex: 0)
             
             let storyboard = UIStoryboard(name: "AddEstate", bundle: nil)
-            let loginView = storyboard.instantiateViewControllerWithIdentifier("AddEstate_3")
+            let loginView = storyboard.instantiateViewControllerWithIdentifier("AddEstate_3") as! AddEstateViewController
+            //loginView.isModding = self.isModding
+            //loginView.mod_id = self.mod_id
+            //loginView.page = 3
             self.navigationController?.pushViewController(loginView, animated: true)
         }
     }
@@ -350,7 +384,10 @@ class AddEstateViewController: UIViewController, UIImagePickerControllerDelegate
         
         
         let storyboard = UIStoryboard(name: "AddEstate", bundle: nil)
-        let loginView = storyboard.instantiateViewControllerWithIdentifier("AddEstate_4")
+        let loginView = storyboard.instantiateViewControllerWithIdentifier("AddEstate_4") as! AddEstateViewController
+        //loginView.isModding = self.isModding
+        //loginView.mod_id = self.mod_id
+        //loginView.page = 4
         self.navigationController?.pushViewController(loginView, animated: true)
     }
     
@@ -433,6 +470,13 @@ class AddEstateViewController: UIViewController, UIImagePickerControllerDelegate
             kezdes: kezdes,
             vege: vege ,
             pictures: imagesToUpload), atIndex: 0)
+        
+        let storyboard = UIStoryboard(name: "AddEstate", bundle: nil)
+        let loginView = storyboard.instantiateViewControllerWithIdentifier("AddEstate_5") as! AddEstateViewController
+        //loginView.isModding = self.isModding
+        //loginView.mod_id = self.mod_id
+        //loginView.page = 5
+        self.navigationController?.pushViewController(loginView, animated: true)
     }
     
     @IBOutlet weak var kezdes_text: UIButton!
@@ -643,10 +687,14 @@ class AddEstateViewController: UIViewController, UIImagePickerControllerDelegate
     //FIFTH PAGE
     var alertController = UIAlertController()
     @IBAction func upload_estate(sender: AnyObject) {
-    
+        var mod_id: Int = 0
+        
+        if (!GetAddEstate.update_estate.isEmpty) {
+            mod_id = GetAddEstate.update_estate[0].id
+        }
         
         EstateUtil.sharedInstance.addEstate(GetAddEstate.estate[0].cim, varos: GetAddEstate.estate[0].varos, utca: GetAddEstate.estate[0].utca, leiras: GetAddEstate.estate[0].leiras, ar: GetAddEstate.estate[0].ar, meret: GetAddEstate.estate[0].meret, energiatan_id: GetAddEstate.estate[0].etan, butorozott: GetAddEstate.estate[0].butor, kilatas_id: GetAddEstate.estate[0].kilatas, lift: GetAddEstate.estate[0].lift, futestipus_id: GetAddEstate.estate[0].futes, parkolas_id: GetAddEstate.estate[0].parkolas, erkely: GetAddEstate.estate[0].erkely, tipus_id: GetAddEstate.estate[0].tipus, emelet_id: GetAddEstate.estate[0].emelet, allapot_id: GetAddEstate.estate[0].allapot, szsz_id: GetAddEstate.estate[0].szsz, lat: GetAddEstate.estate[0].lat, lng: GetAddEstate.estate[0].lng, e_type_id: GetAddEstate.estate[0].e_type, zipcode: GetAddEstate.estate[0].zipcode, hsz: GetAddEstate.estate[0].hsz,
-            mon: GetAddEstate.estate[0].hetfo, tue: GetAddEstate.estate[0].kedd, wed: GetAddEstate.estate[0].szerda, thu: GetAddEstate.estate[0].csut, fri: GetAddEstate.estate[0].pentek, sat: GetAddEstate.estate[0].szombat, sun: GetAddEstate.estate[0].vasarnap, start: GetAddEstate.estate[0].kezdes, finish: GetAddEstate.estate[0].vege ,onCompletion: { (json: JSON) in
+            mon: GetAddEstate.estate[0].hetfo, tue: GetAddEstate.estate[0].kedd, wed: GetAddEstate.estate[0].szerda, thu: GetAddEstate.estate[0].csut, fri: GetAddEstate.estate[0].pentek, sat: GetAddEstate.estate[0].szombat, sun: GetAddEstate.estate[0].vasarnap, start: GetAddEstate.estate[0].kezdes, finish: GetAddEstate.estate[0].vege, update_id: mod_id,onCompletion: { (json: JSON) in
             print (json)
             var err: Bool!
             err = json["error"].boolValue
@@ -712,22 +760,43 @@ class AddEstateViewController: UIViewController, UIImagePickerControllerDelegate
     
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        loadSpinners()
+        //TODO: VISSZALÉPÉSNÉL A WHICH_PAGE NEM LESZ JÓ...
+        if (GetAddEstate.is_update == 1) {
+            GetAddEstate.which_page = GetAddEstate.which_page + 1
+            if (GetAddEstate.which_page == 1) {
+                self.hirdetes_cime_text.text = GetAddEstate.update_estate[0].title
+                self.hirdetes_leirasa_text.text = GetAddEstate.update_estate[0].description
+                self.ingatlan_ara_text.text = GetAddEstate.update_estate[0].price
+                self.varos_text.text = GetAddEstate.update_estate[0].adress
+                //TODO: varos_id-t is tárolni
+                self.utca_text.text = GetAddEstate.update_estate[0].street
+                self.hazszam_text.text = GetAddEstate.update_estate[0].house_number
+                self.meret_text.text = GetAddEstate.update_estate[0].size
+
+                self.butorozott_text.setTitle(self.pickerData_butorozott[GetAddEstate.update_estate[0].furniture]["display"], forState: UIControlState.Normal)
+                self.butorozott = String(GetAddEstate.update_estate[0].furniture!)
+            }
+            
+            if (GetAddEstate.which_page == 2) {
+                self.lift_text.setTitle(self.pickerData_lift[GetAddEstate.update_estate[0].lift_id]["display"], forState: UIControlState.Normal)
+                self.lift = String(GetAddEstate.update_estate[0].lift_id!)
+                
+                self.erkely_text.setTitle(self.pickerData_erkely[GetAddEstate.update_estate[0].balcony]["display"], forState: UIControlState.Normal)
+                self.erkely = String(GetAddEstate.update_estate[0].balcony!)
+            }
+            
+            
+            
+        }
         
-        /*setButtonBack(hirdetes_tipusa_text)
-        setButtonBack(butorozott_text)
-        setButtonBack(szobaszam_text)
-        setButtonBack(allapot_text)
-        setButtonBack(emelet_text)
-        setButtonBack(ingatlan_tipus_text)
-        setButtonBack(erkely_text)
-        setButtonBack(parkolas_text)
-        setButtonBack(futes_text)
-        setButtonBack(lift_text)
-        setButtonBack(etan_text)
-        setButtonBack(kilatas_text)*/
+        
+        print ("PAGE ",String(GetAddEstate.which_page))
+        
         
         self.hideKeyboardWhenTappedAround()
-        loadSpinners()
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -778,7 +847,10 @@ class AddEstateViewController: UIViewController, UIImagePickerControllerDelegate
                     pentek: "", szombat: "", vasarnap: "", kezdes: "", vege: "" ,pictures: nil))
                 
                 let storyboard = UIStoryboard(name: "AddEstate", bundle: nil)
-                let loginView = storyboard.instantiateViewControllerWithIdentifier("AddEstate_2")
+                let loginView = storyboard.instantiateViewControllerWithIdentifier("AddEstate_2") as! AddEstateViewController
+                //loginView.isModding = self.isModding
+                //loginView.mod_id = self.mod_id
+                //loginView.page = 2
                 self.navigationController?.pushViewController(loginView, animated: true)
                 return
             }
@@ -799,13 +871,38 @@ class AddEstateViewController: UIViewController, UIImagePickerControllerDelegate
                     pentek: "", szombat: "", vasarnap: "", kezdes: "", vege: "" ,pictures: nil))
                 
                 let storyboard = UIStoryboard(name: "AddEstate", bundle: nil)
-                let loginView = storyboard.instantiateViewControllerWithIdentifier("AddEstate_2")
+                let loginView = storyboard.instantiateViewControllerWithIdentifier("AddEstate_2") as! AddEstateViewController
+                //loginView.isModding = self.isModding
+                //loginView.mod_id = self.mod_id
+                //loginView.page = 2
                 self.navigationController?.pushViewController(loginView, animated: true)
             }
         })
     }
     
     func loadSpinners() {
+        pickerData_butorozott = [
+            ["value": "0", "display": "Nincs megadva"],
+            ["value": "1", "display": "Nem"],
+            ["value": "2", "display": "Igen"],
+            ["value": "3", "display": "Alku tárgya"]
+        ]
+        
+        pickerData_erkely = [
+            ["value": "0", "display": "Nincs megadva"],
+            ["value": "1", "display": "Van"],
+            ["value": "2", "display": "Nincs"]
+        ]
+        
+        pickerData_lift = [
+            ["value": "0", "display": "Nincs megadva"],
+            ["value": "1", "display": "Van"],
+            ["value": "2", "display": "Nincs"]
+        ]
+        
+        
+        
+        
         SpinnerUtil.sharedInstance.get_list_ingatlanszoba{ (json: JSON) in
             self.items.removeAll()
             if let results = json.array {
@@ -820,6 +917,15 @@ class AddEstateViewController: UIViewController, UIImagePickerControllerDelegate
                         self.pickerData_szobaszam.append(["value": self.items[i].value, "display": "Nincs megadva"])
                     }
                 }
+                
+                dispatch_async(dispatch_get_main_queue(),{
+                    if (!GetAddEstate.update_estate.isEmpty && GetAddEstate.which_page == 2) {
+                        self.szobaszam_text.setTitle(self.pickerData_szobaszam[GetAddEstate.update_estate[0].szsz_id]["display"], forState: UIControlState.Normal)
+                        self.szobaszam = String(GetAddEstate.update_estate[0].szsz_id!)
+                    }
+                })
+                
+                
             }
         }
         
@@ -837,6 +943,12 @@ class AddEstateViewController: UIViewController, UIImagePickerControllerDelegate
                         self.pickerData_ing_tipus.append(["value": self.items[i].value, "display": "Nincs megadva"])
                     }
                 }
+                dispatch_async(dispatch_get_main_queue(),{
+                    if (!GetAddEstate.update_estate.isEmpty && GetAddEstate.which_page == 2) {
+                        self.ingatlan_tipus_text.setTitle(self.pickerData_ing_tipus[GetAddEstate.update_estate[0].tipus_id]["display"], forState: UIControlState.Normal)
+                        self.emelet = String(GetAddEstate.update_estate[0].tipus_id!)
+                    }
+                })
             }
         }
         
@@ -854,6 +966,13 @@ class AddEstateViewController: UIViewController, UIImagePickerControllerDelegate
                         self.pickerData_allapot.append(["value": self.items[i].value, "display": "Nincs megadva"])
                     }
                 }
+                
+                dispatch_async(dispatch_get_main_queue(),{
+                    if (!GetAddEstate.update_estate.isEmpty && GetAddEstate.which_page == 2) {
+                        self.allapot_text.setTitle(self.pickerData_allapot[GetAddEstate.update_estate[0].allapot_id]["display"], forState: UIControlState.Normal)
+                        self.allapot = String(GetAddEstate.update_estate[0].allapot_id!)
+                    }
+                })
             }
         }
         
@@ -871,6 +990,12 @@ class AddEstateViewController: UIViewController, UIImagePickerControllerDelegate
                         self.pickerData_emelet.append(["value": self.items[i].value, "display": "Nincs megadva"])
                     }
                 }
+                dispatch_async(dispatch_get_main_queue(),{
+                    if (!GetAddEstate.update_estate.isEmpty && GetAddEstate.which_page == 2) {
+                        self.emelet_text.setTitle(self.pickerData_emelet[GetAddEstate.update_estate[0].emelet_id]["display"], forState: UIControlState.Normal)
+                        self.emelet = String(GetAddEstate.update_estate[0].emelet_id!)
+                    }
+                })
             }
         }
         
@@ -888,6 +1013,12 @@ class AddEstateViewController: UIViewController, UIImagePickerControllerDelegate
                         self.pickerData_parkolas.append(["value": self.items[i].value, "display": "Nincs megadva"])
                     }
                 }
+                dispatch_async(dispatch_get_main_queue(),{
+                    if (!GetAddEstate.update_estate.isEmpty && GetAddEstate.which_page == 2) {
+                        self.parkolas_text.setTitle(self.pickerData_parkolas[GetAddEstate.update_estate[0].parking]["display"], forState: UIControlState.Normal)
+                        self.parkolas = String(GetAddEstate.update_estate[0].parking!)
+                    }
+                })
             }
         }
         
@@ -905,6 +1036,12 @@ class AddEstateViewController: UIViewController, UIImagePickerControllerDelegate
                         self.pickerData_futes.append(["value": self.items[i].value, "display": "Nincs megadva"])
                     }
                 }
+                dispatch_async(dispatch_get_main_queue(),{
+                    if (!GetAddEstate.update_estate.isEmpty && GetAddEstate.which_page == 2) {
+                        self.futes_text.setTitle(self.pickerData_futes[GetAddEstate.update_estate[0].futes_id]["display"], forState: UIControlState.Normal)
+                        self.futes = String(GetAddEstate.update_estate[0].futes_id!)
+                    }
+                })
             }
         }
         
@@ -922,6 +1059,12 @@ class AddEstateViewController: UIViewController, UIImagePickerControllerDelegate
                         self.pickerData_etan.append(["value": self.items[i].value, "display": "Nincs megadva"])
                     }
                 }
+                dispatch_async(dispatch_get_main_queue(),{
+                    if (!GetAddEstate.update_estate.isEmpty && GetAddEstate.which_page == 2) {
+                        self.etan_text.setTitle(self.pickerData_etan[GetAddEstate.update_estate[0].energiatan_id]["display"], forState: UIControlState.Normal)
+                        self.etan = String(GetAddEstate.update_estate[0].energiatan_id!)
+                    }
+                })
             }
         }
         
@@ -939,6 +1082,12 @@ class AddEstateViewController: UIViewController, UIImagePickerControllerDelegate
                         self.pickerData_kilatas.append(["value": self.items[i].value, "display": "Nincs megadva"])
                     }
                 }
+                dispatch_async(dispatch_get_main_queue(),{
+                    if (!GetAddEstate.update_estate.isEmpty && GetAddEstate.which_page == 2) {
+                        self.kilatas_text.setTitle(self.pickerData_kilatas[GetAddEstate.update_estate[0].kilatas_id]["display"], forState: UIControlState.Normal)
+                        self.kilatas = String(GetAddEstate.update_estate[0].kilatas_id!)
+                    }
+                })
             }
         }
         
@@ -949,6 +1098,7 @@ class AddEstateViewController: UIViewController, UIImagePickerControllerDelegate
                     self.items.append(SpinnerModel(json: entry, type: "ing_e_type"))
                 }
                 
+                
                 for i in 0...self.items.count-1 {
                     if (i != 0) {
                         self.pickerData_hirdetes_tipus.append(["value": self.items[i].value, "display": self.items[i].display])
@@ -956,6 +1106,12 @@ class AddEstateViewController: UIViewController, UIImagePickerControllerDelegate
                         self.pickerData_hirdetes_tipus.append(["value": self.items[i].value, "display": "Nincs megadva"])
                     }
                 }
+                dispatch_async(dispatch_get_main_queue(),{
+                    if (!GetAddEstate.update_estate.isEmpty && GetAddEstate.which_page == 1) {
+                    self.hirdetes_tipusa_text.setTitle(self.pickerData_hirdetes_tipus[GetAddEstate.update_estate[0].e_type]["display"], forState: UIControlState.Normal)
+                    self.hirdetes_tipusa = String(GetAddEstate.update_estate[0].e_type!)
+                    }
+                })
             }
         }
     }

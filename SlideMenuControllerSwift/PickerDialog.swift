@@ -34,7 +34,6 @@ class PickerDialog: UIView, UIPickerViewDataSource, UIPickerViewDelegate {
     /* Overrides */
     init() {
         super.init(frame: CGRectMake(0, 0, UIScreen.mainScreen().bounds.size.width, UIScreen.mainScreen().bounds.size.height))
-
         setupView()
     }
 

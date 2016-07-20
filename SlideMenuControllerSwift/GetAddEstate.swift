@@ -10,4 +10,10 @@ import Foundation
 
 class GetAddEstate {
     static var estate: [AddEstateModel] = []
+    
+    static var update_estate: [EstateListModel] = []
+    
+    static var is_update : Int = 0
+    static var row: Int = 0
+    static var which_page : Int = 0
 }

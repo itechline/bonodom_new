@@ -106,7 +106,7 @@ class EstateUtil: NSObject {
                    tipus_id: String, emelet_id: String, allapot_id: String, szsz_id: String,
                    lat: String, lng: String, e_type_id: String, zipcode: String, hsz: String,
                    mon: String, tue: String, wed: String, thu: String, fri: String, sat: String,
-                   sun: String, start: String, finish: String, onCompletion: (JSON) -> Void) {
+                   sun: String, start: String, finish: String, update_id: Int, onCompletion: (JSON) -> Void) {
         
         let token = [ "token", SettingUtil.sharedInstance.getToken()]
         let tokenpost = token.joinWithSeparator("=")
@@ -141,8 +141,9 @@ class EstateUtil: NSObject {
         let sun_post = "sun=" + sun
         let start_post = "start=" + start
         let finish_post = "finish=" + finish
+        let id_post = "id=" + String(update_id)
  
-        let pa = [ tokenpost, title_post, varos_post, utca_post, leiras_post, ar_post, meret_post, energiatan_post, butor_post, kilatas_post, lift_post, futes_post, parkolas_post, erkely_post, tipus_post, emelet_post, allapot_post, szsz_post, lat_post, lng_post, e_type_post, zipcode_post, hsz_post, mon_post, tue_post, wed_post, thu_post, fri_post, sat_post, sun_post, start_post, finish_post]
+        let pa = [ tokenpost, title_post, varos_post, utca_post, leiras_post, ar_post, meret_post, energiatan_post, butor_post, kilatas_post, lift_post, futes_post, parkolas_post, erkely_post, tipus_post, emelet_post, allapot_post, szsz_post, lat_post, lng_post, e_type_post, zipcode_post, hsz_post, mon_post, tue_post, wed_post, thu_post, fri_post, sat_post, sun_post, start_post, finish_post, id_post]
         let postbody = pa.joinWithSeparator("&")
         
         let route = baseURL + "add_estate"
@@ -210,11 +211,11 @@ class EstateUtil: NSObject {
         })
     }
     
-    func delete_estate(ingatlan_id: String, onCompletion: (JSON) -> Void) {
+    func delete_estate(ingatlan_id: String, status: String, onCompletion: (JSON) -> Void) {
         let token = [ "token", SettingUtil.sharedInstance.getToken()]
         let tokenpost = token.joinWithSeparator("=")
         let id_post = "ingatlan_id=" + ingatlan_id
-        let status_post = "ingatlan_status=0"
+        let status_post = "ingatlan_status=" + status
         
         let pa = [ tokenpost, id_post, status_post]
         let postbody = pa.joinWithSeparator("&")

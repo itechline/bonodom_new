@@ -77,7 +77,14 @@ class SpinnerUtil: NSObject {
         })
     }
     
-    //TODO: bútor, erkély, lift, szűrés, méret, időpontfoglalás eleje/vége hiányzik
+    //list_statuses
+    func get_list_statuses(onCompletion: (JSON) -> Void) {
+        let route = baseURL + "list_statuses"
+        makeHTTPGetRequest(route, onCompletion: { json, err in
+            onCompletion(json as JSON)
+        })
+    }
+    
     
     
     // MARK: Perform a GET Request

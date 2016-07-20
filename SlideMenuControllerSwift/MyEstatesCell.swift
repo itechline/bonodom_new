@@ -45,6 +45,8 @@ class MyEstatesCell : BaseTableViewCell {
     
     @IBOutlet weak var modify_text: UIButton!
     @IBAction func modify_button(sender: AnyObject) {
+        let mod: [String:AnyObject] = [ "mod": "1", "row": String(row!)]
+        NSNotificationCenter.defaultCenter().postNotificationName("estate_adding", object: mod)
     }
     
     @IBOutlet weak var delete_text: UIButton!
@@ -92,6 +94,19 @@ class MyEstatesCell : BaseTableViewCell {
             self.row = data.row
             
             self.id = data.id
+            
+            self.delete_text.layer.cornerRadius = 3
+            self.delete_text.layer.borderColor = UIColor.redColor().CGColor
+            self.delete_text.layer.borderWidth = 1
+            
+            self.modify_text.layer.cornerRadius = 3
+            self.modify_text.layer.borderColor = UIColor.blueColor().CGColor
+            self.modify_text.layer.borderWidth = 1
+            
+            //00D548 -> UP BUTTON COLOR
+            self.up_text.layer.cornerRadius = 3
+            self.up_text.layer.borderColor = UIColor(hex: "00D548").CGColor
+            self.up_text.layer.borderWidth = 1
             
         }
     }

@@ -57,13 +57,10 @@
                     </view>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7gD-yI-3pw">
                         <rect key="frame" x="124" y="131" width="93" height="30"/>
-                        <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="30" id="sef-xB-ydk"/>
                         </constraints>
-                        <state key="normal" title="Módosít">
-                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                        </state>
+                        <state key="normal" title="Módosít"/>
                         <connections>
                             <action selector="modify_button:" destination="c3H-ux-4zZ" eventType="touchUpInside" id="H30-PT-cv6"/>
                         </connections>
@@ -73,7 +70,9 @@
                         <constraints>
                             <constraint firstAttribute="height" constant="30" id="cmm-vO-B1S"/>
                         </constraints>
-                        <state key="normal" title="Lista elejére"/>
+                        <state key="normal" title="Ugrás előre &gt;">
+                            <color key="titleColor" red="0.0" green="0.83529411764705885" blue="0.28235294117647058" alpha="1" colorSpace="calibratedRGB"/>
+                        </state>
                         <connections>
                             <action selector="up_button:" destination="c3H-ux-4zZ" eventType="touchUpInside" id="TZs-fC-eB4"/>
                         </connections>

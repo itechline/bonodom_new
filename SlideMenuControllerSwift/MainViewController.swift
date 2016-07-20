@@ -489,8 +489,33 @@ class MainViewController: UIViewController, LiquidFloatingActionButtonDataSource
     }
     
     func openAddestate(notification: NSNotification) {
+        if let info = notification.object as? [String:AnyObject] {
+            if let ismod = info["mod"] as? String {
+                if let row = info["row"] as? String {
+                    GetAddEstate.is_update = Int(ismod)!
+                    GetAddEstate.row = Int(row)!
+                    GetAddEstate.update_estate.removeAll()
+                    GetAddEstate.update_estate.append(items[Int(row)!])
+                } else {
+                    GetAddEstate.is_update = 0
+                    GetAddEstate.update_estate.removeAll()
+                }
+            } else {
+                GetAddEstate.is_update = 0
+                GetAddEstate.update_estate.removeAll()
+            }
+        } else {
+            GetAddEstate.is_update = 0
+            GetAddEstate.update_estate.removeAll()
+        }
+        
+        
+        GetAddEstate.which_page = 0
+        
         let storyboard = UIStoryboard(name: "AddEstate", bundle: nil)
         let subContentsVC = storyboard.instantiateViewControllerWithIdentifier("AddEstate_1") as! AddEstateViewController
+        //subContentsVC.isModding = isMod
+        //subContentsVC.mod_id = modId
         self.navigationController?.pushViewController(subContentsVC, animated: true)
         
         /*if let userInfo = notification.object as? [String:AnyObject] {
@@ -501,8 +526,78 @@ class MainViewController: UIViewController, LiquidFloatingActionButtonDataSource
         }*/
     }
     
+    var pickerData_delete = [[String : String]]()
     func delete_estate(notification: NSNotification) {
         if let info = notification.object as? [String:AnyObject] {
+            if let del_id = info["del_id"] as? String {
+                if let row = info["row"] as? String {
+                    var delete_why_id = ""
+                    if (pickerData_delete.isEmpty) {
+                    SpinnerUtil.sharedInstance.get_list_statuses{ (json: JSON) in
+                        print ("SPINNER")
+                        print (json)
+                        dispatch_async(dispatch_get_main_queue(),{
+                            self.elado_kiado_items.removeAll()
+                            if let results = json.array {
+                                for entry in results {
+                                    print ("ADDING SPINNER ITEMS")
+                                    self.elado_kiado_items.append(SpinnerModel(json: entry, type: ""))
+                                }
+                                
+                                for i in 0...self.elado_kiado_items.count-1 {
+                                    self.pickerData_delete.append(["value": self.elado_kiado_items[i].value, "display": self.elado_kiado_items[i].display])
+                                }
+                            }
+                            
+                            
+                            if (!json["error"].boolValue) {
+                                PickerDialog().show("Miért törli a hírdetést?", options: self.pickerData_delete, selected: "0") {
+                                    (value, display) -> Void in
+                                    //self.butorozott_text.setTitle(display, forState: UIControlState.Normal)
+                                    delete_why_id = value
+                                    print("Unit selected: \(value)")
+                                    EstateUtil.sharedInstance.delete_estate(del_id, status: delete_why_id,onCompletion: { (json: JSON) in
+                                        print ("DELETE ESTATE")
+                                        print (json)
+                                        dispatch_async(dispatch_get_main_queue(),{
+                                            if (!json["error"].boolValue) {
+                                                self.items.removeAtIndex(Int(row)!)
+                                                self.tableView.reloadData()
+                                            } else {
+                                    
+                                            }
+                                        })
+                                    })
+                                }
+                            } else {
+                                
+                            }
+                        })
+                        
+                    }
+                    } else {
+                        PickerDialog().show("Miért törli a hírdetést?", options: self.pickerData_delete, selected: "0") {
+                            (value, display) -> Void in
+                            //self.butorozott_text.setTitle(display, forState: UIControlState.Normal)
+                            delete_why_id = value
+                            print("Unit selected: \(value)")
+                            EstateUtil.sharedInstance.delete_estate(del_id, status: delete_why_id,onCompletion: { (json: JSON) in
+                                print ("DELETE ESTATE")
+                                print (json)
+                                dispatch_async(dispatch_get_main_queue(),{
+                                    if (!json["error"].boolValue) {
+                                        self.items.removeAtIndex(Int(row)!)
+                                        self.tableView.reloadData()
+                                    } else {
+                                        
+                                    }
+                                })
+                            })
+                        }
+                    }
+                }}}
+        
+        /*if let info = notification.object as? [String:AnyObject] {
             if let del_id = info["del_id"] as? String {
                 if let row = info["row"] as? String {
                     let alert = UIAlertController(title: "Figyelem", message: "Biztosan törli az ingatlant?", preferredStyle: UIAlertControllerStyle.Alert)
@@ -534,7 +629,7 @@ class MainViewController: UIViewController, LiquidFloatingActionButtonDataSource
                     self.presentViewController(alert, animated: true, completion: nil)
                 }
             }
-        }
+        }*/
         
         
         
