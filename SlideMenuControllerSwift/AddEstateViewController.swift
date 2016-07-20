@@ -319,6 +319,16 @@ class AddEstateViewController: UIViewController, UIImagePickerControllerDelegate
     
     @IBAction func kovetkezo_2_button(sender: AnyObject) {
         
+        print ("etan", etan)
+        print ("kilatas", kilatas)
+        print ("lift", lift)
+        print ("futes", futes)
+        print ("parkolas", parkolas)
+        print ("erkely", erkely)
+        print ("ing_tipus", ing_tipus)
+        print ("emelet", emelet)
+        print ("allapot", allapot)
+        print ("szobaszam", szobaszam)
         
         
         if (etan == "0" || kilatas == "0" || lift == "0" || futes == "0" ||
@@ -946,7 +956,7 @@ class AddEstateViewController: UIViewController, UIImagePickerControllerDelegate
                 dispatch_async(dispatch_get_main_queue(),{
                     if (!GetAddEstate.update_estate.isEmpty && GetAddEstate.which_page == 2) {
                         self.ingatlan_tipus_text.setTitle(self.pickerData_ing_tipus[GetAddEstate.update_estate[0].tipus_id]["display"], forState: UIControlState.Normal)
-                        self.emelet = String(GetAddEstate.update_estate[0].tipus_id!)
+                        self.ing_tipus = String(GetAddEstate.update_estate[0].tipus_id!)
                     }
                 })
             }
@@ -992,7 +1002,7 @@ class AddEstateViewController: UIViewController, UIImagePickerControllerDelegate
                 }
                 dispatch_async(dispatch_get_main_queue(),{
                     if (!GetAddEstate.update_estate.isEmpty && GetAddEstate.which_page == 2) {
-                        self.emelet_text.setTitle(self.pickerData_emelet[GetAddEstate.update_estate[0].emelet_id]["display"], forState: UIControlState.Normal)
+                        self.emelet_text.setTitle(self.pickerData_emelet[GetAddEstate.update_estate[0].emelet_id-1]["display"], forState: UIControlState.Normal)
                         self.emelet = String(GetAddEstate.update_estate[0].emelet_id!)
                     }
                 })
