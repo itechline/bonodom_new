@@ -1,0 +1,101 @@
+//
+//  MyEstatesCell.swift
+//  Bonodom
+//
+//  Created by Attila Dán on 2016. 07. 20..
+//  Copyright © 2016. Itechline. All rights reserved.
+//
+
+
+
+import UIKit
+import SwiftyJSON
+import SDWebImage
+
+
+struct MyEstatesCellData {
+    
+    init(id: Int, imageUrl: String, adress: String, description: String, row: Int) {
+        self.id = id
+        self.imageUrl = imageUrl
+        self.adress = adress
+        self.description = description
+        self.row = row
+    }
+    var id: Int
+    var imageUrl: String
+    var adress: String
+    var description: String
+    var row: Int
+}
+
+class MyEstatesCell : BaseTableViewCell {
+    
+    var id : Int!
+    var row : Int!
+    
+    @IBOutlet weak var adress_text: UILabel!
+    @IBOutlet weak var description_text: UILabel!
+    @IBOutlet weak var estate_image: UIImageView!
+    
+    @IBOutlet weak var up_text: UIButton!
+    @IBAction func up_button(sender: AnyObject) {
+        
+    }
+    
+    @IBOutlet weak var modify_text: UIButton!
+    @IBAction func modify_button(sender: AnyObject) {
+    }
+    
+    @IBOutlet weak var delete_text: UIButton!
+    @IBAction func delete_button(sender: AnyObject) {
+        let del_id: [String:AnyObject] = [ "del_id":String(id!), "row":String(row!)]
+        NSNotificationCenter.defaultCenter().postNotificationName("delete_estate", object: del_id)
+        
+        /*EstateUtil.sharedInstance.delete_estate(String(self.id), onCompletion: { (json: JSON) in
+            print ("DELETE ESTATE")
+            print (json)
+            dispatch_async(dispatch_get_main_queue(),{
+                if (!json["error"].boolValue) {
+                    
+                } else {
+                    
+                }
+            
+            })
+        })*/
+    }
+    
+    
+    
+    override func awakeFromNib() {
+        //self.dataText?.font = UIFont.boldSystemFontOfSize(16)
+        //self.dataText?.textColor = UIColor(hex: "000000")
+    }
+    
+    override class func height() -> CGFloat {
+        return 170
+    }
+    
+    
+    override func setData(data: Any?) {
+        if let data = data as? MyEstatesCellData {
+            if (data.imageUrl != "") {
+                let url: NSURL = NSURL(string: data.imageUrl)!
+                self.estate_image.sd_setImageWithURL(url)
+            } else {
+                self.estate_image.image = UIImage(named: "noimage")
+            }
+            self.estate_image.sizeThatFits(CGSize.init(width: 116.0, height: 169.0))
+            self.adress_text.text = data.adress
+            self.description_text.text = data.description
+            self.row = data.row
+            
+            self.id = data.id
+            
+        }
+    }
+    
+    
+}
+

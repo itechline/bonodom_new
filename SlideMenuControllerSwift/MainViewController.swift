@@ -64,6 +64,7 @@ class MainViewController: UIViewController, LiquidFloatingActionButtonDataSource
         
         
         self.tableView.registerCellNib(DataTableViewCell.self)
+        self.tableView.registerCellNib(MyEstatesCell.self)
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(MainViewController.openAddestate(_:)), name: "estate_adding", object: nil)
         
@@ -72,8 +73,8 @@ class MainViewController: UIViewController, LiquidFloatingActionButtonDataSource
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(MainViewController.setJustMe(_:)), name: "setJustMe", object: nil)
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(MainViewController.logout(_:)), name: "logout", object: nil)
-        
-        
+
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(MainViewController.delete_estate(_:)), name: "delete_estate", object: nil)
         
         if (SettingUtil.sharedInstance.getToken() != "") {
             networkChecker()
@@ -499,6 +500,46 @@ class MainViewController: UIViewController, LiquidFloatingActionButtonDataSource
             }
         }*/
     }
+    
+    func delete_estate(notification: NSNotification) {
+        if let info = notification.object as? [String:AnyObject] {
+            if let del_id = info["del_id"] as? String {
+                if let row = info["row"] as? String {
+                    let alert = UIAlertController(title: "Figyelem", message: "Biztosan törli az ingatlant?", preferredStyle: UIAlertControllerStyle.Alert)
+                    alert.addAction(UIAlertAction(title: "Nem", style: UIAlertActionStyle.Default, handler: nil))
+                    alert.addAction(UIAlertAction(title: "Igen", style: .Default, handler: { action in
+                        switch action.style{
+                        case .Default:
+                            print("default")
+                            EstateUtil.sharedInstance.delete_estate(del_id, onCompletion: { (json: JSON) in
+                                print ("DELETE ESTATE")
+                                print (json)
+                                dispatch_async(dispatch_get_main_queue(),{
+                                    if (!json["error"].boolValue) {
+                                        self.items.removeAtIndex(Int(row)!)
+                                        self.tableView.reloadData()
+                                    } else {
+                                    
+                                    }
+                                
+                                })
+                            })
+                        case .Cancel:
+                            print("cancel")
+                        
+                        case .Destructive:
+                            print("destructive")
+                        }
+                    }))
+                    self.presentViewController(alert, animated: true, completion: nil)
+                }
+            }
+        }
+        
+        
+        
+        
+    }
 
 }
 
@@ -517,8 +558,9 @@ extension MainViewController : UITableViewDataSource {
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
-        let cell = self.tableView.dequeueReusableCellWithIdentifier(DataTableViewCell.identifier) as! DataTableViewCell
-        let data = DataTableViewCellData(id: items[indexPath.row].id,
+        if (isJustMe == 0) {
+            let cell = self.tableView.dequeueReusableCellWithIdentifier(DataTableViewCell.identifier) as! DataTableViewCell
+            let data = DataTableViewCellData(id: items[indexPath.row].id,
                                          imageUrl: items[indexPath.row].pic,
                                          adress: items[indexPath.row].adress,
                                          street: items[indexPath.row].street,
@@ -533,12 +575,34 @@ extension MainViewController : UITableViewDataSource {
                                          furniture: items[indexPath.row].furniture)
         
         
+            cell.setData(data)
+        
+            if (largest_id < items[indexPath.row].id) {
+                largest_id = items[indexPath.row].id
+            }
+
+            if (indexPath.row == self.items.count - 1) {
+                print ("BOTTOM REACHED")
+                currentPage += 1
+                self.loadEstateList(largest_id, page: currentPage, fav: isShowingFavs, etype: self.adType, ordering: self.order, justme: isJustMe)
+            }
+            return cell
+        }
+        
+        let cell = self.tableView.dequeueReusableCellWithIdentifier(MyEstatesCell.identifier) as! MyEstatesCell
+        let data = MyEstatesCellData(id: items[indexPath.row].id,
+                                     imageUrl: items[indexPath.row].pic,
+                                     adress: items[indexPath.row].adress,
+                                     description: items[indexPath.row].description,
+                                     row: indexPath.row)
+        
+        
         cell.setData(data)
         
         if (largest_id < items[indexPath.row].id) {
             largest_id = items[indexPath.row].id
         }
-
+        
         if (indexPath.row == self.items.count - 1) {
             print ("BOTTOM REACHED")
             currentPage += 1

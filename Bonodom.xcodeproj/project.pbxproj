@@ -70,6 +70,7 @@
 		E4154DC61D3913FD0098E291 /* IdopontokByUserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4154DC51D3913FD0098E291 /* IdopontokByUserModel.swift */; };
 		E4154DC81D3918D00098E291 /* IdopontokByDateModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4154DC71D3918D00098E291 /* IdopontokByDateModel.swift */; };
 		E4239FBF1D3F6E1000A0C2A6 /* MyEstatesCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E4239FBE1D3F6E1000A0C2A6 /* MyEstatesCell.xib */; };
+		E4239FC11D3F748300A0C2A6 /* MyEstatesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4239FC01D3F748300A0C2A6 /* MyEstatesCell.swift */; };
 		E437C4961D397091001FB2C5 /* MydatesViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E437C4951D397091001FB2C5 /* MydatesViewCell.swift */; };
 		E43E10F71D3E4A9A0000FF01 /* IdopontokListaModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E43E10F61D3E4A9A0000FF01 /* IdopontokListaModel.swift */; };
 		E43ECE451D0965B60026A3AD /* SettingUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = E43ECE441D0965B60026A3AD /* SettingUtil.swift */; };
@@ -180,6 +181,7 @@
 		E4154DC51D3913FD0098E291 /* IdopontokByUserModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IdopontokByUserModel.swift; sourceTree = "<group>"; };
 		E4154DC71D3918D00098E291 /* IdopontokByDateModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IdopontokByDateModel.swift; sourceTree = "<group>"; };
 		E4239FBE1D3F6E1000A0C2A6 /* MyEstatesCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyEstatesCell.xib; sourceTree = "<group>"; };
+		E4239FC01D3F748300A0C2A6 /* MyEstatesCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyEstatesCell.swift; sourceTree = "<group>"; };
 		E437C4951D397091001FB2C5 /* MydatesViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MydatesViewCell.swift; sourceTree = "<group>"; };
 		E43E10F61D3E4A9A0000FF01 /* IdopontokListaModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IdopontokListaModel.swift; sourceTree = "<group>"; };
 		E43ECE441D0965B60026A3AD /* SettingUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingUtil.swift; sourceTree = "<group>"; };
@@ -339,6 +341,7 @@
 				572F03221D3917F400606B8A /* MydatesViewCell.xib */,
 				E437C4951D397091001FB2C5 /* MydatesViewCell.swift */,
 				E4239FBE1D3F6E1000A0C2A6 /* MyEstatesCell.xib */,
+				E4239FC01D3F748300A0C2A6 /* MyEstatesCell.swift */,
 			);
 			name = TableViewCell;
 			sourceTree = "<group>";
@@ -713,6 +716,7 @@
 				E45A74091D05721D00CC9162 /* MenuItemView.swift in Sources */,
 				E4F35EF31D35222C00903A44 /* SearchModel.swift in Sources */,
 				57DFCF9A1D01C22A00A69B8A /* InviteViewController.swift in Sources */,
+				E4239FC11D3F748300A0C2A6 /* MyEstatesCell.swift in Sources */,
 				E43E10F71D3E4A9A0000FF01 /* IdopontokListaModel.swift in Sources */,
 				E40A3AA81D0808770009D3E0 /* EstateModel.swift in Sources */,
 				E47E36CD1D05A5080095FA6B /* EstateListModel.swift in Sources */,

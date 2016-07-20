@@ -29,8 +29,6 @@ class CalendarItemViewController: BaseMenuItemViewController {
     @IBOutlet weak var foglalas: UILabel!
     
     
-    @IBOutlet weak var foglalas_text: UIButton!
-    
     override func awakeFromNib() {
         //self.dataText?.font = UIFont.boldSystemFontOfSize(16)
         //self.dataText?.textColor = UIColor(hex: "000000")
@@ -45,8 +43,8 @@ class CalendarItemViewController: BaseMenuItemViewController {
         if let data = data as? CalendarItemViewDataCell{
             //var time = data.datum.componentsSeparatedByString(":")
             //let hour_string = time[0].substringFromIndex(time[0].endIndex.advancedBy(-2))
-            self.hour.text = String(data.hours)
-            self.minute.text = String(data.minutes)
+            self.hour.text = String(format: "%02d", data.hours)
+            self.minute.text = String(format: "%02d", data.minutes)
             
             if (data.foglalt == false) {
                 //self.foglalas_text.setTitleColor(UIColor(hex: "007AFF"), forState: UIControlState.Normal)
