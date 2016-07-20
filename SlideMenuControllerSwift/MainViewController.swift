@@ -520,14 +520,17 @@ extension MainViewController : UITableViewDataSource {
         let cell = self.tableView.dequeueReusableCellWithIdentifier(DataTableViewCell.identifier) as! DataTableViewCell
         let data = DataTableViewCellData(id: items[indexPath.row].id,
                                          imageUrl: items[indexPath.row].pic,
-                                         adress: String(items[indexPath.row].id),
+                                         adress: items[indexPath.row].adress,
                                          street: items[indexPath.row].street,
                                          description: items[indexPath.row].description,
                                          size: items[indexPath.row].size,
                                          rooms: items[indexPath.row].rooms,
                                          price: items[indexPath.row].price,
                                          e_type: items[indexPath.row].e_type,
-                                         fav: items[indexPath.row].fav)
+                                         fav: items[indexPath.row].fav,
+                                         balcony: items[indexPath.row].balcony,
+                                         parking: items[indexPath.row].parking,
+                                         furniture: items[indexPath.row].furniture)
         
         
         cell.setData(data)

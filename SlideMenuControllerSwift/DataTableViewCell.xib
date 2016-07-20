@@ -165,10 +165,13 @@
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <connections>
                 <outlet property="activityIndicator" destination="3pp-fb-Rwc" id="XBU-vX-LUH"/>
+                <outlet property="balcony_image" destination="5D7-8i-0hR" id="wm6-Qh-UJf"/>
                 <outlet property="dataImage" destination="ppM-43-tik" id="xdO-QO-GUo"/>
                 <outlet property="dataText" destination="I30-9I-EnW" id="vsj-dK-z9n"/>
                 <outlet property="descriptionText" destination="Sid-55-PAA" id="bTa-6x-u9A"/>
+                <outlet property="furniture_image" destination="PAq-21-6yj" id="kzQ-td-vQm"/>
                 <outlet property="heart_button" destination="yB5-OX-kce" id="G3v-QZ-y0g"/>
+                <outlet property="parking_image" destination="fbw-js-YWK" id="t0Z-T8-QvZ"/>
                 <outlet property="priceText" destination="CyZ-UX-3iQ" id="aZq-PP-dYt"/>
                 <outlet property="roomsText" destination="elk-7R-1hY" id="k3c-d1-FNH"/>
                 <outlet property="sizeText" destination="Rxx-e6-cUa" id="DGz-IR-s6M"/>

@@ -7,7 +7,7 @@ import SDWebImage
 
 struct DataTableViewCellData {
     
-    init(id: Int, imageUrl: String, adress: String, street: String,description: String, size: String, rooms: String, price: String, e_type: Int, fav: Bool) {
+    init(id: Int, imageUrl: String, adress: String, street: String,description: String, size: String, rooms: String, price: String, e_type: Int, fav: Bool, balcony: Int, parking: Int, furniture: Int) {
         self.id = id
         self.imageUrl = imageUrl
         self.adress = adress
@@ -18,6 +18,9 @@ struct DataTableViewCellData {
         self.price = price
         self.e_type = e_type
         self.fav = fav
+        self.balcony = balcony
+        self.parking = parking
+        self.furniture = furniture
     }
     var id: Int
     var imageUrl: String
@@ -29,6 +32,9 @@ struct DataTableViewCellData {
     var price: String
     var e_type: Int
     var fav: Bool
+    var balcony: Int
+    var parking: Int
+    var furniture: Int
 }
 
 class DataTableViewCell : BaseTableViewCell {
@@ -83,6 +89,15 @@ class DataTableViewCell : BaseTableViewCell {
     
     @IBOutlet weak var priceText: UILabel!
     @IBOutlet weak var streetText: UILabel!
+    
+    @IBOutlet weak var furniture_image: UIImageView!
+    @IBOutlet weak var balcony_image: UIImageView!
+    @IBOutlet weak var parking_image: UIImageView!
+    
+    
+    
+    
+    
     override func awakeFromNib() {
         self.dataText?.font = UIFont.boldSystemFontOfSize(16)
         self.dataText?.textColor = UIColor(hex: "000000")
@@ -146,6 +161,27 @@ class DataTableViewCell : BaseTableViewCell {
             self.streetText.text = data.street
             self.favorite = data.fav
             self.id = data.id
+            
+            if (data.balcony == 1) {
+                //NINCS
+                self.balcony_image.image = UIImage(named: "list_nobalcony")
+            } else {
+                self.balcony_image.image = UIImage(named: "list_balcony")
+            }
+            
+            if (data.furniture == 2) {
+                //NINCS
+                self.furniture_image.image = UIImage(named: "list_nofurniture")
+            } else {
+                self.furniture_image.image = UIImage(named: "list_furniture")
+            }
+            
+            if (data.parking == 4) {
+                self.parking_image.image = UIImage(named: "list_noparking")
+            } else {
+                self.parking_image.image = UIImage(named: "list_parking")
+            }
+            
             
             if (self.favorite == true) {
                 self.heart_button.setImage(UIImage(named: "heart_filled")!, forState: UIControlState.Normal)

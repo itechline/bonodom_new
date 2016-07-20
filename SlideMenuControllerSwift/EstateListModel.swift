@@ -19,6 +19,9 @@ class EstateListModel {
     var e_type: Int!
     var fav: Bool!
     var hashString: String!
+    var balcony: Int!
+    var furniture: Int!
+    var parking: Int!
     
     
     
@@ -33,6 +36,10 @@ class EstateListModel {
         e_type = json["ingatlan_e_type_id"].intValue
         fav = json["kedvenc"].boolValue
         hashString = json["ingatlan_hash"].stringValue
+        
+        balcony = json["ingatlan_erkely"].intValue
+        furniture = json["ingatlan_butorozott"].intValue
+        parking = json["ingatlan_parkolas_id"].intValue
         
         for picArray in json["kepek"] {
             print ("PICTURE")

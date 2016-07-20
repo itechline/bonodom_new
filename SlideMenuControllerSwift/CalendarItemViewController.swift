@@ -25,14 +25,11 @@ class CalendarItemViewController: BaseMenuItemViewController {
     @IBOutlet weak var minute: UILabel!
     
     var status = 0
+    
+    @IBOutlet weak var foglalas: UILabel!
+    
+    
     @IBOutlet weak var foglalas_text: UIButton!
-    @IBAction func foglalas_button(sender: AnyObject) {
-        if (status == 1) {
-            
-        } else {
-            NSNotificationCenter.defaultCenter().postNotificationName("snackbar_reserved", object: nil)
-        }
-    }
     
     override func awakeFromNib() {
         //self.dataText?.font = UIFont.boldSystemFontOfSize(16)
@@ -52,11 +49,15 @@ class CalendarItemViewController: BaseMenuItemViewController {
             self.minute.text = String(data.minutes)
             
             if (data.foglalt == false) {
-                self.foglalas_text.setTitleColor(UIColor(hex: "007AFF"), forState: UIControlState.Normal)
-                self.foglalas_text.setTitle("Foglalás", forState: UIControlState.Normal)
+                //self.foglalas_text.setTitleColor(UIColor(hex: "007AFF"), forState: UIControlState.Normal)
+                //self.foglalas_text.setTitle("Foglalás", forState: UIControlState.Normal)
+                self.foglalas.text = ("Foglalás")
+                self.foglalas.textColor = UIColor.blueColor()
             } else {
-                self.foglalas_text.setTitleColor(UIColor(hex: "FF0000"), forState: UIControlState.Normal)
-                self.foglalas_text.setTitle("Foglalt", forState: UIControlState.Normal)
+                //self.foglalas_text.setTitleColor(UIColor(hex: "FF0000"), forState: UIControlState.Normal)
+                //self.foglalas_text.setTitle("Foglalt", forState: UIControlState.Normal)
+                self.foglalas.text = ("Foglalt")
+                self.foglalas.textColor = UIColor.redColor()
             }
             //self.dataImage.image = data.imagePath_menu
             

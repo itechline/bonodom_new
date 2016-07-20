@@ -3,12 +3,14 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
-        <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
-        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CalendarItemViewController" customModule="Bonodom" customModuleProvider="target"/>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CalendarItemViewController" customModule="Bonodom" customModuleProvider="target">
+            <connections>
+                <outlet property="foglalas" destination="KKw-gd-DXP" id="TmO-r8-B7l"/>
+            </connections>
+        </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="4Wq-9f-5pI" customClass="CalendarItemViewController" customModule="Bonodom" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -41,37 +43,32 @@
                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zIN-He-Jfi">
-                        <rect key="frame" x="237" y="7" width="74" height="30"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KKw-gd-DXP">
+                        <rect key="frame" x="210" y="11" width="102" height="21"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="74" id="73h-ob-SkY"/>
+                            <constraint firstAttribute="width" constant="102" id="NQf-eN-0TJ"/>
                         </constraints>
-                        <state key="normal" title="Foglalás">
-                            <color key="titleColor" red="0.039215686274509803" green="0.37647058823529411" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                        </state>
-                        <connections>
-                            <action selector="foglalas_button:" destination="4Wq-9f-5pI" eventType="touchUpInside" id="5gM-n5-fqJ"/>
-                        </connections>
-                    </button>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
                 <constraints>
                     <constraint firstItem="UzO-dC-DCd" firstAttribute="leading" secondItem="fAD-aT-fZI" secondAttribute="leadingMargin" id="18J-iH-sQY"/>
-                    <constraint firstItem="VH2-Pi-dBq" firstAttribute="baseline" secondItem="zIN-He-Jfi" secondAttribute="baseline" id="CtN-Uq-Pkn"/>
+                    <constraint firstItem="KKw-gd-DXP" firstAttribute="trailing" secondItem="fAD-aT-fZI" secondAttribute="trailingMargin" id="8GW-LB-xzo"/>
+                    <constraint firstItem="KKw-gd-DXP" firstAttribute="leading" secondItem="VH2-Pi-dBq" secondAttribute="trailing" constant="8" symbolic="YES" id="HrR-xW-YNo"/>
+                    <constraint firstItem="VH2-Pi-dBq" firstAttribute="top" secondItem="KKw-gd-DXP" secondAttribute="top" id="JcX-fZ-M27"/>
                     <constraint firstAttribute="bottomMargin" secondItem="NAW-ZW-IYw" secondAttribute="bottom" constant="8.5" id="LPp-Al-KWC"/>
                     <constraint firstItem="VH2-Pi-dBq" firstAttribute="leading" secondItem="NAW-ZW-IYw" secondAttribute="trailing" constant="8" symbolic="YES" id="Pw3-G0-gfl"/>
-                    <constraint firstAttribute="trailingMargin" secondItem="zIN-He-Jfi" secondAttribute="trailing" constant="1" id="QRS-0R-xK9"/>
                     <constraint firstItem="VH2-Pi-dBq" firstAttribute="centerY" secondItem="fAD-aT-fZI" secondAttribute="centerY" id="Uoq-bO-ew8"/>
                     <constraint firstItem="UzO-dC-DCd" firstAttribute="top" secondItem="fAD-aT-fZI" secondAttribute="topMargin" id="XFt-YZ-mLA"/>
                     <constraint firstItem="NAW-ZW-IYw" firstAttribute="leading" secondItem="UzO-dC-DCd" secondAttribute="trailing" constant="2" id="fF5-nr-6K9"/>
                     <constraint firstItem="UzO-dC-DCd" firstAttribute="top" secondItem="NAW-ZW-IYw" secondAttribute="top" id="g7d-WQ-7d5"/>
                     <constraint firstAttribute="bottomMargin" secondItem="UzO-dC-DCd" secondAttribute="bottom" constant="-5.5" id="iQ4-bU-9F6"/>
-                    <constraint firstItem="zIN-He-Jfi" firstAttribute="leading" secondItem="VH2-Pi-dBq" secondAttribute="trailing" constant="35" id="kia-Dd-UZt"/>
-                    <constraint firstItem="VH2-Pi-dBq" firstAttribute="baseline" secondItem="zIN-He-Jfi" secondAttribute="firstBaseline" id="lsQ-cV-AVB"/>
-                    <constraint firstItem="VH2-Pi-dBq" firstAttribute="centerY" secondItem="zIN-He-Jfi" secondAttribute="centerY" id="tzc-Gl-Tq1"/>
+                    <constraint firstItem="VH2-Pi-dBq" firstAttribute="baseline" secondItem="KKw-gd-DXP" secondAttribute="baseline" id="sYV-sA-k0H"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
-                <outlet property="foglalas_text" destination="zIN-He-Jfi" id="7eD-4n-rKv"/>
                 <outlet property="hour" destination="UzO-dC-DCd" id="QYt-8L-wW0"/>
                 <outlet property="minute" destination="NAW-ZW-IYw" id="DFG-wF-fEX"/>
             </connections>
