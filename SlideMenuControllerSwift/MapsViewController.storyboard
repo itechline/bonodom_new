@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Maps View Controller-->
@@ -64,10 +65,10 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NJR-pi-6sK">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NJR-pi-6sK">
                                 <rect key="frame" x="0.0" y="129" width="121" height="21"/>
                                 <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="15"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -83,26 +84,77 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="0.66000000000000003" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="list_size" translatesAutoresizingMaskIntoConstraints="NO" id="CHS-vb-5gf">
+                                <rect key="frame" x="129" y="49" width="20" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="20" id="VLe-3U-C6i"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="100" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OxH-Q0-2Gj">
+                                <rect key="frame" x="157" y="49" width="27" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="27" id="klV-e7-5sF"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <color key="textColor" red="0.25882352941176467" green="0.0" blue="0.0" alpha="0.66000000000000003" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="list_roomcount" translatesAutoresizingMaskIntoConstraints="NO" id="iPv-k8-vtF">
+                                <rect key="frame" x="192" y="49" width="20" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="20" id="ijt-IX-4Sv"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="5+" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cpw-Jn-Vck">
+                                <rect key="frame" x="220" y="49" width="23" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="23" id="nT9-VG-EeR"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="0.66000000000000003" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="list_furniture" translatesAutoresizingMaskIntoConstraints="NO" id="tLH-zJ-8zy">
+                                <rect key="frame" x="251" y="49" width="20" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="20" id="0mG-Df-OdR"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="FB7-ds-dct" firstAttribute="top" secondItem="gKh-EU-Mqb" secondAttribute="bottom" constant="71" id="0M6-Qh-Gut"/>
                             <constraint firstItem="gKh-EU-Mqb" firstAttribute="leading" secondItem="8lv-zj-Mxu" secondAttribute="trailing" constant="8" symbolic="YES" id="0dH-Qi-jsy"/>
+                            <constraint firstItem="FB7-ds-dct" firstAttribute="top" secondItem="OxH-Q0-2Gj" secondAttribute="bottom" constant="22" id="0sc-pR-5Ci"/>
                             <constraint firstItem="NJR-pi-6sK" firstAttribute="bottom" secondItem="kG3-Dr-M6l" secondAttribute="top" id="8aP-n5-5Di"/>
                             <constraint firstItem="FB7-ds-dct" firstAttribute="bottom" secondItem="kG3-Dr-M6l" secondAttribute="top" id="BD7-SV-Tqv"/>
                             <constraint firstItem="ab8-1L-v7t" firstAttribute="leading" secondItem="FB7-ds-dct" secondAttribute="leading" id="Bj1-OR-qWW"/>
+                            <constraint firstItem="CHS-vb-5gf" firstAttribute="bottom" secondItem="iPv-k8-vtF" secondAttribute="bottom" id="Cu4-Wd-84r"/>
                             <constraint firstItem="8lv-zj-Mxu" firstAttribute="leading" secondItem="KDT-5X-f75" secondAttribute="leading" id="EWy-nI-vnG"/>
                             <constraint firstItem="gKh-EU-Mqb" firstAttribute="trailing" secondItem="ab8-1L-v7t" secondAttribute="trailing" id="Hsp-l1-GSV"/>
+                            <constraint firstItem="iPv-k8-vtF" firstAttribute="bottom" secondItem="tLH-zJ-8zy" secondAttribute="bottom" id="SBM-z8-LH4"/>
+                            <constraint firstItem="iPv-k8-vtF" firstAttribute="top" secondItem="Cpw-Jn-Vck" secondAttribute="top" id="SGQ-e3-msc"/>
                             <constraint firstItem="8lv-zj-Mxu" firstAttribute="leading" secondItem="NJR-pi-6sK" secondAttribute="leading" id="SkC-ZC-8MQ"/>
+                            <constraint firstItem="CHS-vb-5gf" firstAttribute="leading" secondItem="ab8-1L-v7t" secondAttribute="leading" id="T3a-uM-tj3"/>
                             <constraint firstItem="8lv-zj-Mxu" firstAttribute="top" secondItem="Zs9-bV-wrW" secondAttribute="bottom" id="X8m-oI-TC2"/>
                             <constraint firstItem="gKh-EU-Mqb" firstAttribute="leading" secondItem="ab8-1L-v7t" secondAttribute="leading" id="YCb-F4-aM9"/>
                             <constraint firstItem="8lv-zj-Mxu" firstAttribute="top" secondItem="gKh-EU-Mqb" secondAttribute="top" id="YfJ-QQ-0Xf"/>
+                            <constraint firstItem="CHS-vb-5gf" firstAttribute="top" secondItem="ab8-1L-v7t" secondAttribute="bottom" constant="8" symbolic="YES" id="Zof-cE-EDc"/>
                             <constraint firstItem="ab8-1L-v7t" firstAttribute="trailing" secondItem="FB7-ds-dct" secondAttribute="trailing" id="cJ4-KB-jxj"/>
                             <constraint firstItem="FB7-ds-dct" firstAttribute="top" secondItem="ab8-1L-v7t" secondAttribute="bottom" constant="51" id="eF5-4K-CLy"/>
+                            <constraint firstItem="iPv-k8-vtF" firstAttribute="leading" secondItem="OxH-Q0-2Gj" secondAttribute="trailing" constant="8" symbolic="YES" id="guI-OS-FuH"/>
+                            <constraint firstItem="iPv-k8-vtF" firstAttribute="centerY" secondItem="Cpw-Jn-Vck" secondAttribute="centerY" id="i2i-8v-2xm"/>
                             <constraint firstItem="ab8-1L-v7t" firstAttribute="top" secondItem="KDT-5X-f75" secondAttribute="top" constant="20" symbolic="YES" id="iz0-3h-nUz"/>
+                            <constraint firstItem="Cpw-Jn-Vck" firstAttribute="leading" secondItem="iPv-k8-vtF" secondAttribute="trailing" constant="8" symbolic="YES" id="k4e-CD-PUL"/>
+                            <constraint firstItem="CHS-vb-5gf" firstAttribute="top" secondItem="OxH-Q0-2Gj" secondAttribute="top" id="k7Q-JK-ZaD"/>
+                            <constraint firstItem="tLH-zJ-8zy" firstAttribute="leading" secondItem="Cpw-Jn-Vck" secondAttribute="trailing" constant="8" symbolic="YES" id="lkI-OG-nvT"/>
                             <constraint firstItem="FB7-ds-dct" firstAttribute="leading" secondItem="NJR-pi-6sK" secondAttribute="trailing" constant="8" symbolic="YES" id="mDH-pP-mzl"/>
                             <constraint firstAttribute="trailing" secondItem="gKh-EU-Mqb" secondAttribute="trailing" id="maF-7f-HRq"/>
+                            <constraint firstItem="Cpw-Jn-Vck" firstAttribute="top" secondItem="tLH-zJ-8zy" secondAttribute="top" id="ptt-Rf-1YB"/>
+                            <constraint firstItem="OxH-Q0-2Gj" firstAttribute="leading" secondItem="CHS-vb-5gf" secondAttribute="trailing" constant="8" symbolic="YES" id="tod-rI-GOk"/>
                             <constraint firstItem="8lv-zj-Mxu" firstAttribute="bottom" secondItem="kG3-Dr-M6l" secondAttribute="top" id="v8K-gk-kAp"/>
+                            <constraint firstItem="OxH-Q0-2Gj" firstAttribute="baseline" secondItem="Cpw-Jn-Vck" secondAttribute="baseline" id="xWQ-22-cVP"/>
+                            <constraint firstItem="OxH-Q0-2Gj" firstAttribute="firstBaseline" secondItem="Cpw-Jn-Vck" secondAttribute="firstBaseline" id="zrZ-un-R8i"/>
                         </constraints>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout"/>
@@ -113,9 +165,12 @@
                     <connections>
                         <outlet property="adress_text" destination="gKh-EU-Mqb" id="Glf-xt-X0E"/>
                         <outlet property="description_text" destination="FB7-ds-dct" id="Cn4-1L-rVw"/>
+                        <outlet property="furniture_image" destination="tLH-zJ-8zy" id="aLK-N5-D8z"/>
                         <outlet property="image_view" destination="8lv-zj-Mxu" id="r9B-Q9-ygB"/>
                         <outlet property="main_view" destination="KDT-5X-f75" id="gPX-Qs-K6k"/>
                         <outlet property="price_text" destination="NJR-pi-6sK" id="4Kj-4h-Em1"/>
+                        <outlet property="roomcount_text" destination="Cpw-Jn-Vck" id="cxn-tY-bGY"/>
+                        <outlet property="size_text" destination="OxH-Q0-2Gj" id="sPm-ve-xXn"/>
                         <outlet property="street_text" destination="ab8-1L-v7t" id="XBz-GP-s8s"/>
                     </connections>
                 </viewController>
@@ -125,6 +180,9 @@
         </scene>
     </scenes>
     <resources>
+        <image name="list_furniture" width="22" height="18"/>
+        <image name="list_roomcount" width="22" height="18"/>
+        <image name="list_size" width="22" height="22"/>
         <image name="noimage" width="260" height="300"/>
     </resources>
 </document>

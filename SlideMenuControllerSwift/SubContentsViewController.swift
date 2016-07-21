@@ -42,6 +42,7 @@ class SubContentsViewController : UIViewController, LiquidFloatingActionButtonDa
 
     @IBOutlet weak var profile_pic: UIImageView!
     
+    @IBOutlet weak var maganszemely_text: UILabel!
     var id = 0;
     
     var estateItem = [EstateModel]()
@@ -226,6 +227,7 @@ class SubContentsViewController : UIViewController, LiquidFloatingActionButtonDa
         self.futes.text = estateItem[0].ingatlan_futestipus
         self.etan.text = estateItem[0].ingatlan_energiatan
         self.mobile = estateItem[0].mobil
+        self.maganszemely_text.text = estateItem[0].felh_tipus
         
         if (!estateItem[0].face.isEmpty) {
             let url: NSURL = NSURL(string: "https://bonodom.com/profil/img/250_250/" + estateItem[0].face)!
@@ -236,9 +238,11 @@ class SubContentsViewController : UIViewController, LiquidFloatingActionButtonDa
         }
         
         if (estateItem[0].ing_e_type_id == 1) {
-            self.priceText.text = estateItem[0].price + " Ft"
+            //self.priceText.text = estateItem[0].price + " Ft"
+            self.priceText.text = estateItem[0].price.asLocaleCurrency + " Ft"
         } else {
-            self.priceText.text = estateItem[0].price + " Ft/hó"
+            //self.priceText.text = estateItem[0].price + " Ft/hó"
+            self.priceText.text = estateItem[0].price.asLocaleCurrency + " Ft/hó"
         }
         
         if (estateItem[0].ingatlan_lift == 1) {

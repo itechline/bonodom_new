@@ -49,7 +49,7 @@ class EstateModel {
     var ingatlan_emelet: String!
     var face: String!
     var ingatlan_erkely: Int!
-    var tipus: String!
+    var felh_tipus: String!
     var ingatlan_energiatan: String!
     var ingatlan_futestipus_id: String!
     
@@ -145,6 +145,7 @@ class EstateModel {
         ingatlan_lat = json["ingatlan_lat"].doubleValue
         ingatlan_lng = json["ingatlan_lng"].doubleValue
         face = json["face"].stringValue
+        felh_tipus = json["tipus"].stringValue
         
         for picArray in json["kepek"] {
             print ("PICTURE")

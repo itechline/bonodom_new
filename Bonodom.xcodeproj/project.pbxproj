@@ -88,6 +88,8 @@
 		E4BEF8941D2516B60066F6A4 /* MessageUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4BEF8931D2516B60066F6A4 /* MessageUtil.swift */; };
 		E4BEF8961D251B290066F6A4 /* MessagesListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4BEF8951D251B290066F6A4 /* MessagesListModel.swift */; };
 		E4BEF8981D2529230066F6A4 /* MessageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4BEF8971D2529230066F6A4 /* MessageModel.swift */; };
+		E4C3B3701D41016A00B9FF86 /* ImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4C3B36F1D41016A00B9FF86 /* ImageCell.swift */; };
+		E4C3B3721D4107E500B9FF86 /* ImagesCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4C3B3711D4107E500B9FF86 /* ImagesCollectionViewController.swift */; };
 		E4D687F11D196DD400D8FA40 /* AddEstateModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4D687F01D196DD400D8FA40 /* AddEstateModel.swift */; };
 		E4D687F31D19728D00D8FA40 /* GetAddEstate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4D687F21D19728D00D8FA40 /* GetAddEstate.swift */; };
 		E4D7F35B1D2E720500D075A7 /* AdmonitorModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4D7F35A1D2E720500D075A7 /* AdmonitorModel.swift */; };
@@ -199,6 +201,8 @@
 		E4BEF8931D2516B60066F6A4 /* MessageUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageUtil.swift; sourceTree = "<group>"; };
 		E4BEF8951D251B290066F6A4 /* MessagesListModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessagesListModel.swift; sourceTree = "<group>"; };
 		E4BEF8971D2529230066F6A4 /* MessageModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageModel.swift; sourceTree = "<group>"; };
+		E4C3B36F1D41016A00B9FF86 /* ImageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageCell.swift; sourceTree = "<group>"; };
+		E4C3B3711D4107E500B9FF86 /* ImagesCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImagesCollectionViewController.swift; sourceTree = "<group>"; };
 		E4D687F01D196DD400D8FA40 /* AddEstateModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddEstateModel.swift; sourceTree = "<group>"; };
 		E4D687F21D19728D00D8FA40 /* GetAddEstate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetAddEstate.swift; sourceTree = "<group>"; };
 		E4D7F35A1D2E720500D075A7 /* AdmonitorModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdmonitorModel.swift; sourceTree = "<group>"; };
@@ -342,6 +346,7 @@
 				E437C4951D397091001FB2C5 /* MydatesViewCell.swift */,
 				E4239FBE1D3F6E1000A0C2A6 /* MyEstatesCell.xib */,
 				E4239FC01D3F748300A0C2A6 /* MyEstatesCell.swift */,
+				E4C3B36F1D41016A00B9FF86 /* ImageCell.swift */,
 			);
 			name = TableViewCell;
 			sourceTree = "<group>";
@@ -405,6 +410,7 @@
 				E4154DBD1D38E7620098E291 /* BookingViewController.swift */,
 				E4154DBF1D38E7B30098E291 /* BookingViewController.storyboard */,
 				E48F68181D3CEF8F00848813 /* MapsPopOverViewController.swift */,
+				E4C3B3711D4107E500B9FF86 /* ImagesCollectionViewController.swift */,
 			);
 			name = ViewController;
 			sourceTree = "<group>";
@@ -683,12 +689,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E4C3B3721D4107E500B9FF86 /* ImagesCollectionViewController.swift in Sources */,
 				C5BF6A8E1BF34A8B0064C18E /* UIApplication.swift in Sources */,
 				E4742E171D118A5A005BE576 /* SpinnerModel.swift in Sources */,
 				C5BD39DE1A6CD17B00D0AF95 /* GoViewController.swift in Sources */,
 				E4154DC61D3913FD0098E291 /* IdopontokByUserModel.swift in Sources */,
 				57873B501D0AE82000F4309A /* LoginScreenViewController.swift in Sources */,
 				C539E64C1A315E87003B7CC7 /* MainViewController.swift in Sources */,
+				E4C3B3701D41016A00B9FF86 /* ImageCell.swift in Sources */,
 				C5BD39E01A6CDC8100D0AF95 /* UIViewController.swift in Sources */,
 				C5C1CE611A70F3B600B6E411 /* UITableViewExtension.swift in Sources */,
 				E4BEF8961D251B290066F6A4 /* MessagesListModel.swift in Sources */,

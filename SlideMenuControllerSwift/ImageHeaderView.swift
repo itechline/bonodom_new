@@ -43,6 +43,9 @@ class ImageHeaderView : UIView {
             if let url = info["pic"] as? String {
                 self.profileImage.setImageFromURLWhithoutIndicator(url)
             }
+            if let nourl = info["nourl"] as? String {
+                self.profileImage.image = UIImage(named: "user_avatar")
+            }
         }
         
     }

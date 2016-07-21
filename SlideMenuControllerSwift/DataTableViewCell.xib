@@ -32,13 +32,6 @@
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="15.600.000 Ft" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CyZ-UX-3iQ">
-                        <rect key="frame" x="206" y="144" width="106" height="17"/>
-                        <color key="backgroundColor" red="0.0" green="0.40000000000000002" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <nil key="highlightedColor"/>
-                    </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Arany jános utca" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Om-UK-Kqz">
                         <rect key="frame" x="124" y="33" width="188" height="21"/>
                         <constraints>
@@ -116,6 +109,13 @@
                             <action selector="heart_button_action:" destination="c3H-ux-4zZ" eventType="touchUpInside" id="qBX-Ni-O2f"/>
                         </connections>
                     </button>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="15.600.000 Ft" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CyZ-UX-3iQ">
+                        <rect key="frame" x="206" y="144" width="106" height="17"/>
+                        <color key="backgroundColor" red="0.0" green="0.40000000000000002" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
+                        <fontDescription key="fontDescription" type="boldSystem" pointSize="13"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                 <constraints>

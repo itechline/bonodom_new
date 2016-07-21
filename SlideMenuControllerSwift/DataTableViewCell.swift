@@ -190,12 +190,24 @@ class DataTableViewCell : BaseTableViewCell {
             }
             
             if (data.e_type == 1) {
-                self.priceText.text = data.price + " Ft"
+                //self.priceText.text = data.price + " Ft"
+                //print(Int(data.price)!.asLocaleCurrency)
+                //self.priceText.text = String(format: "%02d", Int(data.price)!.asLocaleCurrency) + " Ft"
+                self.priceText.text = data.price.asLocaleCurrency + " Ft"
             } else {
-                self.priceText.text = data.price + " Ft/hó"
+                self.priceText.text = data.price.asLocaleCurrency + " Ft/hó"
             }
         }
     }
     
     
+}
+
+extension String {
+    var asLocaleCurrency:String {
+        let formatter = NSNumberFormatter()
+        formatter.numberStyle = .DecimalStyle
+        //formatter.locale = NSLocale.currentLocale()
+        return formatter.stringFromNumber(Int(self)!)!
+    }
 }

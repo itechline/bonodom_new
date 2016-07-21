@@ -20,6 +20,11 @@ class MapsPopOverViewController: UIViewController {
     @IBOutlet weak var street_text: UILabel!
     @IBOutlet weak var description_text: UILabel!
     
+    @IBOutlet weak var size_text: UILabel!
+    @IBOutlet weak var roomcount_text: UILabel!
+    @IBOutlet weak var furniture_image: UIImageView!
+    
+    
     var estateItem = [EstateModel]()
     
     var id = ""
@@ -68,11 +73,22 @@ class MapsPopOverViewController: UIViewController {
         self.adress_text.text = estateItem[0].adress
         self.street_text.text = estateItem[0].street
         self.description_text.text = estateItem[0].description
+        self.size_text.text = estateItem[0].size
+        self.roomcount_text.text = estateItem[0].ingatlan_szsz
         
         if (estateItem[0].ing_e_type_id == 1) {
-            self.price_text.text = estateItem[0].price + " Ft"
+            //self.price_text.text = estateItem[0].price + " Ft"
+            self.price_text.text = estateItem[0].price.asLocaleCurrency + " Ft"
         } else {
-            self.price_text.text = estateItem[0].price + " Ft/hó"
+            //self.price_text.text = estateItem[0].price + " Ft/hó"
+            self.price_text.text = estateItem[0].price.asLocaleCurrency + " Ft/hó"
+        }
+        
+        if (estateItem[0].ingatlan_butorozott == 2) {
+            //NINCS
+            self.furniture_image.image = UIImage(named: "list_nofurniture")
+        } else {
+            self.furniture_image.image = UIImage(named: "list_furniture")
         }
     }
 

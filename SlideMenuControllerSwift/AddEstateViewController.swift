@@ -46,6 +46,8 @@ class AddEstateViewController: UIViewController, UIImagePickerControllerDelegate
     
     
     
+    
+    
     //FIRST PAGE
     @IBOutlet weak var hirdetes_cime_text: UITextField!
     @IBOutlet weak var hirdetes_leirasa_text: UITextField!
@@ -318,19 +320,6 @@ class AddEstateViewController: UIViewController, UIImagePickerControllerDelegate
     }
     
     @IBAction func kovetkezo_2_button(sender: AnyObject) {
-        
-        print ("etan", etan)
-        print ("kilatas", kilatas)
-        print ("lift", lift)
-        print ("futes", futes)
-        print ("parkolas", parkolas)
-        print ("erkely", erkely)
-        print ("ing_tipus", ing_tipus)
-        print ("emelet", emelet)
-        print ("allapot", allapot)
-        print ("szobaszam", szobaszam)
-        
-        
         if (etan == "0" || kilatas == "0" || lift == "0" || futes == "0" ||
             parkolas == "0" || erkely == "0" || ing_tipus == "0" || emelet == "0" || allapot == "0" ||
             szobaszam == "0") {
@@ -343,6 +332,7 @@ class AddEstateViewController: UIViewController, UIImagePickerControllerDelegate
             //loginView.isModding = self.isModding
             //loginView.mod_id = self.mod_id
             //loginView.page = 3
+            GetAddEstate.which_page = 3
             self.navigationController?.pushViewController(loginView, animated: true)
         }
     }
@@ -398,6 +388,7 @@ class AddEstateViewController: UIViewController, UIImagePickerControllerDelegate
         //loginView.isModding = self.isModding
         //loginView.mod_id = self.mod_id
         //loginView.page = 4
+        GetAddEstate.which_page = 4
         self.navigationController?.pushViewController(loginView, animated: true)
     }
     
@@ -427,12 +418,27 @@ class AddEstateViewController: UIViewController, UIImagePickerControllerDelegate
             
         })
         imagesToUpload.append(image)
+        var imageView: UIImageView!
         
-        image_picker_picture.setImage(image, forState: UIControlState.Normal)
+        imageView = UIImageView(image: image)
+        imageView.frame = CGRectMake(0,0, 50, 50)
+        
+        
+        //image_picker_picture.setImage(image, forState: UIControlState.Normal)
         //imageView.image = image
         print ("IMAGE PICKED")
         
     }
+    
+    @IBOutlet weak var present_pictures_text: UIButton!
+    @IBAction func present_pictures_button(sender: AnyObject) {
+        //AddEstate_Pictures
+        let storyboard = UIStoryboard(name: "AddEstate", bundle: nil)
+        let loginView = storyboard.instantiateViewControllerWithIdentifier("AddEstate_Pictures") as! ImagesCollectionViewController
+        loginView.imagesToUpload = self.imagesToUpload
+        self.navigationController?.pushViewController(loginView, animated: true)
+    }
+    
     
     //THIRD PAGE END
     
@@ -479,13 +485,14 @@ class AddEstateViewController: UIViewController, UIImagePickerControllerDelegate
             vasarnap: String(vasarnap),
             kezdes: kezdes,
             vege: vege ,
-            pictures: imagesToUpload), atIndex: 0)
+            pictures: GetAddEstate.estate[0].pictures), atIndex: 0)
         
         let storyboard = UIStoryboard(name: "AddEstate", bundle: nil)
         let loginView = storyboard.instantiateViewControllerWithIdentifier("AddEstate_5") as! AddEstateViewController
         //loginView.isModding = self.isModding
         //loginView.mod_id = self.mod_id
         //loginView.page = 5
+        GetAddEstate.which_page = 5
         self.navigationController?.pushViewController(loginView, animated: true)
     }
     
@@ -712,6 +719,7 @@ class AddEstateViewController: UIViewController, UIImagePickerControllerDelegate
                 dispatch_async(dispatch_get_main_queue(),{
                 //self.progressBarDisplayer("Képek feltöltése", true)
                     self.showLoadingDialog()
+                    
                 for i in 0...GetAddEstate.estate[0].pictures!.count-1 {
                     //self.strLabel.text = String(i)
                     self.UploadRequest(GetAddEstate.estate[0].pictures![i], ing_hash: json["hash"].stringValue, i: i, id: json["id"].intValue)
@@ -774,7 +782,6 @@ class AddEstateViewController: UIViewController, UIImagePickerControllerDelegate
         loadSpinners()
         //TODO: VISSZALÉPÉSNÉL A WHICH_PAGE NEM LESZ JÓ...
         if (GetAddEstate.is_update == 1) {
-            GetAddEstate.which_page = GetAddEstate.which_page + 1
             if (GetAddEstate.which_page == 1) {
                 self.hirdetes_cime_text.text = GetAddEstate.update_estate[0].title
                 self.hirdetes_leirasa_text.text = GetAddEstate.update_estate[0].description
@@ -795,11 +802,13 @@ class AddEstateViewController: UIViewController, UIImagePickerControllerDelegate
                 
                 self.erkely_text.setTitle(self.pickerData_erkely[GetAddEstate.update_estate[0].balcony]["display"], forState: UIControlState.Normal)
                 self.erkely = String(GetAddEstate.update_estate[0].balcony!)
+                
             }
             
             
             
         }
+        
         
         
         print ("PAGE ",String(GetAddEstate.which_page))
@@ -861,6 +870,7 @@ class AddEstateViewController: UIViewController, UIImagePickerControllerDelegate
                 //loginView.isModding = self.isModding
                 //loginView.mod_id = self.mod_id
                 //loginView.page = 2
+                GetAddEstate.which_page = 2
                 self.navigationController?.pushViewController(loginView, animated: true)
                 return
             }
@@ -885,6 +895,7 @@ class AddEstateViewController: UIViewController, UIImagePickerControllerDelegate
                 //loginView.isModding = self.isModding
                 //loginView.mod_id = self.mod_id
                 //loginView.page = 2
+                GetAddEstate.which_page = 2
                 self.navigationController?.pushViewController(loginView, animated: true)
             }
         })

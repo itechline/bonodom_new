@@ -235,7 +235,13 @@ class MainViewController: UIViewController, LiquidFloatingActionButtonDataSource
                 NSNotificationCenter.defaultCenter().postNotificationName("logged", object: userInfo)
                 
                 //pic
-                let pic: [String:AnyObject] = [ "pic": json["pic"].stringValue]
+                var pic: [String:AnyObject] = [:]
+                
+                if (json["pic"].stringValue.isEmpty) {
+                    pic =  ["nourl": "nourl"]
+                } else {
+                    pic =  ["pic": json["pic"].stringValue]
+                }
                 NSNotificationCenter.defaultCenter().postNotificationName("prof_picture", object: pic)
                 
                 //ImageHeaderView.sharedInstance.setName(json["veznev"].stringValue)
@@ -496,6 +502,7 @@ class MainViewController: UIViewController, LiquidFloatingActionButtonDataSource
                     GetAddEstate.row = Int(row)!
                     GetAddEstate.update_estate.removeAll()
                     GetAddEstate.update_estate.append(items[Int(row)!])
+                    GetAddEstate.which_page = 1
                 } else {
                     GetAddEstate.is_update = 0
                     GetAddEstate.update_estate.removeAll()
@@ -510,7 +517,7 @@ class MainViewController: UIViewController, LiquidFloatingActionButtonDataSource
         }
         
         
-        GetAddEstate.which_page = 0
+        
         
         let storyboard = UIStoryboard(name: "AddEstate", bundle: nil)
         let subContentsVC = storyboard.instantiateViewControllerWithIdentifier("AddEstate_1") as! AddEstateViewController
@@ -671,6 +678,8 @@ extension MainViewController : UITableViewDataSource {
         
         
             cell.setData(data)
+            
+            
         
             if (largest_id < items[indexPath.row].id) {
                 largest_id = items[indexPath.row].id
