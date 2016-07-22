@@ -8,10 +8,10 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--Hírdetésfeladás_1-->
+        <!--Add Estate View Controller-->
         <scene sceneID="44s-3h-Kq6">
             <objects>
-                <viewController storyboardIdentifier="AddEstate_1" title="Hírdetésfeladás_1" id="XP6-P6-eka" customClass="AddEstateViewController" customModule="Bonodom" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AddEstate_1" id="XP6-P6-eka" customClass="AddEstateViewController" customModule="Bonodom" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="j7X-9e-Ean"/>
                         <viewControllerLayoutGuide type="bottom" id="5dP-3I-IWz"/>
@@ -340,10 +340,10 @@
             </objects>
             <point key="canvasLocation" x="100" y="519"/>
         </scene>
-        <!--Hírdetésfeladás_2-->
+        <!--Add Estate View Controller-->
         <scene sceneID="hrs-gM-D6x">
             <objects>
-                <viewController storyboardIdentifier="AddEstate_2" title="Hírdetésfeladás_2" id="rEy-yq-uys" customClass="AddEstateViewController" customModule="Bonodom" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AddEstate_2" id="rEy-yq-uys" customClass="AddEstateViewController" customModule="Bonodom" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="VgA-Cz-rNQ"/>
                         <viewControllerLayoutGuide type="bottom" id="rA9-FL-6Ep"/>
@@ -746,7 +746,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="hpq-b8-Qpg">
+                            <collectionView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="hpq-b8-Qpg">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="80D-2R-MGx">
                                     <size key="itemSize" width="100" height="100"/>
@@ -805,10 +805,10 @@
             </objects>
             <point key="canvasLocation" x="1481" y="-188"/>
         </scene>
-        <!--Hírdetésfeladás_3-->
+        <!--Add Estate View Controller-->
         <scene sceneID="BsX-jo-rpL">
             <objects>
-                <viewController storyboardIdentifier="AddEstate_3" title="Hírdetésfeladás_3" id="bpv-Ux-zvj" customClass="AddEstateViewController" customModule="Bonodom" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AddEstate_3" id="bpv-Ux-zvj" customClass="AddEstateViewController" customModule="Bonodom" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="iWL-j8-udB"/>
                         <viewControllerLayoutGuide type="bottom" id="svO-qk-rhq"/>
@@ -1043,10 +1043,10 @@
             </objects>
             <point key="canvasLocation" x="1478" y="519"/>
         </scene>
-        <!--Hírdetésfeladás_4-->
+        <!--Add Estate View Controller-->
         <scene sceneID="Lcm-zE-cFY">
             <objects>
-                <viewController storyboardIdentifier="AddEstate_4" title="Hírdetésfeladás_4" id="9rM-lE-GNF" customClass="AddEstateViewController" customModule="Bonodom" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AddEstate_4" id="9rM-lE-GNF" customClass="AddEstateViewController" customModule="Bonodom" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="7Xa-rl-XRF"/>
                         <viewControllerLayoutGuide type="bottom" id="SIW-RY-4Vm"/>
@@ -1108,7 +1108,7 @@
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ig2-sH-fT1">
+                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ig2-sH-fT1">
                                         <rect key="frame" x="8" y="285" width="584" height="30"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                         <state key="normal" title="+ További időpontok hozzáadása">
@@ -1358,10 +1358,10 @@
             </objects>
             <point key="canvasLocation" x="2103" y="519"/>
         </scene>
-        <!--Hírdetésfeladás_5-->
+        <!--Add Estate View Controller-->
         <scene sceneID="6g9-j8-x5w">
             <objects>
-                <viewController storyboardIdentifier="AddEstate_5" title="Hírdetésfeladás_5" id="7wW-Dv-EY7" customClass="AddEstateViewController" customModule="Bonodom" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AddEstate_5" id="7wW-Dv-EY7" customClass="AddEstateViewController" customModule="Bonodom" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="mwT-4F-pye"/>
                         <viewControllerLayoutGuide type="bottom" id="owP-x9-mSf"/>

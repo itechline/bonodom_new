@@ -41,6 +41,10 @@ extension ImagesCollectionViewController : UICollectionViewDataSource {
         return cell
     }
     
+    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+        print ("SELECTED", String(indexPath.row))
+    }
+    
 }
 
 extension ImagesCollectionViewController : UICollectionViewDelegateFlowLayout {

@@ -69,6 +69,9 @@ class MenuItemView: BaseMenuItemViewController {
             } else {
                 self.messages_text.hidden = true
             }
+            if (data.messages != 0) {
+                self.messages_text.hidden = false
+            }
         }
     }
     

@@ -418,11 +418,6 @@ class AddEstateViewController: UIViewController, UIImagePickerControllerDelegate
             
         })
         imagesToUpload.append(image)
-        var imageView: UIImageView!
-        
-        imageView = UIImageView(image: image)
-        imageView.frame = CGRectMake(0,0, 50, 50)
-        
         
         //image_picker_picture.setImage(image, forState: UIControlState.Normal)
         //imageView.image = image
@@ -779,6 +774,7 @@ class AddEstateViewController: UIViewController, UIImagePickerControllerDelegate
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        //self.navigationItem.backBarButtonItem?.title = "Dikk"
         loadSpinners()
         //TODO: VISSZALÉPÉSNÉL A WHICH_PAGE NEM LESZ JÓ...
         if (GetAddEstate.is_update == 1) {
@@ -809,6 +805,12 @@ class AddEstateViewController: UIViewController, UIImagePickerControllerDelegate
             
         }
         
+        if (GetAddEstate.which_page == 5) {
+            KiemelImage.hidden = false
+            KiemelImage.image = UIImage(named: "kiemel_a")
+            KiemelLabel.hidden = true
+        }
+        
         
         
         print ("PAGE ",String(GetAddEstate.which_page))
@@ -834,7 +836,7 @@ class AddEstateViewController: UIViewController, UIImagePickerControllerDelegate
             KiemelImage.hidden = false
             KiemelImage.image = UIImage(named: "kiemel_a")
             KiemelLabel.hidden = true
-                    case 1:
+        case 1:
             KiemelImage.hidden = false
             KiemelImage.image = UIImage(named: "kiemel_b")
             KiemelLabel.hidden = true

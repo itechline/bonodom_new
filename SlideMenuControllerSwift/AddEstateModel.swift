@@ -32,7 +32,7 @@ class AddEstateModel {
     var e_type: String
     var zipcode: String
     var hsz: String
-    let pictures: [UIImage]?
+    var pictures: [UIImage]?
     var hetfo: String
     var kedd: String
     var szerda: String
