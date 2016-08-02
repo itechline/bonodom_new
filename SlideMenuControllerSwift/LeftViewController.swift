@@ -105,7 +105,7 @@ class LeftViewController : UIViewController, LeftMenuProtocol {
     {
         //count
         MessageUtil.sharedInstance.getMessagecount { (json: JSON) in
-            print ("MESSAGES",json)
+            //print ("MESSAGES",json)
             if (!json["error"].boolValue) {
                 dispatch_async(dispatch_get_main_queue(),{
                     self.messagesCount = json["count"].intValue
@@ -115,7 +115,7 @@ class LeftViewController : UIViewController, LeftMenuProtocol {
         }
         
         BookingUtil.sharedInstance.get_idpontcount { (json: JSON) in
-            print ("BOOKINGS",json)
+            //print ("BOOKINGS",json)
             if (!json["error"].boolValue) {
                 dispatch_async(dispatch_get_main_queue(),{
                     self.appointmentsCount = json["count"].intValue

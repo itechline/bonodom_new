@@ -71,8 +71,16 @@
 		E4154DC81D3918D00098E291 /* IdopontokByDateModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4154DC71D3918D00098E291 /* IdopontokByDateModel.swift */; };
 		E4239FBF1D3F6E1000A0C2A6 /* MyEstatesCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E4239FBE1D3F6E1000A0C2A6 /* MyEstatesCell.xib */; };
 		E4239FC11D3F748300A0C2A6 /* MyEstatesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4239FC01D3F748300A0C2A6 /* MyEstatesCell.swift */; };
+		E436F90B1D475EB200525621 /* xponential.JPG in Resources */ = {isa = PBXBuildFile; fileRef = E436F90A1D475EB200525621 /* xponential.JPG */; };
 		E437C4961D397091001FB2C5 /* MydatesViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E437C4951D397091001FB2C5 /* MydatesViewCell.swift */; };
 		E43E10F71D3E4A9A0000FF01 /* IdopontokListaModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E43E10F61D3E4A9A0000FF01 /* IdopontokListaModel.swift */; };
+		E43E612C1D4600EC00FFC9BD /* PanoramaView.m in Sources */ = {isa = PBXBuildFile; fileRef = E43E612B1D4600EC00FFC9BD /* PanoramaView.m */; };
+		E43E612E1D46020A00FFC9BD /* park_2048.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E43E612D1D46020A00FFC9BD /* park_2048.jpg */; };
+		E43E61301D4602B100FFC9BD /* GLKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E43E612F1D4602B100FFC9BD /* GLKit.framework */; };
+		E43E61321D4602B700FFC9BD /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E43E61311D4602B700FFC9BD /* CoreMotion.framework */; };
+		E43E61341D4602C500FFC9BD /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E43E61331D4602C500FFC9BD /* OpenGLES.framework */; };
+		E43E61391D460D2A00FFC9BD /* living-room.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E43E61381D460D2A00FFC9BD /* living-room.jpg */; };
+		E43E613B1D463EF600FFC9BD /* equirectangular-projection-lines.png in Resources */ = {isa = PBXBuildFile; fileRef = E43E613A1D463EF600FFC9BD /* equirectangular-projection-lines.png */; };
 		E43ECE451D0965B60026A3AD /* SettingUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = E43ECE441D0965B60026A3AD /* SettingUtil.swift */; };
 		E454A7AD1D0189D90001CE17 /* SOAPEngine-Bridging-Header.h in Headers */ = {isa = PBXBuildFile; fileRef = E454A7AC1D0189D90001CE17 /* SOAPEngine-Bridging-Header.h */; };
 		E45A74071D0571E200CC9162 /* MenuItemView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E45A74061D0571E200CC9162 /* MenuItemView.xib */; };
@@ -184,8 +192,19 @@
 		E4154DC71D3918D00098E291 /* IdopontokByDateModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IdopontokByDateModel.swift; sourceTree = "<group>"; };
 		E4239FBE1D3F6E1000A0C2A6 /* MyEstatesCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyEstatesCell.xib; sourceTree = "<group>"; };
 		E4239FC01D3F748300A0C2A6 /* MyEstatesCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyEstatesCell.swift; sourceTree = "<group>"; };
+		E436F90A1D475EB200525621 /* xponential.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = xponential.JPG; sourceTree = "<group>"; };
 		E437C4951D397091001FB2C5 /* MydatesViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MydatesViewCell.swift; sourceTree = "<group>"; };
 		E43E10F61D3E4A9A0000FF01 /* IdopontokListaModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IdopontokListaModel.swift; sourceTree = "<group>"; };
+		E43E61291D4600EB00FFC9BD /* Bonodom-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Bonodom-Bridging-Header.h"; sourceTree = "<group>"; };
+		E43E612A1D4600EC00FFC9BD /* PanoramaView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PanoramaView.h; sourceTree = "<group>"; };
+		E43E612B1D4600EC00FFC9BD /* PanoramaView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PanoramaView.m; sourceTree = "<group>"; };
+		E43E612D1D46020A00FFC9BD /* park_2048.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = park_2048.jpg; sourceTree = "<group>"; };
+		E43E612F1D4602B100FFC9BD /* GLKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLKit.framework; path = System/Library/Frameworks/GLKit.framework; sourceTree = SDKROOT; };
+		E43E61311D4602B700FFC9BD /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
+		E43E61331D4602C500FFC9BD /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
+		E43E61351D4602D400FFC9BD /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		E43E61381D460D2A00FFC9BD /* living-room.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "living-room.jpg"; sourceTree = "<group>"; };
+		E43E613A1D463EF600FFC9BD /* equirectangular-projection-lines.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "equirectangular-projection-lines.png"; sourceTree = "<group>"; };
 		E43ECE441D0965B60026A3AD /* SettingUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingUtil.swift; sourceTree = "<group>"; };
 		E454A7AC1D0189D90001CE17 /* SOAPEngine-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SOAPEngine-Bridging-Header.h"; sourceTree = "<group>"; };
 		E45A74061D0571E200CC9162 /* MenuItemView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MenuItemView.xib; sourceTree = "<group>"; };
@@ -228,6 +247,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E43E61341D4602C500FFC9BD /* OpenGLES.framework in Frameworks */,
+				E43E61321D4602B700FFC9BD /* CoreMotion.framework in Frameworks */,
+				E43E61301D4602B100FFC9BD /* GLKit.framework in Frameworks */,
 				E4F35EF91D35245B00903A44 /* MapKit.framework in Frameworks */,
 				2F51954CCFC481E375B5516A /* Pods_Bonodom.framework in Frameworks */,
 			);
@@ -286,6 +308,7 @@
 		C539E6431A315E87003B7CC7 /* SlideMenuControllerSwift */ = {
 			isa = PBXGroup;
 			children = (
+				E43E61371D460A0600FFC9BD /* Panorama */,
 				E47E36CB1D05A4B70095FA6B /* Models */,
 				E45A740E1D059A2900CC9162 /* Utils */,
 				C539E6461A315E87003B7CC7 /* AppDelegate.swift */,
@@ -425,9 +448,27 @@
 			name = View;
 			sourceTree = "<group>";
 		};
+		E43E61371D460A0600FFC9BD /* Panorama */ = {
+			isa = PBXGroup;
+			children = (
+				E43E613A1D463EF600FFC9BD /* equirectangular-projection-lines.png */,
+				E43E61381D460D2A00FFC9BD /* living-room.jpg */,
+				E43E612D1D46020A00FFC9BD /* park_2048.jpg */,
+				E43E612A1D4600EC00FFC9BD /* PanoramaView.h */,
+				E43E612B1D4600EC00FFC9BD /* PanoramaView.m */,
+				E43E61291D4600EB00FFC9BD /* Bonodom-Bridging-Header.h */,
+				E436F90A1D475EB200525621 /* xponential.JPG */,
+			);
+			name = Panorama;
+			sourceTree = "<group>";
+		};
 		E454A7A51D0186DD0001CE17 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				E43E61351D4602D400FFC9BD /* CoreGraphics.framework */,
+				E43E61331D4602C500FFC9BD /* OpenGLES.framework */,
+				E43E61311D4602B700FFC9BD /* CoreMotion.framework */,
+				E43E612F1D4602B100FFC9BD /* GLKit.framework */,
 				E4F35EF81D35245B00903A44 /* MapKit.framework */,
 				0548151CAB503CF2A92885A8 /* Pods_Bonodom.framework */,
 			);
@@ -547,7 +588,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftMigration = 0700;
-				LastSwiftUpdateCheck = 0700;
+				LastSwiftUpdateCheck = 0730;
 				LastUpgradeCheck = 0710;
 				ORGANIZATIONNAME = Itechline;
 				TargetAttributes = {
@@ -603,10 +644,12 @@
 				C5498C801BE897660076A7C5 /* ImageHeaderView.xib in Resources */,
 				E4239FBF1D3F6E1000A0C2A6 /* MyEstatesCell.xib in Resources */,
 				C5BF6A8A1BF3335D0064C18E /* SubContentsViewController.storyboard in Resources */,
+				E436F90B1D475EB200525621 /* xponential.JPG in Resources */,
 				C5BF6A841BEEF1E70064C18E /* DataTableViewCell.xib in Resources */,
 				57D66BC71D254B1200C522C8 /* CalendarItemViewController.xib in Resources */,
 				E4154DC01D38E7B30098E291 /* BookingViewController.storyboard in Resources */,
 				57D5DC691D12DF06002548B7 /* MessageThreadView.storyboard in Resources */,
+				E43E613B1D463EF600FFC9BD /* equirectangular-projection-lines.png in Resources */,
 				0E75C5A61BE3CAFE00844634 /* Info.plist in Resources */,
 				C539E64F1A315E87003B7CC7 /* Main.storyboard in Resources */,
 				E47E36CA1D059EB90095FA6B /* Podfile in Resources */,
@@ -614,6 +657,8 @@
 				57D5DC6B1D12E2CF002548B7 /* MessageThreadItemView.xib in Resources */,
 				C539E6511A315E87003B7CC7 /* Images.xcassets in Resources */,
 				E4F35EF71D3523C800903A44 /* MapsViewController.storyboard in Resources */,
+				E43E612E1D46020A00FFC9BD /* park_2048.jpg in Resources */,
+				E43E61391D460D2A00FFC9BD /* living-room.jpg in Resources */,
 				572F03231D3917F400606B8A /* MydatesViewCell.xib in Resources */,
 				576D35ED1D05A83B00DFA2BD /* MessageTableCell.xib in Resources */,
 			);
@@ -689,6 +734,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E43E612C1D4600EC00FFC9BD /* PanoramaView.m in Sources */,
 				E4C3B3721D4107E500B9FF86 /* ImagesCollectionViewController.swift in Sources */,
 				C5BF6A8E1BF34A8B0064C18E /* UIApplication.swift in Sources */,
 				E4742E171D118A5A005BE576 /* SpinnerModel.swift in Sources */,
@@ -929,6 +975,7 @@
 			baseConfigurationReference = 3C7157A7A045A61A09152526 /* Pods-Bonodom.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -942,6 +989,8 @@
 				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = com.attiladan.bonodom;
 				PRODUCT_NAME = Bonodom;
+				SWIFT_OBJC_BRIDGING_HEADER = "SlideMenuControllerSwift/Bonodom-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -951,6 +1000,7 @@
 			baseConfigurationReference = 60162285A5747F6BC883AA92 /* Pods-Bonodom.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -964,6 +1014,7 @@
 				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = com.attiladan.bonodom;
 				PRODUCT_NAME = Bonodom;
+				SWIFT_OBJC_BRIDGING_HEADER = "SlideMenuControllerSwift/Bonodom-Bridging-Header.h";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;

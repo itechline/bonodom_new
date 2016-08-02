@@ -12,4 +12,5 @@ pod 'ImageSlideshow/Alamofire'
 pod 'SDWebImage', '~>3.8'
 pod 'CVCalendar', '~> 1.2.9'
 pod 'NBMaterialDialogIOS', '~> 0.2.2'
+pod 'IQKeyboardManagerSwift'
 end

@@ -63,6 +63,8 @@ class MessageThreadViewController: UIViewController {
             send_message_text.enabled = false
         }
         
+        _ = NSTimer.scheduledTimerWithTimeInterval(10.0, target: self, selector: #selector(MessageThreadViewController.loadMessages), userInfo: nil, repeats: true)
+        
         
     }
 
@@ -72,10 +74,10 @@ class MessageThreadViewController: UIViewController {
     }
     
     func loadMessages() {
-        items.removeAll()
         MessageUtil.sharedInstance.getMessageListForEstate(hsh, uid: id, onCompletion: { (json: JSON) in
             print (json)
             if let results = json.array {
+                self.items.removeAll()
                 for entry in results {
                     self.items.append(MessageModel(json: entry))
                 }

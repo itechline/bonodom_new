@@ -7,29 +7,29 @@
 //
 
 import UIKit
+import GLKit
 
-class AgenciesViewController: UIViewController {
 
+class AgenciesViewController: GLKViewController {
+
+    var panoramaView = PanoramaView()
+    
     override func viewDidLoad() {
-        super.viewDidLoad()
-        self.setNavigationBarItem()
-        // Do any additional setup after loading the view.
+        panoramaView.setImageWithName("living-room.jpg")
+        panoramaView.touchToPan = false          // Use touch input to pan
+        panoramaView.orientToDevice = true     // Use motion sensors to pan
+        panoramaView.pinchToZoom = false         // Use pinch gesture to zoom
+        panoramaView.showTouches = true         // Show touches
+        self.view = panoramaView
+    }
+    
+    override func glkView(view: GLKView, drawInRect rect: CGRect) {
+        panoramaView.draw()
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

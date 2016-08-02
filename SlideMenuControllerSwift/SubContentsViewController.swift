@@ -272,6 +272,10 @@ class SubContentsViewController : UIViewController, LiquidFloatingActionButtonDa
             print ("VIRTUAL REALITY")
             print (json)
         })
+        
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let vr = storyboard.instantiateViewControllerWithIdentifier("AgenciesViewController") as! AgenciesViewController
+        self.navigationController?.pushViewController(vr, animated: true)
     }
     
     @IBAction func hibas_serto_button(sender: AnyObject) {

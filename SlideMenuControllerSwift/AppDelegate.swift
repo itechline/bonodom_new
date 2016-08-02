@@ -8,6 +8,7 @@
 
 import UIKit
 import CoreData
+import IQKeyboardManagerSwift
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -49,6 +50,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         //LOCAL NOTIFICATION
         application.registerUserNotificationSettings(UIUserNotificationSettings(forTypes: [.Alert, .Badge, .Sound], categories: nil))
 
+        IQKeyboardManager.sharedManager().enable = true
+        
         return true
     }
     
