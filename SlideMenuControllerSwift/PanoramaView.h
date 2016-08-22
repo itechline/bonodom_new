@@ -19,6 +19,11 @@
 /// set image
 -(void) setImage:(UIImage*)image;
 
+//setPreviewImage
+-(void) setPreviewImage:(UIImage*)image;
+
+-(void) setImageFromGallery:(UIImage*)image;
+
 /// set image by path or bundle - will check at both
 -(void) setImageWithName:(NSString*)fileName;
 

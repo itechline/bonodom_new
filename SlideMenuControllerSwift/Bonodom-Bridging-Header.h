@@ -3,3 +3,5 @@
 //
 
 #import "PanoramaView.m"
+#import "CVWrapper.h"
+#import "ocvCameraImage-Bridging-Header.h"

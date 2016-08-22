@@ -92,6 +92,9 @@
 		E4742E171D118A5A005BE576 /* SpinnerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4742E161D118A5A005BE576 /* SpinnerModel.swift */; };
 		E47E36CA1D059EB90095FA6B /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = E47E36C91D059EB90095FA6B /* Podfile */; };
 		E47E36CD1D05A5080095FA6B /* EstateListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E47E36CC1D05A5080095FA6B /* EstateListModel.swift */; };
+		E48317741D6B355C00F1FEF7 /* ImageController.mm in Sources */ = {isa = PBXBuildFile; fileRef = E48317721D6B355C00F1FEF7 /* ImageController.mm */; };
+		E48317781D6B367200F1FEF7 /* opencv2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E48317771D6B367200F1FEF7 /* opencv2.framework */; };
+		E48A59C71D6480EE00DE1A8B /* equirectangular-projection-lines_black.png in Resources */ = {isa = PBXBuildFile; fileRef = E48A59C61D6480EE00DE1A8B /* equirectangular-projection-lines_black.png */; };
 		E48F68191D3CEF8F00848813 /* MapsPopOverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E48F68181D3CEF8F00848813 /* MapsPopOverViewController.swift */; };
 		E4BEF8941D2516B60066F6A4 /* MessageUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4BEF8931D2516B60066F6A4 /* MessageUtil.swift */; };
 		E4BEF8961D251B290066F6A4 /* MessagesListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4BEF8951D251B290066F6A4 /* MessagesListModel.swift */; };
@@ -105,6 +108,10 @@
 		E4E29F591D2677B500FB6DE6 /* AdMonitorUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E29F581D2677B500FB6DE6 /* AdMonitorUtil.swift */; };
 		E4E5C8391D36458E005C7989 /* EstateMapListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E5C8381D36458E005C7989 /* EstateMapListModel.swift */; };
 		E4E5F73B1D2E547B001A36A4 /* AddAdmonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E5F73A1D2E547B001A36A4 /* AddAdmonitor.swift */; };
+		E4F1751F1D648DDD0051FDDE /* UIImage+Rotate.m in Sources */ = {isa = PBXBuildFile; fileRef = E4F175171D648DDD0051FDDE /* UIImage+Rotate.m */; };
+		E4F175201D648DDD0051FDDE /* UIImage+OpenCV.mm in Sources */ = {isa = PBXBuildFile; fileRef = E4F175191D648DDD0051FDDE /* UIImage+OpenCV.mm */; };
+		E4F175211D648DDD0051FDDE /* CVWrapper.mm in Sources */ = {isa = PBXBuildFile; fileRef = E4F1751B1D648DDD0051FDDE /* CVWrapper.mm */; };
+		E4F175221D648DDD0051FDDE /* stitching.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E4F1751C1D648DDD0051FDDE /* stitching.cpp */; };
 		E4F35EF31D35222C00903A44 /* SearchModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F35EF21D35222C00903A44 /* SearchModel.swift */; };
 		E4F35EF51D35239000903A44 /* MapsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F35EF41D35239000903A44 /* MapsViewController.swift */; };
 		E4F35EF71D3523C800903A44 /* MapsViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E4F35EF61D3523C800903A44 /* MapsViewController.storyboard */; };
@@ -216,6 +223,10 @@
 		E4742E161D118A5A005BE576 /* SpinnerModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpinnerModel.swift; sourceTree = "<group>"; };
 		E47E36C91D059EB90095FA6B /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		E47E36CC1D05A5080095FA6B /* EstateListModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EstateListModel.swift; sourceTree = "<group>"; };
+		E48317721D6B355C00F1FEF7 /* ImageController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ImageController.mm; sourceTree = "<group>"; };
+		E48317731D6B355C00F1FEF7 /* ocvCameraImage-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ocvCameraImage-Bridging-Header.h"; sourceTree = "<group>"; };
+		E48317771D6B367200F1FEF7 /* opencv2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = opencv2.framework; sourceTree = "<group>"; };
+		E48A59C61D6480EE00DE1A8B /* equirectangular-projection-lines_black.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "equirectangular-projection-lines_black.png"; sourceTree = "<group>"; };
 		E48F68181D3CEF8F00848813 /* MapsPopOverViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapsPopOverViewController.swift; sourceTree = "<group>"; };
 		E4BEF8931D2516B60066F6A4 /* MessageUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageUtil.swift; sourceTree = "<group>"; };
 		E4BEF8951D251B290066F6A4 /* MessagesListModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessagesListModel.swift; sourceTree = "<group>"; };
@@ -229,6 +240,15 @@
 		E4E29F581D2677B500FB6DE6 /* AdMonitorUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdMonitorUtil.swift; sourceTree = "<group>"; };
 		E4E5C8381D36458E005C7989 /* EstateMapListModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EstateMapListModel.swift; sourceTree = "<group>"; };
 		E4E5F73A1D2E547B001A36A4 /* AddAdmonitor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddAdmonitor.swift; sourceTree = "<group>"; };
+		E4F175161D648DDD0051FDDE /* UIImage+Rotate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Rotate.h"; sourceTree = "<group>"; };
+		E4F175171D648DDD0051FDDE /* UIImage+Rotate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Rotate.m"; sourceTree = "<group>"; };
+		E4F175181D648DDD0051FDDE /* UIImage+OpenCV.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+OpenCV.h"; sourceTree = "<group>"; };
+		E4F175191D648DDD0051FDDE /* UIImage+OpenCV.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = "UIImage+OpenCV.mm"; sourceTree = "<group>"; };
+		E4F1751A1D648DDD0051FDDE /* CVWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CVWrapper.h; sourceTree = "<group>"; };
+		E4F1751B1D648DDD0051FDDE /* CVWrapper.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = CVWrapper.mm; sourceTree = "<group>"; };
+		E4F1751C1D648DDD0051FDDE /* stitching.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = stitching.cpp; sourceTree = "<group>"; };
+		E4F1751D1D648DDD0051FDDE /* stitching.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = stitching.h; sourceTree = "<group>"; };
+		E4F1751E1D648DDD0051FDDE /* SwiftStitch-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SwiftStitch-Bridging-Header.h"; sourceTree = "<group>"; };
 		E4F35EF21D35222C00903A44 /* SearchModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchModel.swift; sourceTree = "<group>"; };
 		E4F35EF41D35239000903A44 /* MapsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapsViewController.swift; sourceTree = "<group>"; };
 		E4F35EF61D3523C800903A44 /* MapsViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MapsViewController.storyboard; sourceTree = "<group>"; };
@@ -247,6 +267,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E48317781D6B367200F1FEF7 /* opencv2.framework in Frameworks */,
 				E43E61341D4602C500FFC9BD /* OpenGLES.framework in Frameworks */,
 				E43E61321D4602B700FFC9BD /* CoreMotion.framework in Frameworks */,
 				E43E61301D4602B100FFC9BD /* GLKit.framework in Frameworks */,
@@ -451,7 +472,11 @@
 		E43E61371D460A0600FFC9BD /* Panorama */ = {
 			isa = PBXGroup;
 			children = (
+				E48317721D6B355C00F1FEF7 /* ImageController.mm */,
+				E48317731D6B355C00F1FEF7 /* ocvCameraImage-Bridging-Header.h */,
+				E4F175151D648D500051FDDE /* Stiching */,
 				E43E613A1D463EF600FFC9BD /* equirectangular-projection-lines.png */,
+				E48A59C61D6480EE00DE1A8B /* equirectangular-projection-lines_black.png */,
 				E43E61381D460D2A00FFC9BD /* living-room.jpg */,
 				E43E612D1D46020A00FFC9BD /* park_2048.jpg */,
 				E43E612A1D4600EC00FFC9BD /* PanoramaView.h */,
@@ -465,6 +490,7 @@
 		E454A7A51D0186DD0001CE17 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				E48317771D6B367200F1FEF7 /* opencv2.framework */,
 				E43E61351D4602D400FFC9BD /* CoreGraphics.framework */,
 				E43E61331D4602C500FFC9BD /* OpenGLES.framework */,
 				E43E61311D4602B700FFC9BD /* CoreMotion.framework */,
@@ -508,6 +534,22 @@
 				E43E10F61D3E4A9A0000FF01 /* IdopontokListaModel.swift */,
 			);
 			name = Models;
+			sourceTree = "<group>";
+		};
+		E4F175151D648D500051FDDE /* Stiching */ = {
+			isa = PBXGroup;
+			children = (
+				E4F175161D648DDD0051FDDE /* UIImage+Rotate.h */,
+				E4F175171D648DDD0051FDDE /* UIImage+Rotate.m */,
+				E4F175181D648DDD0051FDDE /* UIImage+OpenCV.h */,
+				E4F175191D648DDD0051FDDE /* UIImage+OpenCV.mm */,
+				E4F1751A1D648DDD0051FDDE /* CVWrapper.h */,
+				E4F1751B1D648DDD0051FDDE /* CVWrapper.mm */,
+				E4F1751C1D648DDD0051FDDE /* stitching.cpp */,
+				E4F1751D1D648DDD0051FDDE /* stitching.h */,
+				E4F1751E1D648DDD0051FDDE /* SwiftStitch-Bridging-Header.h */,
+			);
+			name = Stiching;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -642,6 +684,7 @@
 				E45A74071D0571E200CC9162 /* MenuItemView.xib in Resources */,
 				57C21E601D0EE42100CBCDFF /* AddEstate.storyboard in Resources */,
 				C5498C801BE897660076A7C5 /* ImageHeaderView.xib in Resources */,
+				E48A59C71D6480EE00DE1A8B /* equirectangular-projection-lines_black.png in Resources */,
 				E4239FBF1D3F6E1000A0C2A6 /* MyEstatesCell.xib in Resources */,
 				C5BF6A8A1BF3335D0064C18E /* SubContentsViewController.storyboard in Resources */,
 				E436F90B1D475EB200525621 /* xponential.JPG in Resources */,
@@ -764,13 +807,16 @@
 				E4BEF8941D2516B60066F6A4 /* MessageUtil.swift in Sources */,
 				57D66BC61D254B1200C522C8 /* CalendarItemViewController.swift in Sources */,
 				576D35EC1D05A83B00DFA2BD /* MessageTableCell.swift in Sources */,
+				E4F175211D648DDD0051FDDE /* CVWrapper.mm in Sources */,
 				C5C1CE5B1A70DADF00B6E411 /* NonMenuController.swift in Sources */,
 				C5498C7E1BE897250076A7C5 /* ImageHeaderView.swift in Sources */,
 				57DFCF961D01BBB900A69B8A /* AdMonitorController.swift in Sources */,
 				E45A74091D05721D00CC9162 /* MenuItemView.swift in Sources */,
+				E48317741D6B355C00F1FEF7 /* ImageController.mm in Sources */,
 				E4F35EF31D35222C00903A44 /* SearchModel.swift in Sources */,
 				57DFCF9A1D01C22A00A69B8A /* InviteViewController.swift in Sources */,
 				E4239FC11D3F748300A0C2A6 /* MyEstatesCell.swift in Sources */,
+				E4F175201D648DDD0051FDDE /* UIImage+OpenCV.mm in Sources */,
 				E43E10F71D3E4A9A0000FF01 /* IdopontokListaModel.swift in Sources */,
 				E40A3AA81D0808770009D3E0 /* EstateModel.swift in Sources */,
 				E47E36CD1D05A5080095FA6B /* EstateListModel.swift in Sources */,
@@ -780,6 +826,7 @@
 				E4154DC41D390C5B0098E291 /* IdopontokModel.swift in Sources */,
 				E4D687F11D196DD400D8FA40 /* AddEstateModel.swift in Sources */,
 				C5BD39DC1A6CD15700D0AF95 /* JavaViewController.swift in Sources */,
+				E4F175221D648DDD0051FDDE /* stitching.cpp in Sources */,
 				E4154DBE1D38E7620098E291 /* BookingViewController.swift in Sources */,
 				E4E29F591D2677B500FB6DE6 /* AdMonitorUtil.swift in Sources */,
 				E4D687F31D19728D00D8FA40 /* GetAddEstate.swift in Sources */,
@@ -802,6 +849,7 @@
 				E40A3AAA1D080C170009D3E0 /* LoginUtil.swift in Sources */,
 				C5F179D01BEB2CB500EEDD9A /* UIView.swift in Sources */,
 				E4742E151D1171DD005BE576 /* PickerDialog.swift in Sources */,
+				E4F1751F1D648DDD0051FDDE /* UIImage+Rotate.m in Sources */,
 				C5BD39DA1A6CD12300D0AF95 /* SwiftViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -977,6 +1025,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -1002,6 +1051,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",

@@ -55,13 +55,13 @@ GLKQuaternion GLKQuaternionFromTwoVectors(GLKVector3 u, GLKVector3 v){
 @implementation PanoramaView
 
 -(id) init{
-// it appears that iOS already automatically does this switch, stored in UIScreen mainscreen bounds
-//    CGRect frame = [[UIScreen mainScreen] bounds];
-//    if(SENSOR_ORIENTATION == 3 || SENSOR_ORIENTATION == 4){
-//        return [self initWithFrame:CGRectMake(frame.origin.x, frame.origin.y, frame.size.height, frame.size.width)];
-//    } else{
-//        return [self initWithFrame:CGRectMake(frame.origin.x, frame.origin.y, frame.size.width, frame.size.height)];
-//    }
+    // it appears that iOS already automatically does this switch, stored in UIScreen mainscreen bounds
+    //    CGRect frame = [[UIScreen mainScreen] bounds];
+    //    if(SENSOR_ORIENTATION == 3 || SENSOR_ORIENTATION == 4){
+    //        return [self initWithFrame:CGRectMake(frame.origin.x, frame.origin.y, frame.size.height, frame.size.width)];
+    //    } else{
+    //        return [self initWithFrame:CGRectMake(frame.origin.x, frame.origin.y, frame.size.width, frame.size.height)];
+    //    }
     return [self initWithFrame:[[UIScreen mainScreen] bounds]];
 }
 - (id)initWithFrame:(CGRect)frame{
@@ -76,12 +76,12 @@ GLKQuaternion GLKQuaternionFromTwoVectors(GLKVector3 u, GLKVector3 v){
         [self initDevice];
         [self initOpenGL:context];
         sphere = [[Sphere alloc] init:48 slices:48 radius:10.0 textureFile:nil];
-        meridians = [[Sphere alloc] init:48 slices:48 radius:8.0 textureFile:@"equirectangular-projection-lines.png"];
+        meridians = [[Sphere alloc] init:48 slices:48 radius:8.0 textureFile:@"equirectangular-projection-lines_black.png"];
     }
     return self;
 }
 -(void) didMoveToSuperview{
-// this breaks MVC, but useful for setting GLKViewController's frame rate
+    // this breaks MVC, but useful for setting GLKViewController's frame rate
     UIResponder *responder = self;
     while (![responder isKindOfClass:[GLKViewController class]]) {
         responder = [responder nextResponder];
@@ -112,6 +112,16 @@ GLKQuaternion GLKQuaternionFromTwoVectors(GLKVector3 u, GLKVector3 v){
 -(void) setImage:(UIImage *)image {
     [sphere swapTextureWithImage:image];
 }
+
+-(void) setPreviewImage:(UIImage *)image {
+    [meridians swapTextureWithImage:image];
+}
+
+-(void) setImageFromGallery:(UIImage *)image {
+    [sphere swapTextureWithImage:image];
+    //[self setImageWithName:@"xponential.JPG"];
+}
+
 -(void) setTouchToPan:(BOOL)touchToPan{
     _touchToPan = touchToPan;
     [panGesture setEnabled:_touchToPan];
@@ -144,33 +154,33 @@ UIButton *button;
     
     
     
-    button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    GLKVector3 satelite = GLKVector3Make(0, 0, 1);
-    
-    CGPoint location = [self screenLocationFromVector:satelite];
-    [button setFrame:CGRectMake(location.x, location.y, 100, 100)];
-    //[button setBackgroundColor:[UIColor blackColor]];
-    [button addTarget:self
-            action:@selector(buttonTapped)
-            forControlEvents:UIControlEventTouchUpInside];
-    [button setImage:[UIImage imageNamed:@"bonodom_logo"] forState:UIControlStateNormal];
-    
-    [self addSubview:button];
+    /*button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+     GLKVector3 satelite = GLKVector3Make(0, 0, 1);
+     
+     CGPoint location = [self screenLocationFromVector:satelite];
+     [button setFrame:CGRectMake(location.x, location.y, 100, 100)];
+     //[button setBackgroundColor:[UIColor blackColor]];
+     [button addTarget:self
+     action:@selector(buttonTapped)
+     forControlEvents:UIControlEventTouchUpInside];
+     [button setImage:[UIImage imageNamed:@"bonodom_logo"] forState:UIControlStateNormal];
+     
+     [self addSubview:button];*/
 }
 static int roomNum = 0;
 -(void) buttonTapped {
-    switch (roomNum) {
-        case 0:
-            [self setImageWithName:@"park_2048.jpg"];
-            break;
-        case 1:
-            [self setImageWithName:@"living-room.jpg"];
-            break;
-        default:
-            [self setImageWithName:@"xponential.JPG"];
-            roomNum = -1;
-            break;
-    }
+    /*switch (roomNum) {
+     case 0:
+     [self setImageWithName:@"park_2048.jpg"];
+     break;
+     case 1:
+     [self setImageWithName:@"living-room.jpg"];
+     break;
+     default:
+     [self setImageWithName:@"xponential.JPG"];
+     roomNum = -1;
+     break;
+     }*/
     roomNum += 1;
     
 }
@@ -186,9 +196,9 @@ static int roomNum = 0;
 }
 -(void) customGL{
     glMatrixMode(GL_MODELVIEW);
-//    glEnable(GL_CULL_FACE);
-//    glCullFace(GL_FRONT);
-//    glEnable(GL_DEPTH_TEST);
+    //    glEnable(GL_CULL_FACE);
+    //    glCullFace(GL_FRONT);
+    //    glEnable(GL_DEPTH_TEST);
     glEnable(GL_BLEND);
     glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 }
@@ -199,37 +209,37 @@ static int roomNum = 0;
     glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
     glClear(GL_COLOR_BUFFER_BIT);
     glPushMatrix(); // begin device orientation
-
-        _attitudeMatrix = GLKMatrix4Multiply([self getDeviceOrientationMatrix], _offsetMatrix);
-        [self updateLook];
     
-        glMultMatrixf(_attitudeMatrix.m);
+    _attitudeMatrix = GLKMatrix4Multiply([self getDeviceOrientationMatrix], _offsetMatrix);
+    [self updateLook];
     
-        glMaterialfv(GL_FRONT_AND_BACK, GL_EMISSION, whiteColor);  // panorama at full color
-        [sphere execute];
-        glMaterialfv(GL_FRONT_AND_BACK, GL_EMISSION, clearColor);
-        [meridians execute];  // semi-transparent texture overlay (15° meridian lines)
-
-//TODO: add any objects here to make them a part of the virtual reality
-//        glPushMatrix();
-//        // object code
+    glMultMatrixf(_attitudeMatrix.m);
+    
+    glMaterialfv(GL_FRONT_AND_BACK, GL_EMISSION, whiteColor);  // panorama at full color
+    [sphere execute];
+    glMaterialfv(GL_FRONT_AND_BACK, GL_EMISSION, clearColor);
+    [meridians execute];  // semi-transparent texture overlay (15° meridian lines)
+    
+    //TODO: add any objects here to make them a part of the virtual reality
+    //        glPushMatrix();
+    //        // object code
     
     
     
-//        glPopMatrix();
+    //        glPopMatrix();
     
-        // touch lines
-        if(_showTouches && _numberOfTouches){
-            glColor4f(1.0f, 1.0f, 1.0f, 0.5f);
-            for(int i = 0; i < [[_touches allObjects] count]; i++){
-                glPushMatrix();
-                    CGPoint touchPoint = CGPointMake([(UITouch*)[[_touches allObjects] objectAtIndex:i] locationInView:self].x,
-                                                     [(UITouch*)[[_touches allObjects] objectAtIndex:i] locationInView:self].y);
-                    [self drawHotspotLines:[self vectorFromScreenLocation:touchPoint inAttitude:_attitudeMatrix]];
-                glPopMatrix();
-            }
-            glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
+    // touch lines
+    if(_showTouches && _numberOfTouches){
+        glColor4f(1.0f, 1.0f, 1.0f, 0.5f);
+        for(int i = 0; i < [[_touches allObjects] count]; i++){
+            glPushMatrix();
+            CGPoint touchPoint = CGPointMake([(UITouch*)[[_touches allObjects] objectAtIndex:i] locationInView:self].x,
+                                             [(UITouch*)[[_touches allObjects] objectAtIndex:i] locationInView:self].y);
+            [self drawHotspotLines:[self vectorFromScreenLocation:touchPoint inAttitude:_attitudeMatrix]];
+            glPopMatrix();
         }
+        glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
+    }
     
     glPopMatrix(); // end device orientation
 }
@@ -241,25 +251,25 @@ static int roomNum = 0;
         // and combinations of 90 degree rotations (rows)
         if(SENSOR_ORIENTATION == 4){
             return GLKMatrix4Make( a.m21,-a.m11, a.m31, 0.0f,
-                                   a.m23,-a.m13, a.m33, 0.0f,
+                                  a.m23,-a.m13, a.m33, 0.0f,
                                   -a.m22, a.m12,-a.m32, 0.0f,
-                                   0.0f , 0.0f , 0.0f , 1.0f);
+                                  0.0f , 0.0f , 0.0f , 1.0f);
         }
         if(SENSOR_ORIENTATION == 3){
             return GLKMatrix4Make(-a.m21, a.m11, a.m31, 0.0f,
                                   -a.m23, a.m13, a.m33, 0.0f,
-                                   a.m22,-a.m12,-a.m32, 0.0f,
-                                   0.0f , 0.0f , 0.0f , 1.0f);
+                                  a.m22,-a.m12,-a.m32, 0.0f,
+                                  0.0f , 0.0f , 0.0f , 1.0f);
         }
         if(SENSOR_ORIENTATION == 2){
             return GLKMatrix4Make(-a.m11,-a.m21, a.m31, 0.0f,
                                   -a.m13,-a.m23, a.m33, 0.0f,
-                                   a.m12, a.m22,-a.m32, 0.0f,
-                                   0.0f , 0.0f , 0.0f , 1.0f);
+                                  a.m12, a.m22,-a.m32, 0.0f,
+                                  0.0f , 0.0f , 0.0f , 1.0f);
         }
         return GLKMatrix4Make(a.m11, a.m21, a.m31, 0.0f,
                               a.m13, a.m23, a.m33, 0.0f,
-                             -a.m12,-a.m22,-a.m32, 0.0f,
+                              -a.m12,-a.m22,-a.m32, 0.0f,
                               0.0f , 0.0f , 0.0f , 1.0f);
     }
     else
@@ -307,10 +317,10 @@ static int roomNum = 0;
     GLKVector4 screen = GLKVector4Make(2.0*(point.x/self.frame.size.width-.5),
                                        2.0*(.5-point.y/self.frame.size.height),
                                        1.0, 1.0);
-//    if (SENSOR_ORIENTATION == 3 || SENSOR_ORIENTATION == 4)
-//        screen = GLKVector4Make(2.0*(screenTouch.x/self.frame.size.height-.5),
-//                                2.0*(.5-screenTouch.y/self.frame.size.width),
-//                                1.0, 1.0);
+    //    if (SENSOR_ORIENTATION == 3 || SENSOR_ORIENTATION == 4)
+    //        screen = GLKVector4Make(2.0*(screenTouch.x/self.frame.size.height-.5),
+    //                                2.0*(.5-screenTouch.y/self.frame.size.width),
+    //                                1.0, 1.0);
     GLKVector4 vec = GLKMatrix4MultiplyVector4(inverse, screen);
     return GLKVector3Normalize(GLKVector3Make(vec.x, vec.y, vec.z));
 }
@@ -321,7 +331,7 @@ static int roomNum = 0;
                        (0.5-screenVector.y/screenVector.z/2) * self.frame.size.height );
 }
 -(BOOL) computeScreenLocation:(CGPoint*)location fromVector:(GLKVector3)vector inAttitude:(GLKMatrix4)matrix{
-//This method returns whether the point is before or behind the screen.
+    //This method returns whether the point is before or behind the screen.
     GLKVector4 screenVector;
     GLKVector4 vector4;
     if(location == NULL)
@@ -383,8 +393,8 @@ static int roomNum = 0;
         GLKQuaternion q = GLKQuaternionFromTwoVectors(touchVector, nowVector);
         _offsetMatrix = GLKMatrix4Multiply(_offsetMatrix, GLKMatrix4MakeWithQuaternion(q));
         // in progress for preventHeadTilt
-//        GLKMatrix4 mat = GLKMatrix4Multiply(_offsetMatrix, GLKMatrix4MakeWithQuaternion(q));
-//        _offsetMatrix = GLKMatrix4MakeLookAt(0, 0, 0, -mat.m02, -mat.m12, -mat.m22,  0, 1, 0);
+        //        GLKMatrix4 mat = GLKMatrix4Multiply(_offsetMatrix, GLKMatrix4MakeWithQuaternion(q));
+        //        _offsetMatrix = GLKMatrix4MakeLookAt(0, 0, 0, -mat.m02, -mat.m12, -mat.m22,  0, 1, 0);
     }
     else{
         _numberOfTouches = 0;
@@ -430,9 +440,9 @@ static int roomNum = 0;
 @end
 
 @interface Sphere (){
-//  from Touch Fighter by Apple
-//  in Pro OpenGL ES for iOS
-//  by Mike Smithwick Jan 2011 pg. 78
+    //  from Touch Fighter by Apple
+    //  in Pro OpenGL ES for iOS
+    //  by Mike Smithwick Jan 2011 pg. 78
     GLKTextureInfo *m_TextureInfo;
     GLfloat *m_TexCoordsData;
     GLfloat *m_VertexData;

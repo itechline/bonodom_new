@@ -13,4 +13,5 @@ pod 'SDWebImage', '~>3.8'
 pod 'CVCalendar', '~> 1.2.9'
 pod 'NBMaterialDialogIOS', '~> 0.2.2'
 pod 'IQKeyboardManagerSwift'
+pod 'CameraEngine', '~> 0.9.3'
 end
