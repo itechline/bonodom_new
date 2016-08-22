@@ -49,6 +49,8 @@ class AgenciesViewController: GLKViewController, UIImagePickerControllerDelegate
     
     override func viewDidLoad() {
         imcImageController = ImageController()
+        btmImg = UIImage(named: "equirectangular-projection-lines_black.png")
+        
         let devices = AVCaptureDevice.devices()
         var captureDevice : AVCaptureDevice?
         for device in devices {
@@ -65,7 +67,7 @@ class AgenciesViewController: GLKViewController, UIImagePickerControllerDelegate
         
         
         
-        //panoramaView.setImageWithName("equirectangular-projection-lines_black.png")
+        panoramaView.setImageWithName("equirectangular-projection-lines_black.png")
         panoramaView.touchToPan = false          // Use touch input to pan
         panoramaView.orientToDevice = true     // Use motion sensors to pan
         panoramaView.pinchToZoom = false         // Use pinch gesture to zoom
@@ -104,7 +106,7 @@ class AgenciesViewController: GLKViewController, UIImagePickerControllerDelegate
         }
         
         // 出力データの取得.
-        var videoDataOutput:AVCaptureVideoDataOutput = AVCaptureVideoDataOutput()
+        let videoDataOutput:AVCaptureVideoDataOutput = AVCaptureVideoDataOutput()
         
         // カラーチャンネルの設定.
         
@@ -203,44 +205,43 @@ class AgenciesViewController: GLKViewController, UIImagePickerControllerDelegate
         
     }
     
-    func UIImageFromCMSamleBuffer(buffer:CMSampleBuffer)-> UIImage {
-        // サンプルバッファからピクセルバッファを取り出す
-        let pixelBuffer:CVImageBufferRef = CMSampleBufferGetImageBuffer(buffer)!
-        
-        // ピクセルバッファをベースにCoreImageのCIImageオブジェクトを作成
-        let ciImage = CIImage(CVPixelBuffer: pixelBuffer)
-        
-        //CIImageからCGImageを作成
-        let pixelBufferWidth = CGFloat(256)
-        let pixelBufferHeight = CGFloat(128)
-        let imageRect:CGRect = CGRectMake(0,0,pixelBufferWidth, pixelBufferHeight)
-        let ciContext = CIContext.init()
-        let cgimage = ciContext.createCGImage(ciImage, fromRect: imageRect )
-        
-        // CGImageからUIImageを作成
-        let image = UIImage(CGImage: cgimage)
-        return image
-    }
     
+    var btmImg: UIImage!
     func captureOutput(captureOutput: AVCaptureOutput!, didOutputSampleBuffer sampleBuffer: CMSampleBuffer!, fromConnection connection: AVCaptureConnection!) {
         print ("LOOOOOFASZ")
-        ///imgCameraView.image = imcImageController.createImageFromBuffer(sampleBuffer)
-        
-        //let image:UIImage = self.captureImage(sampleBuffer)
-        //let image = self.UIImageFromCMSamleBuffer(sampleBuffer)
+
         if (sampleBuffer != nil) {
             print ("LOOOOOFASZ_1")
             let img = imcImageController.createImageFromBuffer(sampleBuffer)
             print ("LOOOOOFASZ_2")
             if (img != nil) {
-                self.panoramaView.setPreviewImage(self.resizeImage(img, newWidth: 1024, newHeight: 512))
+                dispatch_async(dispatch_get_main_queue()) {
+                let size = CGSize(width: 1024, height: 512)
+                UIGraphicsBeginImageContext(size)
+                
+                
+                
+                let areaSize = CGRect(x: 0,
+                                      y: 0,
+                                      width: 128,
+                                      height: 256)
+                
+                //self.btmImg!.drawInRect(areaSize)
+                
+                img.drawInRect(areaSize, blendMode: CGBlendMode.Overlay, alpha: 1)
+                
+                let newImage:UIImage = UIGraphicsGetImageFromCurrentImageContext()
+                UIGraphicsEndImageContext()
+                
+                self.panoramaView.setImage(self.resizeImage(newImage, newWidth: 1024, newHeight: 512))
+                    }
             }
         }
         
-        dispatch_async(dispatch_get_main_queue()) {
+        
             
             
-        }
+        
     }
     func buttonPressed(sender: UIButton!) {
         if let videoConnection = stillImageOutput!.connectionWithMediaType(AVMediaTypeVideo) {
@@ -298,11 +299,6 @@ class AgenciesViewController: GLKViewController, UIImagePickerControllerDelegate
     
     override func glkView(view: GLKView, drawInRect rect: CGRect) {
         panoramaView.draw()
-        //UIGraphicsBeginImageContextWithOptions(previewView.bounds.size, true, 0)
-        //previewView.drawViewHierarchyInRect(previewView.bounds, afterScreenUpdates: true)
-        //let image = UIGraphicsGetImageFromCurrentImageContext()
-        //UIGraphicsEndImageContext()
-        //self.panoramaView.setImage(self.resizeImage(camImage, newWidth: 2048, newHeight: 1024))
     }
     
     

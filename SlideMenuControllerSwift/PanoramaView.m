@@ -75,8 +75,8 @@ GLKQuaternion GLKQuaternionFromTwoVectors(GLKVector3 u, GLKVector3 v){
     if (self) {
         [self initDevice];
         [self initOpenGL:context];
-        sphere = [[Sphere alloc] init:48 slices:48 radius:10.0 textureFile:nil];
-        meridians = [[Sphere alloc] init:48 slices:48 radius:8.0 textureFile:@"equirectangular-projection-lines_black.png"];
+        sphere = [[Sphere alloc] init:48 slices:48 radius:15.0 textureFile:nil];
+        meridians = [[Sphere alloc] init:48 slices:48 radius:13.0 textureFile:@"equirectangular-projection-lines_black.png"];
     }
     return self;
 }
@@ -107,7 +107,7 @@ GLKQuaternion GLKQuaternionFromTwoVectors(GLKVector3 u, GLKVector3 v){
     [self rebuildProjectionMatrix];
 }
 -(void) setImageWithName:(NSString*)fileName{
-    [sphere swapTexture:fileName];
+    [meridians swapTexture:fileName];
 }
 -(void) setImage:(UIImage *)image {
     [sphere swapTextureWithImage:image];

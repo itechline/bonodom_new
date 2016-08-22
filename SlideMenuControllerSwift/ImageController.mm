@@ -23,6 +23,7 @@
 @end
 @implementation ImageController
 
+
 - (UIImage *) createImageFromBuffer:(CMSampleBufferRef) sbrBuffer
 {
     // CVImageBufferRefへの変換.

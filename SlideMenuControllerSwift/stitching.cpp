@@ -85,6 +85,7 @@ cv::Mat stitch (vector<Mat>& images)
         {
         cout << "Can't stitch images, error code = " << int(status) << endl;
             //return 0;
+            pano = imgs[0];
         }
     return pano;
 }
