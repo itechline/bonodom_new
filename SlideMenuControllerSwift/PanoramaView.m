@@ -203,6 +203,10 @@ static int roomNum = 0;
     glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 }
 
+int doingImageTimer = 0;
+bool isImageTaken = false;
+float m00axis = 1.0;
+
 -(void)draw{
     static GLfloat whiteColor[] = {1.0f, 1.0f, 1.0f, 1.0f};
     static GLfloat clearColor[] = {0.0f, 0.0f, 0.0f, 0.0f};
@@ -213,7 +217,7 @@ static int roomNum = 0;
     _attitudeMatrix = GLKMatrix4Multiply([self getDeviceOrientationMatrix], _offsetMatrix);
     [self updateLook];
     
-    NSLog(@"_attitudeMatrix m00: %f, m01: %f, m02: %f\n", _attitudeMatrix.m00, _attitudeMatrix.m01, _attitudeMatrix.m02);
+    NSLog(@"\n_attitudeMatrix\n m00: %f, m01: %f, m02: %f \n m10: %f, m11: %f, m12: %f \n m20: %f, m21: %f, m22: %f \n ", _attitudeMatrix.m00, _attitudeMatrix.m01, _attitudeMatrix.m02, _attitudeMatrix.m10, _attitudeMatrix.m11, _attitudeMatrix.m12, _attitudeMatrix.m20, _attitudeMatrix.m21, _attitudeMatrix.m22);
     
     
     /*
@@ -225,6 +229,25 @@ static int roomNum = 0;
     
     glMultMatrixf(_attitudeMatrix.m);
     //glLoadMatrixf(_attitudeMatrix.m);
+    
+    if (_attitudeMatrix.m21 <= 0.05 &&
+        _attitudeMatrix.m21 >= -0.05 &&
+        _attitudeMatrix.m00 <= m00axis+0.02 &&
+        _attitudeMatrix.m00 >= m00axis-0.02) {
+        
+        doingImageTimer += 1;
+        NSLog(@"\ndoingImageTimer %d", doingImageTimer);
+        if (doingImageTimer >= 45) {
+            NSLog(@"\nDIKK BOLOND KÉP CSINÁLÁSOK MEG MINDENEK");
+            //if (!isImageTaken) {
+                [[NSNotificationCenter defaultCenter] postNotificationName:@"takePanoPicture" object:self];
+                m00axis -= 0.08;
+            //    isImageTaken = true;
+            //}
+        }
+    } else {
+        doingImageTimer = 0;
+    }
     
     glMaterialfv(GL_FRONT_AND_BACK, GL_EMISSION, whiteColor);  // panorama at full color
     [sphere execute];
@@ -266,23 +289,27 @@ static int roomNum = 0;
         // arrangements of mappings of sensor axis to virtual axis (columns)
         // and combinations of 90 degree rotations (rows)
         if(SENSOR_ORIENTATION == 4){
+            NSLog(@"\nSENSOR_ORIENTATION == 4");
             return GLKMatrix4Make( a.m21,-a.m11, a.m31, 0.0f,
                                   a.m23,-a.m13, a.m33, 0.0f,
                                   -a.m22, a.m12,-a.m32, 0.0f,
                                   0.0f , 0.0f , 0.0f , 1.0f);
         }
         if(SENSOR_ORIENTATION == 3){
+            NSLog(@"\nSENSOR_ORIENTATION == 3");
             return GLKMatrix4Make(-a.m21, a.m11, a.m31, 0.0f,
                                   -a.m23, a.m13, a.m33, 0.0f,
                                   a.m22,-a.m12,-a.m32, 0.0f,
                                   0.0f , 0.0f , 0.0f , 1.0f);
         }
         if(SENSOR_ORIENTATION == 2){
+            NSLog(@"\nSENSOR_ORIENTATION == 2");
             return GLKMatrix4Make(-a.m11,-a.m21, a.m31, 0.0f,
                                   -a.m13,-a.m23, a.m33, 0.0f,
                                   a.m12, a.m22,-a.m32, 0.0f,
                                   0.0f , 0.0f , 0.0f , 1.0f);
         }
+        NSLog(@"\nSENSOR_ORIENTATION == 1");
         return GLKMatrix4Make(a.m11, a.m21, a.m31, 0.0f,
                               a.m13, a.m23, a.m33, 0.0f,
                               -a.m12,-a.m22,-a.m32, 0.0f,

@@ -103,6 +103,9 @@ class AgenciesViewController: GLKViewController, UIImagePickerControllerDelegate
     
     override func viewDidLoad() {
         imcImageController = ImageController()
+        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(AgenciesViewController.takePanoPicture), name: "takePanoPicture", object: nil)
+        
         btmImg = UIImage(named: "equirectangular-projection-lines_black.png")
         
         let devices = AVCaptureDevice.devices()
@@ -196,8 +199,8 @@ class AgenciesViewController: GLKViewController, UIImagePickerControllerDelegate
         
             //photoButton.frame = CGRectMake(self.view.frame.size.height/2, self.view.frame.size.width/2, 300, 500)
         
-            photoButton.translatesAutoresizingMaskIntoConstraints=true
-            self.view.addSubview(photoButton)
+            //photoButton.translatesAutoresizingMaskIntoConstraints=true
+            //self.view.addSubview(photoButton)
         }
         
         
@@ -539,6 +542,60 @@ class AgenciesViewController: GLKViewController, UIImagePickerControllerDelegate
         UIGraphicsEndImageContext()
         
         return newImage
+    }
+    
+    func takePanoPicture() {
+        if let videoConnection = stillImageOutput!.connectionWithMediaType(AVMediaTypeVideo) {
+            videoConnection.videoOrientation = AVCaptureVideoOrientation.Portrait
+            stillImageOutput?.captureStillImageAsynchronouslyFromConnection(videoConnection, completionHandler: {(sampleBuffer, error) in
+                if (sampleBuffer != nil) {
+                    let imageData = AVCaptureStillImageOutput.jpegStillImageNSDataRepresentation(sampleBuffer)
+                    let dataProvider = CGDataProviderCreateWithCFData(imageData)
+                    let cgImageRef = CGImageCreateWithJPEGDataProvider(dataProvider, nil, true, CGColorRenderingIntent.RenderingIntentDefault)
+                    
+                    let image = UIImage(CGImage: cgImageRef!, scale: 1.0, orientation: UIImageOrientation.Right)
+                    
+                    let multiplier = 360 / self.hFov
+                    let vertMultiplier = image.size.width / image.size.height
+                    //let img_width = image.size.width/CGFloat(multiplier)
+                    let img_width = image.size.width/CGFloat(1.5)
+                    let img_height = img_width / vertMultiplier
+                    
+                    self.imageArray.append(self.resizeImage(image, newWidth: img_width, newHeight: img_height))
+                    
+                    
+                    
+                    
+                    if (self.imageArray.count == 1) {
+                        let bottomImage = UIImage(named: "equirectangular-projection-lines_black.png")
+                        //var topImage = UIImage(named: "top.png")
+                        
+                        let size = CGSize(width: 2048, height: 1024)
+                        UIGraphicsBeginImageContext(size)
+                        
+                        
+                        
+                        let areaSize = CGRect(x: size.width/2-img_width/2,
+                            y: size.height/2-img_height/2,
+                            width: img_width,
+                            height: img_height)
+                        
+                        self.img_x_main = size.width/2-img_width/2
+                        self.img_y_main = size.height/2-img_height/2
+                        
+                        bottomImage!.drawInRect(areaSize)
+                        
+                        image.drawInRect(areaSize, blendMode: CGBlendMode.Overlay, alpha: 1)
+                        
+                        let newImage:UIImage = UIGraphicsGetImageFromCurrentImageContext()
+                        UIGraphicsEndImageContext()
+                        self.panoramaView.setImageFromGallery(self.resizeImage(newImage, newWidth: 2048, newHeight: 1024))
+                    } else {
+                        self.stitch()
+                    }
+                }
+            })
+        }
     }
     
 }
