@@ -107,10 +107,10 @@ GLKQuaternion GLKQuaternionFromTwoVectors(GLKVector3 u, GLKVector3 v){
     [self rebuildProjectionMatrix];
 }
 -(void) setImageWithName:(NSString*)fileName{
-    [meridians swapTexture:fileName];
+    [sphere swapTexture:fileName];
 }
 -(void) setImage:(UIImage *)image {
-    [sphere swapTextureWithImage:image];
+    [meridians swapTextureWithImage:image];
 }
 
 -(void) setPreviewImage:(UIImage *)image {
@@ -213,10 +213,26 @@ static int roomNum = 0;
     _attitudeMatrix = GLKMatrix4Multiply([self getDeviceOrientationMatrix], _offsetMatrix);
     [self updateLook];
     
+    NSLog(@"_attitudeMatrix m00: %f, m01: %f, m02: %f\n", _attitudeMatrix.m00, _attitudeMatrix.m01, _attitudeMatrix.m02);
+    
+    
+    /*
+     GLKMatrix4Make( a.m21,-a.m11, a.m31, 0.0f,
+     a.m23,-a.m13, a.m33, 0.0f,
+     -a.m22, a.m12,-a.m32, 0.0f,
+     0.0f , 0.0f , 0.0f , 1.0f);
+     */
+    
     glMultMatrixf(_attitudeMatrix.m);
+    //glLoadMatrixf(_attitudeMatrix.m);
     
     glMaterialfv(GL_FRONT_AND_BACK, GL_EMISSION, whiteColor);  // panorama at full color
     [sphere execute];
+    
+    //glLoadMatrix, hogy a belső gömb ne forogjon a giroszkóp szerint
+    _attitudeMatrix = GLKMatrix4Identity;
+    glLoadMatrixf(_attitudeMatrix.m);
+    
     glMaterialfv(GL_FRONT_AND_BACK, GL_EMISSION, clearColor);
     [meridians execute];  // semi-transparent texture overlay (15° meridian lines)
     

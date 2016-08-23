@@ -988,8 +988,24 @@
                     <view key="view" contentMode="scaleToFill" id="CzF-vV-Wqj" customClass="GLKView">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="bottom" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Aud-Tm-eie">
+                                <rect key="frame" x="260" y="521" width="81" height="71"/>
+                                <state key="normal" image="fenykepezo"/>
+                                <connections>
+                                    <action selector="photoButton_event:" destination="ikk-hy-4bb" eventType="touchUpInside" id="3mB-H8-5UH"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Aud-Tm-eie" firstAttribute="centerX" secondItem="CzF-vV-Wqj" secondAttribute="centerX" id="Fgk-em-lCR"/>
+                            <constraint firstItem="y45-t8-AVh" firstAttribute="top" secondItem="Aud-Tm-eie" secondAttribute="bottom" constant="8" symbolic="YES" id="gOT-jA-JEl"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="photoButton" destination="Aud-Tm-eie" id="biz-26-MeA"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vmc-dS-FG1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1633,6 +1649,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="fenykepezo" width="81" height="71"/>
         <image name="plus_blue" width="22" height="22"/>
     </resources>
 </document>

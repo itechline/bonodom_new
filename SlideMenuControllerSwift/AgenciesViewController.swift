@@ -13,6 +13,60 @@ import AVFoundation
 
 class AgenciesViewController: GLKViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, AVCaptureVideoDataOutputSampleBufferDelegate {
     
+    @IBOutlet weak var photoButton: UIButton!
+    @IBAction func photoButton_event(sender: AnyObject) {
+        if let videoConnection = stillImageOutput!.connectionWithMediaType(AVMediaTypeVideo) {
+            videoConnection.videoOrientation = AVCaptureVideoOrientation.Portrait
+            stillImageOutput?.captureStillImageAsynchronouslyFromConnection(videoConnection, completionHandler: {(sampleBuffer, error) in
+                if (sampleBuffer != nil) {
+                    let imageData = AVCaptureStillImageOutput.jpegStillImageNSDataRepresentation(sampleBuffer)
+                    let dataProvider = CGDataProviderCreateWithCFData(imageData)
+                    let cgImageRef = CGImageCreateWithJPEGDataProvider(dataProvider, nil, true, CGColorRenderingIntent.RenderingIntentDefault)
+                    
+                    let image = UIImage(CGImage: cgImageRef!, scale: 1.0, orientation: UIImageOrientation.Right)
+                    
+                    let multiplier = 360 / self.hFov
+                    let vertMultiplier = image.size.width / image.size.height
+                    //let img_width = image.size.width/CGFloat(multiplier)
+                    let img_width = image.size.width/CGFloat(1.5)
+                    let img_height = img_width / vertMultiplier
+                    
+                    self.imageArray.append(self.resizeImage(image, newWidth: img_width, newHeight: img_height))
+                    
+                    
+                    
+                    
+                    if (self.imageArray.count == 1) {
+                        let bottomImage = UIImage(named: "equirectangular-projection-lines_black.png")
+                        //var topImage = UIImage(named: "top.png")
+                        
+                        let size = CGSize(width: 2048, height: 1024)
+                        UIGraphicsBeginImageContext(size)
+                        
+                        
+                        
+                        let areaSize = CGRect(x: size.width/2-img_width/2,
+                            y: size.height/2-img_height/2,
+                            width: img_width,
+                            height: img_height)
+                        
+                        self.img_x_main = size.width/2-img_width/2
+                        self.img_y_main = size.height/2-img_height/2
+                        
+                        bottomImage!.drawInRect(areaSize)
+                        
+                        image.drawInRect(areaSize, blendMode: CGBlendMode.Overlay, alpha: 1)
+                        
+                        let newImage:UIImage = UIGraphicsGetImageFromCurrentImageContext()
+                        UIGraphicsEndImageContext()
+                        self.panoramaView.setImageFromGallery(self.resizeImage(newImage, newWidth: 2048, newHeight: 1024))
+                    } else {
+                        self.stitch()
+                    }
+                }
+            })
+        }
+    }
     
     @IBOutlet weak var previewView: UIView!
     var captureSession: AVCaptureSession!
@@ -74,12 +128,8 @@ class AgenciesViewController: GLKViewController, UIImagePickerControllerDelegate
         panoramaView.showTouches = true         // Show touches
         self.view = panoramaView
         
-        
-        
-        
         var cpdCaptureDevice: AVCaptureDevice!
         
-        // 背面カメラの検索.
         for device: AnyObject in AVCaptureDevice.devices()
         {
             if device.position == AVCaptureDevicePosition.Back
@@ -87,15 +137,14 @@ class AgenciesViewController: GLKViewController, UIImagePickerControllerDelegate
                 cpdCaptureDevice = device as! AVCaptureDevice
             }
         }
-        // カメラが見つからなければリターン.
+        
         if (cpdCaptureDevice == nil) {
             print("Camera couldn't found")
             return
         }
-        // FPSの設定.
+
         cpdCaptureDevice.activeVideoMinFrameDuration = CMTimeMake(1, 30)
         
-        // 入力データの取得. 背面カメラを設定する.
         var deviceInput: AVCaptureDeviceInput!
         var error: NSError?
         do {
@@ -105,46 +154,51 @@ class AgenciesViewController: GLKViewController, UIImagePickerControllerDelegate
             deviceInput = nil
         }
         
-        // 出力データの取得.
-        let videoDataOutput:AVCaptureVideoDataOutput = AVCaptureVideoDataOutput()
-        
-        // カラーチャンネルの設定.
+        if error == nil {
+            let videoDataOutput:AVCaptureVideoDataOutput = AVCaptureVideoDataOutput()
         
         
-        let dctPixelFormatType : Dictionary = [(kCVPixelBufferPixelFormatTypeKey as NSString) : NSNumber(unsignedInt: kCVPixelFormatType_32BGRA)]
-        videoDataOutput.videoSettings = dctPixelFormatType
+            let dctPixelFormatType : Dictionary = [(kCVPixelBufferPixelFormatTypeKey as NSString) : NSNumber(unsignedInt: kCVPixelFormatType_32BGRA)]
+            videoDataOutput.videoSettings = dctPixelFormatType
         
-        //let dctPixelFormatType : Dictionary = [kCVPixelBufferPixelFormatTypeKey : kCVPixelFormatType_32BGRA]
-        //videoDataOutput.videoSettings = dctPixelFormatType
+            //let dctPixelFormatType : Dictionary = [kCVPixelBufferPixelFormatTypeKey : kCVPixelFormatType_32BGRA]
+            //videoDataOutput.videoSettings = dctPixelFormatType
         
         
-        //videoDataOutput.videoSettings = [NSDictionary dictionaryWithObject: [NSNumber numberWithInt:kCVPixelFormatType_32BGRA] forKey: (id)kCVPixelBufferPixelFormatTypeKey];
+            //videoDataOutput.videoSettings = [NSDictionary dictionaryWithObject: [NSNumber numberWithInt:kCVPixelFormatType_32BGRA] forKey: (id)kCVPixelBufferPixelFormatTypeKey];
         
-        // デリゲート、画像をキャプチャするキューを指定.
-        videoDataOutput.setSampleBufferDelegate(self, queue: dispatch_get_main_queue())
+            videoDataOutput.setSampleBufferDelegate(self, queue: dispatch_get_main_queue())
+            videoDataOutput.alwaysDiscardsLateVideoFrames = true
+            self.cpsSession = AVCaptureSession()
+
+            if(self.cpsSession.canAddInput(deviceInput))
+            {
+                self.cpsSession.addInput(deviceInput as AVCaptureDeviceInput)
+            }
+            if(self.cpsSession.canAddOutput(videoDataOutput))
+            {
+                self.cpsSession.addOutput(videoDataOutput)
+            }
+
+            self.cpsSession.sessionPreset = AVCaptureSessionPreset640x480
         
-        // キューがブロックされているときに新しいフレームが来たら削除.
-        videoDataOutput.alwaysDiscardsLateVideoFrames = true
+            self.cpsSession.startRunning()
         
-        // セッションの使用準備.
-        self.cpsSession = AVCaptureSession()
+            stillImageOutput = AVCaptureStillImageOutput()
         
-        // Input、Outputの追加.
-        if(self.cpsSession.canAddInput(deviceInput))
-        {
-            self.cpsSession.addInput(deviceInput as AVCaptureDeviceInput)
+            stillImageOutput.outputSettings = [AVVideoCodecKey: AVVideoCodecJPEG]
+        
+            if cpsSession.canAddOutput(stillImageOutput) {
+                print ("STILL IMAGE OUTPUT ADDED")
+                cpsSession.addOutput(stillImageOutput)
+            }
+        
+        
+            //photoButton.frame = CGRectMake(self.view.frame.size.height/2, self.view.frame.size.width/2, 300, 500)
+        
+            photoButton.translatesAutoresizingMaskIntoConstraints=true
+            self.view.addSubview(photoButton)
         }
-        if(self.cpsSession.canAddOutput(videoDataOutput))
-        {
-            self.cpsSession.addOutput(videoDataOutput)
-        }
-        // 解像度の指定.
-        self.cpsSession.sessionPreset = AVCaptureSessionPresetMedium
-        
-        self.cpsSession.startRunning()
-        
-        
-        
         
         
         //takePhoto()
@@ -208,33 +262,41 @@ class AgenciesViewController: GLKViewController, UIImagePickerControllerDelegate
     
     var btmImg: UIImage!
     func captureOutput(captureOutput: AVCaptureOutput!, didOutputSampleBuffer sampleBuffer: CMSampleBuffer!, fromConnection connection: AVCaptureConnection!) {
-        print ("LOOOOOFASZ")
 
         if (sampleBuffer != nil) {
-            print ("LOOOOOFASZ_1")
             let img = imcImageController.createImageFromBuffer(sampleBuffer)
-            print ("LOOOOOFASZ_2")
             if (img != nil) {
                 dispatch_async(dispatch_get_main_queue()) {
-                let size = CGSize(width: 1024, height: 512)
-                UIGraphicsBeginImageContext(size)
+                    let size = CGSize(width: 1024, height: 512)
+                    UIGraphicsBeginImageContext(size)
                 
                 
+                    let multiplier = 360 / self.hFov
+                    let vertMultiplier = img.size.width / img.size.height
+                    let img_width = img.size.width/CGFloat(multiplier)*2
+                    let img_height = img_width / vertMultiplier
+                    
+                    //print ("WIDTH: " + String(img.size.width))
+                    //print ("HEIGHT: " + String(img.size.height))
+                    
+                    /*let areaSize = CGRect(x: size.width/2-img.size.width/2,
+                                          y: size.height/2-img.size.height/2,
+                                          width: img.size.width,
+                                          height: img.size.height)*/
+                    
+                    let areaSize = CGRect(x: size.width/2-img_width/2,
+                                          y: size.height/2-img_height/2,
+                                          width: img_width,
+                                          height: img_height)
                 
-                let areaSize = CGRect(x: 0,
-                                      y: 0,
-                                      width: 128,
-                                      height: 256)
+                    //self.btmImg!.drawInRect(areaSize)
+                    img.drawInRect(areaSize, blendMode: CGBlendMode.Overlay, alpha: 1)
                 
-                //self.btmImg!.drawInRect(areaSize)
+                    let newImage:UIImage = UIGraphicsGetImageFromCurrentImageContext()
+                    UIGraphicsEndImageContext()
                 
-                img.drawInRect(areaSize, blendMode: CGBlendMode.Overlay, alpha: 1)
-                
-                let newImage:UIImage = UIGraphicsGetImageFromCurrentImageContext()
-                UIGraphicsEndImageContext()
-                
-                self.panoramaView.setImage(self.resizeImage(newImage, newWidth: 1024, newHeight: 512))
-                    }
+                    self.panoramaView.setImage(self.resizeImage(newImage, newWidth: 1024, newHeight: 512))
+                }
             }
         }
         
