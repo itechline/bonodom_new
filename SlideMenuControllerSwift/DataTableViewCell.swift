@@ -104,7 +104,7 @@ class DataTableViewCell : BaseTableViewCell {
     }
  
     override class func height() -> CGFloat {
-        return 170
+        return 172
     }
     
     func cropToBounds(image: UIImage, width: Double, height: Double) -> UIImage {
