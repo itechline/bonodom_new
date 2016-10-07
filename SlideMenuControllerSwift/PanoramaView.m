@@ -163,7 +163,7 @@ UIButton *button;
      [button addTarget:self
      action:@selector(buttonTapped)
      forControlEvents:UIControlEventTouchUpInside];
-     [button setImage:[UIImage imageNamed:@"bonodom_logo"] forState:UIControlStateNormal];
+     [button setImage:[UIImage imageNamed:@"fenykepezo"] forState:UIControlStateNormal];
      
      [self addSubview:button];*/
 }
@@ -217,7 +217,7 @@ float m00axis = 1.0;
     _attitudeMatrix = GLKMatrix4Multiply([self getDeviceOrientationMatrix], _offsetMatrix);
     [self updateLook];
     
-    NSLog(@"\n_attitudeMatrix\n m00: %f, m01: %f, m02: %f \n m10: %f, m11: %f, m12: %f \n m20: %f, m21: %f, m22: %f \n ", _attitudeMatrix.m00, _attitudeMatrix.m01, _attitudeMatrix.m02, _attitudeMatrix.m10, _attitudeMatrix.m11, _attitudeMatrix.m12, _attitudeMatrix.m20, _attitudeMatrix.m21, _attitudeMatrix.m22);
+    //NSLog(@"\n_attitudeMatrix\n m00: %f, m01: %f, m02: %f \n m10: %f, m11: %f, m12: %f \n m20: %f, m21: %f, m22: %f \n ", _attitudeMatrix.m00, _attitudeMatrix.m01, _attitudeMatrix.m02, _attitudeMatrix.m10, _attitudeMatrix.m11, _attitudeMatrix.m12, _attitudeMatrix.m20, _attitudeMatrix.m21, _attitudeMatrix.m22);
     
     
     /*
@@ -230,24 +230,24 @@ float m00axis = 1.0;
     glMultMatrixf(_attitudeMatrix.m);
     //glLoadMatrixf(_attitudeMatrix.m);
     
-    if (_attitudeMatrix.m21 <= 0.05 &&
+    /*if (_attitudeMatrix.m21 <= 0.05 &&
         _attitudeMatrix.m21 >= -0.05 &&
         _attitudeMatrix.m00 <= m00axis+0.02 &&
         _attitudeMatrix.m00 >= m00axis-0.02) {
         
         doingImageTimer += 1;
         NSLog(@"\ndoingImageTimer %d", doingImageTimer);
-        if (doingImageTimer >= 45) {
-            NSLog(@"\nDIKK BOLOND KÉP CSINÁLÁSOK MEG MINDENEK");
-            //if (!isImageTaken) {
+        if (doingImageTimer >= 30) {
+            //NSLog(@"\nDIKK BOLOND KÉP CSINÁLÁSOK MEG MINDENEK");
+            if (!isImageTaken) {
                 [[NSNotificationCenter defaultCenter] postNotificationName:@"takePanoPicture" object:self];
-                m00axis -= 0.08;
-            //    isImageTaken = true;
-            //}
+                //m00axis -= 0.08;
+                isImageTaken = true;
+            }
         }
     } else {
         doingImageTimer = 0;
-    }
+    }*/
     
     glMaterialfv(GL_FRONT_AND_BACK, GL_EMISSION, whiteColor);  // panorama at full color
     [sphere execute];
@@ -289,27 +289,27 @@ float m00axis = 1.0;
         // arrangements of mappings of sensor axis to virtual axis (columns)
         // and combinations of 90 degree rotations (rows)
         if(SENSOR_ORIENTATION == 4){
-            NSLog(@"\nSENSOR_ORIENTATION == 4");
+            //NSLog(@"\nSENSOR_ORIENTATION == 4");
             return GLKMatrix4Make( a.m21,-a.m11, a.m31, 0.0f,
                                   a.m23,-a.m13, a.m33, 0.0f,
                                   -a.m22, a.m12,-a.m32, 0.0f,
                                   0.0f , 0.0f , 0.0f , 1.0f);
         }
         if(SENSOR_ORIENTATION == 3){
-            NSLog(@"\nSENSOR_ORIENTATION == 3");
+            //NSLog(@"\nSENSOR_ORIENTATION == 3");
             return GLKMatrix4Make(-a.m21, a.m11, a.m31, 0.0f,
                                   -a.m23, a.m13, a.m33, 0.0f,
                                   a.m22,-a.m12,-a.m32, 0.0f,
                                   0.0f , 0.0f , 0.0f , 1.0f);
         }
         if(SENSOR_ORIENTATION == 2){
-            NSLog(@"\nSENSOR_ORIENTATION == 2");
+            //NSLog(@"\nSENSOR_ORIENTATION == 2");
             return GLKMatrix4Make(-a.m11,-a.m21, a.m31, 0.0f,
                                   -a.m13,-a.m23, a.m33, 0.0f,
                                   a.m12, a.m22,-a.m32, 0.0f,
                                   0.0f , 0.0f , 0.0f , 1.0f);
         }
-        NSLog(@"\nSENSOR_ORIENTATION == 1");
+        //NSLog(@"\nSENSOR_ORIENTATION == 1");
         return GLKMatrix4Make(a.m11, a.m21, a.m31, 0.0f,
                               a.m13, a.m23, a.m33, 0.0f,
                               -a.m12,-a.m22,-a.m32, 0.0f,
@@ -335,6 +335,7 @@ float m00axis = 1.0;
     GLKVector3 position = GLKVector3Make(0.0000001, 0, 0.1);
     _buttonPosition = [self screenLocationFromVector:position];
     
+    //NSLog(@"BUTTON X: %f\nBUTTON Y: %f\n", _buttonPosition.x, _buttonPosition.y);
     if (_buttonPosition.x == _buttonPosition.x){
         [button setFrame:CGRectMake(_buttonPosition.x, _buttonPosition.y, 40, 40)];
     }

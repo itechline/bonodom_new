@@ -10,6 +10,7 @@
 #import "UIImage+OpenCV.h"
 #import "stitching.h"
 #import "UIImage+Rotate.h"
+//#include "opencv2/stitching/warpers.hpp"
 
 
 @implementation CVWrapper
@@ -50,6 +51,7 @@
     NSLog (@"stitching...");
     cv::Mat stitchedMat = stitch (matImages);
     UIImage* result =  [UIImage imageWithCVMat:stitchedMat];
+    //cv::detail::SphericalWarper::SphericalWarper(30);
     return result;
 }
 

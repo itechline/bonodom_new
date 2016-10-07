@@ -199,8 +199,10 @@ class AgenciesViewController: GLKViewController, UIImagePickerControllerDelegate
         
             //photoButton.frame = CGRectMake(self.view.frame.size.height/2, self.view.frame.size.width/2, 300, 500)
         
-            //photoButton.translatesAutoresizingMaskIntoConstraints=true
-            //self.view.addSubview(photoButton)
+            print ("ASD_1")
+            photoButton.translatesAutoresizingMaskIntoConstraints=true
+            print ("ASD_2")
+            self.view.addSubview(photoButton)
         }
         
         
@@ -293,7 +295,7 @@ class AgenciesViewController: GLKViewController, UIImagePickerControllerDelegate
                                           height: img_height)
                 
                     //self.btmImg!.drawInRect(areaSize)
-                    img.drawInRect(areaSize, blendMode: CGBlendMode.Overlay, alpha: 1)
+                    img.drawInRect(areaSize, blendMode: CGBlendMode.Overlay, alpha: 0.5)
                 
                     let newImage:UIImage = UIGraphicsGetImageFromCurrentImageContext()
                     UIGraphicsEndImageContext()
@@ -375,14 +377,16 @@ class AgenciesViewController: GLKViewController, UIImagePickerControllerDelegate
     var finalImage: [UIImage!] = []
     var finalImageArray:[UIImage!] = []
     
+    
     func stitch() {
         //self.spinner.startAnimating()
+        showLoadingDialog()
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) {
             if (!self.finalImage.isEmpty) {
                 if (!self.finalImageArray.isEmpty) {
                     self.finalImageArray.removeAll()
-                    self.finalImageArray.append(self.finalImage[0])
                     self.finalImageArray.append(self.imageArray.last!)
+                    self.finalImageArray.append(self.finalImage[0])
                 }
             } else {
                 self.finalImageArray.append(self.imageArray[0])
@@ -396,7 +400,7 @@ class AgenciesViewController: GLKViewController, UIImagePickerControllerDelegate
                 self.finalImage.removeAll()
                 self.finalImage.append(stitchedImage)
                 
-                let bottomImage = UIImage(named: "equirectangular-projection-lines_black.png")
+                //let bottomImage = UIImage(named: "equirectangular-projection-lines_black.png")
                 //var topImage = UIImage(named: "top.png")
                 
                 let size = CGSize(width: 2048, height: 1024)
@@ -416,7 +420,7 @@ class AgenciesViewController: GLKViewController, UIImagePickerControllerDelegate
                                       height: stitchedImage.size.height)
                 print ("ASD_1")
                 
-                bottomImage!.drawInRect(areaSize)
+                //bottomImage!.drawInRect(areaSize)
                 print ("ASD_2")
                 
                 stitchedImage.drawInRect(areaSize, blendMode: CGBlendMode.Overlay, alpha: 1)
@@ -430,10 +434,21 @@ class AgenciesViewController: GLKViewController, UIImagePickerControllerDelegate
                 //self.takePhoto()
                 
                 //self.spinner.stopAnimating()
+                self.alertController.dismissViewControllerAnimated(true, completion: nil)
             }
         }
     }
     
+    var alertController = UIAlertController()
+    func showLoadingDialog() {
+        alertController = UIAlertController(title: nil, message: "Please wait\n\n", preferredStyle: UIAlertControllerStyle.Alert)
+        let spinnerIndicator: UIActivityIndicatorView = UIActivityIndicatorView(activityIndicatorStyle: UIActivityIndicatorViewStyle.WhiteLarge)
+        spinnerIndicator.center = CGPointMake(135.0, 65.5)
+        spinnerIndicator.color = UIColor.blackColor()
+        spinnerIndicator.startAnimating()
+        alertController.view.addSubview(spinnerIndicator)
+        self.presentViewController(alertController, animated: false, completion: nil)
+    }
     
     func maskImage(image: UIImage, withMask maskImage: UIImage) -> UIImage {
         

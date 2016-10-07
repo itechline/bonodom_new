@@ -1033,10 +1033,10 @@ extension UIViewController {
         //navigationItem.rightBarButtonItem = rightButton;
         
         //let add = UIBarButtonItem(barButtonSystemItem: .Add, target: self, action: #selector(addTapped))
-        let maps = UIBarButtonItem(image: UIImage.init(named: "ic_action_map_b"), style: .Plain, target: self, action: #selector(addTapped))
+        //let maps = UIBarButtonItem(image: UIImage.init(named: "ic_action_map_b"), style: .Plain, target: self, action: #selector(addTapped))
         //let play = UIBarButtonItem(title: "Play", style: .Plain, target: self, action: #selector(addTapped))
         
-        navigationItem.rightBarButtonItems = [rightButton , maps]
+        //navigationItem.rightBarButtonItems = [rightButton , maps]
     }
     
     public func toggleLeft() {

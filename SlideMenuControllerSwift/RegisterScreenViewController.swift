@@ -12,6 +12,9 @@ import CoreLocation
 
 class RegisterScreenViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, CLLocationManagerDelegate {
 
+    @IBOutlet weak var mainhouseheight: UIImageView!
+    @IBOutlet weak var spacebetweenTerms: NSLayoutConstraint!
+    @IBOutlet weak var logoheight: NSLayoutConstraint!
     var imagePicker = UIImagePickerController()
     
     @IBOutlet weak var vezeteknev_text: UITextField!
@@ -25,6 +28,7 @@ class RegisterScreenViewController: UIViewController, UIImagePickerControllerDel
     var lat = 0.0
     var lng = 0.0
     var mobileString = ""
+    let screensize = UIScreen.mainScreen().bounds
     
     var tipus = "maganszemely"
     
@@ -33,6 +37,8 @@ class RegisterScreenViewController: UIViewController, UIImagePickerControllerDel
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        logoheight.constant = screensize.height/6
+        spacebetweenTerms.constant = screensize.height/25
         self.hideKeyboardWhenTappedAround()
         // Do any additional setup after loading the view.
         self.removeNavigationBarItem()

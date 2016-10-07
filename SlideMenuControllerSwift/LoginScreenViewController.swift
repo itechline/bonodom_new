@@ -12,13 +12,19 @@ import SwiftyJSON
 class LoginScreenViewController: UIViewController {
     
 
+    
+    @IBOutlet weak var logoheight: NSLayoutConstraint!
     @IBOutlet weak var pass: UITextField!
     @IBOutlet weak var email: UITextField!
+    
+    let screensize = UIScreen.mainScreen().bounds
     
     var alertController = UIAlertController()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        logoheight.constant = screensize.height/5
+        removeNavigationBarItem()
         self.hideKeyboardWhenTappedAround()
         let backButton = UIBarButtonItem(title: "", style: UIBarButtonItemStyle.Plain, target: navigationController, action: nil)
         navigationItem.leftBarButtonItem = backButton

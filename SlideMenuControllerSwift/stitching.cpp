@@ -63,6 +63,8 @@
 //openCV 3.x
 #include "opencv2/stitching.hpp"
 
+#include "opencv2/stitching/warpers.hpp"
+
 
 using namespace std;
 using namespace cv;
@@ -79,14 +81,64 @@ cv::Mat stitch (vector<Mat>& images)
     imgs = images;
     Mat pano;
     Stitcher stitcher = Stitcher::createDefault(try_use_gpu);
+    stitcher.setRegistrationResol(1); /// 0.6
+    //stitcher.setSeamEstimationResol(-1);   /// 0.1
+    //stitcher.setCompositingResol(-1);   //1
+    //stitcher.setPanoConfidenceThresh(-1);   //1
+    //stitcher.setWaveCorrection(true);
+    //stitcher.setWaveCorrectKind(detail::WAVE_CORRECT_HORIZ);
+    stitcher.setPanoConfidenceThresh(0.7);
+    //stitcher.setSeamEstimationResol(1);
+    
+    //Ptr<WarperCreator> warper = new cv::SphericalWarper();
+    //stitcher.setWarper(warper);
+    //stitcher.setFeaturesFinder(new detail::SurfFeaturesFinder(1000,3,4,3,4));
+    
+    stitcher.setSeamFinder(new detail::GraphCutSeamFinder(cv::detail::GraphCutSeamFinderBase::COST_COLOR));
+    stitcher.setBlender( detail::Blender::createDefault(cv::detail::Blender::MULTI_BAND, false));
+    stitcher.setExposureCompensator (detail::ExposureCompensator::createDefault(cv::detail::ExposureCompensator::GAIN_BLOCKS));
+    
     Stitcher::Status status = stitcher.stitch(imgs, pano);
     
-    if (status != Stitcher::OK)
-        {
+    //stitcher.estimateTransform(imgs);
+    //stitcher.composePanorama(pano);
+    //SphericalWarper sp = SphericalWarper();
+    
+    int rows_out = pano.rows;
+    int cols_out = pano.cols;
+    
+    cv::Size size_out = pano.size();
+    rows_out = size_out.height;
+    cols_out = size_out.width;
+    
+    int rows_in = imgs[1].rows;
+    int cols_in = imgs[1].cols;
+    
+    cv::Size size_in = imgs[1].size();
+    rows_in = size_in.height;
+    cols_in = size_in.width;
+    
+    if (status != Stitcher::OK){
         cout << "Can't stitch images, error code = " << int(status) << endl;
+        cout << "ERROR CODE:  ERR_NEED_MORE_IMGS = 1, ERR_HOMOGRAPHY_EST_FAIL = 2, ERR_CAMERA_PARAMS_ADJUST_FAIL = 3" << endl;
             //return 0;
-            pano = imgs[0];
+            /*
+             ERR_NEED_MORE_IMGS = 1,
+             ERR_HOMOGRAPHY_EST_FAIL = 2,
+             ERR_CAMERA_PARAMS_ADJUST_FAIL = 3
+             */
+            //pano = imgs[0];
+            return imgs[1];
         }
+    
+    cout << "PANO WIDTH: " << int(cols_out) << "PANO HEIGHT: " << int(rows_out) << endl;
+    cout << "IMG WIDTH: " << int(cols_in) << "IMG HEIGHT: " << int(rows_in) << endl;
+    
+    if (cols_out < cols_in) {
+        //pano = imgs[0];
+        cout << "IMAGE STITCHING ERROR" << endl;
+        return imgs[1];
+    }
     return pano;
 }
 
@@ -99,7 +151,6 @@ cv::Mat stitch (vector<Mat>& images)
  - refactor main loop as member function
  - replace user input with iOS GUI
  - replace ouput with return value to CVWrapper
- 
  */
 
 

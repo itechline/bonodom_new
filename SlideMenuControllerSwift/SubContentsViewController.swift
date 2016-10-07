@@ -20,6 +20,8 @@ class SubContentsViewController : UIViewController, LiquidFloatingActionButtonDa
     
     @IBOutlet var slideshow: ImageSlideshow!
     
+    @IBOutlet weak var mapWidth: NSLayoutConstraint!
+    @IBOutlet weak var vrWidth: NSLayoutConstraint!
     @IBOutlet weak var advertiserName: UILabel!
     @IBOutlet weak var priceText: UILabel!
     @IBOutlet weak var adressText: UILabel!
@@ -44,12 +46,15 @@ class SubContentsViewController : UIViewController, LiquidFloatingActionButtonDa
     
     @IBOutlet weak var maganszemely_text: UILabel!
     var id = 0;
+    let screensize = UIScreen.mainScreen().bounds
     
     var estateItem = [EstateModel]()
     var hsh = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        vrWidth.constant = (screensize.width/2)-12
+        mapWidth.constant = (screensize.width/2)-12
         EstateUtil.sharedInstance.getEstate(id, onCompletion: { (json: JSON) in
             self.estateItem.append(EstateModel(json: json))
             print ("ESTATE")
