@@ -415,7 +415,7 @@
                                 <color key="currentPageIndicatorTintColor" red="0.0" green="0.40000000000000002" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
                             </pageControl>
                         </subviews>
-                        <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.92941176470588238" green="0.92941176470588238" blue="0.92941176470588238" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="ILY-bs-ga2" firstAttribute="leading" secondItem="vP8-XJ-veB" secondAttribute="leading" id="1Ke-c2-S6v"/>
                             <constraint firstAttribute="trailing" secondItem="ILY-bs-ga2" secondAttribute="trailing" id="VXp-jD-ItF"/>
@@ -516,7 +516,7 @@
                                 </constraints>
                             </imageView>
                         </subviews>
-                        <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.92941176470588238" green="0.92941176470588238" blue="0.92941176470588238" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="Qtx-Xk-pec" firstAttribute="top" secondItem="nD1-lQ-gqw" secondAttribute="bottom" constant="8" symbolic="YES" id="7Js-ll-UNg"/>
                             <constraint firstItem="xdn-S1-PWe" firstAttribute="leading" secondItem="K2p-b8-dG7" secondAttribute="leadingMargin" id="8Fs-4l-oKR"/>
@@ -593,7 +593,7 @@
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.92941176470588238" green="0.92941176470588238" blue="0.92941176470588238" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="llR-Yo-r8r" firstAttribute="trailing" secondItem="j4m-7D-sbP" secondAttribute="trailingMargin" id="0jA-XP-eeK"/>
                             <constraint firstItem="jya-fB-yOd" firstAttribute="leading" secondItem="4PV-9p-ReQ" secondAttribute="leading" id="2Pp-sq-0SF"/>

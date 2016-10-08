@@ -33,6 +33,19 @@ class MyEstatesCell : BaseTableViewCell {
     
     var id : Int!
     var row : Int!
+    let screensize = UIScreen.mainScreen().bounds
+    
+    @IBOutlet weak var cellWidth: NSLayoutConstraint!
+    
+    @IBOutlet weak var modifyHeight: NSLayoutConstraint!
+    @IBOutlet weak var modifyWidth: NSLayoutConstraint!
+    
+    @IBOutlet weak var deleteHeight: NSLayoutConstraint!
+    @IBOutlet weak var deleteWidth: NSLayoutConstraint!
+    
+    @IBOutlet weak var upWidth: NSLayoutConstraint!
+    @IBOutlet weak var upHeight: NSLayoutConstraint!
+    
     
     @IBOutlet weak var adress_text: UILabel!
     @IBOutlet weak var description_text: UILabel!
@@ -73,6 +86,17 @@ class MyEstatesCell : BaseTableViewCell {
     override func awakeFromNib() {
         //self.dataText?.font = UIFont.boldSystemFontOfSize(16)
         //self.dataText?.textColor = UIColor(hex: "000000")
+        let iconsize = (((screensize.width)-estate_image.frame.width)-20)/5
+        let iconwidth = (((screensize.width)-estate_image.frame.width)-20)/4
+        
+        cellWidth.constant = screensize.width
+        modifyWidth.constant = iconwidth
+        modifyHeight.constant = iconsize
+        deleteWidth.constant = iconwidth
+        deleteHeight.constant = iconsize
+        upWidth.constant = iconwidth
+        upHeight.constant = iconsize
+        print("iconsize: ", iconsize)
     }
     
     override class func height() -> CGFloat {
