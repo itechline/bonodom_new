@@ -12,6 +12,21 @@ import CoreLocation
 
 class AddEstateViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, CLLocationManagerDelegate {
     
+    @IBOutlet var photoWidth: NSLayoutConstraint!
+    //@IBOutlet weak var photoHeight: NSLayoutConstraint!
+    
+    @IBOutlet weak var galleryWidth: NSLayoutConstraint!
+    //@IBOutlet weak var galleryHeight: NSLayoutConstraint!
+    
+    @IBOutlet weak var panoramaWIdth: NSLayoutConstraint!
+    //@IBOutlet weak var panoramaHeight: NSLayoutConstraint!
+    
+    @IBOutlet weak var lookaroundWIdth: NSLayoutConstraint!
+    //@IBOutlet weak var lookaroundHeight: NSLayoutConstraint!
+    
+    //@IBOutlet weak var logoWidth: NSLayoutConstraint!
+    //@IBOutlet weak var logoHeight: NSLayoutConstraint!
+    
     var imagePicker = UIImagePickerController()
     
     var items = [SpinnerModel]()
@@ -42,7 +57,7 @@ class AddEstateViewController: UIViewController, UIImagePickerControllerDelegate
     var etan: String! = "0"
     var kilatas: String! = "0"
     
-    
+    var screensize = UIScreen.mainScreen().bounds
     
     
     
@@ -773,6 +788,17 @@ class AddEstateViewController: UIViewController, UIImagePickerControllerDelegate
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let iconsize = ((screensize.width/3)-20)
+        
+        //photoWidth.constant = iconsize
+        //photoHeight.constant = iconsize
+        //galleryWidth.constant = iconsize
+        //galleryHeight.constant = iconsize
+        //panoramaWIdth.constant = iconsize
+        //panoramaHeight.constant = iconsize
+        //lookaroundWIdth.constant = iconsize
+        //lookaroundHeight.constant = iconsize
 
         //self.navigationItem.backBarButtonItem?.title = "Dikk"
         loadSpinners()
